@@ -53,6 +53,7 @@ public class RecuperarContraseña {
 
 	public RecuperarContraseña() {
 		frame = new JFrame();
+		frame.setResizable(false);
 		Container container = frame.getContentPane();
 		frame.setBounds(100, 100, 850, 480);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

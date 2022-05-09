@@ -39,6 +39,8 @@ public class ConfCrearPerfil {
 	private JTextField txtUsername;
 	private JLabel lblNewLabel_2;
 	private JLabel lblNewLabel_1;
+	private JPanel panel_1;
+	private JLabel lblNewLabel_3;
 
 	/**
 	 * Launch the application.
@@ -51,6 +53,7 @@ public class ConfCrearPerfil {
 
 	public ConfCrearPerfil() {
 		frame = new JFrame();
+		frame.setResizable(false);
 		Container container = frame.getContentPane();
 		frame.setBounds(100, 100, 850, 480);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -73,12 +76,6 @@ public class ConfCrearPerfil {
 
 		ButtonGroup group = new ButtonGroup();
 
-		JLabel lblNewLabel = new JLabel("Configurar\r\n");
-		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 36));
-		lblNewLabel.setBounds(578, -26, 308, 98);
-		frame.getContentPane().add(lblNewLabel);
-
 		lblContrasea = new JLabel("Perfil\r\n");
 		lblContrasea.setForeground(Color.WHITE);
 		lblContrasea.setFont(new Font("Trebuchet MS", Font.PLAIN, 36));
@@ -91,9 +88,18 @@ public class ConfCrearPerfil {
 		txtUsername.setColumns(10);
 		txtUsername.setBounds(537, 262, 239, 42);
 		frame.getContentPane().add(txtUsername);
+		
+		panel_1 = new JPanel();
+		panel_1.setBounds(588, 99, 116, 91);
+		frame.getContentPane().add(panel_1);
+		
+		lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\lugon\\Desktop\\usuario-de-perfil.png"));
+		panel_1.add(lblNewLabel_3);
 
-		JButton btnNewButton = new JButton("<-");
-		btnNewButton.setBounds(494, 10, 58, 21);
+		JButton btnNewButton = new JButton("");
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\lugon\\Downloads\\icons8-back-50_1.png"));
+		btnNewButton.setBounds(494, 10, 58, 52);
 		frame.getContentPane().add(btnNewButton);
 
 		lblNewLabel_2 = new JLabel("imagen por defecto\r\n");
@@ -105,8 +111,13 @@ public class ConfCrearPerfil {
 		panel = new JPanel();
 		panel.setBackground(new Color(57, 62, 70));
 		panel.setForeground(Color.WHITE);
-		panel.setBounds(485, 0, 351, 443);
+		panel.setBounds(477, 0, 359, 443);
 		frame.getContentPane().add(panel);
+		
+				JLabel lblNewLabel = new JLabel("Configurar\r\n");
+				panel.add(lblNewLabel);
+				lblNewLabel.setForeground(new Color(255, 255, 255));
+				lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 36));
 		
 		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 91));
