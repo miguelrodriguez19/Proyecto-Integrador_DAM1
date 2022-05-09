@@ -89,7 +89,7 @@ public class verEvento {
 		panel.add(lblPerfil);
 		
 		btnPerfil = new JButton("");
-		btnPerfil.setIcon(new ImageIcon("C:\\Users\\Nacho\\OneDrive\\Escritorio\\usuario-de-perfil.png"));
+		btnPerfil.setIcon(new ImageIcon(verEvento.class.getResource("/Imagenes/usuario-de-perfil.png")));
 		btnPerfil.setBounds(726, 18, 85, 70);
 		btnPerfil.setBackground(null);
 		btnPerfil.setBorder(null);
@@ -149,7 +149,7 @@ public class verEvento {
 		btnHome.setBackground(null);
 		btnHome.setBorder(null);
 		btnHome.setToolTipText("");
-		btnHome.setIcon(new ImageIcon("C:\\Users\\Nacho\\OneDrive\\Escritorio\\icons8-home-48.png"));
+		btnHome.setIcon(new ImageIcon(verEvento.class.getResource("/Imagenes/home-48.png")));
 		btnHome.setBounds(22, 10, 85, 70);
 		panel.add(btnHome);
 		

@@ -155,13 +155,13 @@ public class crearEvento {
 		btnNewButton.setBackground(null);
 		btnNewButton.setBorder(null);
 		btnNewButton.setToolTipText("");
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\Nacho\\OneDrive\\Escritorio\\icons8-home-48.png"));
+		btnNewButton.setIcon(new ImageIcon(crearEvento.class.getResource("/Imagenes/home-48.png")));
 		btnNewButton.setBounds(36, 18, 85, 70);
 		panel.add(btnNewButton);
 		
 		btnNewButton_1 = new JButton("");
 		btnNewButton_1.setForeground(new Color(0, 0, 0));
-		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\Nacho\\OneDrive\\Escritorio\\usuario-de-perfil.png"));
+		btnNewButton_1.setIcon(new ImageIcon(crearEvento.class.getResource("/Imagenes/usuario-de-perfil.png")));
 		btnNewButton_1.setBounds(726, 18, 85, 70);
 		btnNewButton_1.setBackground(null);
 		btnNewButton_1.setBorder(null);

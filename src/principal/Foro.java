@@ -114,27 +114,27 @@ public class Foro {
 		panel.add(btnNewButton_1);
 		
 		btnNewButton_2 = new JButton("");
-		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\Nacho\\OneDrive\\Escritorio\\usuario-de-perfil.png"));
+		btnNewButton_2.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
 		btnNewButton_2.setBounds(10, 48, 52, 46);
 		panel.add(btnNewButton_2);
 		
 		btnNewButton_3 = new JButton("");
-		btnNewButton_3.setIcon(new ImageIcon("C:\\Users\\Nacho\\OneDrive\\Escritorio\\usuario-de-perfil.png"));
+		btnNewButton_3.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
 		btnNewButton_3.setBounds(302, 106, 52, 46);
 		panel.add(btnNewButton_3);
 		
 		btnNewButton_4 = new JButton("");
-		btnNewButton_4.setIcon(new ImageIcon("C:\\Users\\Nacho\\OneDrive\\Escritorio\\usuario-de-perfil.png"));
+		btnNewButton_4.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
 		btnNewButton_4.setBounds(10, 154, 52, 46);
 		panel.add(btnNewButton_4);
 		
 		btnNewButton_5 = new JButton("");
-		btnNewButton_5.setIcon(new ImageIcon("C:\\Users\\Nacho\\OneDrive\\Escritorio\\usuario-de-perfil.png"));
+		btnNewButton_5.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
 		btnNewButton_5.setBounds(10, 213, 52, 46);
 		panel.add(btnNewButton_5);
 		
 		btnNewButton_6 = new JButton("");
-		btnNewButton_6.setIcon(new ImageIcon("C:\\Users\\Nacho\\OneDrive\\Escritorio\\usuario-de-perfil.png"));
+		btnNewButton_6.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
 		btnNewButton_6.setBounds(303, 261, 52, 46);
 		panel.add(btnNewButton_6);
 		

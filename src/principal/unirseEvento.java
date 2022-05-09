@@ -155,12 +155,12 @@ public class unirseEvento {
 		btnHome.setBackground(null);
 		btnHome.setBorder(null);
 		btnHome.setToolTipText("");
-		btnHome.setIcon(new ImageIcon("C:\\Users\\Nacho\\OneDrive\\Escritorio\\icons8-home-48.png"));
+		btnHome.setIcon(new ImageIcon(unirseEvento.class.getResource("/Imagenes/home-48.png")));
 		btnHome.setBounds(36, 18, 85, 70);
 		panel.add(btnHome);
 		
 		btnPerfil = new JButton("");
-		btnPerfil.setIcon(new ImageIcon("C:\\Users\\Nacho\\OneDrive\\Escritorio\\usuario-de-perfil.png"));
+		btnPerfil.setIcon(new ImageIcon(unirseEvento.class.getResource("/Imagenes/usuario-de-perfil.png")));
 		btnPerfil.setBounds(726, 18, 85, 70);
 		btnPerfil.setBackground(null);
 		btnPerfil.setBorder(null);
@@ -174,7 +174,7 @@ public class unirseEvento {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setMaximumSize(new Dimension(10, 10));
 		lblNewLabel.setIconTextGap(2);
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Nacho\\OneDrive\\Escritorio\\icons8-soccer-ball-100.png"));
+		lblNewLabel.setIcon(new ImageIcon(unirseEvento.class.getResource("/Imagenes/icons8-soccer-ball-100.png")));
 		
 		btnNewButton_2 = new JButton("");
 		btnNewButton_2.setBorder(null);
