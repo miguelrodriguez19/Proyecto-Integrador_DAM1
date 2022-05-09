@@ -73,7 +73,7 @@ public class crearEvento {
 		
 		txtNombre = new JTextField();
 		txtNombre.setText("NOMBRE EVENTO:\r\n");
-		txtNombre.setBounds(40, 138, 261, 19);
+		txtNombre.setBounds(40, 138, 261, 23);
 		txtNombre.setColumns(10);
 		contenedor.add(txtNombre);
 		
@@ -87,7 +87,7 @@ public class crearEvento {
 				System.out.println(txtNombre.getText());
 			}
 		});
-		btnCrear.setBounds(720, 383, 93, 40);
+		btnCrear.setBounds(700, 374, 113, 40);
 		contenedor.add(btnCrear);
 		
 		JPanel panel_1 = new JPanel();
@@ -104,23 +104,23 @@ public class crearEvento {
 				return values[index];
 			}
 		});
-		list.setBounds(40, 166, 261, 75);
+		list.setBounds(40, 175, 261, 75);
 		frame.getContentPane().add(list);
 		
 		txtArea = new JTextArea();
 		txtArea.setText("DESCRIPCI\u00D3N:");
-		txtArea.setBounds(387, 135, 426, 229);
+		txtArea.setBounds(387, 135, 426, 217);
 		frame.getContentPane().add(txtArea);
 		
 		txtLocalización = new JTextField();
 		txtLocalización.setText("LOCALIZACI\u00D3N:");
-		txtLocalización.setBounds(40, 267, 261, 21);
+		txtLocalización.setBounds(40, 267, 261, 25);
 		frame.getContentPane().add(txtLocalización);
 		txtLocalización.setColumns(10);
 		
 		txtParticipantes = new JTextField();
 		txtParticipantes.setText("NUMERO PARTICIPANTES:");
-		txtParticipantes.setBounds(40, 311, 261, 19);
+		txtParticipantes.setBounds(40, 311, 261, 25);
 		frame.getContentPane().add(txtParticipantes);
 		txtParticipantes.setColumns(10);
 		
