@@ -161,12 +161,13 @@ public class unirseEvento {
 		btnUnirse.setBounds(687, 370, 120, 38);
 		frame.getContentPane().add(btnUnirse);
 		
-		lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(new Rectangle(-5, -5, 0, 0));
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(25, 123, 157, 149);
+		frame.getContentPane().add(lblNewLabel);
+		lblNewLabel.setToolTipText("");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setMaximumSize(new Dimension(10, 10));
 		lblNewLabel.setIconTextGap(2);
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Nacho\\OneDrive\\Escritorio\\PELOTA FUTBOL.jpg"));
-		lblNewLabel.setBounds(25, 135, 165, 128);
-		frame.getContentPane().add(lblNewLabel);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Nacho\\OneDrive\\Escritorio\\icons8-soccer-ball-100.png"));
 	}
 }
