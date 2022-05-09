@@ -15,9 +15,9 @@ public class FAQsWindow {
 	private JFrame frame;
 	private JButton btnFAQs;
 	private JButton btnPerfil;
-	private JLabel lblProfileIcon;
-	private JLabel lblHomeIcon;
-	private JLabel lblBackIcon;
+	private JButton btnProfileIcon;
+	private JButton btnHomeIcon;
+	private JButton btnBackIcon;
 	private JPanel panelMain;
 	private JPanel panelHeader;
 
@@ -62,42 +62,43 @@ public class FAQsWindow {
 		panelHeader.setBounds(0, 0, 849, 100);
 		frame.getContentPane().add(panelHeader);
 		panelHeader.setLayout(null);
+		
+		btnHomeIcon = new JButton("");
+		btnHomeIcon.setIcon(new ImageIcon(FAQsWindow.class.getResource("/Imagenes/home-48.png")));
+		btnHomeIcon.setBounds(20, 12, 58, 74);
+		btnHomeIcon.setBackground(null);
+		btnHomeIcon.setBorder(null);
+		panelHeader.add(btnHomeIcon);
 
 		btnFAQs = new JButton("FAQs");
-		btnFAQs.setFocusPainted(false);
-		btnFAQs.setBorderPainted(false);
 		btnFAQs.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnFAQs.setBorder(null);
 		btnFAQs.setForeground(Color.WHITE);
-		btnFAQs.setBackground(new Color(57, 62, 70));
+		btnFAQs.setBackground(null);
 		btnFAQs.setBounds(519, 37, 85, 21);
 		panelHeader.add(btnFAQs);
-
+		
 		btnPerfil = new JButton("Perfil");
 		btnPerfil.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnPerfil.setForeground(Color.WHITE);
 		btnPerfil.setBorder(null);
 		btnPerfil.setBounds(614, 37, 85, 21);
-		btnPerfil.setBackground(new Color(57, 62, 70));
+		btnPerfil.setBackground(null);
 		panelHeader.add(btnPerfil);
 
-		lblProfileIcon = new JLabel("");
-		lblProfileIcon.setFont(new Font("Tahoma", Font.PLAIN, 96));
-		lblProfileIcon.setIcon(new ImageIcon(FAQsWindow.class.getResource("/Imagenes/usuario-de-perfil.png")));
-		lblProfileIcon.setBounds(722, 12, 73, 76);
-		panelHeader.add(lblProfileIcon);
-
-		lblHomeIcon = new JLabel("");
-		lblHomeIcon.setForeground(new Color(0, 0, 0));
-		lblHomeIcon.setBounds(20, 12, 58, 74);
-		panelHeader.add(lblHomeIcon);
-		lblHomeIcon.setIcon(new ImageIcon(FAQsWindow.class.getResource("/Imagenes/home-48.png")));
-		
-		lblBackIcon = new JLabel("");
-		lblBackIcon.setIcon(new ImageIcon(FAQsWindow.class.getResource("/Imagenes/back-50.png")));
-		lblBackIcon.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblBackIcon.setBounds(17, 108, 50, 50);
-		frame.getContentPane().add(lblBackIcon);
+		btnProfileIcon = new JButton("");
+		btnProfileIcon.setIcon(new ImageIcon(FAQsWindow.class.getResource("/Imagenes/usuario-de-perfil.png")));
+		btnProfileIcon.setBounds(722, 12, 73, 76);
+		btnProfileIcon.setBackground(null);
+		btnProfileIcon.setBorder(null);
+		panelHeader.add(btnProfileIcon);
+	
+		btnBackIcon = new JButton("");
+		btnBackIcon.setIcon(new ImageIcon(FAQsWindow.class.getResource("/Imagenes/back-50.png")));
+		btnBackIcon.setBounds(17, 108, 50, 50);
+		btnBackIcon.setBackground(new Color(34, 40, 49));
+		btnBackIcon.setBorder(null);
+		frame.getContentPane().add(btnBackIcon);
 		
 		panelMain = new JPanel();
 		panelMain.setBackground(new Color(34, 40, 59));
