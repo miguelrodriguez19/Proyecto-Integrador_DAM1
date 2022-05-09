@@ -4,23 +4,9 @@ import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
+import javax.swing.*;
+import java.awt.*;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-
-import javax.swing.JTextField;
-import javax.swing.JList;
-import javax.swing.AbstractListModel;
-import javax.swing.JRadioButton;
-import java.awt.Color;
-import java.awt.Canvas;
-import java.awt.Panel;
 
 public class crearEvento {
 
