@@ -92,19 +92,19 @@ public class FAQsWindow {
 		btnProfileIcon.setBackground(null);
 		btnProfileIcon.setBorder(null);
 		panelHeader.add(btnProfileIcon);
-	
-		btnBackIcon = new JButton("");
-		btnBackIcon.setIcon(new ImageIcon(FAQsWindow.class.getResource("/Imagenes/back-50.png")));
-		btnBackIcon.setBounds(17, 108, 50, 50);
-		btnBackIcon.setBackground(new Color(34, 40, 49));
-		btnBackIcon.setBorder(null);
-		frame.getContentPane().add(btnBackIcon);
 		
 		panelMain = new JPanel();
 		panelMain.setBackground(new Color(34, 40, 59));
 		panelMain.setBounds(0, 100, 836, 343);
 		frame.getContentPane().add(panelMain);
 		panelMain.setLayout(null);
+		
+			btnBackIcon = new JButton("");
+			btnBackIcon.setBounds(0, 0, 50, 50);
+			panelMain.add(btnBackIcon);
+			btnBackIcon.setIcon(new ImageIcon("C:\\Users\\danie\\Downloads\\arrow.png"));
+			btnBackIcon.setBackground(null);
+			btnBackIcon.setBorder(null);
 
 	}
 
