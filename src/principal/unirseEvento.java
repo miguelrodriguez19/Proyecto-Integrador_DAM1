@@ -23,8 +23,6 @@ import java.awt.Rectangle;
 public class unirseEvento {
 
 	private JFrame frame;
-	private JLabel lblFaqs;
-	private JLabel lblPerfil;
 	private JTextField txtTipoEvento;
 	private JTextField txtCreadorEvento;
 	private JTextField txtFechaEvento;
@@ -34,6 +32,7 @@ public class unirseEvento {
 	private JButton btnHome;
 	private JButton btnPerfil;
 	private JButton btnNewButton_2;
+	private JButton btnFaqs;
 
 	/**
 	 * Launch the application.
@@ -75,16 +74,6 @@ public class unirseEvento {
 		panel.setBounds(0, 0, 834, 100);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
-		
-		lblFaqs = new JLabel("FAQS");
-		lblFaqs.setForeground(Color.WHITE);
-		lblFaqs.setBounds(576, 47, 45, 13);
-		panel.add(lblFaqs);
-		
-		lblPerfil = new JLabel("PERFIL");
-		lblPerfil.setForeground(Color.WHITE);
-		lblPerfil.setBounds(665, 47, 55, 13);
-		panel.add(lblPerfil);
 		
 		txtTipoEvento = new JTextField();
 		txtTipoEvento.setText("TIPO EVENTO:\r\n\r\nPUBLICO");
@@ -164,6 +153,20 @@ public class unirseEvento {
 		btnPerfil.setBounds(726, 18, 85, 70);
 		btnPerfil.setBackground(null);
 		btnPerfil.setBorder(null);
+		panel.add(btnPerfil);
+		
+		btnFaqs = new JButton("FAQS");
+		btnFaqs.setBorder(null);
+		btnFaqs.setBackground(null);
+		btnFaqs.setForeground(Color.WHITE);
+		btnFaqs.setBounds(516, 43, 85, 21);
+		panel.add(btnFaqs);
+		
+		btnPerfil = new JButton("PERFIL");
+		btnPerfil.setForeground(Color.WHITE);
+		btnPerfil.setBorder(null);
+		btnPerfil.setBackground(null);
+		btnPerfil.setBounds(631, 43, 85, 21);
 		panel.add(btnPerfil);
 		
 		lblNewLabel = new JLabel("");

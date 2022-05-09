@@ -22,7 +22,6 @@ public class Foro {
 	private JTextField txtLlevamosCamisetasAzules;
 	private JTextField txtAlliNosVemos;
 	private JTextField txtEscribeAqui;
-	private JTextField textField;
 	private JButton btnNewButton_2;
 	private JButton btnNewButton_3;
 	private JButton btnNewButton_4;
@@ -61,9 +60,38 @@ public class Foro {
 		frame.getContentPane().setBackground(new Color(34,40,49));
 		Container contenedor = frame.getContentPane();
 		frame.getContentPane().setLayout(null);
+		frame.setBounds(100, 100, 750, 480);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		JButton btnUnirse = new JButton("FORO");
+		btnUnirse.setBorder(null);
+		btnUnirse.setForeground(Color.WHITE);
+		btnUnirse.setBackground(new Color(53, 187, 95));
+		btnUnirse.setBounds(553, 363, 157, 51);
+		frame.getContentPane().add(btnUnirse);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(null);
+		panel_1.setBackground(new Color(70, 130, 180));
+		panel_1.setBounds(55, 10, 366, 39);
+		frame.getContentPane().add(panel_1);
+		panel_1.setLayout(null);
+		
+		txtPartidoFutbolColegas = new JTextField();
+		txtPartidoFutbolColegas.setBounds(10, 10, 311, 19);
+		panel_1.add(txtPartidoFutbolColegas);
+		txtPartidoFutbolColegas.setBackground(new Color(240, 240, 240));
+		txtPartidoFutbolColegas.setText("PARTIDO FUTBOL COLEGAS");
+		txtPartidoFutbolColegas.setColumns(10);
+		
+		JButton btnNewButton_1 = new JButton("X");
+		btnNewButton_1.setBounds(322, 6, 34, 27);
+		panel_1.add(btnNewButton_1);
+		btnNewButton_1.setBorder(null);
+		btnNewButton_1.setBackground(Color.WHITE);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(57, 10, 364, 404);
+		panel.setBounds(55, 10, 364, 404);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
@@ -107,12 +135,6 @@ public class Foro {
 		btnNewButton.setBounds(269, 361, 85, 27);
 		panel.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("X");
-		btnNewButton_1.setBorder(null);
-		btnNewButton_1.setBackground(Color.WHITE);
-		btnNewButton_1.setBounds(320, 6, 34, 27);
-		panel.add(btnNewButton_1);
-		
 		btnNewButton_2 = new JButton("");
 		btnNewButton_2.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
 		btnNewButton_2.setBounds(10, 48, 52, 46);
@@ -137,27 +159,5 @@ public class Foro {
 		btnNewButton_6.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
 		btnNewButton_6.setBounds(303, 261, 52, 46);
 		panel.add(btnNewButton_6);
-		
-		txtPartidoFutbolColegas = new JTextField();
-		txtPartidoFutbolColegas.setBackground(SystemColor.inactiveCaption);
-		txtPartidoFutbolColegas.setText("PARTIDO FUTBOL COLEGAS");
-		txtPartidoFutbolColegas.setBounds(10, 10, 311, 19);
-		panel.add(txtPartidoFutbolColegas);
-		txtPartidoFutbolColegas.setColumns(10);
-		
-		textField = new JTextField();
-		textField.setBackground(new Color(70, 130, 180));
-		textField.setBounds(0, 0, 364, 39);
-		panel.add(textField);
-		textField.setColumns(10);
-		frame.setBounds(100, 100, 750, 480);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		JButton btnUnirse = new JButton("FORO");
-		btnUnirse.setBorder(null);
-		btnUnirse.setForeground(Color.WHITE);
-		btnUnirse.setBackground(new Color(53, 187, 95));
-		btnUnirse.setBounds(553, 363, 157, 51);
-		frame.getContentPane().add(btnUnirse);
 	}
 }

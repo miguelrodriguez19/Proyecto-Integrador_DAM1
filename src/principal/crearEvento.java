@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 import java.awt.*;
+import javax.swing.border.EmptyBorder;
 
 
 public class crearEvento {
@@ -18,11 +19,11 @@ public class crearEvento {
 	private JTextField txtParticipantes;
 	private JTextField txtFechaEvento;
 	private JList list;
-	private JLabel lblFaqs;
-	private JLabel lblPerfil;
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
 	private JButton btnNewButton_2;
+	private JButton btnFaqs;
+	private JButton btnPerfil;
 
 	/**
 	 * Launch the application.
@@ -140,16 +141,6 @@ public class crearEvento {
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		lblFaqs = new JLabel("FAQS");
-		lblFaqs.setForeground(Color.WHITE);
-		lblFaqs.setBounds(576, 47, 45, 13);
-		panel.add(lblFaqs);
-		
-		lblPerfil = new JLabel("PERFIL");
-		lblPerfil.setForeground(Color.WHITE);
-		lblPerfil.setBounds(665, 47, 55, 13);
-		panel.add(lblPerfil);
-		
 		btnNewButton = new JButton("");
 		btnNewButton.setBorderPainted(false);
 		btnNewButton.setBackground(null);
@@ -169,6 +160,20 @@ public class crearEvento {
 		btnNewButton_1.setBackground(null);
 		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\Nacho\\OneDrive\\Escritorio\\usuario-de-perfil.png"));
 		btnNewButton_1.setBorder(null);
+		
+		btnFaqs = new JButton("FAQS");
+		btnFaqs.setBorder(null);
+		btnFaqs.setBackground(null);
+		btnFaqs.setForeground(Color.WHITE);
+		btnFaqs.setBounds(516, 43, 85, 21);
+		panel.add(btnFaqs);
+		
+		btnPerfil = new JButton("PERFIL");
+		btnPerfil.setForeground(Color.WHITE);
+		btnPerfil.setBorder(null);
+		btnPerfil.setBackground(null);
+		btnPerfil.setBounds(631, 43, 85, 21);
+		panel.add(btnPerfil);
 		
 		btnNewButton_2 = new JButton("");
 		btnNewButton_2.setBorder(null);

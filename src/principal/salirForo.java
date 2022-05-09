@@ -45,12 +45,12 @@ public class salirForo {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 850, 480);
-		frame.getContentPane().setBackground(new Color(0, 0, 0));
+		frame.getContentPane().setBackground(new Color(34, 40, 49));
 		Container contenedor = frame.getContentPane();
 		frame.getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(57, 62, 70));
+		panel.setBackground(new Color(240, 240, 240));
 		panel.setBounds(148, 107, 460, 164);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
@@ -66,12 +66,12 @@ public class salirForo {
 		
 		JButton btnSiSalir = new JButton("SI");
 		btnSiSalir.setBorder(null);
-		btnSiSalir.setBackground(new Color(34, 139, 34));
+		btnSiSalir.setBackground(new Color(53, 187, 95));
 		btnSiSalir.setBounds(95, 86, 105, 39);
 		panel.add(btnSiSalir);
 		
 		JButton btnNoSalir = new JButton("NO");
-		btnNoSalir.setBackground(new Color(255, 0, 0));
+		btnNoSalir.setBackground(Color.RED);
 		btnNoSalir.setBorder(null);
 		btnNoSalir.setBounds(261, 86, 100, 39);
 		panel.add(btnNoSalir);
