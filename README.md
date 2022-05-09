@@ -37,14 +37,16 @@ Aplicación destinada a conocer gente haciendo deporte, crea eventos para jugar 
 6. Aplica filtros de busqueda.
 7. Muestra eventos resumidos.
 8. Ver evento completo.
-9. Modificar evento.
-10. Borrar evento.
-11. Abandonar evento.
-12. Enviar mensajes.
-13. Recibir mensajes.
-14. Valorar.
-15. Ver historial.
-16. Aclarar dudas frecuentes.
+9. Crear evento.
+10. Unirse a evento
+11. Modificar evento.
+12. Borrar evento.
+13. Abandonar evento.
+14. Enviar mensajes.
+15. Recibir mensajes.
+16. Valorar.
+17. Ver historial.
+18. Aclarar dudas frecuentes.
 ***
 ## Relación pantalla/funcionalidad
 1. Log In -> 2. Inicia sesion
@@ -52,16 +54,16 @@ Aplicación destinada a conocer gente haciendo deporte, crea eventos para jugar 
 3. Recuperar Contraseña -> 4. Recuperar contraseña
 4. Cambiar Contraseña -> 3. Cambiar conraseña
 5. Perfil -> ninguna 
-6. Editar Perfil -> editar perfil
-7. Historial Partidas -> ver historial
-8. FAQs -> Aclarar dudas frecuentes
-9. Main Page -> aplica filtros de busqueda
-10. Mis Eventos -> muestra los eventos a los que estas subscrito y tus eventos creados, borra eventos, muestra eventos resumidos
-11. Crear Evento -> crea eventos
-12. Unirse a Evento -> Unirse a evento
-13. Ver Evento -> abandona evento
-14. Foro -> enviar mensajes, recibir mensajes
-15. Valoraciones -> valora personas.
+6. Editar Perfil -> 5. editar perfil
+7. Historial Partidas -> 17. ver historial
+8. FAQs -> 18. Aclarar dudas frecuentes
+9. Main Page -> 6. aplica filtros de busqueda
+10. Mis Eventos -> 7. muestra los eventos a los que estas subscrito y tus eventos creados, 10. borra eventos
+11. Crear Evento -> 9. crea eventos
+12. Unirse a Evento -> 10. Unirse a evento
+13. Ver Evento -> 13. abandona evento
+14. Foro -> 14. enviar mensajes, 15. recibir mensajes
+15. Valoraciones -> 16. valora personas.
 ***
 ## Relación funcionalidad/pantalla
 1. Registrarse -> 2. Registro
