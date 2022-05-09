@@ -22,6 +22,7 @@ public class crearEvento {
 	private JLabel lblPerfil;
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
+	private JButton btnNewButton_2;
 
 	/**
 	 * Launch the application.
@@ -59,7 +60,7 @@ public class crearEvento {
 		
 		txtNombre = new JTextField();
 		txtNombre.setText("NOMBRE EVENTO:\r\n");
-		txtNombre.setBounds(40, 138, 261, 23);
+		txtNombre.setBounds(40, 153, 261, 23);
 		txtNombre.setColumns(10);
 		contenedor.add(txtNombre);
 		
@@ -90,23 +91,23 @@ public class crearEvento {
 				return values[index];
 			}
 		});
-		list.setBounds(40, 175, 261, 75);
+		list.setBounds(40, 190, 261, 75);
 		frame.getContentPane().add(list);
 		
 		txtArea = new JTextArea();
 		txtArea.setText("DESCRIPCI\u00D3N:");
-		txtArea.setBounds(387, 135, 426, 217);
+		txtArea.setBounds(386, 152, 426, 193);
 		frame.getContentPane().add(txtArea);
 		
 		txtLocalización = new JTextField();
 		txtLocalización.setText("LOCALIZACI\u00D3N:");
-		txtLocalización.setBounds(40, 267, 261, 25);
+		txtLocalización.setBounds(40, 280, 261, 25);
 		frame.getContentPane().add(txtLocalización);
 		txtLocalización.setColumns(10);
 		
 		txtParticipantes = new JTextField();
 		txtParticipantes.setText("NUMERO PARTICIPANTES:");
-		txtParticipantes.setBounds(40, 311, 261, 25);
+		txtParticipantes.setBounds(40, 320, 261, 25);
 		frame.getContentPane().add(txtParticipantes);
 		txtParticipantes.setColumns(10);
 		
@@ -133,10 +134,6 @@ public class crearEvento {
 		frame.getContentPane().add(txtFechaEvento);
 		txtFechaEvento.setColumns(10);
 		
-		JButton btnFlechaAtras = new JButton("ATRAS");
-		btnFlechaAtras.setBounds(40, 104, 74, 21);
-		frame.getContentPane().add(btnFlechaAtras);
-		
 		Panel panel = new Panel();
 		panel.setBackground(new Color(57, 62, 70));
 		panel.setBounds(0, 0, 834, 100);
@@ -153,12 +150,31 @@ public class crearEvento {
 		lblPerfil.setBounds(665, 47, 55, 13);
 		panel.add(lblPerfil);
 		
-		btnNewButton = new JButton("New button");
-		btnNewButton.setBounds(766, 43, 45, 21);
+		btnNewButton = new JButton("");
+		btnNewButton.setBorderPainted(false);
+		btnNewButton.setBackground(null);
+		btnNewButton.setBorder(null);
+		btnNewButton.setToolTipText("");
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\Nacho\\OneDrive\\Escritorio\\icons8-home-48.png"));
+		btnNewButton.setBounds(36, 18, 85, 70);
 		panel.add(btnNewButton);
 		
-		btnNewButton_1 = new JButton("New button");
-		btnNewButton_1.setBounds(39, 43, 45, 21);
+		btnNewButton_1 = new JButton("");
+		btnNewButton_1.setForeground(new Color(0, 0, 0));
+		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\Nacho\\OneDrive\\Escritorio\\usuario-de-perfil.png"));
+		btnNewButton_1.setBounds(726, 18, 85, 70);
+		btnNewButton_1.setBackground(null);
+		btnNewButton_1.setBorder(null);
 		panel.add(btnNewButton_1);
+		btnNewButton_1.setBackground(null);
+		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\Nacho\\OneDrive\\Escritorio\\usuario-de-perfil.png"));
+		btnNewButton_1.setBorder(null);
+		
+		btnNewButton_2 = new JButton("");
+		btnNewButton_2.setBorder(null);
+		btnNewButton_2.setBackground(null);
+		btnNewButton_2.setIcon(new ImageIcon(crearEvento.class.getResource("/Imagenes/arrow.png")));
+		btnNewButton_2.setBounds(0, 106, 94, 37);
+		frame.getContentPane().add(btnNewButton_2);
 	}
 }

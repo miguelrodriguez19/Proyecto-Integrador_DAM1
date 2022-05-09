@@ -10,6 +10,8 @@ import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.JTextField;
 import java.awt.Canvas;
+import javax.swing.ImageIcon;
+import java.awt.SystemColor;
 
 public class Foro {
 
@@ -21,6 +23,12 @@ public class Foro {
 	private JTextField txtAlliNosVemos;
 	private JTextField txtEscribeAqui;
 	private JTextField textField;
+	private JButton btnNewButton_2;
+	private JButton btnNewButton_3;
+	private JButton btnNewButton_4;
+	private JButton btnNewButton_5;
+	private JButton btnNewButton_6;
+	private JTextField txtPartidoFutbolColegas;
 
 	/**
 	 * Launch the application.
@@ -61,31 +69,31 @@ public class Foro {
 		
 		txtHolaYoLlevo = new JTextField();
 		txtHolaYoLlevo.setText("Hola, yo llevo la pelota");
-		txtHolaYoLlevo.setBounds(58, 61, 141, 27);
+		txtHolaYoLlevo.setBounds(69, 61, 141, 27);
 		panel.add(txtHolaYoLlevo);
 		txtHolaYoLlevo.setColumns(10);
 		
 		txtGenialGracias = new JTextField();
 		txtGenialGracias.setText("Genial, gracias!");
-		txtGenialGracias.setBounds(143, 111, 161, 27);
+		txtGenialGracias.setBounds(131, 114, 161, 27);
 		panel.add(txtGenialGracias);
 		txtGenialGracias.setColumns(10);
 		
 		txtElTemaDe = new JTextField();
 		txtElTemaDe.setText("El tema de las equipaciones?");
-		txtElTemaDe.setBounds(58, 166, 152, 27);
+		txtElTemaDe.setBounds(69, 166, 152, 27);
 		panel.add(txtElTemaDe);
 		txtElTemaDe.setColumns(10);
 		
 		txtLlevamosCamisetasAzules = new JTextField();
 		txtLlevamosCamisetasAzules.setText("Llevamos camisetas azules y blancas?");
-		txtLlevamosCamisetasAzules.setBounds(58, 223, 202, 27);
+		txtLlevamosCamisetasAzules.setBounds(69, 222, 202, 27);
 		panel.add(txtLlevamosCamisetasAzules);
 		txtLlevamosCamisetasAzules.setColumns(10);
 		
 		txtAlliNosVemos = new JTextField();
 		txtAlliNosVemos.setText("Alli nos vemos");
-		txtAlliNosVemos.setBounds(201, 271, 103, 27);
+		txtAlliNosVemos.setBounds(190, 270, 103, 27);
 		panel.add(txtAlliNosVemos);
 		txtAlliNosVemos.setColumns(10);
 		
@@ -104,6 +112,38 @@ public class Foro {
 		btnNewButton_1.setBackground(Color.WHITE);
 		btnNewButton_1.setBounds(320, 6, 34, 27);
 		panel.add(btnNewButton_1);
+		
+		btnNewButton_2 = new JButton("");
+		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\Nacho\\OneDrive\\Escritorio\\usuario-de-perfil.png"));
+		btnNewButton_2.setBounds(10, 48, 52, 46);
+		panel.add(btnNewButton_2);
+		
+		btnNewButton_3 = new JButton("");
+		btnNewButton_3.setIcon(new ImageIcon("C:\\Users\\Nacho\\OneDrive\\Escritorio\\usuario-de-perfil.png"));
+		btnNewButton_3.setBounds(302, 106, 52, 46);
+		panel.add(btnNewButton_3);
+		
+		btnNewButton_4 = new JButton("");
+		btnNewButton_4.setIcon(new ImageIcon("C:\\Users\\Nacho\\OneDrive\\Escritorio\\usuario-de-perfil.png"));
+		btnNewButton_4.setBounds(10, 154, 52, 46);
+		panel.add(btnNewButton_4);
+		
+		btnNewButton_5 = new JButton("");
+		btnNewButton_5.setIcon(new ImageIcon("C:\\Users\\Nacho\\OneDrive\\Escritorio\\usuario-de-perfil.png"));
+		btnNewButton_5.setBounds(10, 213, 52, 46);
+		panel.add(btnNewButton_5);
+		
+		btnNewButton_6 = new JButton("");
+		btnNewButton_6.setIcon(new ImageIcon("C:\\Users\\Nacho\\OneDrive\\Escritorio\\usuario-de-perfil.png"));
+		btnNewButton_6.setBounds(303, 261, 52, 46);
+		panel.add(btnNewButton_6);
+		
+		txtPartidoFutbolColegas = new JTextField();
+		txtPartidoFutbolColegas.setBackground(SystemColor.inactiveCaption);
+		txtPartidoFutbolColegas.setText("PARTIDO FUTBOL COLEGAS");
+		txtPartidoFutbolColegas.setBounds(10, 10, 311, 19);
+		panel.add(txtPartidoFutbolColegas);
+		txtPartidoFutbolColegas.setColumns(10);
 		
 		textField = new JTextField();
 		textField.setBackground(new Color(70, 130, 180));

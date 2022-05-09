@@ -25,14 +25,15 @@ public class unirseEvento {
 	private JFrame frame;
 	private JLabel lblFaqs;
 	private JLabel lblPerfil;
-	private JButton btnNewButton;
-	private JButton btnNewButton_1;
 	private JTextField txtTipoEvento;
 	private JTextField txtCreadorEvento;
 	private JTextField txtFechaEvento;
 	private JTextField txtNombreEvento;
 	private JTextField txtLocalización;
 	private JLabel lblNewLabel;
+	private JButton btnHome;
+	private JButton btnPerfil;
+	private JButton btnNewButton_2;
 
 	/**
 	 * Launch the application.
@@ -69,10 +70,6 @@ public class unirseEvento {
 		
 		contenedor.setLayout(null);
 		
-		JButton btnFlechaAtras = new JButton("ATRAS");
-		btnFlechaAtras.setBounds(25, 104, 74, 21);
-		frame.getContentPane().add(btnFlechaAtras);
-		
 		Panel panel = new Panel();
 		panel.setBackground(new Color(57, 62, 70));
 		panel.setBounds(0, 0, 834, 100);
@@ -88,14 +85,6 @@ public class unirseEvento {
 		lblPerfil.setForeground(Color.WHITE);
 		lblPerfil.setBounds(665, 47, 55, 13);
 		panel.add(lblPerfil);
-		
-		btnNewButton = new JButton("New button");
-		btnNewButton.setBounds(751, 43, 45, 21);
-		panel.add(btnNewButton);
-		
-		btnNewButton_1 = new JButton("New button");
-		btnNewButton_1.setBounds(26, 43, 45, 21);
-		panel.add(btnNewButton_1);
 		
 		txtTipoEvento = new JTextField();
 		txtTipoEvento.setText("TIPO EVENTO:\r\n\r\nPUBLICO");
@@ -161,13 +150,37 @@ public class unirseEvento {
 		btnUnirse.setBounds(687, 370, 120, 38);
 		frame.getContentPane().add(btnUnirse);
 		
+		btnHome = new JButton("");
+		btnHome.setBorderPainted(false);
+		btnHome.setBackground(null);
+		btnHome.setBorder(null);
+		btnHome.setToolTipText("");
+		btnHome.setIcon(new ImageIcon("C:\\Users\\Nacho\\OneDrive\\Escritorio\\icons8-home-48.png"));
+		btnHome.setBounds(36, 18, 85, 70);
+		panel.add(btnHome);
+		
+		btnPerfil = new JButton("");
+		btnPerfil.setIcon(new ImageIcon("C:\\Users\\Nacho\\OneDrive\\Escritorio\\usuario-de-perfil.png"));
+		btnPerfil.setBounds(726, 18, 85, 70);
+		btnPerfil.setBackground(null);
+		btnPerfil.setBorder(null);
+		panel.add(btnPerfil);
+		
 		lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(25, 123, 157, 149);
+		lblNewLabel.setBackground(Color.WHITE);
+		lblNewLabel.setBounds(25, 161, 157, 100);
 		frame.getContentPane().add(lblNewLabel);
 		lblNewLabel.setToolTipText("");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setMaximumSize(new Dimension(10, 10));
 		lblNewLabel.setIconTextGap(2);
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Nacho\\OneDrive\\Escritorio\\icons8-soccer-ball-100.png"));
+		
+		btnNewButton_2 = new JButton("");
+		btnNewButton_2.setBorder(null);
+		btnNewButton_2.setBackground(null);
+		btnNewButton_2.setIcon(new ImageIcon(crearEvento.class.getResource("/Imagenes/arrow.png")));
+		btnNewButton_2.setBounds(-11, 106, 94, 37);
+		frame.getContentPane().add(btnNewButton_2);
 	}
 }
