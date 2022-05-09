@@ -8,11 +8,12 @@ Aplicación destinada a conocer gente haciendo deporte, crea eventos para jugar 
 1. [Explicacion de las pantallas](#Explicacion_de_las_pantallas)
 2. [Funcionalidades](#Funcionalidades)
 3. [Relacion pantalla/funcionalidad](#Relación_pantalla/funcionalidad)
-6. [Sobre nosotros](#Sobre_nosotros)
+4. [Relacion funcionalidad/pantalla](#Relación_funcionalidad/pantalla)
+5. [Sobre nosotros](#Sobre_nosotros)
 
 *** 
 ## Explicacion de las pantallas
-1. Log In -> Formulario para iniciar sesion con tus credenciales.
+1. Log In -> Formulario para iniciar sesión con tus credenciales.
 2. Registro -> Formulario para registrarse en la aplicación.
 3. Recuperar Contraseña -> Formulario que necesita un codígo enviado el email para cambiar contraseña; se accede sin iniciar sesión.
 4. Cambiar Contraseña -> Formulario para cambiar tu contraseña habiendo iniciado sesión.
@@ -79,13 +80,13 @@ Aplicación destinada a conocer gente haciendo deporte, crea eventos para jugar 
 9. Crear evento -> 11. Crear evento
 10. Unirse a evento -> 12. Unirse evento
 11. Modificar evento. -> 14. Modifica evento
-12. Borrar evento.
-13. Abandonar evento.
-14. Enviar mensajes.
-15. Recibir mensajes.
-16. Valorar.
-17. Ver historial.
-18. Aclarar dudas frecuentes.
+12. Borrar evento. ->  14. Modifica evento
+13. Abandonar evento. -> 13. Ver evento
+14. Enviar mensajes. -> 15. Foro
+15. Recibir mensajes. -> 15. Foro
+16. Valorar. -> 16. Valorar
+17. Ver historial. -> 7. Historial de partidas
+18. Aclarar dudas frecuentes. -> 8. FAQs
 
 ***
 ## Sobre nosotros
