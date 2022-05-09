@@ -64,7 +64,7 @@ public class LogIn {
 		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 36));
 		btnOK.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//System.out.println(txtNombre.getText());
+				// System.out.println(txtNombre.getText());
 //				comboBox.addItem(txtNombre.getText());
 //				System.out.println(chckbxNewCheckBox.isSelected());
 //				System.out.println("La Contraseña es " + String.valueOf(passwordField.getPassword()));
@@ -106,7 +106,7 @@ public class LogIn {
 		panel_1.setBackground(new Color(0, 0, 0));
 		panel_1.setBounds(0, 0, 484, 443);
 		frame.getContentPane().add(panel_1);
-		
+
 		btnOK_1 = new JButton("Crear Cuenta\r\n");
 		btnOK_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -117,24 +117,24 @@ public class LogIn {
 		btnOK_1.setBackground(new Color(156, 163, 219));
 		btnOK_1.setBounds(520, 376, 275, 42);
 		frame.getContentPane().add(btnOK_1);
-		
+
 		lblnoTienesCuenta = new JLabel("\u00BFNo tienes cuenta?\r\n");
 		lblnoTienesCuenta.setVerticalAlignment(SwingConstants.TOP);
 		lblnoTienesCuenta.setForeground(Color.WHITE);
 		lblnoTienesCuenta.setFont(new Font("Trebuchet MS", Font.PLAIN, 25));
 		lblnoTienesCuenta.setBounds(543, 344, 283, 65);
 		frame.getContentPane().add(lblnoTienesCuenta);
-				
-				lblNewLabel_1 = new JLabel("- O -");
-				lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-				lblNewLabel_1.setBounds(624, 313, 74, 21);
-				frame.getContentPane().add(lblNewLabel_1);
-		
-				panel = new JPanel();
-				panel.setBackground(new Color(57, 62, 70));
-				panel.setForeground(Color.WHITE);
-				panel.setBounds(480, 0, 356, 443);
-				frame.getContentPane().add(panel);
+
+		lblNewLabel_1 = new JLabel("- O -");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_1.setBounds(624, 313, 74, 21);
+		frame.getContentPane().add(lblNewLabel_1);
+
+		panel = new JPanel();
+		panel.setBackground(new Color(57, 62, 70));
+		panel.setForeground(Color.WHITE);
+		panel.setBounds(480, 0, 356, 443);
+		frame.getContentPane().add(panel);
 
 	}
 }
