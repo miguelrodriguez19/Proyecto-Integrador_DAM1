@@ -7,8 +7,8 @@ Aplicación destinada a conocer gente haciendo deporte, crea eventos para jugar 
 ## Tabla de contenidos
 1. [Explicacion de las pantallas](#Explicacion_de_las_pantallas)
 2. [Funcionalidades](#Funcionalidades)
-3. [Relacion pantalla/funcionalidad](#Relación_pantalla/funcionalidad)
-4. [Relacion funcionalidad/pantalla](#Relación_funcionalidad/pantalla)
+3. [Relación pantalla/funcionalidad](#Relación_pantalla/funcionalidad)
+4. [Relación funcionalidad/pantalla](#Relación_funcionalidad/pantalla)
 5. [Sobre nosotros](#Sobre_nosotros)
 
 *** 
