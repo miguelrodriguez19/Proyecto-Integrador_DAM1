@@ -50,12 +50,13 @@ public class salirForo {
 		frame.getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(SystemColor.inactiveCaption);
+		panel.setBackground(new Color(57, 62, 70));
 		panel.setBounds(148, 107, 460, 164);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		txtestaSeguroQue = new JTextField();
+		txtestaSeguroQue.setBackground(new Color(230, 230, 250));
 		txtestaSeguroQue.setHorizontalAlignment(SwingConstants.CENTER);
 		txtestaSeguroQue.setToolTipText("");
 		txtestaSeguroQue.setText("\u00BFEsta seguro que desea salir del evento?");
@@ -63,17 +64,17 @@ public class salirForo {
 		panel.add(txtestaSeguroQue);
 		txtestaSeguroQue.setColumns(10);
 		
-		JButton btnNewButton = new JButton("SI");
-		btnNewButton.setBorder(null);
-		btnNewButton.setBackground(new Color(34, 139, 34));
-		btnNewButton.setBounds(95, 86, 105, 39);
-		panel.add(btnNewButton);
+		JButton btnSiSalir = new JButton("SI");
+		btnSiSalir.setBorder(null);
+		btnSiSalir.setBackground(new Color(34, 139, 34));
+		btnSiSalir.setBounds(95, 86, 105, 39);
+		panel.add(btnSiSalir);
 		
-		JButton btnNo = new JButton("NO");
-		btnNo.setBackground(new Color(255, 0, 0));
-		btnNo.setBorder(null);
-		btnNo.setBounds(261, 86, 100, 39);
-		panel.add(btnNo);
+		JButton btnNoSalir = new JButton("NO");
+		btnNoSalir.setBackground(new Color(255, 0, 0));
+		btnNoSalir.setBorder(null);
+		btnNoSalir.setBounds(261, 86, 100, 39);
+		panel.add(btnNoSalir);
 		
 		JButton btnNewButton_2 = new JButton("SALIR DEL EVENTO\r\n");
 		btnNewButton_2.setForeground(Color.WHITE);
@@ -82,11 +83,11 @@ public class salirForo {
 		btnNewButton_2.setBounds(622, 355, 157, 51);
 		frame.getContentPane().add(btnNewButton_2);
 		
-		JButton btnNewButton_1 = new JButton("X");
-		btnNewButton_1.setBorder(null);
-		btnNewButton_1.setBackground(Color.WHITE);
-		btnNewButton_1.setBounds(416, 10, 34, 27);
-		panel.add(btnNewButton_1);
+		JButton btnX = new JButton("X");
+		btnX.setBorder(null);
+		btnX.setBackground(Color.WHITE);
+		btnX.setBounds(416, 10, 34, 27);
+		panel.add(btnX);
 	}
 
 }
