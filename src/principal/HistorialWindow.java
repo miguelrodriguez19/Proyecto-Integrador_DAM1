@@ -78,7 +78,7 @@ public class HistorialWindow {
 
 		lblProfileIcon = new JLabel("");
 		lblProfileIcon.setFont(new Font("Tahoma", Font.PLAIN, 96));
-		lblProfileIcon.setIcon(new ImageIcon("C:\\Users\\danie\\Downloads\\usuario-de-perfil.png"));
+		lblProfileIcon.setIcon(new ImageIcon(HistorialWindow.class.getResource("/Imagenes/usuario-de-perfil.png")));
 		lblProfileIcon.setBounds(709, 10, 73, 76);
 		panelHeader.add(lblProfileIcon);
 
@@ -86,10 +86,10 @@ public class HistorialWindow {
 		lblHomeIcon.setForeground(new Color(0, 0, 0));
 		lblHomeIcon.setBounds(20, 12, 58, 74);
 		panelHeader.add(lblHomeIcon);
-		lblHomeIcon.setIcon(new ImageIcon("C:\\Users\\danie\\Downloads\\icons8-home-48.png"));
+		lblHomeIcon.setIcon(new ImageIcon(HistorialWindow.class.getResource("/Imagenes/home-48.png")));
 
 		lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\danie\\Downloads\\icons8-back-50 (1).png"));
+		lblNewLabel.setIcon(new ImageIcon(HistorialWindow.class.getResource("/Imagenes/back-50.png")));
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel.setBounds(17, 108, 50, 50);
 		frame.getContentPane().add(lblNewLabel);

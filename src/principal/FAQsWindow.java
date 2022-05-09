@@ -91,10 +91,10 @@ public class FAQsWindow {
 		lblHomeIcon.setForeground(new Color(0, 0, 0));
 		lblHomeIcon.setBounds(20, 12, 58, 74);
 		panelHeader.add(lblHomeIcon);
-		lblHomeIcon.setIcon(new ImageIcon("/Imagenes/home-48.png"));
+		lblHomeIcon.setIcon(new ImageIcon(FAQsWindow.class.getResource("/Imagenes/home-48.png")));
 		
 		lblBackIcon = new JLabel("");
-		lblBackIcon.setIcon(new ImageIcon("C:\\Users\\danie\\Downloads\\icons8-back-50 (1).png"));
+		lblBackIcon.setIcon(new ImageIcon(FAQsWindow.class.getResource("/Imagenes/back-50.png")));
 		lblBackIcon.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblBackIcon.setBounds(17, 108, 50, 50);
 		frame.getContentPane().add(lblBackIcon);
