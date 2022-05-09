@@ -2,6 +2,7 @@ package principal;
 
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Cursor;
 import java.awt.Font;
 import java.io.IOException;
 
@@ -60,6 +61,7 @@ public class HistorialWindow {
 		panelHeader.setLayout(null);
 
 		btnHomeIcon = new JButton("");
+		btnHomeIcon.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnHomeIcon.setIcon(new ImageIcon(FAQsWindow.class.getResource("/Imagenes/home-48.png")));
 		btnHomeIcon.setBounds(20, 12, 58, 74);
 		btnHomeIcon.setBackground(null);
@@ -67,6 +69,7 @@ public class HistorialWindow {
 		panelHeader.add(btnHomeIcon);
 
 		btnFAQs = new JButton("FAQs");
+		btnFAQs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFAQs.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnFAQs.setBorder(null);
 		btnFAQs.setForeground(Color.WHITE);
@@ -75,6 +78,7 @@ public class HistorialWindow {
 		panelHeader.add(btnFAQs);
 		
 		btnPerfil = new JButton("Perfil");
+		btnPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPerfil.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnPerfil.setForeground(Color.WHITE);
 		btnPerfil.setBorder(null);
@@ -83,24 +87,27 @@ public class HistorialWindow {
 		panelHeader.add(btnPerfil);
 
 		btnProfileIcon = new JButton("");
+		btnProfileIcon.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnProfileIcon.setIcon(new ImageIcon(FAQsWindow.class.getResource("/Imagenes/usuario-de-perfil.png")));
 		btnProfileIcon.setBounds(722, 12, 73, 76);
 		btnProfileIcon.setBackground(null);
 		btnProfileIcon.setBorder(null);
 		panelHeader.add(btnProfileIcon);
-	
-		btnBackIcon = new JButton("");
-		btnBackIcon.setIcon(new ImageIcon(FAQsWindow.class.getResource("/Imagenes/back-50.png")));
-		btnBackIcon.setBounds(17, 108, 50, 50);
-		btnBackIcon.setBackground(new Color(34, 40, 49));
-		btnBackIcon.setBorder(null);
-		frame.getContentPane().add(btnBackIcon);
-
+		
 		panelMain = new JPanel();
 		panelMain.setBackground(new Color(34, 40, 59));
 		panelMain.setBounds(0, 100, 836, 343);
 		frame.getContentPane().add(panelMain);
 		panelMain.setLayout(null);
+	
+		btnBackIcon = new JButton("");
+		btnBackIcon.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnBackIcon.setIcon(new ImageIcon(HistorialWindow.class.getResource("/Imagenes/arrow.png")));
+		btnBackIcon.setBounds(0, 0, 50, 50);
+		btnBackIcon.setBackground(null);
+		btnBackIcon.setBorder(null);
+		panelMain.add(btnBackIcon);
+
 
 		lblHistorialTitle = new JLabel("Historial");
 		lblHistorialTitle.setBounds(391, 10, 118, 41);
