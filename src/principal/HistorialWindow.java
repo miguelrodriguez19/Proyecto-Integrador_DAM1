@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.border.TitledBorder;
 
 public class HistorialWindow {
 
@@ -23,6 +25,9 @@ public class HistorialWindow {
 	private JLabel lblProfileIcon;
 	private JLabel lblHomeIcon;
 	private JTable table;
+	private JLabel lblNewLabel;
+	private JPanel panelHeader;
+	private JPanel panelMain;
 
 	/**
 	 * Launch the application.
@@ -45,13 +50,13 @@ public class HistorialWindow {
 		frame.setMaximizedBounds(null);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		Container contenedor = frame.getContentPane();
 		frame.getContentPane().setLayout(null);
+		frame.setResizable(false);
 
-		JPanel panelHeader = new JPanel();
+		panelHeader = new JPanel();
 		panelHeader.setForeground(Color.WHITE);
 		panelHeader.setBackground(new Color(57, 62, 70));
-		panelHeader.setBounds(0, 0, 834, 100);
+		panelHeader.setBounds(0, 0, 836, 100);
 		frame.getContentPane().add(panelHeader);
 		panelHeader.setLayout(null);
 
@@ -83,26 +88,46 @@ public class HistorialWindow {
 		panelHeader.add(lblHomeIcon);
 		lblHomeIcon.setIcon(new ImageIcon("C:\\Users\\danie\\Downloads\\icons8-home-48.png"));
 
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\danie\\Downloads\\icons8-back-50 (1).png"));
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1.setBounds(17, 108, 50, 50);
-		frame.getContentPane().add(lblNewLabel_1);
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\danie\\Downloads\\icons8-back-50 (1).png"));
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel.setBounds(17, 108, 50, 50);
+		frame.getContentPane().add(lblNewLabel);
 
-		JPanel panelMain = new JPanel();
+		panelMain = new JPanel();
 		panelMain.setBackground(new Color(34, 40, 59));
 		panelMain.setBounds(0, 100, 836, 343);
 		frame.getContentPane().add(panelMain);
 		panelMain.setLayout(null);
 
 		lblHistorialTitle = new JLabel("Historial");
-		lblHistorialTitle.setBounds(365, 10, 139, 48);
+		lblHistorialTitle.setBounds(391, 10, 118, 41);
 		panelMain.add(lblHistorialTitle);
-		lblHistorialTitle.setFont(new Font("Tahoma", Font.BOLD, 28));
+		lblHistorialTitle.setFont(new Font("Tahoma", Font.BOLD, 24));
 		lblHistorialTitle.setForeground(new Color(238, 238, 238));
 
 		table = new JTable();
-		table.setBounds(97, 68, 709, 265);
+		table.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{"Queso"},
+				{null},
+				{null},
+			},
+			new String[] {
+				"New column"
+			}
+		) {
+			boolean[] columnEditables = new boolean[] {
+				false
+			};
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
+			}
+		});
+		table.getColumnModel().getColumn(0).setPreferredWidth(720);
+		table.setRowHeight(80);
+		table.setBounds(96, 58, 709, 285);
 		panelMain.add(table);
 
 	}
