@@ -13,7 +13,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JComboBox;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JRadioButton;
 import java.awt.event.ItemListener;
@@ -29,38 +28,37 @@ import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
 
-public class RecuperarContraseña {
+public class ConfCrearPerfil {
 
 	private JFrame frame;
 	private JButton btnOK;
 	private JPanel panel;
 	private JLabel lblContrasea;
-	private JTextField txtAntiguaContrasea;
-	private JTextField txtNuevaContrasea;
-	private JTextField txtNuevaContrasea_1;
-	private JLabel lblNewLabel_1;
+	private JTextField txtUsername;
 	private JLabel lblNewLabel_2;
+	private JLabel lblNewLabel_1;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		RecuperarContraseña window = new RecuperarContraseña();
+		ConfCrearPerfil window = new ConfCrearPerfil();
 		window.frame.setVisible(true);
 
 	}
 
-	public RecuperarContraseña() {
+	public ConfCrearPerfil() {
 		frame = new JFrame();
 		Container container = frame.getContentPane();
 		frame.setBounds(100, 100, 850, 480);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		container.setLayout(null);
 
-		btnOK = new JButton("Cambiar Contrase\u00F1a");
+		btnOK = new JButton("Crear Cuenta");
 		btnOK.setForeground(Color.BLACK);
-		btnOK.setBackground(new Color(53, 187, 95));
+		btnOK.setBackground(new Color(156, 163, 219));
 		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		btnOK.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -70,65 +68,44 @@ public class RecuperarContraseña {
 //				System.out.println("La Contraseña es " + String.valueOf(passwordField.getPassword()));
 			}
 		});
-		btnOK.setBounds(508, 366, 275, 42);
+		btnOK.setBounds(521, 363, 275, 42);
 		container.add(btnOK);
 
 		ButtonGroup group = new ButtonGroup();
 
-		JLabel lblNewLabel = new JLabel("Recuperar\r\n");
+		JLabel lblNewLabel = new JLabel("Configurar\r\n");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 36));
 		lblNewLabel.setBounds(578, -26, 308, 98);
 		frame.getContentPane().add(lblNewLabel);
 
-		lblContrasea = new JLabel("Contrase\u00F1a");
+		lblContrasea = new JLabel("Perfil\r\n");
 		lblContrasea.setForeground(Color.WHITE);
 		lblContrasea.setFont(new Font("Trebuchet MS", Font.PLAIN, 36));
-		lblContrasea.setBounds(562, 21, 308, 98);
+		lblContrasea.setBounds(604, 10, 308, 98);
 		frame.getContentPane().add(lblContrasea);
 
-		txtAntiguaContrasea = new JTextField();
-		txtAntiguaContrasea.setForeground(Color.GRAY);
-		txtAntiguaContrasea.setBackground(Color.WHITE);
-		txtAntiguaContrasea.setText("Codigo De Recuperacion\r\n");
-		txtAntiguaContrasea.setBounds(527, 180, 239, 42);
-		frame.getContentPane().add(txtAntiguaContrasea);
-		txtAntiguaContrasea.setColumns(10);
-
-		txtNuevaContrasea = new JTextField();
-		txtNuevaContrasea.setForeground(Color.GRAY);
-		txtNuevaContrasea.setText("Nueva Contrase\u00F1a1");
-		txtNuevaContrasea.setColumns(10);
-		txtNuevaContrasea.setBounds(527, 249, 239, 42);
-		frame.getContentPane().add(txtNuevaContrasea);
-
-		txtNuevaContrasea_1 = new JTextField();
-		txtNuevaContrasea_1.setForeground(Color.GRAY);
-		txtNuevaContrasea_1.setText("Nueva Contrase\u00F1a2\r\n");
-		txtNuevaContrasea_1.setColumns(10);
-		txtNuevaContrasea_1.setBounds(527, 299, 239, 42);
-		frame.getContentPane().add(txtNuevaContrasea_1);
+		txtUsername = new JTextField();
+		txtUsername.setForeground(Color.GRAY);
+		txtUsername.setText("@Username\r\n");
+		txtUsername.setColumns(10);
+		txtUsername.setBounds(537, 262, 239, 42);
+		frame.getContentPane().add(txtUsername);
 
 		JButton btnNewButton = new JButton("<-");
 		btnNewButton.setBounds(494, 10, 58, 21);
 		frame.getContentPane().add(btnNewButton);
-		
-		lblNewLabel_1 = new JLabel("Revise su Mail le habra llegado\r\n");
-		lblNewLabel_1.setForeground(Color.WHITE);
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblNewLabel_1.setBounds(539, 120, 266, 13);
-		frame.getContentPane().add(lblNewLabel_1);
-		
-		lblNewLabel_2 = new JLabel(" un codigo de autentificacion");
+
+		lblNewLabel_2 = new JLabel("imagen por defecto\r\n");
 		lblNewLabel_2.setForeground(Color.WHITE);
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblNewLabel_2.setBounds(535, 143, 218, 21);
+		lblNewLabel_2.setBounds(578, 231, 218, 21);
 		frame.getContentPane().add(lblNewLabel_2);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(57, 62, 70));
 		panel.setForeground(Color.WHITE);
-		panel.setBounds(478, 0, 358, 443);
+		panel.setBounds(485, 0, 351, 443);
 		frame.getContentPane().add(panel);
 		
 		lblNewLabel_1 = new JLabel("");

@@ -13,6 +13,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JComboBox;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JRadioButton;
 import java.awt.event.ItemListener;
@@ -39,7 +40,6 @@ public class Register {
 	private JPasswordField passwordField_2;
 	private JPanel panel;
 	private JButton btnNewButton;
-	private JPanel panel_1;
 
 	/**
 	 * Launch the application.
@@ -139,10 +139,11 @@ public class Register {
 		panel.setBounds(478, 0, 358, 443);
 		frame.getContentPane().add(panel);
 
-		panel_1 = new JPanel();
-		panel_1.setBackground(new Color(0, 0, 0));
-		panel_1.setBounds(0, 0, 484, 443);
-		frame.getContentPane().add(panel_1);
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 91));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\lugon\\Downloads\\basketball-sports-court- (1).jpg"));
+		lblNewLabel.setBounds(-232, -13, 1586, 456);
+		frame.getContentPane().add(lblNewLabel);
 
 	}
 }

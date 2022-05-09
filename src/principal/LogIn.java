@@ -13,6 +13,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JComboBox;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JRadioButton;
 import java.awt.event.ItemListener;
@@ -37,7 +38,6 @@ public class LogIn {
 	private JPasswordField passwordField_1;
 	private JPanel panel;
 	private JButton btnNewButton;
-	private JPanel panel_1;
 	private JButton btnOK_1;
 	private JLabel lblnoTienesCuenta;
 	private JLabel lblNewLabel_1;
@@ -102,11 +102,6 @@ public class LogIn {
 		btnNewButton.setBounds(520, 273, 275, 21);
 		frame.getContentPane().add(btnNewButton);
 
-		panel_1 = new JPanel();
-		panel_1.setBackground(new Color(0, 0, 0));
-		panel_1.setBounds(0, 0, 484, 443);
-		frame.getContentPane().add(panel_1);
-
 		btnOK_1 = new JButton("Crear Cuenta\r\n");
 		btnOK_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -135,6 +130,12 @@ public class LogIn {
 		panel.setForeground(Color.WHITE);
 		panel.setBounds(480, 0, 356, 443);
 		frame.getContentPane().add(panel);
+
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 91));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\lugon\\Downloads\\basketball-sports-court- (1).jpg"));
+		lblNewLabel.setBounds(-232, -13, 1586, 456);
+		frame.getContentPane().add(lblNewLabel);
 
 	}
 }

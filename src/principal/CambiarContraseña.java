@@ -13,6 +13,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JComboBox;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JRadioButton;
 import java.awt.event.ItemListener;
@@ -34,7 +35,6 @@ public class CambiarContraseña {
 	private JFrame frame;
 	private JButton btnOK;
 	private JPanel panel;
-	private JPanel panel_1;
 	private JLabel lblContrasea;
 	private JTextField txtAntiguaContrasea;
 	private JTextField txtNuevaContrasea;
@@ -79,48 +79,49 @@ public class CambiarContraseña {
 		lblNewLabel.setBounds(578, -26, 308, 98);
 		frame.getContentPane().add(lblNewLabel);
 
-		panel_1 = new JPanel();
-		panel_1.setBackground(new Color(0, 0, 0));
-		panel_1.setBounds(0, 0, 484, 443);
-		frame.getContentPane().add(panel_1);
-				
-				lblContrasea = new JLabel("Contrase\u00F1a");
-				lblContrasea.setForeground(Color.WHITE);
-				lblContrasea.setFont(new Font("Trebuchet MS", Font.PLAIN, 36));
-				lblContrasea.setBounds(562, 21, 308, 98);
-				frame.getContentPane().add(lblContrasea);
-				
-				txtAntiguaContrasea = new JTextField();
-				txtAntiguaContrasea.setForeground(Color.GRAY);
-				txtAntiguaContrasea.setBackground(Color.WHITE);
-				txtAntiguaContrasea.setText("Antigua Contrase\u00F1a");
-				txtAntiguaContrasea.setBounds(527, 140, 239, 42);
-				frame.getContentPane().add(txtAntiguaContrasea);
-				txtAntiguaContrasea.setColumns(10);
-				
-				txtNuevaContrasea = new JTextField();
-				txtNuevaContrasea.setForeground(Color.GRAY);
-				txtNuevaContrasea.setText("Nueva Contrase\u00F1a1");
-				txtNuevaContrasea.setColumns(10);
-				txtNuevaContrasea.setBounds(527, 222, 239, 42);
-				frame.getContentPane().add(txtNuevaContrasea);
-				
-				txtNuevaContrasea_1 = new JTextField();
-				txtNuevaContrasea_1.setForeground(Color.GRAY);
-				txtNuevaContrasea_1.setText("Nueva Contrase\u00F1a2\r\n");
-				txtNuevaContrasea_1.setColumns(10);
-				txtNuevaContrasea_1.setBounds(527, 274, 239, 42);
-				frame.getContentPane().add(txtNuevaContrasea_1);
-				
-				JButton btnNewButton = new JButton("<-");
-				btnNewButton.setBounds(494, 10, 58, 21);
-				frame.getContentPane().add(btnNewButton);
-				
-						panel = new JPanel();
-						panel.setBackground(new Color(57, 62, 70));
-						panel.setForeground(Color.WHITE);
-						panel.setBounds(479, 0, 357, 443);
-						frame.getContentPane().add(panel);
+		lblContrasea = new JLabel("Contrase\u00F1a");
+		lblContrasea.setForeground(Color.WHITE);
+		lblContrasea.setFont(new Font("Trebuchet MS", Font.PLAIN, 36));
+		lblContrasea.setBounds(562, 21, 308, 98);
+		frame.getContentPane().add(lblContrasea);
+
+		txtAntiguaContrasea = new JTextField();
+		txtAntiguaContrasea.setForeground(Color.GRAY);
+		txtAntiguaContrasea.setBackground(Color.WHITE);
+		txtAntiguaContrasea.setText("Antigua Contrase\u00F1a");
+		txtAntiguaContrasea.setBounds(527, 140, 239, 42);
+		frame.getContentPane().add(txtAntiguaContrasea);
+		txtAntiguaContrasea.setColumns(10);
+
+		txtNuevaContrasea = new JTextField();
+		txtNuevaContrasea.setForeground(Color.GRAY);
+		txtNuevaContrasea.setText("Nueva Contrase\u00F1a1");
+		txtNuevaContrasea.setColumns(10);
+		txtNuevaContrasea.setBounds(527, 222, 239, 42);
+		frame.getContentPane().add(txtNuevaContrasea);
+
+		txtNuevaContrasea_1 = new JTextField();
+		txtNuevaContrasea_1.setForeground(Color.GRAY);
+		txtNuevaContrasea_1.setText("Nueva Contrase\u00F1a2\r\n");
+		txtNuevaContrasea_1.setColumns(10);
+		txtNuevaContrasea_1.setBounds(527, 274, 239, 42);
+		frame.getContentPane().add(txtNuevaContrasea_1);
+
+		JButton btnNewButton = new JButton("<-");
+		btnNewButton.setBounds(494, 10, 58, 21);
+		frame.getContentPane().add(btnNewButton);
+
+		panel = new JPanel();
+		panel.setBackground(new Color(57, 62, 70));
+		panel.setForeground(Color.WHITE);
+		panel.setBounds(479, 0, 357, 443);
+		frame.getContentPane().add(panel);
+
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 91));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\lugon\\Downloads\\basketball-sports-court- (1).jpg"));
+		lblNewLabel.setBounds(-232, -13, 1586, 456);
+		frame.getContentPane().add(lblNewLabel);
 
 	}
 }
