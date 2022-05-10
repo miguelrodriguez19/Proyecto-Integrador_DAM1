@@ -177,6 +177,12 @@ public class Launcher {
 		frame.getContentPane().add(btnForo);
 		
 		JButton btnValoraciones = new JButton("Valoraciones");
+		btnValoraciones.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Valoracion pantalla16 =new Valoracion();
+				pantalla16.Valoracion();
+			}
+		});
 		btnValoraciones.setBounds(341, 154, 85, 21);
 		frame.getContentPane().add(btnValoraciones);
 		
