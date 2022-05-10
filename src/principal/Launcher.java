@@ -106,8 +106,8 @@ public class Launcher {
 		JButton btnHistorial = new JButton("Historial");
 		btnHistorial.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				HistorialWindow pantalla8=new HistorialWindow();
-				pantalla8.HistorialWindow();
+//				HistorialWindow pantalla8=new HistorialWindow();
+//				pantalla8.HistorialWindow();
 			}
 		});
 		btnHistorial.setBounds(341, 67, 85, 21);
@@ -163,6 +163,12 @@ public class Launcher {
 		frame.getContentPane().add(btnVerEvento);
 		
 		JButton btnModEvento = new JButton("ModEvento");
+		btnModEvento.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ModificarEvento pantalla20= new ModificarEvento();
+				pantalla20.ModificarEvento();
+			}
+		});
 		btnModEvento.setBounds(112, 154, 85, 21);
 		frame.getContentPane().add(btnModEvento);
 		
