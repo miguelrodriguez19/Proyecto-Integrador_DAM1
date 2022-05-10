@@ -45,7 +45,7 @@ public class ConfCrearPerfil {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void ConfCrearPerfil() {
 		ConfCrearPerfil window = new ConfCrearPerfil();
 		window.frame.setVisible(true);
 

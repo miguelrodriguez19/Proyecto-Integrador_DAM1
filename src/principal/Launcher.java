@@ -190,7 +190,13 @@ public class Launcher {
 		btnEditarPerfil.setBounds(231, 67, 85, 21);
 		frame.getContentPane().add(btnEditarPerfil);
 		
-		JButton btnNewButton_16 = new JButton("New button");
+		JButton btnNewButton_16 = new JButton("ConfCrearPerf");
+		btnNewButton_16.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ConfCrearPerfil pantalla17=new ConfCrearPerfil();
+				pantalla17.ConfCrearPerfil();
+			}
+		});
 		btnNewButton_16.setBounds(0, 200, 85, 21);
 		frame.getContentPane().add(btnNewButton_16);
 	}
