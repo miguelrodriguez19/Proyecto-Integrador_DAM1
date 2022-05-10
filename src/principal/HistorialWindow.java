@@ -1,7 +1,6 @@
 package principal;
 
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Cursor;
 import java.awt.Font;
 import java.io.IOException;
@@ -10,11 +9,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
 import javax.swing.border.TitledBorder;
+import javax.swing.table.DefaultTableModel;
 
 public class HistorialWindow {
 
@@ -28,6 +27,7 @@ public class HistorialWindow {
 	private JTable table;
 	private JPanel panelHeader;
 	private JPanel panelMain;
+	private JScrollPane scrollPane;
 
 	/**
 	 * Launch the application.
@@ -62,7 +62,7 @@ public class HistorialWindow {
 
 		btnHomeIcon = new JButton("");
 		btnHomeIcon.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnHomeIcon.setIcon(new ImageIcon(FAQsWindow.class.getResource("/Imagenes/home-48.png")));
+		btnHomeIcon.setIcon(new ImageIcon(HistorialWindow.class.getResource("/Imagenes/home-48.png")));
 		btnHomeIcon.setBounds(20, 12, 58, 74);
 		btnHomeIcon.setBackground(null);
 		btnHomeIcon.setBorder(null);
@@ -88,7 +88,7 @@ public class HistorialWindow {
 
 		btnProfileIcon = new JButton("");
 		btnProfileIcon.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnProfileIcon.setIcon(new ImageIcon(FAQsWindow.class.getResource("/Imagenes/usuario-de-perfil.png")));
+		btnProfileIcon.setIcon(new ImageIcon(HistorialWindow.class.getResource("/Imagenes/usuario-de-perfil.png")));
 		btnProfileIcon.setBounds(722, 12, 73, 76);
 		btnProfileIcon.setBackground(null);
 		btnProfileIcon.setBorder(null);
@@ -119,25 +119,41 @@ public class HistorialWindow {
 		table.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"Queso"},
-				{null},
-				{null},
+//				{"Creador", "Fecha", "Participantes", "Resultado", "Descripcion"},
+				{"@PedroJuarez", "12/02/2022", "14", "10 | 2     Victoria", "Partido Fútbol Villalba"},
+				{"@BenitoPerez", "17/02/2022", "4", "6 | 3     Victoria", "Tenis Polideportivo Moralzarzal"},
+				{"@JuanAlvarez", "22/02/2022", "14", "82 | 78     Victoria", "Baloncesto Polideportivo Moralzarzal"},
+				{"@BenitoPerez", "28/02/2022", "2", "3 | 3     Empate", "Tenis Polideportivo Moralzarzal"},
+				{"@PedroJuarez", "03/03/2022", "22", "3 | 5     Derrota", "Partido Fútbol Villalba"},
+				{"@JuanAlvarez", "12/03/2022", "17", "2 | 5     Derrota", "Partido Fútbol"},
+				{"@PedroJuarez", "12/02/2022", "14", "2 | 5     Derrota", "Partido Fútbol Polideportivo Villalba"},
+				{"@BenitoPerez", "12/02/2022", "8", "5 | 2     Victoria", "Tenis Polideportivo Moralzarzal"},
+				{"@PedroJuarez", "12/02/2022", "10", "10 | 2     Victoria", "Partido Fútbol 7"},
+				{"@PedroJuarez", "12/02/2022", "12", "10 | 2     Victoria", "Partido Fútbol 7"},
+				{"@JuanAlvarez", "15/03/2022", "5", "3 | 2     Victoria", "Padel Polideportivo Moralzarzal"},
+				{"@BenitoPerez", "23/03/2022", "15", "44 | 32     Victoria", "Baloncesto Polideportivo Villalba"},
+				{null, null, null, null}
 			},
 			new String[] {
-				"New column"
+				"Creador", "Fecha", "Participantes", "Resultado", "Descripcion"
 			}
 		) {
+			//
 			boolean[] columnEditables = new boolean[] {
-				false
+				true, true, true, true
 			};
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
 		});
-		table.getColumnModel().getColumn(0).setPreferredWidth(720);
-		table.setRowHeight(80);
+//		table.getColumnModel().getColumn(4).setPreferredWidth(720);
+		table.setRowHeight(60);
 		table.setBounds(96, 58, 709, 285);
-		panelMain.add(table);
+		
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(96, 58, 709, 285);
+		panelMain.add(scrollPane);
+		scrollPane.setViewportView(table);
 
 	}
 }
