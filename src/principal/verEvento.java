@@ -36,6 +36,9 @@ public class verEvento {
 	private JButton btnPerfil;
 	private JButton btnFlechaAtras;
 	private JButton btnFaqs;
+	private JButton btnNewButton;
+	private JButton btnUnirse;
+	private JTextArea txtrDescripcinOrganizamosUn;
 
 	/**
 	 * Launch the application.
@@ -129,12 +132,12 @@ public class verEvento {
 		txtLocalización.setColumns(10);
 		frame.getContentPane().add(txtLocalización);
 		
-		JTextArea txtrDescripcinOrganizamosUn = new JTextArea();
+		txtrDescripcinOrganizamosUn = new JTextArea();
 		txtrDescripcinOrganizamosUn.setBounds(366, 135, 441, 203);
 		txtrDescripcinOrganizamosUn.setText("DESCRIPCI\u00D3N: \r\nOrganizamos un partido de futbol unos amigos y yo pero no somos suficientes. Buscamos a 5 personas.\r\nLugar: Polideportivo de Moralzarzal, a las 12:00\r\nAPUNTAROS!\r\n");
 		frame.getContentPane().add(txtrDescripcinOrganizamosUn);
 		
-		JButton btnUnirse = new JButton("FORO");
+		btnUnirse = new JButton("FORO");
 		btnUnirse.setBounds(650, 361, 157, 51);
 		btnUnirse.setBorder(null);
 		btnUnirse.setForeground(Color.WHITE);
@@ -163,12 +166,12 @@ public class verEvento {
 		btnFlechaAtras.setBackground(null);
 		btnFlechaAtras.setIcon(new ImageIcon(crearEvento.class.getResource("/Imagenes/arrow.png")));
 		
-		JButton btnNewButton_2 = new JButton("SALIR DEL EVENTO\r\n");
-		btnNewButton_2.setBounds(366, 361, 157, 51);
-		btnNewButton_2.setForeground(Color.WHITE);
-		btnNewButton_2.setBorder(null);
-		btnNewButton_2.setBackground(Color.RED);
-		frame.getContentPane().add(btnNewButton_2);
+		btnNewButton = new JButton("SALIR DEL EVENTO\r\n");
+		btnNewButton.setBounds(366, 361, 157, 51);
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setBorder(null);
+		btnNewButton.setBackground(Color.RED);
+		frame.getContentPane().add(btnNewButton);
 		
 		
 	}

@@ -33,6 +33,9 @@ public class unirseEvento {
 	private JButton btnPerfil;
 	private JButton btnNewButton_2;
 	private JButton btnFaqs;
+	private JList list;
+	private JTextArea txtrDescripcinOrganizamosUn;
+	private JButton btnUnirse;
 
 	/**
 	 * Launch the application.
@@ -110,7 +113,7 @@ public class unirseEvento {
 		scrollBar.setBounds(618, 223, 29, 68);
 		frame.getContentPane().add(scrollBar);
 		
-		JList list = new JList();
+		list = new JList();
 		list.setModel(new AbstractListModel() {
 			String[] values = new String[] {"PARTICIPANTES:", "JUANITO23", "LUISP8", "OSCAR99", "JOSE.LOP", "MARCOS005"};
 			public int getSize() {
@@ -127,12 +130,12 @@ public class unirseEvento {
 		scrollBar_1.setBounds(628, 309, 23, 103);
 		frame.getContentPane().add(scrollBar_1);
 		
-		JTextArea txtrDescripcinOrganizamosUn = new JTextArea();
+		txtrDescripcinOrganizamosUn = new JTextArea();
 		txtrDescripcinOrganizamosUn.setText("DESCRIPCI\u00D3N: \r\nOrganizamos un partido de futbol unos amigos y yo pero no somos suficientes. Buscamos a 5 personas.\r\nLugar: Polideportivo de Moralzarzal, a las 12:00\r\nAPUNTAROS!\r\n");
 		txtrDescripcinOrganizamosUn.setBounds(283, 309, 366, 103);
 		frame.getContentPane().add(txtrDescripcinOrganizamosUn);
 		
-		JButton btnUnirse = new JButton("UNIRSE");
+		btnUnirse = new JButton("UNIRSE");
 		btnUnirse.setBorder(null);
 		btnUnirse.setForeground(Color.WHITE);
 		btnUnirse.setBackground(new Color(53,187,95));

@@ -24,6 +24,10 @@ public class crearEvento {
 	private JButton btnNewButton_2;
 	private JButton btnFaqs;
 	private JButton btnPerfil;
+	private JLabel lblTipoEvento;
+	private JLabel lblFecha;
+	private JRadioButton rdbtnPublico;
+	private JRadioButton rdbtnPrivado;
 
 	/**
 	 * Launch the application.
@@ -112,20 +116,20 @@ public class crearEvento {
 		frame.getContentPane().add(txtParticipantes);
 		txtParticipantes.setColumns(10);
 		
-		JLabel lblTipoEvento = new JLabel("TIPO EVENTO");
+		lblTipoEvento = new JLabel("TIPO EVENTO");
 		lblTipoEvento.setForeground(Color.WHITE);
 		lblTipoEvento.setBounds(41, 351, 93, 13);
 		frame.getContentPane().add(lblTipoEvento);
 		
-		JRadioButton rdbtnPublico = new JRadioButton("PUBLICO");
+		rdbtnPublico = new JRadioButton("PUBLICO");
 		rdbtnPublico.setBounds(39, 370, 106, 21);
 		frame.getContentPane().add(rdbtnPublico);
 		
-		JRadioButton rdbtnPrivado = new JRadioButton("PRIVADO");
+		rdbtnPrivado = new JRadioButton("PRIVADO");
 		rdbtnPrivado.setBounds(40, 393, 105, 21);
 		frame.getContentPane().add(rdbtnPrivado);
 		
-		JLabel lblFecha = new JLabel("FECHA EVENTO");
+		lblFecha = new JLabel("FECHA EVENTO");
 		lblFecha.setForeground(Color.WHITE);
 		lblFecha.setBounds(198, 351, 82, 13);
 		frame.getContentPane().add(lblFecha);

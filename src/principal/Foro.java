@@ -28,6 +28,9 @@ public class Foro {
 	private JButton btnNewButton_5;
 	private JButton btnNewButton_6;
 	private JTextField txtPartidoFutbolColegas;
+	private JPanel panel_1;
+	private JPanel panelFondo;
+	private JButton btnEnviar;
 
 	/**
 	 * Launch the application.
@@ -70,7 +73,7 @@ public class Foro {
 		btnUnirse.setBounds(553, 363, 157, 51);
 		frame.getContentPane().add(btnUnirse);
 		
-		JPanel panel_1 = new JPanel();
+		panel_1 = new JPanel();
 		panel_1.setBorder(null);
 		panel_1.setBackground(new Color(70, 130, 180));
 		panel_1.setBounds(55, 10, 366, 39);
@@ -90,74 +93,74 @@ public class Foro {
 		btnNewButton_1.setBorder(null);
 		btnNewButton_1.setBackground(Color.WHITE);
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(55, 10, 364, 404);
-		frame.getContentPane().add(panel);
-		panel.setLayout(null);
+		panelFondo = new JPanel();
+		panelFondo.setBounds(55, 10, 364, 404);
+		frame.getContentPane().add(panelFondo);
+		panelFondo.setLayout(null);
 		
 		txtHolaYoLlevo = new JTextField();
 		txtHolaYoLlevo.setText("Hola, yo llevo la pelota");
 		txtHolaYoLlevo.setBounds(69, 61, 141, 27);
-		panel.add(txtHolaYoLlevo);
+		panelFondo.add(txtHolaYoLlevo);
 		txtHolaYoLlevo.setColumns(10);
 		
 		txtGenialGracias = new JTextField();
 		txtGenialGracias.setText("Genial, gracias!");
 		txtGenialGracias.setBounds(131, 114, 161, 27);
-		panel.add(txtGenialGracias);
+		panelFondo.add(txtGenialGracias);
 		txtGenialGracias.setColumns(10);
 		
 		txtElTemaDe = new JTextField();
 		txtElTemaDe.setText("El tema de las equipaciones?");
 		txtElTemaDe.setBounds(69, 166, 152, 27);
-		panel.add(txtElTemaDe);
+		panelFondo.add(txtElTemaDe);
 		txtElTemaDe.setColumns(10);
 		
 		txtLlevamosCamisetasAzules = new JTextField();
 		txtLlevamosCamisetasAzules.setText("Llevamos camisetas azules y blancas?");
 		txtLlevamosCamisetasAzules.setBounds(69, 222, 202, 27);
-		panel.add(txtLlevamosCamisetasAzules);
+		panelFondo.add(txtLlevamosCamisetasAzules);
 		txtLlevamosCamisetasAzules.setColumns(10);
 		
 		txtAlliNosVemos = new JTextField();
 		txtAlliNosVemos.setText("Alli nos vemos");
 		txtAlliNosVemos.setBounds(190, 270, 103, 27);
-		panel.add(txtAlliNosVemos);
+		panelFondo.add(txtAlliNosVemos);
 		txtAlliNosVemos.setColumns(10);
 		
 		txtEscribeAqui = new JTextField();
 		txtEscribeAqui.setText("ESCRIBE AQUI...");
 		txtEscribeAqui.setBounds(10, 355, 249, 39);
-		panel.add(txtEscribeAqui);
+		panelFondo.add(txtEscribeAqui);
 		txtEscribeAqui.setColumns(10);
 		
-		JButton btnNewButton = new JButton("ENVIAR");
-		btnNewButton.setBounds(269, 361, 85, 27);
-		panel.add(btnNewButton);
+		btnEnviar = new JButton("ENVIAR");
+		btnEnviar.setBounds(269, 361, 85, 27);
+		panelFondo.add(btnEnviar);
 		
 		btnNewButton_2 = new JButton("");
 		btnNewButton_2.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
 		btnNewButton_2.setBounds(10, 48, 52, 46);
-		panel.add(btnNewButton_2);
+		panelFondo.add(btnNewButton_2);
 		
 		btnNewButton_3 = new JButton("");
 		btnNewButton_3.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
 		btnNewButton_3.setBounds(302, 106, 52, 46);
-		panel.add(btnNewButton_3);
+		panelFondo.add(btnNewButton_3);
 		
 		btnNewButton_4 = new JButton("");
 		btnNewButton_4.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
 		btnNewButton_4.setBounds(10, 154, 52, 46);
-		panel.add(btnNewButton_4);
+		panelFondo.add(btnNewButton_4);
 		
 		btnNewButton_5 = new JButton("");
 		btnNewButton_5.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
 		btnNewButton_5.setBounds(10, 213, 52, 46);
-		panel.add(btnNewButton_5);
+		panelFondo.add(btnNewButton_5);
 		
 		btnNewButton_6 = new JButton("");
 		btnNewButton_6.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
 		btnNewButton_6.setBounds(303, 261, 52, 46);
-		panel.add(btnNewButton_6);
+		panelFondo.add(btnNewButton_6);
 	}
 }

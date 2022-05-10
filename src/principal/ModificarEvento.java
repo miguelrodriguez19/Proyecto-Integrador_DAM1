@@ -25,6 +25,12 @@ public class ModificarEvento {
 	private JTextField txtFechaEvento;
 	private JTextField txtCreadorEvento;
 	private JTextField txtTipoEvento;
+	private JLabel lblNombreEvento;
+	private JLabel lblDeporteFutbol;
+	private JLabel lblLocalizacion;
+	private JButton btnCancelar;
+	private JTextArea txtrDescripcinOrganizamosUn;
+	private JButton btnGuardar;
 
 	/**
 	 * Launch the application.
@@ -81,12 +87,12 @@ public class ModificarEvento {
 		btnPerfil.setBounds(631, 43, 85, 21);
 		panel.add(btnPerfil);
 		
-		JButton btnUnirse = new JButton("GUARDAR");
-		btnUnirse.setBounds(650, 361, 157, 51);
-		btnUnirse.setBorder(null);
-		btnUnirse.setForeground(Color.WHITE);
-		btnUnirse.setBackground(new Color(53, 187, 95));
-		frame.getContentPane().add(btnUnirse);
+		btnGuardar = new JButton("GUARDAR");
+		btnGuardar.setBounds(650, 361, 157, 51);
+		btnGuardar.setBorder(null);
+		btnGuardar.setForeground(Color.WHITE);
+		btnGuardar.setBackground(new Color(53, 187, 95));
+		frame.getContentPane().add(btnGuardar);
 		
 		btnHome = new JButton("");
 		btnHome.setBorderPainted(false);
@@ -97,12 +103,12 @@ public class ModificarEvento {
 		btnHome.setBounds(22, 10, 85, 70);
 		panel.add(btnHome);
 		
-		JButton btnNewButton_2 = new JButton("CANCELAR");
-		btnNewButton_2.setBounds(366, 361, 157, 51);
-		btnNewButton_2.setForeground(Color.WHITE);
-		btnNewButton_2.setBorder(null);
-		btnNewButton_2.setBackground(Color.RED);
-		frame.getContentPane().add(btnNewButton_2);
+		btnCancelar = new JButton("CANCELAR");
+		btnCancelar.setBounds(366, 361, 157, 51);
+		btnCancelar.setForeground(Color.WHITE);
+		btnCancelar.setBorder(null);
+		btnCancelar.setBackground(Color.RED);
+		frame.getContentPane().add(btnCancelar);
 		
 		txtFechaEvento = new JTextField();
 		txtFechaEvento.setBounds(25, 383, 283, 29);
@@ -122,25 +128,25 @@ public class ModificarEvento {
 		frame.getContentPane().add(txtCreadorEvento);
 		txtCreadorEvento.setColumns(10);
 		
-		JTextArea txtrDescripcinOrganizamosUn = new JTextArea();
+		txtrDescripcinOrganizamosUn = new JTextArea();
 		txtrDescripcinOrganizamosUn.setBounds(366, 135, 441, 203);
 		txtrDescripcinOrganizamosUn.setText("DESCRIPCI\u00D3N: \r\nOrganizamos un partido de futbol unos amigos y yo pero no somos suficientes. Buscamos a 5 personas.\r\nLugar: Polideportivo de Moralzarzal, a las 12:00\r\nAPUNTAROS!\r\n");
 		frame.getContentPane().add(txtrDescripcinOrganizamosUn);
 		
-		JLabel lblNewLabel = new JLabel("NOMBRE EVENTO: PARTIDO FUTBOL COLEGAS");
-		lblNewLabel.setForeground(Color.WHITE);
-		lblNewLabel.setBounds(25, 135, 283, 29);
-		frame.getContentPane().add(lblNewLabel);
+		lblNombreEvento = new JLabel("NOMBRE EVENTO: PARTIDO FUTBOL COLEGAS");
+		lblNombreEvento.setForeground(Color.WHITE);
+		lblNombreEvento.setBounds(25, 135, 283, 29);
+		frame.getContentPane().add(lblNombreEvento);
 		
-		JLabel lblDeporteFutbol = new JLabel("DEPORTE: FUTBOL");
+		lblDeporteFutbol = new JLabel("DEPORTE: FUTBOL");
 		lblDeporteFutbol.setForeground(Color.WHITE);
 		lblDeporteFutbol.setBounds(25, 184, 283, 29);
 		frame.getContentPane().add(lblDeporteFutbol);
 		
-		JLabel lblNewLabel_1 = new JLabel("LOCALIZACI\u00D3N: C/CRUZ DE MAYO, 8 28411 MORALZARZAL");
-		lblNewLabel_1.setForeground(Color.WHITE);
-		lblNewLabel_1.setBounds(25, 223, 283, 45);
-		frame.getContentPane().add(lblNewLabel_1);
+		lblLocalizacion = new JLabel("LOCALIZACI\u00D3N: C/CRUZ DE MAYO, 8 28411 MORALZARZAL");
+		lblLocalizacion.setForeground(Color.WHITE);
+		lblLocalizacion.setBounds(25, 223, 283, 45);
+		frame.getContentPane().add(lblLocalizacion);
 		
 	}
 }

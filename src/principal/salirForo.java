@@ -15,6 +15,10 @@ public class salirForo {
 
 	private JFrame frame;
 	private JTextField txtestaSeguroQue;
+	private JButton btnSiSalir;
+	private JButton btnNoSalir;
+	private JButton btnX;
+	private JButton btnNewButton;
 
 	/**
 	 * Launch the application.
@@ -64,26 +68,26 @@ public class salirForo {
 		panel.add(txtestaSeguroQue);
 		txtestaSeguroQue.setColumns(10);
 		
-		JButton btnSiSalir = new JButton("SI");
+		btnSiSalir = new JButton("SI");
 		btnSiSalir.setBorder(null);
 		btnSiSalir.setBackground(new Color(53, 187, 95));
 		btnSiSalir.setBounds(95, 86, 105, 39);
 		panel.add(btnSiSalir);
 		
-		JButton btnNoSalir = new JButton("NO");
+		btnNoSalir = new JButton("NO");
 		btnNoSalir.setBackground(Color.RED);
 		btnNoSalir.setBorder(null);
 		btnNoSalir.setBounds(261, 86, 100, 39);
 		panel.add(btnNoSalir);
 		
-		JButton btnNewButton_2 = new JButton("SALIR DEL EVENTO\r\n");
-		btnNewButton_2.setForeground(Color.WHITE);
-		btnNewButton_2.setBorder(null);
-		btnNewButton_2.setBackground(Color.RED);
-		btnNewButton_2.setBounds(622, 355, 157, 51);
-		frame.getContentPane().add(btnNewButton_2);
+		btnNewButton = new JButton("SALIR DEL EVENTO\r\n");
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setBorder(null);
+		btnNewButton.setBackground(Color.RED);
+		btnNewButton.setBounds(622, 355, 157, 51);
+		frame.getContentPane().add(btnNewButton);
 		
-		JButton btnX = new JButton("X");
+		btnX = new JButton("X");
 		btnX.setBorder(null);
 		btnX.setBackground(Color.WHITE);
 		btnX.setBounds(416, 10, 34, 27);
