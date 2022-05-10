@@ -59,8 +59,8 @@ public class Register {
 		container.setLayout(null);
 
 		txtNombre = new JTextField();
-		txtNombre.setText("Nombre");
-		txtNombre.setBounds(519, 97, 86, 30);
+
+		txtNombre.setBounds(520, 97, 85, 30);
 		container.add(txtNombre);
 		txtNombre.setColumns(10);
 
@@ -70,13 +70,14 @@ public class Register {
 		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 36));
 		btnOK.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println(txtNombre.getText());
+				// System.out.println(txtNombre.getText());
 //				comboBox.addItem(txtNombre.getText());
 //				System.out.println(chckbxNewCheckBox.isSelected());
 //				System.out.println("La Contraseña es " + String.valueOf(passwordField.getPassword()));
 			}
 		});
 		btnOK.setBounds(520, 335, 275, 53);
+
 		container.add(btnOK);
 
 		ButtonGroup group = new ButtonGroup();
