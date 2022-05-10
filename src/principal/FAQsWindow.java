@@ -1,6 +1,7 @@
 package principal;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -11,10 +12,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import java.awt.Cursor;
-import java.awt.ComponentOrientation;
+import javax.swing.JScrollBar;
 import javax.swing.JTextPane;
-import javax.swing.JScrollPane;
+import javax.swing.SwingConstants;
 
 public class FAQsWindow {
 
@@ -31,6 +31,9 @@ public class FAQsWindow {
 	private JTextPane txtpnPregunta1;
 	private JButton btnPregunta2;
 	private JTextPane txtpnPregunta2;
+	private JButton btnPregunta3;
+	private JTextPane txtpnPregunta3;
+	private JScrollBar scrollBar;
 
 	/**
 	 * Launch the application.
@@ -122,14 +125,14 @@ public class FAQsWindow {
 		btnBackIcon.setBorder(null);
 		panelMain.add(btnBackIcon);
 
-		lblFAQsTitle = new JLabel("Preguntas Frecuentes");
+		lblFAQsTitle = new JLabel("Preguntas Frecuentes", SwingConstants.CENTER);
 		lblFAQsTitle.setForeground(new Color(255, 255, 255));
 		lblFAQsTitle.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblFAQsTitle.setBounds(311, 10, 254, 55);
+		lblFAQsTitle.setBounds(157, 10, 524, 55);
 		panelMain.add(lblFAQsTitle);
 
 		btnPregunta1 = new JButton(
-				"\u00BFPor qu\u00E9 no funciona correctamente el tabulador para moverse entre botones?");
+				"¿Como cambió mi constraseña si se me ha olvidado?");
 		btnPregunta1.setForeground(new Color(0, 0, 255));
 		btnPregunta1.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnPregunta1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -139,41 +142,68 @@ public class FAQsWindow {
 		panelMain.add(btnPregunta1);
 
 		txtpnPregunta1 = new JTextPane();
-		txtpnPregunta1.setText("Lorem ipsum dolor sit amet consectetum patata");
+		txtpnPregunta1.setText("A la hora de iniciar sesión, le da a he olvidado mi contaseña, y tiene que escribir el código que le llegue al e-mail, y su nueva contraseña"
+				+ "\nSi esto no resuelve sus dudas no dude en contactar a nuestro soporte");
 		txtpnPregunta1.setBounds(157, 128, 524, 50);
 		panelMain.add(txtpnPregunta1);
 		txtpnPregunta1.setVisible(false);
 
-		btnPregunta2 = new JButton("\u00BFPor qu\u00E9 x?");
+		btnPregunta2 = new JButton("¿Hay que pagar algo para usar esta aplicación?");
 		btnPregunta2.setForeground(Color.BLUE);
+		btnPregunta2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPregunta2.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnPregunta2.setBounds(157, 128, 524, 50);
 //			btnPregunta2.setBounds(157, 188, 524, 55);
 		panelMain.add(btnPregunta2);
 
 		txtpnPregunta2 = new JTextPane();
-		txtpnPregunta2.setText("Porque si");
+		txtpnPregunta2.setText("No, está es totalmente gratuita, pretendemos obtener beneficio de la aplicación mediante anuncios que molesten lo menos posible");
 		txtpnPregunta2.setBounds(157, 252, 524, 50);
 		panelMain.add(txtpnPregunta2);
 		txtpnPregunta2.setVisible(false);
-
+		
+		scrollBar = new JScrollBar();
+		scrollBar.setBounds(750, 71, 17, 231);
+		panelMain.add(scrollBar);
+		
+		btnPregunta3 = new JButton("\u00BFTiene alguna pregunta m\u00E1s?: Soporte Técnico");
+		btnPregunta3.setForeground(Color.BLUE);
+		btnPregunta3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnPregunta3.setBounds(157, 188, 524, 50);
+		panelMain.add(btnPregunta3);
+		
+		txtpnPregunta3 = new JTextPane();
+		txtpnPregunta3.setText("Contactenos:"
+				+ "\nVía e-mail: soporte@sports-choice.com"
+				+ "\nLlamando a este número: 633 456"
+				+ "\nO en nuestras oficinas localizadas en Toledo");
+		txtpnPregunta3.setBounds(157, 240, 524, 70);
+		panelMain.add(txtpnPregunta3);
+		txtpnPregunta3.setVisible(false);
+		
 		btnPregunta1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				txtpnPregunta3.setVisible(false);
 				if (txtpnPregunta1.isVisible()) {
+					btnPregunta3.setBounds(157, 188, 524, 50);
 					btnPregunta2.setBounds(157, 128, 524, 50);
 					txtpnPregunta2.setBounds(157, 188, 524, 55);
 					txtpnPregunta1.setVisible(false);
 				} else {
+					btnPregunta3.setBounds(157, 250, 524, 50);
 					btnPregunta2.setBounds(157, 188, 524, 55);
 					txtpnPregunta1.setVisible(true);
-					if (txtpnPregunta2.isVisible())
+					if (txtpnPregunta2.isVisible()) {
 						txtpnPregunta2.setBounds(157, 252, 524, 50);
+						btnPregunta3.setBounds(157, 320, 524, 50);
+					}
 				}
 			}
 		});
 
 		btnPregunta2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				txtpnPregunta3.setVisible(false);
 				if (txtpnPregunta1.isVisible())
 					txtpnPregunta2.setBounds(157, 252, 524, 50);
 				else
@@ -183,6 +213,17 @@ public class FAQsWindow {
 				else
 					txtpnPregunta2.setVisible(true);
 
+			}
+		});
+		
+		btnPregunta3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtpnPregunta1.setVisible(false);
+				txtpnPregunta2.setVisible(false);
+				if (txtpnPregunta3.isVisible())
+					txtpnPregunta3.setVisible(false);
+				else
+					txtpnPregunta3.setVisible(true);
 			}
 		});
 
