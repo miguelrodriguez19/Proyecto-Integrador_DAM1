@@ -121,7 +121,7 @@ public class Launcher {
 				pantalla9.FAQsWindow();
 			}
 		});
-		btnFAQs.setBounds(-19, 109, 85, 21);
+		btnFAQs.setBounds(0, 109, 85, 21);
 		frame.getContentPane().add(btnFAQs);
 		
 		JButton btnMisEventos = new JButton("MisEventos");
@@ -161,7 +161,7 @@ public class Launcher {
 				pantalla13.verEvento();
 			}
 		});
-		btnVerEvento.setBounds(-19, 154, 85, 21);
+		btnVerEvento.setBounds(0, 154, 85, 21);
 		frame.getContentPane().add(btnVerEvento);
 		
 		JButton btnModEvento = new JButton("ModEvento");
