@@ -58,9 +58,9 @@ public class CambiarContraseña {
 		container.setLayout(null);
 
 		btnOK = new JButton("Iniciar Sesi\u00F3n\r\n\r\n");
-		btnOK.setForeground(Color.BLACK);
+		btnOK.setForeground(Color.WHITE);
 		btnOK.setBackground(new Color(53, 187, 95));
-		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 36));
+		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnOK.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// System.out.println(txtNombre.getText());
@@ -108,8 +108,10 @@ public class CambiarContraseña {
 		txtNuevaContrasea_1.setBounds(527, 274, 239, 42);
 		frame.getContentPane().add(txtNuevaContrasea_1);
 
-		JButton btnNewButton = new JButton("<-");
-		btnNewButton.setBounds(494, 10, 58, 21);
+		JButton btnNewButton = new JButton("");
+		btnNewButton.setBackground(new Color(57, 62, 70));
+		btnNewButton.setIcon(new ImageIcon(CambiarContraseña.class.getResource("/Imagenes/arrow.png")));
+		btnNewButton.setBounds(494, 10, 58, 33);
 		frame.getContentPane().add(btnNewButton);
 
 		panel = new JPanel();
@@ -120,7 +122,8 @@ public class CambiarContraseña {
 
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 91));
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\lugon\\Downloads\\basketball-sports-court- (1).jpg"));
+		lblNewLabel.setIcon(
+				new ImageIcon(CambiarContraseña.class.getResource("/Imagenes/basketball-sports-court- (1).jpg")));
 		lblNewLabel.setBounds(-232, -13, 1586, 456);
 		frame.getContentPane().add(lblNewLabel);
 

@@ -36,10 +36,10 @@ public class Register {
 	private JButton btnOK;
 	private JTextField txtApellidos;
 	private JTextField txtMail;
-	private JPasswordField passwordField_1;
-	private JPasswordField passwordField_2;
 	private JPanel panel;
 	private JButton btnNewButton;
+	private JTextField txtContrasea;
+	private JTextField txtRepiteContrasea;
 
 	/**
 	 * Launch the application.
@@ -59,15 +59,16 @@ public class Register {
 		container.setLayout(null);
 
 		txtNombre = new JTextField();
+		txtNombre.setText("Nombre");
 
 		txtNombre.setBounds(520, 97, 85, 30);
 		container.add(txtNombre);
 		txtNombre.setColumns(10);
 
 		btnOK = new JButton("Crear Cuenta\r\n");
-		btnOK.setForeground(Color.BLACK);
+		btnOK.setForeground(Color.WHITE);
 		btnOK.setBackground(new Color(156, 163, 219));
-		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 36));
+		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnOK.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// System.out.println(txtNombre.getText());
@@ -99,15 +100,18 @@ public class Register {
 		txtMail.setColumns(10);
 		txtMail.setBounds(520, 138, 275, 30);
 		frame.getContentPane().add(txtMail);
-
-		passwordField_1 = new JPasswordField();
-		passwordField_1.setEchoChar('w');
-		passwordField_1.setBounds(520, 178, 275, 30);
-		frame.getContentPane().add(passwordField_1);
-
-		passwordField_2 = new JPasswordField();
-		passwordField_2.setBounds(519, 225, 276, 30);
-		frame.getContentPane().add(passwordField_2);
+		
+		txtRepiteContrasea = new JTextField();
+		txtRepiteContrasea.setText("Repite Contrase\u00F1a");
+		txtRepiteContrasea.setColumns(10);
+		txtRepiteContrasea.setBounds(520, 228, 275, 30);
+		frame.getContentPane().add(txtRepiteContrasea);
+		
+		txtContrasea = new JTextField();
+		txtContrasea.setText("Contrase\u00F1a");
+		txtContrasea.setColumns(10);
+		txtContrasea.setBounds(520, 188, 275, 30);
+		frame.getContentPane().add(txtContrasea);
 
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] { "DIA" }));
@@ -138,12 +142,12 @@ public class Register {
 		panel = new JPanel();
 		panel.setBackground(new Color(57, 62, 70));
 		panel.setForeground(Color.WHITE);
-		panel.setBounds(478, 0, 358, 443);
+		panel.setBounds(487, 0, 349, 443);
 		frame.getContentPane().add(panel);
 
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 91));
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\lugon\\Downloads\\basketball-sports-court- (1).jpg"));
+		lblNewLabel.setIcon(new ImageIcon(Register.class.getResource("/Imagenes/basketball-sports-court- (1).jpg")));
 		lblNewLabel.setBounds(-232, -13, 1586, 456);
 		frame.getContentPane().add(lblNewLabel);
 

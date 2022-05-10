@@ -35,12 +35,12 @@ public class LogIn {
 	private JFrame frame;
 	private JButton btnOK;
 	private JTextField txtMail;
-	private JPasswordField passwordField_1;
 	private JPanel panel;
 	private JButton btnNewButton;
 	private JButton btnOK_1;
 	private JLabel lblnoTienesCuenta;
 	private JLabel lblNewLabel_1;
+	private JTextField txtContrasea;
 
 	/**
 	 * Launch the application.
@@ -60,9 +60,9 @@ public class LogIn {
 		container.setLayout(null);
 
 		btnOK = new JButton("Iniciar Sesi\u00F3n\r\n\r\n");
-		btnOK.setForeground(Color.BLACK);
+		btnOK.setForeground(Color.WHITE);
 		btnOK.setBackground(new Color(53, 187, 95));
-		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 36));
+		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnOK.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// System.out.println(txtNombre.getText());
@@ -85,12 +85,8 @@ public class LogIn {
 		txtMail = new JTextField();
 		txtMail.setText("Mail/Usuario\r\n");
 		txtMail.setColumns(10);
-		txtMail.setBounds(520, 108, 275, 48);
+		txtMail.setBounds(520, 96, 275, 48);
 		frame.getContentPane().add(txtMail);
-
-		passwordField_1 = new JPasswordField();
-		passwordField_1.setBounds(520, 166, 275, 42);
-		frame.getContentPane().add(passwordField_1);
 
 		btnNewButton = new JButton("Recuperar Contrase\u00F1a\r\n");
 		btnNewButton.setBorder(null);
@@ -100,7 +96,7 @@ public class LogIn {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(520, 273, 275, 21);
+		btnNewButton.setBounds(520, 282, 275, 21);
 		frame.getContentPane().add(btnNewButton);
 
 		btnOK_1 = new JButton("Crear Cuenta\r\n");
@@ -108,8 +104,8 @@ public class LogIn {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnOK_1.setForeground(Color.BLACK);
-		btnOK_1.setFont(new Font("Tahoma", Font.PLAIN, 36));
+		btnOK_1.setForeground(Color.WHITE);
+		btnOK_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnOK_1.setBackground(new Color(156, 163, 219));
 		btnOK_1.setBounds(520, 376, 275, 42);
 		frame.getContentPane().add(btnOK_1);
@@ -118,23 +114,29 @@ public class LogIn {
 		lblnoTienesCuenta.setVerticalAlignment(SwingConstants.TOP);
 		lblnoTienesCuenta.setForeground(Color.WHITE);
 		lblnoTienesCuenta.setFont(new Font("Trebuchet MS", Font.PLAIN, 25));
-		lblnoTienesCuenta.setBounds(543, 344, 283, 65);
+		lblnoTienesCuenta.setBounds(553, 344, 283, 65);
 		frame.getContentPane().add(lblnoTienesCuenta);
 
 		lblNewLabel_1 = new JLabel("- O -");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_1.setBounds(624, 313, 74, 21);
 		frame.getContentPane().add(lblNewLabel_1);
+		
+		txtContrasea = new JTextField();
+		txtContrasea.setText("Contrase\u00F1a");
+		txtContrasea.setColumns(10);
+		txtContrasea.setBounds(520, 154, 275, 48);
+		frame.getContentPane().add(txtContrasea);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(57, 62, 70));
 		panel.setForeground(Color.WHITE);
-		panel.setBounds(480, 0, 356, 443);
+		panel.setBounds(499, 0, 337, 443);
 		frame.getContentPane().add(panel);
 
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 91));
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\lugon\\Downloads\\basketball-sports-court- (1).jpg"));
+		lblNewLabel.setIcon(new ImageIcon(LogIn.class.getResource("/Imagenes/basketball-sports-court- (1).jpg")));
 		lblNewLabel.setBounds(-232, -13, 1586, 456);
 		frame.getContentPane().add(lblNewLabel);
 

@@ -60,9 +60,9 @@ public class RecuperarContraseña {
 		container.setLayout(null);
 
 		btnOK = new JButton("Cambiar Contrase\u00F1a");
-		btnOK.setForeground(Color.BLACK);
+		btnOK.setForeground(Color.WHITE);
 		btnOK.setBackground(new Color(53, 187, 95));
-		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnOK.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// System.out.println(txtNombre.getText());
@@ -79,7 +79,7 @@ public class RecuperarContraseña {
 		JLabel lblNewLabel = new JLabel("Recuperar\r\n");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 36));
-		lblNewLabel.setBounds(578, -26, 308, 98);
+		lblNewLabel.setBounds(562, -26, 308, 98);
 		frame.getContentPane().add(lblNewLabel);
 
 		lblContrasea = new JLabel("Contrase\u00F1a");
@@ -110,14 +110,16 @@ public class RecuperarContraseña {
 		txtNuevaContrasea_1.setBounds(527, 299, 239, 42);
 		frame.getContentPane().add(txtNuevaContrasea_1);
 
-		JButton btnNewButton = new JButton("<-");
-		btnNewButton.setBounds(494, 10, 58, 21);
+		JButton btnNewButton = new JButton("");
+		btnNewButton.setBackground(new Color(57, 62, 70));
+		btnNewButton.setIcon(new ImageIcon(RecuperarContraseña.class.getResource("/Imagenes/arrow.png")));
+		btnNewButton.setBounds(482, 10, 58, 33);
 		frame.getContentPane().add(btnNewButton);
 		
-		lblNewLabel_1 = new JLabel("Revise su Mail le habra llegado\r\n");
+		lblNewLabel_1 = new JLabel("Revise su Mail le habr\u00E1, llegado\r\n");
 		lblNewLabel_1.setForeground(Color.WHITE);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblNewLabel_1.setBounds(539, 120, 266, 13);
+		lblNewLabel_1.setBounds(527, 117, 266, 21);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		lblNewLabel_2 = new JLabel(" un codigo de autentificacion");
@@ -129,7 +131,7 @@ public class RecuperarContraseña {
 		panel = new JPanel();
 		panel.setBackground(new Color(57, 62, 70));
 		panel.setForeground(Color.WHITE);
-		panel.setBounds(478, 0, 358, 443);
+		panel.setBounds(467, 0, 369, 443);
 		frame.getContentPane().add(panel);
 		
 		lblNewLabel_1 = new JLabel("");

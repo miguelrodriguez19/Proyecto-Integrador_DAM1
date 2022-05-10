@@ -60,9 +60,9 @@ public class ConfCrearPerfil {
 		container.setLayout(null);
 
 		btnOK = new JButton("Crear Cuenta");
-		btnOK.setForeground(Color.BLACK);
+		btnOK.setForeground(Color.WHITE);
 		btnOK.setBackground(new Color(156, 163, 219));
-		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnOK.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// System.out.println(txtNombre.getText());
@@ -100,9 +100,8 @@ public class ConfCrearPerfil {
 		panel_1.add(lblNewLabel_3);
 
 		JButton btnNewButton = new JButton("");
+		btnNewButton.setBackground(new Color(57, 62, 70));
 		btnNewButton.setIcon(new ImageIcon(ConfCrearPerfil.class.getResource("/Imagenes/arrow.png")));
-		btnNewButton.setForeground(Color.DARK_GRAY);
-		//btnNewButton.setIcon(new ImageIcon(ConfCrearPerfil.class.getResource("/Imagenes/back-50.png")));
 		btnNewButton.setBounds(494, 10, 58, 52);
 		frame.getContentPane().add(btnNewButton);
 
