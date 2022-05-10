@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 
 public class Launcher {
@@ -106,8 +107,15 @@ public class Launcher {
 		JButton btnHistorial = new JButton("Historial");
 		btnHistorial.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				HistorialWindow pantalla8=new HistorialWindow();
-//				pantalla8.HistorialWindow();
+				HistorialWindow pantalla8;
+				try {
+					pantalla8 = new HistorialWindow();
+					pantalla8.HistorialWindow();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 			}
 		});
 		
