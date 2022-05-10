@@ -100,6 +100,7 @@ public class ConfCrearPerfil {
 		panel_1.add(lblNewLabel_3);
 
 		JButton btnNewButton = new JButton("");
+		btnNewButton.setBorderPainted(false);
 		btnNewButton.setBackground(new Color(57, 62, 70));
 		btnNewButton.setIcon(new ImageIcon(ConfCrearPerfil.class.getResource("/Imagenes/arrow.png")));
 		btnNewButton.setBounds(494, 10, 58, 52);

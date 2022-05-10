@@ -109,6 +109,7 @@ public class CambiarContraseña {
 		frame.getContentPane().add(txtNuevaContrasea_1);
 
 		JButton btnNewButton = new JButton("");
+		btnNewButton.setBorderPainted(false);
 		btnNewButton.setBackground(new Color(57, 62, 70));
 		btnNewButton.setIcon(new ImageIcon(CambiarContraseña.class.getResource("/Imagenes/arrow.png")));
 		btnNewButton.setBounds(494, 10, 58, 33);
