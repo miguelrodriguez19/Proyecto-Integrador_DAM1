@@ -16,7 +16,11 @@ public class MainPage {
 	private JComboBox comboBoxDeportes, comboBoxDia, comboBoxMes;
 	private JScrollPane scrollPaneEventos;
 	private JTable table;
+	public static void MainPage() {
+		MainPage window = new MainPage();
+		window.frame.setVisible(true);
 
+	}
 	public MainPage() {
 		frame = new JFrame();
 		frame.setResizable(false);

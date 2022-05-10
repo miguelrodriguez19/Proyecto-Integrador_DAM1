@@ -19,7 +19,7 @@ public class MisEventos {
 	private JButton btnEliminarEvento;
 	private JButton btnPerfilFoto;
 
-	public static void main(String[] args) {
+	public static void MisEventos() {
 		MisEventos mainPage = new MisEventos();
 		mainPage.frame.setVisible(true);
 	}

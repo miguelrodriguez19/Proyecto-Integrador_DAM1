@@ -126,7 +126,8 @@ public class Launcher {
 		JButton btnMisEventos = new JButton("MisEventos");
 		btnMisEventos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				MisEventos pantalla22 =new MisEventos();
+				pantalla22.MisEventos();
 			}
 		});
 		btnMisEventos.setBounds(112, 109, 85, 21);
