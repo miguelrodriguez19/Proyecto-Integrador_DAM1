@@ -110,6 +110,7 @@ public class Launcher {
 //				pantalla8.HistorialWindow();
 			}
 		});
+		
 		btnHistorial.setBounds(341, 67, 85, 21);
 		frame.getContentPane().add(btnHistorial);
 		
