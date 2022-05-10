@@ -221,5 +221,15 @@ public class Launcher {
 		});
 		btnNewButton_16.setBounds(0, 200, 85, 21);
 		frame.getContentPane().add(btnNewButton_16);
+		
+		JButton btnNewButton = new JButton("ConfirmarRecMail");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RecuperarContraseñaV2 pantalla18=new RecuperarContraseñaV2();
+				pantalla18.RecuperarContraseña();
+			}
+		});
+		btnNewButton.setBounds(112, 200, 85, 21);
+		frame.getContentPane().add(btnNewButton);
 	}
 }
