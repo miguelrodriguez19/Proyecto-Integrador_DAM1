@@ -43,7 +43,7 @@ public class CambiarContraseña {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void CambiarContraseña() {
 		CambiarContraseña window = new CambiarContraseña();
 		window.frame.setVisible(true);
 

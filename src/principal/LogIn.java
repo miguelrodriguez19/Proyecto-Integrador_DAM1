@@ -45,7 +45,7 @@ public class LogIn {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void LogIn() {
 		LogIn window = new LogIn();
 		window.frame.setVisible(true);
 

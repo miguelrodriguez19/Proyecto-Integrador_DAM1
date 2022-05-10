@@ -44,7 +44,7 @@ public class Register {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void Register() {
 		Register window = new Register();
 		window.frame.setVisible(true);
 

@@ -32,7 +32,7 @@ public class HistorialWindow {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void HistorialWindow() {
 		HistorialWindow window = null;
 		try {
 			window = new HistorialWindow();

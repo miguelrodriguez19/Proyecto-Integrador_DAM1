@@ -45,7 +45,7 @@ public class RecuperarContraseña {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void RecuperarContraseña() {
 		RecuperarContraseña window = new RecuperarContraseña();
 		window.frame.setVisible(true);
 

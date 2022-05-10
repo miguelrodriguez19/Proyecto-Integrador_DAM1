@@ -18,7 +18,7 @@ public class MainPage {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void MainPage() {
 		MainPage mainPage = new MainPage();
 		mainPage.frame.setVisible(true);
 	}

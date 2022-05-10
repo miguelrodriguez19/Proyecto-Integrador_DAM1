@@ -37,7 +37,7 @@ public class unirseEvento {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void unirseEvento() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
