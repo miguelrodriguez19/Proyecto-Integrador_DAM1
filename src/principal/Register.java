@@ -57,6 +57,12 @@ public class Register {
 		frame.setBounds(100, 100, 850, 480);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		container.setLayout(null);
+		
+		JLabel lblNewLabel_1 = new JLabel("Fecha de Nacimiento:");
+		lblNewLabel_1.setForeground(Color.WHITE);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel_1.setBounds(520, 268, 154, 13);
+		frame.getContentPane().add(lblNewLabel_1);
 
 		txtNombre = new JTextField();
 		txtNombre.setText("Nombre");
@@ -77,7 +83,7 @@ public class Register {
 //				System.out.println("La Contraseña es " + String.valueOf(passwordField.getPassword()));
 			}
 		});
-		btnOK.setBounds(520, 335, 275, 53);
+		btnOK.setBounds(520, 349, 275, 53);
 
 		container.add(btnOK);
 
@@ -115,17 +121,17 @@ public class Register {
 
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] { "DIA" }));
-		comboBox.setBounds(520, 279, 74, 30);
+		comboBox.setBounds(520, 295, 74, 30);
 		frame.getContentPane().add(comboBox);
 
 		JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] { "MES" }));
-		comboBox_1.setBounds(604, 279, 74, 30);
+		comboBox_1.setBounds(600, 295, 74, 30);
 		frame.getContentPane().add(comboBox_1);
 
 		JComboBox comboBox_1_1 = new JComboBox();
 		comboBox_1_1.setModel(new DefaultComboBoxModel(new String[] { "A\u00D1O" }));
-		comboBox_1_1.setBounds(684, 279, 111, 30);
+		comboBox_1_1.setBounds(684, 295, 111, 30);
 		frame.getContentPane().add(comboBox_1_1);
 
 		btnNewButton = new JButton("\u00BFYa tienes Cuenta? Inicia sesion\r\n");
@@ -136,13 +142,13 @@ public class Register {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(519, 398, 275, 21);
+		btnNewButton.setBounds(520, 412, 275, 21);
 		frame.getContentPane().add(btnNewButton);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(57, 62, 70));
 		panel.setForeground(Color.WHITE);
-		panel.setBounds(487, 0, 349, 443);
+		panel.setBounds(483, 0, 353, 443);
 		frame.getContentPane().add(panel);
 
 		lblNewLabel = new JLabel("");
