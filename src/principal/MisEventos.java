@@ -40,6 +40,7 @@ public class MisEventos {
 		
 		btnPerfilFoto = new JButton("");
 		btnPerfilFoto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnPerfilFoto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPerfilFoto.setIcon(new ImageIcon(MisEventos.class.getResource("/Imagenes/appppp-modified.png")));
 		btnPerfilFoto.setBorder(null);
 		btnPerfilFoto.setBackground((Color) null);
@@ -47,6 +48,7 @@ public class MisEventos {
 		panelHeader.add(btnPerfilFoto);
 
 		btnPerfil = new JButton("Perfil");
+		btnPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPerfil.setBorder(null);
 		btnPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPerfil.setForeground(Color.WHITE);
@@ -56,6 +58,7 @@ public class MisEventos {
 		panelHeader.add(btnPerfil);
 
 		btnFAQs = new JButton("FAQs");
+		btnFAQs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFAQs.setBorder(null);
 		btnFAQs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFAQs.setForeground(Color.WHITE);
@@ -78,6 +81,7 @@ public class MisEventos {
 		panelPaginaPrincipal.setLayout(null);
 
 		btnCrearEventos = new JButton("Crear Eventos");
+		btnCrearEventos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCrearEventos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCrearEventos.setBorder(null);
 		btnCrearEventos.setForeground(Color.WHITE);
@@ -116,6 +120,7 @@ public class MisEventos {
 
 		btnAplicarFiltros = new JButton("Aplicar");
 		btnAplicarFiltros.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnAplicarFiltros.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAplicarFiltros.setForeground(Color.WHITE);
 		btnAplicarFiltros.setBorder(null);
 		btnAplicarFiltros.setBackground(new Color(129, 136, 212));
@@ -125,6 +130,7 @@ public class MisEventos {
 
 		btnEventosRecientes = new JButton("Eventos Recientes");
 		btnEventosRecientes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnEventosRecientes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEventosRecientes.setSelected(true);
 		btnEventosRecientes.setForeground(Color.WHITE);
 		btnEventosRecientes.setBorder(null);
@@ -133,6 +139,7 @@ public class MisEventos {
 		panelPaginaPrincipal.add(btnEventosRecientes);
 
 		btnMisEventos = new JButton("Mis Eventos");
+		btnMisEventos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnMisEventos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnMisEventos.setForeground(Color.WHITE);
 		btnMisEventos.setBorder(null);
@@ -182,6 +189,7 @@ public class MisEventos {
 		scrollPaneEventos.setViewportView(table);
 
 		btnUnirseEvento = new JButton("Ver Evento");
+		btnUnirseEvento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnUnirseEvento.setForeground(Color.WHITE);
 		btnUnirseEvento.setBorder(null);
 		btnUnirseEvento.setBackground(new Color(53, 187, 95));
@@ -189,6 +197,7 @@ public class MisEventos {
 		panelPaginaPrincipal.add(btnUnirseEvento);
 		
 		btnEditarEvento = new JButton("Editar Evento");
+		btnEditarEvento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEditarEvento.setForeground(Color.WHITE);
 		btnEditarEvento.setBorder(null);
 		btnEditarEvento.setBackground(new Color(217, 201, 62));

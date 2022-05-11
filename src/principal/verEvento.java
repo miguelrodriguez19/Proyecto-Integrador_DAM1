@@ -2,6 +2,7 @@ package principal;
 
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Panel;
@@ -81,6 +82,7 @@ public class verEvento {
 		panel.setLayout(null);
 		
 		btnPerfil = new JButton("");
+		btnPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPerfil.setIcon(new ImageIcon(verEvento.class.getResource("/Imagenes/usuario-de-perfil.png")));
 		btnPerfil.setBounds(726, 18, 85, 70);
 		btnPerfil.setBackground(null);
@@ -88,6 +90,7 @@ public class verEvento {
 		panel.add(btnPerfil);
 		
 		btnFaqs = new JButton("FAQS");
+		btnFaqs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFaqs.setBorder(null);
 		btnFaqs.setBackground(null);
 		btnFaqs.setForeground(Color.WHITE);
@@ -95,6 +98,7 @@ public class verEvento {
 		panel.add(btnFaqs);
 		
 		btnPerfil = new JButton("PERFIL");
+		btnPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPerfil.setForeground(Color.WHITE);
 		btnPerfil.setBorder(null);
 		btnPerfil.setBackground(null);
@@ -151,6 +155,7 @@ public class verEvento {
 		txtDeportes.setColumns(10);
 		
 		btnHome = new JButton("");
+		btnHome.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnHome.setBorderPainted(false);
 		btnHome.setBackground(null);
 		btnHome.setBorder(null);
@@ -160,6 +165,7 @@ public class verEvento {
 		panel.add(btnHome);
 		
 		btnFlechaAtras = new JButton("");
+		btnFlechaAtras.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFlechaAtras.setBounds(-21, 64, 94, 49);
 		panel.add(btnFlechaAtras);
 		btnFlechaAtras.setBorder(null);
@@ -167,6 +173,7 @@ public class verEvento {
 		btnFlechaAtras.setIcon(new ImageIcon(crearEvento.class.getResource("/Imagenes/arrow.png")));
 		
 		btnNewButton = new JButton("SALIR DEL EVENTO\r\n");
+		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton.setBounds(366, 361, 157, 51);
 		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setBorder(null);

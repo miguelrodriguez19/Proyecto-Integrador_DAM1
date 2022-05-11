@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Cursor;
+
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JList;
@@ -89,6 +91,7 @@ public class Valoracion {
 		panel.setLayout(null);
 
 		JButton btnValoran = new JButton("Valorar");
+		btnValoran.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnValoran.setBorder(null);
 		btnValoran.setForeground(Color.WHITE);
 		btnValoran.setBackground(new Color(53, 187, 95));
@@ -96,6 +99,7 @@ public class Valoracion {
 		frame.getContentPane().add(btnValoran);
 
 		btnHome = new JButton("");
+		btnHome.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnHome.setBorderPainted(false);
 		btnHome.setBackground(null);
 		btnHome.setBorder(null);
@@ -105,6 +109,7 @@ public class Valoracion {
 		panel.add(btnHome);
 
 		btnPerfil = new JButton("");
+		btnPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPerfil.setIcon(new ImageIcon(Valoracion.class.getResource("/Imagenes/usuario-de-perfil.png")));
 		btnPerfil.setBounds(726, 18, 85, 70);
 		btnPerfil.setBackground(null);
@@ -112,6 +117,7 @@ public class Valoracion {
 		panel.add(btnPerfil);
 
 		btnFaqs = new JButton("FAQS");
+		btnFaqs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFaqs.setBorder(null);
 		btnFaqs.setBackground(null);
 		btnFaqs.setForeground(Color.WHITE);
@@ -126,6 +132,7 @@ public class Valoracion {
 		panel.add(btnPerfil);
 
 		btnNewButton_2 = new JButton("");
+		btnNewButton_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_2.setBorder(null);
 		btnNewButton_2.setBackground(null);
 		btnNewButton_2.setIcon(new ImageIcon(crearEvento.class.getResource("/Imagenes/arrow.png")));

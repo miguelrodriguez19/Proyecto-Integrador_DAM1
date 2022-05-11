@@ -1,6 +1,7 @@
 package principal;
 
 import java.awt.Container;
+import java.awt.Cursor;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -60,6 +61,7 @@ public class RecuperarContraseña {
 		container.setLayout(null);
 
 		btnOK = new JButton("Cambiar Contrase\u00F1a");
+		btnOK.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnOK.setForeground(Color.WHITE);
 		btnOK.setBackground(new Color(53, 187, 95));
 		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 20));

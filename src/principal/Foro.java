@@ -2,6 +2,7 @@ package principal;
 
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 
 import javax.swing.JButton;
@@ -67,6 +68,7 @@ public class Foro {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JButton btnUnirse = new JButton("FORO");
+		btnUnirse.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnUnirse.setBorder(null);
 		btnUnirse.setForeground(Color.WHITE);
 		btnUnirse.setBackground(new Color(53, 187, 95));
@@ -88,6 +90,7 @@ public class Foro {
 		txtPartidoFutbolColegas.setColumns(10);
 		
 		JButton btnNewButton_1 = new JButton("X");
+		btnNewButton_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_1.setBounds(322, 6, 34, 27);
 		panel_1.add(btnNewButton_1);
 		btnNewButton_1.setBorder(null);
@@ -135,30 +138,36 @@ public class Foro {
 		txtEscribeAqui.setColumns(10);
 		
 		btnEnviar = new JButton("ENVIAR");
+		btnEnviar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEnviar.setBounds(269, 361, 85, 27);
 		panelFondo.add(btnEnviar);
 		
 		btnNewButton_2 = new JButton("");
+		btnNewButton_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_2.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
 		btnNewButton_2.setBounds(10, 48, 52, 46);
 		panelFondo.add(btnNewButton_2);
 		
 		btnNewButton_3 = new JButton("");
+		btnNewButton_3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_3.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
 		btnNewButton_3.setBounds(302, 106, 52, 46);
 		panelFondo.add(btnNewButton_3);
 		
 		btnNewButton_4 = new JButton("");
+		btnNewButton_4.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_4.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
 		btnNewButton_4.setBounds(10, 154, 52, 46);
 		panelFondo.add(btnNewButton_4);
 		
 		btnNewButton_5 = new JButton("");
+		btnNewButton_5.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_5.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
 		btnNewButton_5.setBounds(10, 213, 52, 46);
 		panelFondo.add(btnNewButton_5);
 		
 		btnNewButton_6 = new JButton("");
+		btnNewButton_6.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_6.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
 		btnNewButton_6.setBounds(303, 261, 52, 46);
 		panelFondo.add(btnNewButton_6);

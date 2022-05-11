@@ -3,6 +3,7 @@ package principal;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Panel;
 
@@ -67,6 +68,7 @@ public class ModificarEvento {
 		panel.setLayout(null);
 		
 		btnPerfil = new JButton("");
+		btnPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPerfil.setIcon(new ImageIcon(verEvento.class.getResource("/Imagenes/usuario-de-perfil.png")));
 		btnPerfil.setBounds(726, 18, 85, 70);
 		btnPerfil.setBackground(null);
@@ -74,6 +76,7 @@ public class ModificarEvento {
 		panel.add(btnPerfil);
 		
 		btnFaqs = new JButton("FAQS");
+		btnFaqs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFaqs.setBorder(null);
 		btnFaqs.setBackground(null);
 		btnFaqs.setForeground(Color.WHITE);
@@ -81,6 +84,7 @@ public class ModificarEvento {
 		panel.add(btnFaqs);
 		
 		btnPerfil = new JButton("PERFIL");
+		btnPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPerfil.setForeground(Color.WHITE);
 		btnPerfil.setBorder(null);
 		btnPerfil.setBackground(null);
@@ -88,6 +92,7 @@ public class ModificarEvento {
 		panel.add(btnPerfil);
 		
 		btnGuardar = new JButton("GUARDAR");
+		btnGuardar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnGuardar.setBounds(650, 361, 157, 51);
 		btnGuardar.setBorder(null);
 		btnGuardar.setForeground(Color.WHITE);
@@ -95,6 +100,7 @@ public class ModificarEvento {
 		frame.getContentPane().add(btnGuardar);
 		
 		btnHome = new JButton("");
+		btnHome.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnHome.setBorderPainted(false);
 		btnHome.setBackground(null);
 		btnHome.setBorder(null);
@@ -104,6 +110,7 @@ public class ModificarEvento {
 		panel.add(btnHome);
 		
 		btnCancelar = new JButton("CANCELAR");
+		btnCancelar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCancelar.setBounds(366, 361, 157, 51);
 		btnCancelar.setForeground(Color.WHITE);
 		btnCancelar.setBorder(null);

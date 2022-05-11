@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Cursor;
+
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JList;
@@ -136,6 +138,7 @@ public class unirseEvento {
 		frame.getContentPane().add(txtrDescripcinOrganizamosUn);
 		
 		btnUnirse = new JButton("UNIRSE");
+		btnUnirse.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnUnirse.setBorder(null);
 		btnUnirse.setForeground(Color.WHITE);
 		btnUnirse.setBackground(new Color(53,187,95));
@@ -143,6 +146,7 @@ public class unirseEvento {
 		frame.getContentPane().add(btnUnirse);
 		
 		btnHome = new JButton("");
+		btnHome.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnHome.setBorderPainted(false);
 		btnHome.setBackground(null);
 		btnHome.setBorder(null);
@@ -159,6 +163,7 @@ public class unirseEvento {
 		panel.add(btnPerfil);
 		
 		btnFaqs = new JButton("FAQS");
+		btnFaqs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFaqs.setBorder(null);
 		btnFaqs.setBackground(null);
 		btnFaqs.setForeground(Color.WHITE);
@@ -183,6 +188,7 @@ public class unirseEvento {
 		lblNewLabel.setIcon(new ImageIcon(unirseEvento.class.getResource("/Imagenes/icons8-soccer-ball-100.png")));
 		
 		btnNewButton_2 = new JButton("");
+		btnNewButton_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_2.setBorder(null);
 		btnNewButton_2.setBackground(null);
 		btnNewButton_2.setIcon(new ImageIcon(crearEvento.class.getResource("/Imagenes/arrow.png")));

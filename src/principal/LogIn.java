@@ -1,6 +1,7 @@
 package principal;
 
 import java.awt.Container;
+import java.awt.Cursor;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -60,6 +61,7 @@ public class LogIn {
 		container.setLayout(null);
 
 		btnOK = new JButton("Iniciar Sesi\u00F3n\r\n\r\n");
+		btnOK.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnOK.setForeground(Color.WHITE);
 		btnOK.setBackground(new Color(53, 187, 95));
 		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -89,6 +91,7 @@ public class LogIn {
 		frame.getContentPane().add(txtMail);
 
 		btnNewButton = new JButton("Recuperar Contrase\u00F1a\r\n");
+		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton.setBorder(null);
 		btnNewButton.setForeground(new Color(255, 255, 255));
 		btnNewButton.setBackground(new Color(57, 62, 70));
@@ -100,6 +103,7 @@ public class LogIn {
 		frame.getContentPane().add(btnNewButton);
 
 		btnOK_1 = new JButton("Crear Cuenta\r\n");
+		btnOK_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnOK_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}

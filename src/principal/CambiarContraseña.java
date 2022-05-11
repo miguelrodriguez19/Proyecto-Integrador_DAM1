@@ -1,6 +1,7 @@
 package principal;
 
 import java.awt.Container;
+import java.awt.Cursor;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -109,6 +110,7 @@ public class CambiarContraseña {
 		frame.getContentPane().add(txtNuevaContrasea_1);
 
 		JButton btnNewButton = new JButton("");
+		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton.setBorderPainted(false);
 		btnNewButton.setBackground(new Color(57, 62, 70));
 		btnNewButton.setIcon(new ImageIcon(CambiarContraseña.class.getResource("/Imagenes/arrow.png")));

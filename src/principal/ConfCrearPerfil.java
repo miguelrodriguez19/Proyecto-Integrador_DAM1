@@ -1,6 +1,7 @@
 package principal;
 
 import java.awt.Container;
+import java.awt.Cursor;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -60,6 +61,7 @@ public class ConfCrearPerfil {
 		container.setLayout(null);
 
 		btnOK = new JButton("Crear Cuenta");
+		btnOK.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnOK.setForeground(Color.WHITE);
 		btnOK.setBackground(new Color(156, 163, 219));
 		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -100,6 +102,7 @@ public class ConfCrearPerfil {
 		panel_1.add(lblNewLabel_3);
 
 		JButton btnNewButton = new JButton("");
+		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton.setBorderPainted(false);
 		btnNewButton.setBackground(new Color(57, 62, 70));
 		btnNewButton.setIcon(new ImageIcon(ConfCrearPerfil.class.getResource("/Imagenes/arrow.png")));

@@ -1,6 +1,7 @@
 package principal;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -105,6 +106,7 @@ public class Perfil {
 			}
 		});
 		btnNewButton_1.setBackground(new Color(57, 62, 70));
+		btnNewButton_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_1.setIcon(new ImageIcon(Perfil.class.getResource("/Imagenes/home-48.png")));
 		btnNewButton_1.setBounds(10, 10, 85, 70);
 		header.add(btnNewButton_1);
@@ -196,6 +198,7 @@ public class Perfil {
 		frame.getContentPane().add(txtrFdsfsd);
 		
 		btnNewButton_2 = new JButton("Editar perfil");
+		btnNewButton_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnNewButton_2.setForeground(Color.WHITE);
 		btnNewButton_2.setBackground(new Color(53, 187, 95));
@@ -204,6 +207,7 @@ public class Perfil {
 		frame.getContentPane().add(btnNewButton_2);
 		
 		btnNewButton_3 = new JButton("Historial");
+		btnNewButton_3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_3.setForeground(Color.WHITE);
 		btnNewButton_3.setBorder(null);
 		btnNewButton_3.addActionListener(new ActionListener() {

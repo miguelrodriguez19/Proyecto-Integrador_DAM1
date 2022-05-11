@@ -1,6 +1,5 @@
 package principal;
 
-import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -70,6 +69,7 @@ public class crearEvento {
 		contenedor.add(txtNombre);
 		
 		btnCrear = new JButton("CREAR");
+		btnCrear.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCrear.setBorder(null);
 		btnCrear.setBackground(new Color(53,187,95));
 		btnCrear.setForeground(Color.WHITE);
@@ -122,10 +122,12 @@ public class crearEvento {
 		frame.getContentPane().add(lblTipoEvento);
 		
 		rdbtnPublico = new JRadioButton("PUBLICO");
+		rdbtnPublico.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnPublico.setBounds(39, 370, 106, 21);
 		frame.getContentPane().add(rdbtnPublico);
 		
 		rdbtnPrivado = new JRadioButton("PRIVADO");
+		rdbtnPrivado.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnPrivado.setBounds(40, 393, 105, 21);
 		frame.getContentPane().add(rdbtnPrivado);
 		
@@ -146,6 +148,7 @@ public class crearEvento {
 		panel.setLayout(null);
 		
 		btnNewButton = new JButton("");
+		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton.setBorderPainted(false);
 		btnNewButton.setBackground(null);
 		btnNewButton.setBorder(null);
@@ -155,6 +158,7 @@ public class crearEvento {
 		panel.add(btnNewButton);
 		
 		btnNewButton_1 = new JButton("");
+		btnNewButton_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_1.setForeground(new Color(0, 0, 0));
 		btnNewButton_1.setIcon(new ImageIcon(crearEvento.class.getResource("/Imagenes/usuario-de-perfil.png")));
 		btnNewButton_1.setBounds(726, 18, 85, 70);
@@ -166,6 +170,7 @@ public class crearEvento {
 		btnNewButton_1.setBorder(null);
 		
 		btnFaqs = new JButton("FAQS");
+		btnFaqs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFaqs.setBorder(null);
 		btnFaqs.setBackground(null);
 		btnFaqs.setForeground(Color.WHITE);
@@ -173,6 +178,7 @@ public class crearEvento {
 		panel.add(btnFaqs);
 		
 		btnPerfil = new JButton("PERFIL");
+		btnPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPerfil.setForeground(Color.WHITE);
 		btnPerfil.setBorder(null);
 		btnPerfil.setBackground(null);
@@ -180,6 +186,7 @@ public class crearEvento {
 		panel.add(btnPerfil);
 		
 		btnNewButton_2 = new JButton("");
+		btnNewButton_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_2.setBorder(null);
 		btnNewButton_2.setBackground(null);
 		btnNewButton_2.setIcon(new ImageIcon(crearEvento.class.getResource("/Imagenes/arrow.png")));
