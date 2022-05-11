@@ -13,8 +13,8 @@ public class Launcher {
 	private JFrame frame;
 
 	public static void main(String[] args) {
-					Launcher window = new Launcher();
-					window.frame.setVisible(true);
+		Launcher window = new Launcher();
+		window.frame.setVisible(true);
 	}
 
 	public Launcher() {
