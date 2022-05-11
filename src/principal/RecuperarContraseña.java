@@ -137,7 +137,7 @@ public class RecuperarContraseña {
 		
 		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 91));
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\lugon\\Downloads\\basketball-sports-court- (1).jpg"));
+		lblNewLabel_1.setIcon(new ImageIcon(RecuperarContraseña.class.getResource("/Imagenes/basketball-sports-court- (1).jpg")));
 		lblNewLabel_1.setBounds(-232, -13, 1586, 456);
 		frame.getContentPane().add(lblNewLabel_1);
 
