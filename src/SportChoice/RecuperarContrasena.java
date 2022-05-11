@@ -1,4 +1,4 @@
-package principal;
+package SportChoice;
 
 import java.awt.Container;
 import java.awt.Cursor;
@@ -31,7 +31,7 @@ import java.awt.Color;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-public class CambiarContrasena {
+public class RecuperarContrasena {
 
 	private JFrame frame;
 	private JButton btnOK;
@@ -40,17 +40,19 @@ public class CambiarContrasena {
 	private JTextField txtAntiguaContrasena;
 	private JTextField txtNuevaContrasena;
 	private JTextField txtNuevaContrasena_1;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void CambiarContrasena() {
-		CambiarContrasena window = new CambiarContrasena();
+	public static void RecuperarContrasena() {
+		RecuperarContrasena window = new RecuperarContrasena();
 		window.frame.setVisible(true);
 
 	}
 
-	public CambiarContrasena() {
+	public RecuperarContrasena() {
 		frame = new JFrame();
 		frame.setResizable(false);
 		Container container = frame.getContentPane();
@@ -58,7 +60,8 @@ public class CambiarContrasena {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		container.setLayout(null);
 
-		btnOK = new JButton("Iniciar Sesi\u00F3n\r\n\r\n");
+		btnOK = new JButton("Cambiar Contrase\u00F1a");
+		btnOK.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnOK.setForeground(Color.WHITE);
 		btnOK.setBackground(new Color(53, 187, 95));
 		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -75,10 +78,10 @@ public class CambiarContrasena {
 
 		ButtonGroup group = new ButtonGroup();
 
-		JLabel lblNewLabel = new JLabel("Cambiar\r\n\r\n");
+		JLabel lblNewLabel = new JLabel("Recuperar\r\n");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 36));
-		lblNewLabel.setBounds(578, -26, 308, 98);
+		lblNewLabel.setBounds(562, -26, 308, 98);
 		frame.getContentPane().add(lblNewLabel);
 
 		lblContrasea = new JLabel("Contrase\u00F1a");
@@ -90,8 +93,8 @@ public class CambiarContrasena {
 		txtAntiguaContrasena = new JTextField();
 		txtAntiguaContrasena.setForeground(Color.GRAY);
 		txtAntiguaContrasena.setBackground(Color.WHITE);
-		txtAntiguaContrasena.setText("Antigua Contrase\u00F1a");
-		txtAntiguaContrasena.setBounds(527, 140, 239, 42);
+		txtAntiguaContrasena.setText("Codigo De Recuperacion\r\n");
+		txtAntiguaContrasena.setBounds(527, 180, 239, 42);
 		frame.getContentPane().add(txtAntiguaContrasena);
 		txtAntiguaContrasena.setColumns(10);
 
@@ -99,40 +102,47 @@ public class CambiarContrasena {
 		txtNuevaContrasena.setForeground(Color.GRAY);
 		txtNuevaContrasena.setText("Nueva Contrase\u00F1a1");
 		txtNuevaContrasena.setColumns(10);
-		txtNuevaContrasena.setBounds(527, 222, 239, 42);
+		txtNuevaContrasena.setBounds(527, 249, 239, 42);
 		frame.getContentPane().add(txtNuevaContrasena);
 
 		txtNuevaContrasena_1 = new JTextField();
 		txtNuevaContrasena_1.setForeground(Color.GRAY);
 		txtNuevaContrasena_1.setText("Nueva Contrase\u00F1a2\r\n");
 		txtNuevaContrasena_1.setColumns(10);
-		txtNuevaContrasena_1.setBounds(527, 274, 239, 42);
+		txtNuevaContrasena_1.setBounds(527, 299, 239, 42);
 		frame.getContentPane().add(txtNuevaContrasena_1);
 
 		JButton btnNewButton = new JButton("");
-		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton.setBorderPainted(false);
 		btnNewButton.setBackground(new Color(57, 62, 70));
-		btnNewButton.setIcon(new ImageIcon(CambiarContrasena.class.getResource("/Imagenes/arrow.png")));
-		btnNewButton.setBounds(494, 10, 58, 33);
+		btnNewButton.setIcon(new ImageIcon(RecuperarContrasena.class.getResource("/Imagenes/arrow.png")));
+		btnNewButton.setBounds(482, 10, 58, 33);
 		frame.getContentPane().add(btnNewButton);
+
+		lblNewLabel_1 = new JLabel("Revise su Mail le habr\u00E1, llegado\r\n");
+		lblNewLabel_1.setForeground(Color.WHITE);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblNewLabel_1.setBounds(527, 117, 266, 21);
+		frame.getContentPane().add(lblNewLabel_1);
+
+		lblNewLabel_2 = new JLabel(" un codigo de autentificacion");
+		lblNewLabel_2.setForeground(Color.WHITE);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblNewLabel_2.setBounds(535, 143, 218, 21);
+		frame.getContentPane().add(lblNewLabel_2);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(57, 62, 70));
 		panel.setForeground(Color.WHITE);
-		panel.setBounds(479, 0, 357, 443);
+		panel.setBounds(467, 0, 369, 443);
 		frame.getContentPane().add(panel);
 
-		lblNewLabel = new JLabel("");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 91));
-		lblNewLabel.setIcon(
-				new ImageIcon(CambiarContrasena.class.getResource("/Imagenes/basketball-sports-court- (1).jpg")));
-		lblNewLabel.setBounds(-232, -13, 1586, 456);
-		frame.getContentPane().add(lblNewLabel);
+		lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 91));
+		lblNewLabel_1.setIcon(
+				new ImageIcon(RecuperarContrasena.class.getResource("/Imagenes/basketball-sports-court- (1).jpg")));
+		lblNewLabel_1.setBounds(-232, -13, 1586, 456);
+		frame.getContentPane().add(lblNewLabel_1);
 
 	}
 }
-
-/**
- * Initialize the contents of the frame.
- */

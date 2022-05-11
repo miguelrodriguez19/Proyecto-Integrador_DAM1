@@ -1,4 +1,4 @@
-package principal;
+package SportChoice;
 
 import java.awt.EventQueue;
 
@@ -12,32 +12,15 @@ public class Launcher {
 
 	private JFrame frame;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
 					Launcher window = new Launcher();
 					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public Launcher() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
@@ -51,7 +34,7 @@ public class Launcher {
 				pantalla1.MainPage();
 			}
 		});
-		btnMain.setBounds(0, 23, 85, 21);
+		btnMain.setBounds(339, 108, 85, 21);
 		frame.getContentPane().add(btnMain);
 
 		JButton btnLogIn = new JButton("LogIn");
@@ -61,7 +44,7 @@ public class Launcher {
 				pantalla2.LogIn();
 			}
 		});
-		btnLogIn.setBounds(112, 23, 85, 21);
+		btnLogIn.setBounds(0, 23, 85, 21);
 		frame.getContentPane().add(btnLogIn);
 
 		JButton btnRegistro = new JButton("Registro");
@@ -71,7 +54,7 @@ public class Launcher {
 				pantalla3.Register();
 			}
 		});
-		btnRegistro.setBounds(231, 23, 85, 21);
+		btnRegistro.setBounds(110, 23, 85, 21);
 		frame.getContentPane().add(btnRegistro);
 
 		JButton btnRecContrasena = new JButton("RecContrase\u00F1a");
@@ -81,7 +64,7 @@ public class Launcher {
 				pantalla4.RecuperarContrasena();
 			}
 		});
-		btnRecContrasena.setBounds(341, 23, 85, 21);
+		btnRecContrasena.setBounds(0, 64, 85, 21);
 		frame.getContentPane().add(btnRecContrasena);
 
 		JButton btnCambContrasena = new JButton("CambContra");
@@ -91,7 +74,7 @@ public class Launcher {
 				pantalla5.CambiarContrasena();
 			}
 		});
-		btnCambContrasena.setBounds(0, 67, 85, 21);
+		btnCambContrasena.setBounds(339, 64, 85, 21);
 		frame.getContentPane().add(btnCambContrasena);
 
 		JButton btnPerfil = new JButton("Perfil");
@@ -101,7 +84,7 @@ public class Launcher {
 				pantalla6.Perfil();
 			}
 		});
-		btnPerfil.setBounds(112, 67, 85, 21);
+		btnPerfil.setBounds(110, 64, 85, 21);
 		frame.getContentPane().add(btnPerfil);
 
 		JButton btnHistorial = new JButton("Historial");
@@ -119,7 +102,7 @@ public class Launcher {
 			}
 		});
 
-		btnHistorial.setBounds(341, 67, 85, 21);
+		btnHistorial.setBounds(0, 108, 85, 21);
 		frame.getContentPane().add(btnHistorial);
 
 		JButton btnFAQs = new JButton("FAQs");
@@ -129,7 +112,7 @@ public class Launcher {
 				pantalla9.FAQsWindow();
 			}
 		});
-		btnFAQs.setBounds(0, 109, 85, 21);
+		btnFAQs.setBounds(229, 108, 85, 21);
 		frame.getContentPane().add(btnFAQs);
 
 		JButton btnMisEventos = new JButton("MisEventos");
@@ -139,7 +122,7 @@ public class Launcher {
 				pantalla22.MisEventos();
 			}
 		});
-		btnMisEventos.setBounds(112, 109, 85, 21);
+		btnMisEventos.setBounds(0, 149, 85, 21);
 		frame.getContentPane().add(btnMisEventos);
 
 		JButton btnCrearEvento = new JButton("CrearEvento");
@@ -149,7 +132,7 @@ public class Launcher {
 				pantalla11.crearEvento();
 			}
 		});
-		btnCrearEvento.setBounds(231, 109, 85, 21);
+		btnCrearEvento.setBounds(110, 149, 85, 21);
 		frame.getContentPane().add(btnCrearEvento);
 
 		JButton btnUnirseEvento = new JButton("UnirseEvento");
@@ -159,7 +142,7 @@ public class Launcher {
 				pantalla12.unirseEvento();
 			}
 		});
-		btnUnirseEvento.setBounds(341, 109, 85, 21);
+		btnUnirseEvento.setBounds(339, 149, 85, 21);
 		frame.getContentPane().add(btnUnirseEvento);
 
 		JButton btnVerEvento = new JButton("VerEvento");
@@ -169,7 +152,7 @@ public class Launcher {
 				pantalla13.verEvento();
 			}
 		});
-		btnVerEvento.setBounds(0, 154, 85, 21);
+		btnVerEvento.setBounds(229, 149, 85, 21);
 		frame.getContentPane().add(btnVerEvento);
 
 		JButton btnModEvento = new JButton("ModEvento");
@@ -179,7 +162,7 @@ public class Launcher {
 				pantalla20.ModificarEvento();
 			}
 		});
-		btnModEvento.setBounds(112, 154, 85, 21);
+		btnModEvento.setBounds(110, 181, 85, 21);
 		frame.getContentPane().add(btnModEvento);
 
 		JButton btnForo = new JButton("Foro");
@@ -189,7 +172,7 @@ public class Launcher {
 				pantalla15.Foro();
 			}
 		});
-		btnForo.setBounds(231, 154, 85, 21);
+		btnForo.setBounds(0, 181, 85, 21);
 		frame.getContentPane().add(btnForo);
 
 		JButton btnValoraciones = new JButton("Valoraciones");
@@ -199,7 +182,7 @@ public class Launcher {
 				pantalla16.Valoracion();
 			}
 		});
-		btnValoraciones.setBounds(341, 154, 85, 21);
+		btnValoraciones.setBounds(110, 108, 85, 21);
 		frame.getContentPane().add(btnValoraciones);
 
 		JButton btnEditarPerfil = new JButton("EditarPerfil");
@@ -209,7 +192,7 @@ public class Launcher {
 				pantalla7.editarPerfil();
 			}
 		});
-		btnEditarPerfil.setBounds(231, 67, 85, 21);
+		btnEditarPerfil.setBounds(229, 64, 85, 21);
 		frame.getContentPane().add(btnEditarPerfil);
 
 		JButton btnNewButton_16 = new JButton("ConfCrearPerf");
@@ -219,7 +202,7 @@ public class Launcher {
 				pantalla17.ConfCrearPerfil();
 			}
 		});
-		btnNewButton_16.setBounds(0, 200, 85, 21);
+		btnNewButton_16.setBounds(231, 23, 85, 21);
 		frame.getContentPane().add(btnNewButton_16);
 
 		JButton btnNewButton = new JButton("ConfirmarRecMail");
@@ -229,7 +212,7 @@ public class Launcher {
 				pantalla18.RecuperarContrasena();
 			}
 		});
-		btnNewButton.setBounds(112, 200, 85, 21);
+		btnNewButton.setBounds(339, 23, 85, 21);
 		frame.getContentPane().add(btnNewButton);
 	}
 }

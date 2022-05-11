@@ -1,4 +1,4 @@
-package principal;
+package SportChoice;
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -14,20 +14,17 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class HistorialWindow {
 
 	private JFrame frame;
-	private JButton btnFAQs;
-	private JButton btnPerfil;
-	private JButton btnProfileIcon;
-	private JButton btnHomeIcon;
-	private JButton btnBackIcon;
-	private JLabel lblHistorialTitle;
 	private JTable table;
-	private JPanel panelHeader;
 	private JPanel panelMain;
 	private JScrollPane scrollPane;
+	private JButton btnNewButton;
 
 	/**
 	 * Launch the application.
@@ -52,68 +49,12 @@ public class HistorialWindow {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setResizable(false);
-
-		panelHeader = new JPanel();
-		panelHeader.setForeground(Color.WHITE);
-		panelHeader.setBackground(new Color(57, 62, 70));
-		panelHeader.setBounds(0, 0, 836, 100);
-		frame.getContentPane().add(panelHeader);
-		panelHeader.setLayout(null);
-
-		btnHomeIcon = new JButton("");
-		btnHomeIcon.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnHomeIcon.setIcon(new ImageIcon(HistorialWindow.class.getResource("/Imagenes/home-48.png")));
-		btnHomeIcon.setBounds(20, 12, 58, 74);
-		btnHomeIcon.setBackground(null);
-		btnHomeIcon.setBorder(null);
-		panelHeader.add(btnHomeIcon);
-
-		btnFAQs = new JButton("FAQs");
-		btnFAQs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnFAQs.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnFAQs.setBorder(null);
-		btnFAQs.setForeground(Color.WHITE);
-		btnFAQs.setBackground(null);
-		btnFAQs.setBounds(519, 37, 85, 21);
-		panelHeader.add(btnFAQs);
-		
-		btnPerfil = new JButton("Perfil");
-		btnPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnPerfil.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnPerfil.setForeground(Color.WHITE);
-		btnPerfil.setBorder(null);
-		btnPerfil.setBounds(614, 37, 85, 21);
-		btnPerfil.setBackground(null);
-		panelHeader.add(btnPerfil);
-
-		btnProfileIcon = new JButton("");
-		btnProfileIcon.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnProfileIcon.setIcon(new ImageIcon(HistorialWindow.class.getResource("/Imagenes/usuario-de-perfil.png")));
-		btnProfileIcon.setBounds(722, 12, 73, 76);
-		btnProfileIcon.setBackground(null);
-		btnProfileIcon.setBorder(null);
-		panelHeader.add(btnProfileIcon);
 		
 		panelMain = new JPanel();
-		panelMain.setBackground(new Color(34, 40, 59));
-		panelMain.setBounds(0, 100, 836, 343);
+		panelMain.setBackground(new Color(34, 40, 49));
+		panelMain.setBounds(0, 100, 834, 343);
 		frame.getContentPane().add(panelMain);
 		panelMain.setLayout(null);
-	
-		btnBackIcon = new JButton("");
-		btnBackIcon.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnBackIcon.setIcon(new ImageIcon(HistorialWindow.class.getResource("/Imagenes/arrow.png")));
-		btnBackIcon.setBounds(0, 0, 50, 50);
-		btnBackIcon.setBackground(null);
-		btnBackIcon.setBorder(null);
-		panelMain.add(btnBackIcon);
-
-
-		lblHistorialTitle = new JLabel("Historial");
-		lblHistorialTitle.setBounds(391, 10, 118, 41);
-		panelMain.add(lblHistorialTitle);
-		lblHistorialTitle.setFont(new Font("Tahoma", Font.BOLD, 24));
-		lblHistorialTitle.setForeground(new Color(238, 238, 238));
 
 		table = new JTable();
 		table.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -135,7 +76,7 @@ public class HistorialWindow {
 				{null, null, null, null}
 			},
 			new String[] {
-				"Creador", "Fecha", "Participantes", "Resultado", "Descripcion"
+				"Creador", "Fecha", "Participantes", "Resultado", "Nombre"
 			}
 		) {
 			//
@@ -151,9 +92,68 @@ public class HistorialWindow {
 		table.setBounds(96, 58, 709, 285);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(96, 58, 709, 285);
+		scrollPane.setBounds(38, 48, 652, 274);
 		panelMain.add(scrollPane);
 		scrollPane.setViewportView(table);
+		
+		JButton btnNewButton_1 = new JButton("");
+		btnNewButton_1.setIcon(new ImageIcon(HistorialWindow.class.getResource("/Imagenes/arrow.png")));
+		btnNewButton_1.setBorder(null);
+		btnNewButton_1.setBackground((Color) null);
+		btnNewButton_1.setBounds(0, 0, 47, 37);
+		panelMain.add(btnNewButton_1);
+		
+		JLabel lblHistorialDeEventos = new JLabel("Historial De Eventos");
+		lblHistorialDeEventos.setForeground(Color.WHITE);
+		lblHistorialDeEventos.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblHistorialDeEventos.setBounds(57, 6, 276, 23);
+		panelMain.add(lblHistorialDeEventos);
+		
+		btnNewButton = new JButton("Valorar");
+		btnNewButton.setBackground(new Color(53, 187, 95));
+		btnNewButton.setBorder(null);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setBounds(709, 292, 103, 30);
+		panelMain.add(btnNewButton);
+		
+		JPanel panelHeader = new JPanel();
+		panelHeader.setLayout(null);
+		panelHeader.setBackground(new Color(57, 62, 70));
+		panelHeader.setBounds(0, 0, 834, 100);
+		frame.getContentPane().add(panelHeader);
+		
+		JButton btnLogo_1 = new JButton("");
+		btnLogo_1.setIcon(new ImageIcon(HistorialWindow.class.getResource("/Imagenes/appppp-modified.png")));
+		btnLogo_1.setBorder(null);
+		btnLogo_1.setBackground((Color) null);
+		btnLogo_1.setBounds(718, 0, 99, 100);
+		panelHeader.add(btnLogo_1);
+		
+		JButton btnPerfil = new JButton("Perfil");
+		btnPerfil.setToolTipText("");
+		btnPerfil.setForeground(Color.WHITE);
+		btnPerfil.setBorder(null);
+		btnPerfil.setBackground((Color) null);
+		btnPerfil.setBounds(644, 43, 64, 23);
+		panelHeader.add(btnPerfil);
+		
+		JButton btnFAQs = new JButton("FAQs");
+		btnFAQs.setForeground(Color.WHITE);
+		btnFAQs.setBorder(null);
+		btnFAQs.setBackground((Color) null);
+		btnFAQs.setBounds(587, 43, 64, 23);
+		panelHeader.add(btnFAQs);
+		
+		JButton btnLogo = new JButton("");
+		btnLogo.setIcon(new ImageIcon(HistorialWindow.class.getResource("/Imagenes/home-48.png")));
+		btnLogo.setBorder(null);
+		btnLogo.setBackground((Color) null);
+		btnLogo.setBounds(28, 21, 64, 68);
+		panelHeader.add(btnLogo);
 
 	}
 }

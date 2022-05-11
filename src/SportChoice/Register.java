@@ -1,7 +1,6 @@
-package principal;
+package SportChoice;
 
 import java.awt.Container;
-import java.awt.Cursor;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -29,41 +28,52 @@ import javax.swing.event.ListSelectionEvent;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 
-public class LogIn {
+public class Register {
 
 	private JFrame frame;
+	private JTextField txtNombre;
 	private JButton btnOK;
+	private JTextField txtApellidos;
 	private JTextField txtMail;
 	private JPanel panel;
 	private JButton btnNewButton;
-	private JButton btnOK_1;
-	private JLabel lblnoTienesCuenta;
-	private JLabel lblNewLabel_1;
 	private JTextField txtContrasea;
+	private JTextField txtRepiteContrasea;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void LogIn() {
-		LogIn window = new LogIn();
+	public static void Register() {
+		Register window = new Register();
 		window.frame.setVisible(true);
 
 	}
 
-	public LogIn() {
+	public Register() {
 		frame = new JFrame();
 		frame.setResizable(false);
 		Container container = frame.getContentPane();
 		frame.setBounds(100, 100, 850, 480);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		container.setLayout(null);
+		
+		JLabel lblNewLabel_1 = new JLabel("Fecha de Nacimiento:");
+		lblNewLabel_1.setForeground(Color.WHITE);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel_1.setBounds(520, 268, 154, 13);
+		frame.getContentPane().add(lblNewLabel_1);
 
-		btnOK = new JButton("Iniciar Sesi\u00F3n\r\n\r\n");
-		btnOK.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		txtNombre = new JTextField();
+		txtNombre.setText("Nombre");
+
+		txtNombre.setBounds(520, 97, 85, 30);
+		container.add(txtNombre);
+		txtNombre.setColumns(10);
+
+		btnOK = new JButton("Siguiente");
 		btnOK.setForeground(Color.WHITE);
-		btnOK.setBackground(new Color(53, 187, 95));
+		btnOK.setBackground(new Color(156, 163, 219));
 		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnOK.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -73,25 +83,58 @@ public class LogIn {
 //				System.out.println("La Contraseña es " + String.valueOf(passwordField.getPassword()));
 			}
 		});
-		btnOK.setBounds(520, 218, 275, 42);
+		btnOK.setBounds(520, 349, 275, 53);
+
 		container.add(btnOK);
 
 		ButtonGroup group = new ButtonGroup();
 
-		JLabel lblNewLabel = new JLabel("Iniciar Sesi\u00F3n\r\n");
+		JLabel lblNewLabel = new JLabel("Regirstro");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 46));
+		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 63));
 		lblNewLabel.setBounds(520, 0, 275, 98);
 		frame.getContentPane().add(lblNewLabel);
 
-		txtMail = new JTextField();
-		txtMail.setText("Mail/Usuario\r\n");
-		txtMail.setColumns(10);
-		txtMail.setBounds(520, 96, 275, 48);
-		frame.getContentPane().add(txtMail);
+		txtApellidos = new JTextField();
+		txtApellidos.setText("Apellidos");
+		txtApellidos.setColumns(10);
+		txtApellidos.setBounds(615, 97, 180, 30);
+		frame.getContentPane().add(txtApellidos);
 
-		btnNewButton = new JButton("Recuperar Contrase\u00F1a\r\n");
-		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		txtMail = new JTextField();
+		txtMail.setText("Mail");
+		txtMail.setColumns(10);
+		txtMail.setBounds(520, 138, 275, 30);
+		frame.getContentPane().add(txtMail);
+		
+		txtRepiteContrasea = new JTextField();
+		txtRepiteContrasea.setText("Repite Contrase\u00F1a");
+		txtRepiteContrasea.setColumns(10);
+		txtRepiteContrasea.setBounds(520, 228, 275, 30);
+		frame.getContentPane().add(txtRepiteContrasea);
+		
+		txtContrasea = new JTextField();
+		txtContrasea.setText("Contrase\u00F1a");
+		txtContrasea.setColumns(10);
+		txtContrasea.setBounds(520, 188, 275, 30);
+		frame.getContentPane().add(txtContrasea);
+
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] { "DIA" }));
+		comboBox.setBounds(520, 295, 74, 30);
+		frame.getContentPane().add(comboBox);
+
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] { "MES" }));
+		comboBox_1.setBounds(600, 295, 74, 30);
+		frame.getContentPane().add(comboBox_1);
+
+		JComboBox comboBox_1_1 = new JComboBox();
+		comboBox_1_1.setModel(new DefaultComboBoxModel(new String[] { "A\u00D1O" }));
+		comboBox_1_1.setBounds(684, 295, 111, 30);
+		frame.getContentPane().add(comboBox_1_1);
+
+		btnNewButton = new JButton("\u00BFYa tienes Cuenta? Inicia sesion\r\n");
 		btnNewButton.setBorder(null);
 		btnNewButton.setForeground(new Color(255, 255, 255));
 		btnNewButton.setBackground(new Color(57, 62, 70));
@@ -99,54 +142,20 @@ public class LogIn {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(520, 282, 275, 21);
+		btnNewButton.setBounds(520, 412, 275, 21);
 		frame.getContentPane().add(btnNewButton);
-
-		btnOK_1 = new JButton("Crear Cuenta\r\n");
-		btnOK_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnOK_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnOK_1.setForeground(Color.WHITE);
-		btnOK_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnOK_1.setBackground(new Color(156, 163, 219));
-		btnOK_1.setBounds(520, 376, 275, 42);
-		frame.getContentPane().add(btnOK_1);
-
-		lblnoTienesCuenta = new JLabel("\u00BFNo tienes cuenta?\r\n");
-		lblnoTienesCuenta.setVerticalAlignment(SwingConstants.TOP);
-		lblnoTienesCuenta.setForeground(Color.WHITE);
-		lblnoTienesCuenta.setFont(new Font("Trebuchet MS", Font.PLAIN, 25));
-		lblnoTienesCuenta.setBounds(553, 344, 283, 65);
-		frame.getContentPane().add(lblnoTienesCuenta);
-
-		lblNewLabel_1 = new JLabel("- O -");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1.setBounds(624, 313, 74, 21);
-		frame.getContentPane().add(lblNewLabel_1);
-		
-		txtContrasea = new JTextField();
-		txtContrasea.setText("Contrase\u00F1a");
-		txtContrasea.setColumns(10);
-		txtContrasea.setBounds(520, 154, 275, 48);
-		frame.getContentPane().add(txtContrasea);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(57, 62, 70));
 		panel.setForeground(Color.WHITE);
-		panel.setBounds(499, 0, 337, 443);
+		panel.setBounds(483, 0, 353, 443);
 		frame.getContentPane().add(panel);
 
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 91));
-		lblNewLabel.setIcon(new ImageIcon(LogIn.class.getResource("/Imagenes/basketball-sports-court- (1).jpg")));
+		lblNewLabel.setIcon(new ImageIcon(Register.class.getResource("/Imagenes/basketball-sports-court- (1).jpg")));
 		lblNewLabel.setBounds(-232, -13, 1586, 456);
 		frame.getContentPane().add(lblNewLabel);
 
 	}
 }
-
-/**
- * Initialize the contents of the frame.
- */

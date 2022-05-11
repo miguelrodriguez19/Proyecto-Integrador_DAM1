@@ -1,8 +1,7 @@
-package principal;
+package SportChoice;
 
 import java.awt.Color;
 import java.awt.Container;
-import java.awt.Cursor;
 import java.awt.EventQueue;
 
 import javax.swing.JButton;
@@ -70,14 +69,12 @@ public class salirForo {
 		txtestaSeguroQue.setColumns(10);
 		
 		btnSiSalir = new JButton("SI");
-		btnSiSalir.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnSiSalir.setBorder(null);
 		btnSiSalir.setBackground(new Color(53, 187, 95));
 		btnSiSalir.setBounds(95, 86, 105, 39);
 		panel.add(btnSiSalir);
 		
 		btnNoSalir = new JButton("NO");
-		btnNoSalir.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNoSalir.setBackground(Color.RED);
 		btnNoSalir.setBorder(null);
 		btnNoSalir.setBounds(261, 86, 100, 39);
