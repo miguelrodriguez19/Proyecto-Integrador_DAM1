@@ -31,26 +31,26 @@ import java.awt.Color;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-public class RecuperarContraseñaV2 {
+public class RecuperarContrasenaV2 {
 
 	private JFrame frame;
 	private JButton btnOK;
 	private JPanel panel;
 	private JLabel lblContrasea;
-	private JTextField txtAntiguaContrasea;
+	private JTextField txtAntiguaContrasena;
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void RecuperarContraseña() {
-		RecuperarContraseñaV2 window = new RecuperarContraseñaV2();
+	public static void RecuperarContrasena() {
+		RecuperarContrasenaV2 window = new RecuperarContrasenaV2();
 		window.frame.setVisible(true);
 
 	}
 
-	public RecuperarContraseñaV2() {
+	public RecuperarContrasenaV2() {
 		frame = new JFrame();
 		frame.setResizable(false);
 		Container container = frame.getContentPane();
@@ -68,7 +68,7 @@ public class RecuperarContraseñaV2 {
 				// System.out.println(txtNombre.getText());
 //				comboBox.addItem(txtNombre.getText());
 //				System.out.println(chckbxNewCheckBox.isSelected());
-//				System.out.println("La Contraseña es " + String.valueOf(passwordField.getPassword()));
+//				System.out.println("La Contraseï¿½a es " + String.valueOf(passwordField.getPassword()));
 			}
 		});
 		btnOK.setBounds(516, 294, 275, 42);
@@ -88,18 +88,18 @@ public class RecuperarContraseñaV2 {
 		lblContrasea.setBounds(582, 24, 308, 98);
 		frame.getContentPane().add(lblContrasea);
 
-		txtAntiguaContrasea = new JTextField();
-		txtAntiguaContrasea.setForeground(Color.GRAY);
-		txtAntiguaContrasea.setBackground(Color.WHITE);
-		txtAntiguaContrasea.setText("Escribe tu mail");
-		txtAntiguaContrasea.setBounds(529, 224, 239, 42);
-		frame.getContentPane().add(txtAntiguaContrasea);
-		txtAntiguaContrasea.setColumns(10);
+		txtAntiguaContrasena = new JTextField();
+		txtAntiguaContrasena.setForeground(Color.GRAY);
+		txtAntiguaContrasena.setBackground(Color.WHITE);
+		txtAntiguaContrasena.setText("Escribe tu mail");
+		txtAntiguaContrasena.setBounds(529, 224, 239, 42);
+		frame.getContentPane().add(txtAntiguaContrasena);
+		txtAntiguaContrasena.setColumns(10);
 
 		JButton btnNewButton = new JButton("");
 		btnNewButton.setBorderPainted(false);
 		btnNewButton.setBackground(new Color(57, 62, 70));
-		btnNewButton.setIcon(new ImageIcon(RecuperarContraseñaV2.class.getResource("/Imagenes/arrow.png")));
+		btnNewButton.setIcon(new ImageIcon(RecuperarContrasenaV2.class.getResource("/Imagenes/arrow.png")));
 		btnNewButton.setBounds(482, 10, 58, 33);
 		frame.getContentPane().add(btnNewButton);
 
@@ -123,7 +123,8 @@ public class RecuperarContraseñaV2 {
 
 		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 91));
-		lblNewLabel_1.setIcon(new ImageIcon(RecuperarContraseñaV2.class.getResource("/Imagenes/basketball-sports-court- (1).jpg")));
+		lblNewLabel_1.setIcon(
+				new ImageIcon(RecuperarContrasenaV2.class.getResource("/Imagenes/basketball-sports-court- (1).jpg")));
 		lblNewLabel_1.setBounds(-232, -13, 1586, 456);
 		frame.getContentPane().add(lblNewLabel_1);
 
