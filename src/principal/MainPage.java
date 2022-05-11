@@ -36,6 +36,7 @@ public class MainPage {
 		panelHeader.setLayout(null);
 		
 		JButton btnLogo_1 = new JButton("");
+		btnLogo_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogo_1.setIcon(new ImageIcon(MainPage.class.getResource("/Imagenes/appppp-modified.png")));
 		btnLogo_1.setBorder(null);
 		btnLogo_1.setBackground((Color) null);
@@ -60,6 +61,7 @@ public class MainPage {
 		panelHeader.add(btnFAQs);
 		
 		btnLogo = new JButton("");
+		btnLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogo.setBorder(null);
 		btnLogo.setBackground(null);
 		btnLogo.setIcon(new ImageIcon(MainPage.class.getResource("/Imagenes/home-48.png")));
@@ -86,18 +88,21 @@ public class MainPage {
 		panelPaginaPrincipal.add(lblNewLabel);
 
 		comboBoxDeportes = new JComboBox();
+		comboBoxDeportes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		comboBoxDeportes
 				.setModel(new DefaultComboBoxModel(new String[] { "Deportes", "Futbol", "Baloncesto", "Tenis" }));
 		comboBoxDeportes.setBounds(29, 77, 148, 22);
 		panelPaginaPrincipal.add(comboBoxDeportes);
 
 		comboBoxMes = new JComboBox();
+		comboBoxMes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		comboBoxMes.setModel(new DefaultComboBoxModel(
 				new String[] { "Mes", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
 		comboBoxMes.setBounds(118, 110, 59, 22);
 		panelPaginaPrincipal.add(comboBoxMes);
 
 		comboBoxDia = new JComboBox();
+		comboBoxDia.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		comboBoxDia.setBackground(Color.WHITE);
 		comboBoxDia.setModel(new DefaultComboBoxModel(new String[] { "Dia", "1", "2", "3", "4", "5", "6", "7", "8", "9",
 				"10", "11", "12", "13", "14", "15", "16" }));
@@ -180,6 +185,7 @@ public class MainPage {
 		scrollPaneEventos.setViewportView(table);
 
 		btnUnirseEvento = new JButton("Unirse ");
+		btnUnirseEvento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnUnirseEvento.setForeground(Color.WHITE);
 		btnUnirseEvento.setBorder(null);
 
