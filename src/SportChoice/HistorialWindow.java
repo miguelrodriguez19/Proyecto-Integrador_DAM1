@@ -3,20 +3,13 @@ package SportChoice;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.SwingConstants;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class HistorialWindow {
 
@@ -26,9 +19,6 @@ public class HistorialWindow {
 	private JScrollPane scrollPane;
 	private JButton btnNewButton;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void HistorialWindow() {
 		HistorialWindow window = null;
 		try {
@@ -48,6 +38,7 @@ public class HistorialWindow {
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setTitle("Sport Choice - Historial de eventos");
 		frame.setResizable(false);
 		
 		panelMain = new JPanel();
@@ -61,16 +52,16 @@ public class HistorialWindow {
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
 //				{"Creador", "Fecha", "Participantes", "Resultado", "Descripcion"},
-				{"@PedroJuarez", "12/02/2022", "14", "10 | 2     Victoria", "Partido Fútbol Villalba"},
+				{"@PedroJuarez", "12/02/2022", "14", "10 | 2     Victoria", "Partido Fï¿½tbol Villalba"},
 				{"@BenitoPerez", "17/02/2022", "4", "6 | 3     Victoria", "Tenis Polideportivo Moralzarzal"},
 				{"@JuanAlvarez", "22/02/2022", "14", "82 | 78     Victoria", "Baloncesto Polideportivo Moralzarzal"},
 				{"@BenitoPerez", "28/02/2022", "2", "3 | 3     Empate", "Tenis Polideportivo Moralzarzal"},
-				{"@PedroJuarez", "03/03/2022", "22", "3 | 5     Derrota", "Partido Fútbol Villalba"},
-				{"@JuanAlvarez", "12/03/2022", "17", "2 | 5     Derrota", "Partido Fútbol"},
-				{"@PedroJuarez", "12/02/2022", "14", "2 | 5     Derrota", "Partido Fútbol Polideportivo Villalba"},
+				{"@PedroJuarez", "03/03/2022", "22", "3 | 5     Derrota", "Partido Fï¿½tbol Villalba"},
+				{"@JuanAlvarez", "12/03/2022", "17", "2 | 5     Derrota", "Partido Fï¿½tbol"},
+				{"@PedroJuarez", "12/02/2022", "14", "2 | 5     Derrota", "Partido Fï¿½tbol Polideportivo Villalba"},
 				{"@BenitoPerez", "12/02/2022", "8", "5 | 2     Victoria", "Tenis Polideportivo Moralzarzal"},
-				{"@PedroJuarez", "12/02/2022", "10", "10 | 2     Victoria", "Partido Fútbol 7"},
-				{"@PedroJuarez", "12/02/2022", "12", "10 | 2     Victoria", "Partido Fútbol 7"},
+				{"@PedroJuarez", "12/02/2022", "10", "10 | 2     Victoria", "Partido Fï¿½tbol 7"},
+				{"@PedroJuarez", "12/02/2022", "12", "10 | 2     Victoria", "Partido Fï¿½tbol 7"},
 				{"@JuanAlvarez", "15/03/2022", "5", "3 | 2     Victoria", "Padel Polideportivo Moralzarzal"},
 				{"@BenitoPerez", "23/03/2022", "15", "44 | 32     Victoria", "Baloncesto Polideportivo Villalba"},
 				{null, null, null, null}

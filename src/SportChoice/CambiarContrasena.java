@@ -1,35 +1,11 @@
 package SportChoice;
 
-import java.awt.Container;
-import java.awt.Cursor;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
+import java.awt.*;
 import java.awt.event.ActionEvent;
-import javax.swing.JTextArea;
-import javax.swing.JScrollPane;
-import javax.swing.JComboBox;
-import javax.swing.ButtonGroup;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.ImageIcon;
-import javax.swing.JCheckBox;
-import javax.swing.JRadioButton;
-import java.awt.event.ItemListener;
-import java.awt.event.ItemEvent;
-import javax.swing.JPasswordField;
-import javax.swing.JSpinner;
-import javax.swing.SpinnerNumberModel;
-import javax.swing.JList;
-import javax.swing.AbstractListModel;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.event.ListSelectionEvent;
-import java.awt.Font;
-import java.awt.Color;
-import javax.swing.JPanel;
-import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+
 
 public class CambiarContrasena {
 
@@ -41,13 +17,9 @@ public class CambiarContrasena {
 	private JTextField txtNuevaContrasena;
 	private JTextField txtNuevaContrasena_1;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void CambiarContrasena() {
 		CambiarContrasena window = new CambiarContrasena();
 		window.frame.setVisible(true);
-
 	}
 
 	public CambiarContrasena() {
@@ -56,6 +28,7 @@ public class CambiarContrasena {
 		Container container = frame.getContentPane();
 		frame.setBounds(100, 100, 850, 480);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setTitle("Sport Choice - Cambiar contrasena");
 		container.setLayout(null);
 
 		btnOK = new JButton("Iniciar Sesi\u00F3n\r\n\r\n");

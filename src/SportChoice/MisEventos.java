@@ -1,23 +1,24 @@
 package SportChoice;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.ComponentOrientation;
+import java.awt.Container;
+import java.awt.Cursor;
+import java.awt.Dimension;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-
 
 public class MisEventos {
 	private JFrame frame;
 	private JTextField txtLocalidad;
-	private JButton btnFAQs, btnPerfil, btnCrearEventos, btnAplicarFiltros, btnEventosRecientes, btnMisEventos;
+	private JButton btnFAQs, btnPerfil, btnCrearEventos, btnAplicarFiltros, btnEventosRecientes, btnMisEventos,
+			btnUnirseEvento, btnHouse, btnEditarEvento, btnEliminarEvento, btnPerfilFoto;
 	private JLabel lblFiltros;
 	private JPanel panelHeader, panelPaginaPrincipal;
 	private JComboBox comboBoxDeportes, comboBoxDia, comboBoxMes;
 	private JScrollPane scrollPaneEventos;
 	private JTable table;
-	private JButton btnUnirseEvento, btnHouse;
-	private JButton btnEditarEvento;
-	private JButton btnEliminarEvento;
-	private JButton btnPerfilFoto;
 
 	public static void MisEventos() {
 		MisEventos mainPage = new MisEventos();
@@ -30,6 +31,7 @@ public class MisEventos {
 		Container contenedor = frame.getContentPane();
 		frame.setBounds(100, 100, 850, 480);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setTitle("Sport Choice - Mis eventos");
 		contenedor.setLayout(null);
 
 		panelHeader = new JPanel();
@@ -37,7 +39,7 @@ public class MisEventos {
 		panelHeader.setBounds(0, 0, 834, 100);
 		frame.getContentPane().add(panelHeader);
 		panelHeader.setLayout(null);
-		
+
 		btnPerfilFoto = new JButton("");
 		btnPerfilFoto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPerfilFoto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -65,7 +67,7 @@ public class MisEventos {
 		btnFAQs.setBackground(null);
 		btnFAQs.setBounds(587, 43, 64, 23);
 		panelHeader.add(btnFAQs);
-		
+
 		btnHouse = new JButton("");
 		btnHouse.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnHouse.setBorder(null);
@@ -108,7 +110,9 @@ public class MisEventos {
 
 		comboBoxDia = new JComboBox();
 		comboBoxDia.setBackground(Color.WHITE);
-		comboBoxDia.setModel(new DefaultComboBoxModel(new String[] {"Dia", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+		comboBoxDia.setModel(new DefaultComboBoxModel(new String[] { "Dia", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+				"10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26",
+				"27", "28", "29", "30", "31" }));
 		comboBoxDia.setBounds(29, 110, 59, 22);
 		panelPaginaPrincipal.add(comboBoxDia);
 
@@ -153,20 +157,16 @@ public class MisEventos {
 		table.setPreferredScrollableViewportSize(new Dimension(400, 400));
 		table.setIntercellSpacing(new Dimension(5, 1));
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_NEXT_COLUMN);
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{" @IgnacioPerez", "Futbol", "20/02/2022", "5/12", "dnadnsioasudsausduasud"},
-				{" @LuisGonzalez", "Baloncesto", "2/03/2022", "12/12", "Pachanguita baloncesto en el polideeportivo de Moralzarzal a las 9 am"},
-				{" @MiguelRod", "Padel", "29/02/2022", "3/6", "Partido en polideportivo de Villalba a las 12:00 de la ma\u00F1ana, espero que nos divirtamos : )"},
-				{" @IgnaciPerez", "Futbol", "20/02/2022", "10/22", "dnadnsioasudsausduasud"},
-			},
-			new String[] {
-				"Creador", "Deporte", "Fecha", "Participantes", "Nombre Evento"
-			}
-		) {
-			boolean[] columnEditables = new boolean[] {
-				false, false, false, false, false
-			};
+		table.setModel(new DefaultTableModel(new Object[][] {
+				{ " @IgnacioPerez", "Futbol", "20/02/2022", "5/12", "dnadnsioasudsausduasud" },
+				{ " @LuisGonzalez", "Baloncesto", "2/03/2022", "12/12",
+						"Pachanguita baloncesto en el polideeportivo de Moralzarzal a las 9 am" },
+				{ " @MiguelRod", "Padel", "29/02/2022", "3/6",
+						"Partido en polideportivo de Villalba a las 12:00 de la ma\u00F1ana, espero que nos divirtamos : )" },
+				{ " @IgnaciPerez", "Futbol", "20/02/2022", "10/22", "dnadnsioasudsausduasud" }, },
+				new String[] { "Creador", "Deporte", "Fecha", "Participantes", "Nombre Evento" }) {
+			boolean[] columnEditables = new boolean[] { false, false, false, false, false };
+
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
@@ -195,7 +195,7 @@ public class MisEventos {
 		btnUnirseEvento.setBackground(new Color(53, 187, 95));
 		btnUnirseEvento.setBounds(735, 300, 89, 23);
 		panelPaginaPrincipal.add(btnUnirseEvento);
-		
+
 		btnEditarEvento = new JButton("Editar Evento");
 		btnEditarEvento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEditarEvento.setForeground(Color.WHITE);
@@ -203,7 +203,7 @@ public class MisEventos {
 		btnEditarEvento.setBackground(new Color(217, 201, 62));
 		btnEditarEvento.setBounds(636, 300, 89, 23);
 		panelPaginaPrincipal.add(btnEditarEvento);
-		
+
 		btnEliminarEvento = new JButton("Eliminar");
 		btnEliminarEvento.setForeground(Color.WHITE);
 		btnEliminarEvento.setBorder(null);

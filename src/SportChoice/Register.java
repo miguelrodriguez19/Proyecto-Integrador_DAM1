@@ -1,53 +1,23 @@
 package SportChoice;
 
-import java.awt.Container;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JTextArea;
-import javax.swing.JScrollPane;
-import javax.swing.JComboBox;
-import javax.swing.ButtonGroup;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.ImageIcon;
-import javax.swing.JCheckBox;
-import javax.swing.JRadioButton;
-import java.awt.event.ItemListener;
-import java.awt.event.ItemEvent;
-import javax.swing.JPasswordField;
-import javax.swing.JSpinner;
-import javax.swing.SpinnerNumberModel;
-import javax.swing.JList;
-import javax.swing.AbstractListModel;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.event.ListSelectionEvent;
-import java.awt.Font;
 import java.awt.Color;
-import javax.swing.JPanel;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
 
 public class Register {
 
 	private JFrame frame;
-	private JTextField txtNombre;
-	private JButton btnOK;
-	private JTextField txtApellidos;
-	private JTextField txtMail;
 	private JPanel panel;
-	private JButton btnNewButton;
-	private JTextField txtContrasea;
-	private JTextField txtRepiteContrasea;
+	private JTextField txtNombre,txtApellidos,txtMail,txtContrasea,txtRepiteContrasea;
+	private JButton btnOK,btnNewButton;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void Register() {
 		Register window = new Register();
 		window.frame.setVisible(true);
-
 	}
 
 	public Register() {
@@ -56,6 +26,7 @@ public class Register {
 		Container container = frame.getContentPane();
 		frame.setBounds(100, 100, 850, 480);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setTitle("Sport Choice - Registro");
 		container.setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("Fecha de Nacimiento:");

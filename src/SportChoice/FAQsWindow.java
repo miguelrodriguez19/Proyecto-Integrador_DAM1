@@ -7,60 +7,26 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollBar;
-import javax.swing.JTextPane;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 
 public class FAQsWindow {
 
 	private JFrame frame;
-	private JButton btnHomeIcon;
-	private JButton btnFAQs;
-	private JButton btnPerfil;
-	private JButton btnProfileIcon;
-	private JButton btnBackIcon;
-	private JPanel panelMain;
-	private JPanel panelHeader;
+	private JButton btnHomeIcon,btnFAQs,btnPerfil,btnProfileIcon,btnBackIcon,btnPregunta1,btnPregunta2,btnPregunta3;
+	private JPanel panelMain,panelHeader;
 	private JLabel lblFAQsTitle;
-	private JButton btnPregunta1;
-	private JTextPane txtpnPregunta1;
-	private JButton btnPregunta2;
-	private JTextPane txtpnPregunta2;
-	private JButton btnPregunta3;
-	private JTextPane txtpnPregunta3;
+	private JTextPane txtpnPregunta1,txtpnPregunta2,txtpnPregunta3;
 	private JScrollBar scrollBar;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void FAQsWindow() {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
 					FAQsWindow window = new FAQsWindow();
 					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public FAQsWindow() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 850, 480);
@@ -68,6 +34,7 @@ public class FAQsWindow {
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setTitle("Sport Choice - FAQs");
 		frame.setResizable(false);
 
 		panelHeader = new JPanel();
@@ -132,7 +99,7 @@ public class FAQsWindow {
 		panelMain.add(lblFAQsTitle);
 
 		btnPregunta1 = new JButton(
-				"¿Como cambió mi constraseña si se me ha olvidado?");
+				"ï¿½Como cambiï¿½ mi constraseï¿½a si se me ha olvidado?");
 		btnPregunta1.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnPregunta1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPregunta1.setBorder(null);
@@ -145,7 +112,7 @@ public class FAQsWindow {
 		panelMain.add(btnPregunta1);
 
 		txtpnPregunta1 = new JTextPane();
-		txtpnPregunta1.setText("A la hora de iniciar sesión, le da a he olvidado mi contaseña, y tiene que escribir el código que le llegue al e-mail, y su nueva contraseña"
+		txtpnPregunta1.setText("A la hora de iniciar sesiï¿½n, le da a he olvidado mi contaseï¿½a, y tiene que escribir el cï¿½digo que le llegue al e-mail, y su nueva contraseï¿½a"
 				+ "\nSi esto no resuelve sus dudas no dude en contactar a nuestro soporte");
 		txtpnPregunta1.setBackground(new Color(57, 62, 70));
 		txtpnPregunta1.setForeground(Color.WHITE);
@@ -153,7 +120,7 @@ public class FAQsWindow {
 		panelMain.add(txtpnPregunta1);
 		txtpnPregunta1.setVisible(false);
 
-		btnPregunta2 = new JButton("¿Hay que pagar algo para usar esta aplicación?");
+		btnPregunta2 = new JButton("ï¿½Hay que pagar algo para usar esta aplicaciï¿½n?");
 		btnPregunta2.setBorder(null);
 		btnPregunta2.setForeground(Color.WHITE);
 		btnPregunta2.setBackground(new Color(53, 187, 95));
@@ -166,7 +133,7 @@ public class FAQsWindow {
 		txtpnPregunta2 = new JTextPane();
 		txtpnPregunta2.setBackground(new Color(57, 62, 70));
 		txtpnPregunta2.setForeground(Color.WHITE);
-		txtpnPregunta2.setText("No, está es totalmente gratuita, pretendemos obtener beneficio de la aplicación mediante anuncios que molesten lo menos posible");
+		txtpnPregunta2.setText("No, estï¿½ es totalmente gratuita, pretendemos obtener beneficio de la aplicaciï¿½n mediante anuncios que molesten lo menos posible");
 		txtpnPregunta2.setBounds(157, 188, 524, 50);
 		panelMain.add(txtpnPregunta2);
 		txtpnPregunta2.setVisible(false);
@@ -175,7 +142,7 @@ public class FAQsWindow {
 		scrollBar.setBounds(750, 71, 17, 231);
 		panelMain.add(scrollBar);
 		
-		btnPregunta3 = new JButton("\u00BFTiene alguna pregunta m\u00E1s?: Soporte Técnico");
+		btnPregunta3 = new JButton("\u00BFTiene alguna pregunta m\u00E1s?: Soporte Tï¿½cnico");
 		btnPregunta3.setBorder(null);
 		btnPregunta3.setForeground(Color.WHITE);
 		btnPregunta3.setBackground(new Color(53, 187, 95));
@@ -187,8 +154,8 @@ public class FAQsWindow {
 		txtpnPregunta3.setBackground(new Color(57, 62, 70));
 		txtpnPregunta3.setForeground(Color.WHITE);
 		txtpnPregunta3.setText("Contactenos:"
-				+ "\nVía e-mail: soporte@sports-choice.com"
-				+ "\nLlamando a este número: 633 456"
+				+ "\nVï¿½a e-mail: soporte@sports-choice.com"
+				+ "\nLlamando a este nï¿½mero: 633 456"
 				+ "\nO en nuestras oficinas localizadas en Toledo");
 		txtpnPregunta3.setBounds(157, 240, 524, 70);
 		panelMain.add(txtpnPregunta3);

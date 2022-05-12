@@ -1,85 +1,36 @@
 package SportChoice;
 
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Panel;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.Cursor;
-
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.JList;
-import javax.swing.AbstractListModel;
-import javax.swing.JScrollBar;
-import javax.swing.JTextArea;
-import javax.swing.ImageIcon;
-import java.awt.Dimension;
-import javax.swing.SwingConstants;
-import java.awt.Rectangle;
-import javax.swing.JCheckBox;
-import javax.swing.JRadioButton;
-import javax.swing.JToggleButton;
+import javax.swing.*;
 
 public class Valoracion {
 
 	private JFrame frame;
-	private JButton btnHome;
-	private JButton btnPerfil;
-	private JButton btnNewButton_2;
-	private JButton btnFaqs;
-	private JLabel lblNewLabel_1;
-	private JLabel lblNewLabel_2;
-	private JLabel lblNewLabel_1_1;
-	private JLabel lblNewLabel_3;
-	private JLabel lblNewLabel_4;
-	private JLabel lblNewLabel_1_2;
-	private JLabel lblNewLabel_5;
-	private JLabel lblNewLabel_6;
-	private JLabel lblNewLabel_1_3;
-	private JLabel lblNewLabel_7;
-	private JLabel lblNewLabel_8;
-	private JLabel lblNewLabel_1_4;
-	private JToggleButton tglbtnNewToggleButton_1;
-	private JToggleButton tglbtnNewToggleButton_2;
-	private JToggleButton tglbtnNewToggleButton_3;
+	private JButton btnHome,btnPerfil,btnNewButton_2,btnFaqs;
+	private JLabel lblNewLabel_1,lblNewLabel_2,lblNewLabel_1_1,lblNewLabel_3,lblNewLabel_4,lblNewLabel_1_2,lblNewLabel_5,lblNewLabel_6,lblNewLabel_1_3,lblNewLabel_7,lblNewLabel_8,lblNewLabel_1_4;
+	private JToggleButton tglbtnNewToggleButton_1,tglbtnNewToggleButton_2,tglbtnNewToggleButton_3;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void Valoracion() {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
 					Valoracion window = new Valoracion();
 					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
 				}
-			}
-		});
-	}
 
-	/**
-	 * Create the application.
-	 */
 	public Valoracion() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(34, 40, 49));
 		Container contenedor = frame.getContentPane();
 		frame.setBounds(100, 100, 850, 480);
+		frame.setTitle("Sport Choice - Valoraciones");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		contenedor.setLayout(null);

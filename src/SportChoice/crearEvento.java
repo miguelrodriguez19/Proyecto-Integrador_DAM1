@@ -6,70 +6,36 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 import java.awt.*;
-import javax.swing.border.EmptyBorder;
 
 public class crearEvento {
 
 	private JFrame frame;
-	private JButton btnCrear;
-	private JTextField txtLocalizacion;
-	private JLabel lblTipoEvento;
-	private JRadioButton rdbtnPublico;
-	private JRadioButton rdbtnPrivado;
-	private JLabel lblFechaEvento;
-	private JLabel lblNombreEvento;
-	private JTextField txtPartidoFutbol;
-	private JLabel lblDeporteFutbol;
-	private JComboBox comboBox;
-	private JLabel lblParticipantes;
-	private JSpinner spinner;
-	private JLabel lblHora;
-	private JSpinner spinner_1;
-	private JLabel lblHora_1;
-	private JSpinner spinner_2;
-	private JLabel lblDescripcin;
-	private JComboBox comboBox_2;
-	private JButton btnNewButton_1;
-	private JLabel lblCrearEvento;
+	private JButton btnCrear, btnLogo, btnPerfil, btnFAQs, btnLogo_1, btnNewButton_1;
+	private JTextField txtLocalizacion, txtPartidoFutbol;
+	private JLabel lblTipoEvento, lblDeporteFutbol, lblFechaEvento, lblNombreEvento, lblParticipantes, lblHora,
+			lblHora_1, lblCrearEvento, lblDescripcin;
+	private JRadioButton rdbtnPublico, rdbtnPrivado;
+	private JComboBox comboBox, comboBox_2;
+	private JSpinner spinner, spinner_1, spinner_2;
 	private JTextPane txtpnOrganizamosUnPartido;
 	private JPanel panelHeader;
-	private JButton btnLogo;
-	private JButton btnPerfil;
-	private JButton btnFAQs;
-	private JButton btnLogo_1;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void crearEvento() {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					crearEvento window = new crearEvento();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		crearEvento window = new crearEvento();
+		window.frame.setVisible(true);
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public crearEvento() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		Container contenedor = frame.getContentPane();
 		frame.getContentPane().setBackground(new Color(34, 40, 49));
 		frame.setBounds(100, 100, 850, 480);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setTitle("Sport Choice - Crear evento");
 		contenedor.setLayout(null);
 
 		btnCrear = new JButton("Crear");
@@ -253,6 +219,6 @@ public class crearEvento {
 		btnLogo_1.setBackground((Color) null);
 		btnLogo_1.setBounds(28, 21, 64, 68);
 		panelHeader.add(btnLogo_1);
-		
+
 	}
 }

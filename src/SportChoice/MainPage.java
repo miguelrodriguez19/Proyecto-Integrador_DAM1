@@ -9,8 +9,7 @@ import javax.swing.table.DefaultTableModel;
 public class MainPage {
 	private JFrame frame;
 	private JTextField txtLocalidad;
-	private JButton btnFAQs, btnPerfil, btnCrearEventos, btnAplicarFiltros, btnEventosRecientes, btnMisEventos;
-	private JButton btnUnirseEvento, btnLogo;
+	private JButton btnFAQs, btnPerfil, btnCrearEventos, btnAplicarFiltros, btnEventosRecientes, btnMisEventos, btnUnirseEvento, btnLogo;
 	private JLabel lblNewLabel;
 	private JPanel panelHeader, panelPaginaPrincipal;
 	private JComboBox comboBoxDeportes, comboBoxDia, comboBoxMes;
@@ -27,6 +26,7 @@ public class MainPage {
 		Container contenedor = frame.getContentPane();
 		frame.setBounds(100, 100, 850, 480);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setTitle("Sport Choice - Eventos recientes");
 		contenedor.setLayout(null);
 
 		panelHeader = new JPanel();
