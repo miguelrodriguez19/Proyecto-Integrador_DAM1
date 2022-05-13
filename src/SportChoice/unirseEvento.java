@@ -8,7 +8,7 @@ import java.awt.Font;
 
 import javax.swing.*;
 
-public class unirseEvento {
+public class unirseEvento implements Vistas{
 
 	private JFrame frame;
 	private JLabel lblNewLabel, lblUnirseEvento, lblNombre, lblNombreEvento, lblFecha, lblFechaVariable, lblHora,
@@ -197,5 +197,11 @@ public class unirseEvento {
 		btnLogo_1.setBackground((Color) null);
 		btnLogo_1.setBounds(28, 21, 64, 68);
 		panelHeader.add(btnLogo_1);
+	}
+
+	@Override
+	public void setControlador(Main Launcher) {
+		// TODO Auto-generated method stub
+		
 	}
 }

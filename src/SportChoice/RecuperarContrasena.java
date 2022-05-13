@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class RecuperarContrasena {
+public class RecuperarContrasena implements Vistas{
 
 	private JFrame frame;
 	private JPanel panel;
@@ -117,5 +117,11 @@ public class RecuperarContrasena {
 		lblNewLabel_1.setBounds(-232, -13, 1586, 456);
 		frame.getContentPane().add(lblNewLabel_1);
 
+	}
+
+	@Override
+	public void setControlador(Main Launcher) {
+		// TODO Auto-generated method stub
+		
 	}
 }

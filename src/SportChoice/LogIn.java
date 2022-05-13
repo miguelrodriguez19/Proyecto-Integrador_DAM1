@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class LogIn {
+public class LogIn implements Vistas{
 
 	private JFrame frame;
 	private JTextField txtMail, textField;
@@ -107,5 +107,11 @@ public class LogIn {
 		lblNewLabel.setBounds(-232, -13, 1586, 456);
 		frame.getContentPane().add(lblNewLabel);
 
+	}
+
+	@Override
+	public void setControlador(Main Launcher) {
+		// TODO Auto-generated method stub
+		
 	}
 }

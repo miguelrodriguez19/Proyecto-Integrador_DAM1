@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class ConfCrearPerfil {
+public class ConfCrearPerfil implements Vistas{
 
 	private JFrame frame;
 	private JButton btnOK;
@@ -112,5 +112,11 @@ public class ConfCrearPerfil {
 		lblNewLabel_1.setBounds(-139, -13, 1586, 456);
 		frame.getContentPane().add(lblNewLabel_1);
 
+	}
+
+	@Override
+	public void setControlador(Main Launcher) {
+		// TODO Auto-generated method stub
+		
 	}
 }

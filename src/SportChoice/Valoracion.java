@@ -9,17 +9,18 @@ import java.awt.Panel;
 
 import javax.swing.*;
 
-public class Valoracion {
+public class Valoracion implements Vistas {
 
 	private JFrame frame;
-	private JButton btnHome,btnPerfil,btnNewButton_2,btnFaqs;
-	private JLabel lblNewLabel_1,lblNewLabel_2,lblNewLabel_1_1,lblNewLabel_3,lblNewLabel_4,lblNewLabel_1_2,lblNewLabel_5,lblNewLabel_6,lblNewLabel_1_3,lblNewLabel_7,lblNewLabel_8,lblNewLabel_1_4;
-	private JToggleButton tglbtnNewToggleButton_1,tglbtnNewToggleButton_2,tglbtnNewToggleButton_3;
+	private JButton btnHome, btnPerfil, btnNewButton_2, btnFaqs;
+	private JLabel lblNewLabel_1, lblNewLabel_2, lblNewLabel_1_1, lblNewLabel_3, lblNewLabel_4, lblNewLabel_1_2,
+			lblNewLabel_5, lblNewLabel_6, lblNewLabel_1_3, lblNewLabel_7, lblNewLabel_8, lblNewLabel_1_4;
+	private JToggleButton tglbtnNewToggleButton_1, tglbtnNewToggleButton_2, tglbtnNewToggleButton_3;
 
 	public static void Valoracion() {
-					Valoracion window = new Valoracion();
-					window.frame.setVisible(true);
-				}
+		Valoracion window = new Valoracion();
+		window.frame.setVisible(true);
+	}
 
 	public Valoracion() {
 		initialize();
@@ -185,7 +186,7 @@ public class Valoracion {
 		tglbtnNewToggleButton.setBounds(259, 169, 85, 92);
 		tglbtnNewToggleButton.setOpaque(false);
 		frame.getContentPane().add(tglbtnNewToggleButton);
-		
+
 		tglbtnNewToggleButton_1 = new JToggleButton("");
 		tglbtnNewToggleButton_1.setIcon(new ImageIcon(Valoracion.class.getResource("/Imagenes/Like.png")));
 		tglbtnNewToggleButton_1.setOpaque(false);
@@ -193,7 +194,7 @@ public class Valoracion {
 		tglbtnNewToggleButton_1.setBackground(new Color(139, 0, 0));
 		tglbtnNewToggleButton_1.setBounds(259, 282, 85, 92);
 		frame.getContentPane().add(tglbtnNewToggleButton_1);
-		
+
 		tglbtnNewToggleButton_2 = new JToggleButton("");
 		tglbtnNewToggleButton_2.setIcon(new ImageIcon(Valoracion.class.getResource("/Imagenes/Like.png")));
 		tglbtnNewToggleButton_2.setOpaque(false);
@@ -201,7 +202,7 @@ public class Valoracion {
 		tglbtnNewToggleButton_2.setBackground(new Color(139, 0, 0));
 		tglbtnNewToggleButton_2.setBounds(594, 282, 85, 92);
 		frame.getContentPane().add(tglbtnNewToggleButton_2);
-		
+
 		tglbtnNewToggleButton_3 = new JToggleButton("");
 		tglbtnNewToggleButton_3.setIcon(new ImageIcon(Valoracion.class.getResource("/Imagenes/LikeYellow.png")));
 		tglbtnNewToggleButton_3.setSelected(true);
@@ -210,6 +211,12 @@ public class Valoracion {
 		tglbtnNewToggleButton_3.setBackground(new Color(139, 0, 0));
 		tglbtnNewToggleButton_3.setBounds(594, 157, 85, 92);
 		frame.getContentPane().add(tglbtnNewToggleButton_3);
+
+	}
+
+	@Override
+	public void setControlador(Main Launcher) {
+		// TODO Auto-generated method stub
 
 	}
 }

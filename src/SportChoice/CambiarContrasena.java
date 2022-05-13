@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 
-public class CambiarContrasena {
+public class CambiarContrasena implements Vistas{
 
 	private JFrame frame;
 	private JButton btnOK;
@@ -103,5 +103,11 @@ public class CambiarContrasena {
 		lblNewLabel.setBounds(-232, -13, 1586, 456);
 		frame.getContentPane().add(lblNewLabel);
 
+	}
+
+	@Override
+	public void setControlador(Main Launcher) {
+		// TODO Auto-generated method stub
+		
 	}
 }

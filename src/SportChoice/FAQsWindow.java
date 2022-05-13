@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class FAQsWindow {
+public class FAQsWindow implements Vistas{
 
 	private JFrame frame;
 	private JButton btnHomeIcon,btnFAQs,btnPerfil,btnProfileIcon,btnBackIcon,btnPregunta1,btnPregunta2,btnPregunta3;
@@ -208,5 +208,11 @@ public class FAQsWindow {
 			}
 		});
 
+	}
+
+	@Override
+	public void setControlador(Main Launcher) {
+		// TODO Auto-generated method stub
+		
 	}
 }

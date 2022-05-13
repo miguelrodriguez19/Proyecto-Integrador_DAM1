@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import java.awt.*;
 
-public class crearEvento {
+public class crearEvento implements Vistas{
 
 	private JFrame frame;
 	private JButton btnCrear, btnLogo, btnPerfil, btnFAQs, btnLogo_1, btnNewButton_1;
@@ -220,5 +220,11 @@ public class crearEvento {
 		btnLogo_1.setBounds(28, 21, 64, 68);
 		panelHeader.add(btnLogo_1);
 
+	}
+
+	@Override
+	public void setControlador(Main Launcher) {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -7,7 +7,7 @@ import java.awt.EventQueue;
 
 import javax.swing.*;
 
-public class Foro {
+public class Foro implements Vistas{
 
 	private JFrame frame;
 	private JTextField txtGenialGracias, txtHolaYoLlevo, txtElTemaDe, txtLlevamosCamisetasAzules, txtAlliNosVemos,
@@ -137,5 +137,11 @@ public class Foro {
 		btnNewButton_6.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
 		btnNewButton_6.setBounds(303, 261, 52, 46);
 		panelFondo.add(btnNewButton_6);
+	}
+
+	@Override
+	public void setControlador(Main Launcher) {
+		// TODO Auto-generated method stub
+		
 	}
 }

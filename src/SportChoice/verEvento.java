@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class verEvento {
+public class verEvento implements Vistas {
 
 	private JFrame frame;
 	private JButton btnFlechaAtras, btnSalirEvento, btnForo, btnLogo, btnPerfil, btnFAQs, btnLogo_1;
@@ -20,8 +20,8 @@ public class verEvento {
 	private JPanel panelHeader;
 
 	public static void verEvento() {
-					verEvento window = new verEvento();
-					window.frame.setVisible(true);
+		verEvento window = new verEvento();
+		window.frame.setVisible(true);
 	}
 
 	public verEvento() {
@@ -200,6 +200,12 @@ public class verEvento {
 		btnLogo_1.setBackground((Color) null);
 		btnLogo_1.setBounds(28, 21, 64, 68);
 		panelHeader.add(btnLogo_1);
+
+	}
+
+	@Override
+	public void setControlador(Main Launcher) {
+		// TODO Auto-generated method stub
 
 	}
 }

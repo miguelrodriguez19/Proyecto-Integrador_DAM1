@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class Perfil {
+public class Perfil implements Vistas{
 
 	private JFrame frame;
 	private JPanel header;
@@ -182,5 +182,11 @@ public class Perfil {
 		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnNewButton_3.setBounds(74, 382, 133, 33);
 		frame.getContentPane().add(btnNewButton_3);
+	}
+
+	@Override
+	public void setControlador(Main Launcher) {
+		// TODO Auto-generated method stub
+		
 	}
 }
