@@ -33,6 +33,7 @@ public class verEvento {
 		frame.getContentPane().setBackground(new Color(34, 40, 49));
 		Container contenedor = frame.getContentPane();
 		frame.setBounds(100, 100, 850, 480);
+		frame.setTitle("Sport Choice - Ver evento");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
