@@ -6,7 +6,7 @@ import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
-public class MainPage implements Vistas{
+public class MainPage extends JFrame{
 	private JFrame frame;
 	private JTextField txtLocalidad;
 	private JButton btnFAQs, btnPerfil, btnCrearEventos, btnAplicarFiltros, btnEventosRecientes, btnMisEventos, btnUnirseEvento, btnLogo;
@@ -193,9 +193,5 @@ public class MainPage implements Vistas{
 		btnUnirseEvento.setBounds(735, 300, 89, 23);
 		panelPaginaPrincipal.add(btnUnirseEvento);
 	}
-	@Override
-	public void setControlador(Main Launcher) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }

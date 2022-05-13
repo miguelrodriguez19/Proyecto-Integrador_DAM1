@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class LogIn implements Vistas{
+public class LogIn extends JFrame{
 
 	private JFrame frame;
 	private JTextField txtMail, textField;
@@ -109,9 +109,5 @@ public class LogIn implements Vistas{
 
 	}
 
-	@Override
-	public void setControlador(Main Launcher) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }

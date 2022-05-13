@@ -6,7 +6,7 @@ import java.awt.Font;
 
 import javax.swing.*;
 
-public class ModificarEvento implements Vistas{
+public class ModificarEvento extends JFrame{
 
 	private JFrame frame;
 	private JPanel panelHeader;
@@ -232,9 +232,5 @@ public class ModificarEvento implements Vistas{
 
 	}
 
-	@Override
-	public void setControlador(Main Launcher) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }

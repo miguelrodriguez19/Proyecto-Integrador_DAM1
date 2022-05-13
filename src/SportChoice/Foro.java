@@ -7,7 +7,7 @@ import java.awt.EventQueue;
 
 import javax.swing.*;
 
-public class Foro implements Vistas{
+public class Foro extends JFrame{
 
 	private JFrame frame;
 	private JTextField txtGenialGracias, txtHolaYoLlevo, txtElTemaDe, txtLlevamosCamisetasAzules, txtAlliNosVemos,
@@ -139,9 +139,5 @@ public class Foro implements Vistas{
 		panelFondo.add(btnNewButton_6);
 	}
 
-	@Override
-	public void setControlador(Main Launcher) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }

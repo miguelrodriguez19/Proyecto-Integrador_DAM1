@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class Perfil implements Vistas{
+public class Perfil extends JFrame{
 
 	private JFrame frame;
 	private JPanel header;
@@ -184,9 +184,5 @@ public class Perfil implements Vistas{
 		frame.getContentPane().add(btnNewButton_3);
 	}
 
-	@Override
-	public void setControlador(Main Launcher) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }

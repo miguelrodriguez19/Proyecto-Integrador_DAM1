@@ -11,7 +11,7 @@ import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
-public class HistorialWindow implements Vistas{
+public class HistorialWindow extends JFrame{
 
 	private JFrame frame;
 	private JTable table;
@@ -148,9 +148,5 @@ public class HistorialWindow implements Vistas{
 
 	}
 
-	@Override
-	public void setControlador(Main Launcher) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }

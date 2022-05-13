@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class ConfCrearPerfil implements Vistas{
+public class ConfCrearPerfil extends JFrame{
 
 	private JFrame frame;
 	private JButton btnOK;
@@ -114,9 +114,4 @@ public class ConfCrearPerfil implements Vistas{
 
 	}
 
-	@Override
-	public void setControlador(Main Launcher) {
-		// TODO Auto-generated method stub
-		
-	}
 }

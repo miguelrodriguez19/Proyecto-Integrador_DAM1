@@ -7,7 +7,7 @@ import java.awt.Font;
 
 import javax.swing.*;
 
-public class editarPerfil implements Vistas{
+public class editarPerfil  extends JFrame {
 
 	private JFrame frame;
 	private JPanel header;
@@ -195,9 +195,5 @@ public class editarPerfil implements Vistas{
 		frame.getContentPane().add(btnEliminar);
 	}
 
-	@Override
-	public void setControlador(Main Launcher) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }

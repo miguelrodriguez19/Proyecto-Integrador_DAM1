@@ -9,7 +9,7 @@ import java.awt.Dimension;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
-public class MisEventos implements Vistas{
+public class MisEventos extends JFrame{
 	private JFrame frame;
 	private JTextField txtLocalidad;
 	private JButton btnFAQs, btnPerfil, btnCrearEventos, btnAplicarFiltros, btnEventosRecientes, btnMisEventos,
@@ -212,9 +212,5 @@ public class MisEventos implements Vistas{
 		panelPaginaPrincipal.add(btnEliminarEvento);
 	}
 
-	@Override
-	public void setControlador(Main Launcher) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }

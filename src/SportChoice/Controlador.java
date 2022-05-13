@@ -1,4 +1,7 @@
 package SportChoice;
+
+import javax.swing.JFrame;
+
 public class Controlador {
 	private CambiarContrasena cambiarContraseña;
 	private ConfCrearPerfil crearPerfil;
@@ -17,6 +20,11 @@ public class Controlador {
 	private unirseEvento unirseEvento;
 	private Valoracion valoracion;
 	private verEvento verEvento;
+	
+	public void actualizar(JFrame pantallaAnterior, JFrame pantallaNueva) {
+		pantallaAnterior.setVisible(false);
+	}
+	
 	public void setCambiarContraseña(CambiarContrasena cambiarContrasena) {
 		this.cambiarContraseña = cambiarContraseña;
 	}

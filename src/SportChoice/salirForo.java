@@ -7,7 +7,7 @@ import java.awt.EventQueue;
 import javax.swing.*;
 import java.awt.SystemColor;
 
-public class salirForo implements Vistas{
+public class salirForo extends JFrame{
 
 	private JFrame frame;
 	private JTextField txtestaSeguroQue;
@@ -70,10 +70,6 @@ public class salirForo implements Vistas{
 		panel.add(btnX);
 	}
 
-	@Override
-	public void setControlador(Main Launcher) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 }

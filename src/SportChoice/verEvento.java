@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class verEvento implements Vistas {
+public class verEvento extends JFrame {
 
 	private JFrame frame;
 	private JButton btnFlechaAtras, btnSalirEvento, btnForo, btnLogo, btnPerfil, btnFAQs, btnLogo_1;
@@ -203,9 +203,5 @@ public class verEvento implements Vistas {
 
 	}
 
-	@Override
-	public void setControlador(Main Launcher) {
-		// TODO Auto-generated method stub
-
-	}
+	
 }

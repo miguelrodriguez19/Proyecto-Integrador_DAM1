@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class RecuperarContrasena implements Vistas{
+public class RecuperarContrasena extends JFrame{
 
 	private JFrame frame;
 	private JPanel panel;
@@ -119,9 +119,5 @@ public class RecuperarContrasena implements Vistas{
 
 	}
 
-	@Override
-	public void setControlador(Main Launcher) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }

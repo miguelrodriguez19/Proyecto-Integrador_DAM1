@@ -9,7 +9,7 @@ import java.awt.Panel;
 
 import javax.swing.*;
 
-public class Valoracion implements Vistas {
+public class Valoracion extends JFrame {
 
 	private JFrame frame;
 	private JButton btnHome, btnPerfil, btnNewButton_2, btnFaqs;
@@ -214,9 +214,5 @@ public class Valoracion implements Vistas {
 
 	}
 
-	@Override
-	public void setControlador(Main Launcher) {
-		// TODO Auto-generated method stub
-
-	}
+	
 }
