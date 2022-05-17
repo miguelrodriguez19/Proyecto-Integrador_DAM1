@@ -44,7 +44,7 @@ public class crearEvento extends JFrame{
 		btnCrear.setBorder(null);
 		btnCrear.setBackground(new Color(53, 187, 95));
 		btnCrear.setForeground(Color.WHITE);
-		btnCrear.setBounds(700, 374, 113, 40);
+		btnCrear.setBounds(700, 386, 113, 40);
 		contenedor.add(btnCrear);
 
 		txtLocalizacion = new JTextField();
@@ -64,14 +64,14 @@ public class crearEvento extends JFrame{
 		rdbtnPublico.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnPublico.setSelected(true);
 		rdbtnPublico.setForeground(Color.WHITE);
-		rdbtnPublico.setBounds(156, 289, 72, 21);
+		rdbtnPublico.setBounds(156, 292, 72, 21);
 		rdbtnPublico.setBackground(null);
 		frame.getContentPane().add(rdbtnPublico);
 
 		rdbtnPrivado = new JRadioButton("Privado");
 		rdbtnPrivado.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		rdbtnPrivado.setForeground(Color.WHITE);
-		rdbtnPrivado.setBounds(252, 289, 72, 21);
+		rdbtnPrivado.setBounds(252, 292, 72, 21);
 		rdbtnPrivado.setBackground(null);
 		frame.getContentPane().add(rdbtnPrivado);
 
@@ -90,14 +90,14 @@ public class crearEvento extends JFrame{
 		lblNombreEvento = new JLabel("Nombre:");
 		lblNombreEvento.setForeground(Color.WHITE);
 		lblNombreEvento.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNombreEvento.setBounds(40, 135, 94, 23);
+		lblNombreEvento.setBounds(40, 156, 94, 23);
 		frame.getContentPane().add(lblNombreEvento);
 
 		txtPartidoFutbol = new JTextField();
 		txtPartidoFutbol.setForeground(Color.GRAY);
 		txtPartidoFutbol.setText("\r\n");
 		txtPartidoFutbol.setColumns(10);
-		txtPartidoFutbol.setBounds(40, 157, 284, 25);
+		txtPartidoFutbol.setBounds(135, 157, 189, 25);
 		frame.getContentPane().add(txtPartidoFutbol);
 
 		lblDeporteFutbol = new JLabel("Deporte:");
@@ -207,7 +207,7 @@ public class crearEvento extends JFrame{
 		panelHeader.add(btnLogo_1);
 		
 		JCalendar calendar = new JCalendar();
-		calendar.setBounds(156, 316, 168, 110);
+		calendar.setBounds(156, 326, 168, 100);
 		frame.getContentPane().add(calendar);
 
 	}
