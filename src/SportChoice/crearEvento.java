@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 import java.awt.*;
+import com.toedter.calendar.JCalendar;
 
 public class crearEvento extends JFrame{
 
@@ -15,7 +16,7 @@ public class crearEvento extends JFrame{
 	private JLabel lblTipoEvento, lblDeporteFutbol, lblFechaEvento, lblNombreEvento, lblParticipantes, lblHora,
 			lblHora_1, lblCrearEvento, lblDescripcin;
 	private JRadioButton rdbtnPublico, rdbtnPrivado;
-	private JComboBox comboBox, comboBox_2;
+	private JComboBox comboBox;
 	private JSpinner spinner, spinner_1, spinner_2;
 	private JTextPane txtpnOrganizamosUnPartido;
 	private JPanel panelHeader;
@@ -63,31 +64,21 @@ public class crearEvento extends JFrame{
 		rdbtnPublico.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnPublico.setSelected(true);
 		rdbtnPublico.setForeground(Color.WHITE);
-		rdbtnPublico.setBounds(40, 317, 72, 21);
+		rdbtnPublico.setBounds(156, 289, 72, 21);
 		rdbtnPublico.setBackground(null);
 		frame.getContentPane().add(rdbtnPublico);
 
 		rdbtnPrivado = new JRadioButton("Privado");
 		rdbtnPrivado.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		rdbtnPrivado.setForeground(Color.WHITE);
-		rdbtnPrivado.setBounds(40, 341, 72, 21);
+		rdbtnPrivado.setBounds(252, 289, 72, 21);
 		rdbtnPrivado.setBackground(null);
 		frame.getContentPane().add(rdbtnPrivado);
-
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] { "Dia" }));
-		comboBox_1.setBounds(174, 312, 65, 22);
-		frame.getContentPane().add(comboBox_1);
-
-		JComboBox comboBox_1_2 = new JComboBox();
-		comboBox_1_2.setModel(new DefaultComboBoxModel(new String[] { "A\u00F1o" }));
-		comboBox_1_2.setBounds(174, 341, 150, 22);
-		frame.getContentPane().add(comboBox_1_2);
 
 		lblFechaEvento = new JLabel("Fecha:");
 		lblFechaEvento.setForeground(Color.WHITE);
 		lblFechaEvento.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblFechaEvento.setBounds(174, 287, 94, 23);
+		lblFechaEvento.setBounds(40, 316, 94, 23);
 		frame.getContentPane().add(lblFechaEvento);
 
 		JLabel lblLocalizacin = new JLabel("Localizaci\u00F3n:");
@@ -117,7 +108,7 @@ public class crearEvento extends JFrame{
 
 		comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] { "FUTBOL", "BALONCESTO", "TENIS" }));
-		comboBox.setBounds(174, 196, 150, 21);
+		comboBox.setBounds(156, 196, 168, 21);
 		frame.getContentPane().add(comboBox);
 
 		lblParticipantes = new JLabel("Participantes:");
@@ -128,7 +119,7 @@ public class crearEvento extends JFrame{
 
 		spinner = new JSpinner();
 		spinner.setModel(new SpinnerNumberModel(2, 2, 100, 1));
-		spinner.setBounds(174, 261, 150, 21);
+		spinner.setBounds(156, 261, 168, 21);
 		frame.getContentPane().add(spinner);
 
 		lblHora = new JLabel("Hora:");
@@ -139,19 +130,19 @@ public class crearEvento extends JFrame{
 
 		spinner_1 = new JSpinner();
 		spinner_1.setModel(new SpinnerNumberModel(1, 1, 24, 1));
-		spinner_1.setBounds(174, 230, 60, 21);
+		spinner_1.setBounds(156, 227, 60, 21);
 		frame.getContentPane().add(spinner_1);
 
 		lblHora_1 = new JLabel(":");
 		lblHora_1.setAlignmentX(Component.CENTER_ALIGNMENT);
 		lblHora_1.setForeground(Color.WHITE);
 		lblHora_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblHora_1.setBounds(244, 227, 17, 23);
+		lblHora_1.setBounds(240, 228, 17, 23);
 		frame.getContentPane().add(lblHora_1);
 
 		spinner_2 = new JSpinner();
 		spinner_2.setModel(new SpinnerNumberModel(0, 0, 60, 1));
-		spinner_2.setBounds(264, 230, 60, 21);
+		spinner_2.setBounds(264, 227, 60, 21);
 		frame.getContentPane().add(spinner_2);
 
 		lblDescripcin = new JLabel("Descripci\u00F3n:");
@@ -159,11 +150,6 @@ public class crearEvento extends JFrame{
 		lblDescripcin.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblDescripcin.setBounds(387, 193, 101, 23);
 		frame.getContentPane().add(lblDescripcin);
-
-		comboBox_2 = new JComboBox();
-		comboBox_2.setModel(new DefaultComboBoxModel(new String[] { "Mes" }));
-		comboBox_2.setBounds(259, 312, 65, 22);
-		frame.getContentPane().add(comboBox_2);
 
 		btnNewButton_1 = new JButton("");
 		btnNewButton_1.setIcon(new ImageIcon(crearEvento.class.getResource("/Imagenes/arrow.png")));
@@ -219,8 +205,10 @@ public class crearEvento extends JFrame{
 		btnLogo_1.setBackground((Color) null);
 		btnLogo_1.setBounds(28, 21, 64, 68);
 		panelHeader.add(btnLogo_1);
+		
+		JCalendar calendar = new JCalendar();
+		calendar.setBounds(156, 316, 168, 110);
+		frame.getContentPane().add(calendar);
 
 	}
-
-	
 }
