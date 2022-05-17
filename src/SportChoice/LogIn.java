@@ -27,6 +27,11 @@ public class LogIn extends JFrame{
 	private JSeparator separator;
 	private JButton btnRecuperarContrasena, btnIniciarSesion;
 
+	public static void main(String[] args) {
+		LogIn window = new LogIn();
+		window.setVisible(true);
+	}
+	
 	public static void LogIn() {
 		LogIn window = new LogIn();
 		window.setVisible(true);
@@ -131,11 +136,6 @@ public class LogIn extends JFrame{
 			}
 		});
 		panel.add(textField);
-		btnRecuperarContrasena.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-
 		btnIniciarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				txtMail.setText(mensajeTxtMail);

@@ -13,7 +13,7 @@ public class Register extends JFrame{
 	private Modelo miModelo;
 	private JPanel panel;
 	private JTextField txtNombre,txtApellidos,txtMail,txtContrasea,txtRepiteContrasea;
-	private JButton btnOK,btnNewButton;
+	private JButton btnSiguiente,btnIniciarSesion;
 
 	public static void Register() {
 		Register window = new Register();
@@ -42,11 +42,11 @@ public class Register extends JFrame{
 		container.add(txtNombre);
 		txtNombre.setColumns(10);
 
-		btnOK = new JButton("Siguiente");
-		btnOK.setForeground(Color.WHITE);
-		btnOK.setBackground(new Color(156, 163, 219));
-		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnOK.addActionListener(new ActionListener() {
+		btnSiguiente = new JButton("Siguiente");
+		btnSiguiente.setForeground(Color.WHITE);
+		btnSiguiente.setBackground(new Color(156, 163, 219));
+		btnSiguiente.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnSiguiente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// System.out.println(txtNombre.getText());
 //				comboBox.addItem(txtNombre.getText());
@@ -54,9 +54,9 @@ public class Register extends JFrame{
 //				System.out.println("La Contrase�a es " + String.valueOf(passwordField.getPassword()));
 			}
 		});
-		btnOK.setBounds(520, 321, 275, 53);
+		btnSiguiente.setBounds(520, 321, 275, 53);
 
-		container.add(btnOK);
+		container.add(btnSiguiente);
 
 		ButtonGroup group = new ButtonGroup();
 
@@ -111,17 +111,17 @@ public class Register extends JFrame{
 		comboBox_1_1.setModel(new DefaultComboBoxModel(new String[] { "A\u00D1O" }));
 		comboBox_1_1.setBounds(684, 281, 111, 30);
 		getContentPane().add(comboBox_1_1);
-
-		btnNewButton = new JButton("\u00BFYa tienes Cuenta? Inicia sesion\r\n");
-		btnNewButton.setBorder(null);
-		btnNewButton.setForeground(new Color(255, 255, 255));
-		btnNewButton.setBackground(new Color(57, 62, 70));
-		btnNewButton.addActionListener(new ActionListener() {
+		
+		btnIniciarSesion = new JButton("\u00BFYa tienes Cuenta? Inicia sesion\r\n");
+		btnIniciarSesion.setBorder(null);
+		btnIniciarSesion.setForeground(new Color(255, 255, 255));
+		btnIniciarSesion.setBackground(new Color(57, 62, 70));
+		btnIniciarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(520, 384, 275, 21);
-		getContentPane().add(btnNewButton);
+		btnIniciarSesion.setBounds(520, 384, 275, 21);
+		getContentPane().add(btnIniciarSesion);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(57, 62, 70));
