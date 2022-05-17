@@ -28,8 +28,8 @@ public class Main {
 		 MainPage mainPage=new MainPage();
 		 ModificarEvento modificarEvento=new ModificarEvento();
 		 Perfil perfil=new Perfil();
-		 RecuperarContrasena recuperarContraseña=new RecuperarContrasena();
-		 RecuperarContrasenaV2 recuperarContraseñaV2=new RecuperarContrasenaV2();
+		 RecuperarContrasena recuperarContrasena=new RecuperarContrasena();
+		 RecuperarContrasenaV2 recuperarContrasenaV2=new RecuperarContrasenaV2();
 		 Register registro=new Register();
 		 salirForo salirForo=new salirForo();
 		 unirseEvento unirseEvento=new unirseEvento();
@@ -38,7 +38,7 @@ public class Main {
 		 
 		 miControlador.setMiModelo(miModelo);
 		 
-		 miModelo.setCambiarContraseña(cambiarContrasena);
+		 miModelo.setCambiarContrasena(cambiarContrasena);
 		 miModelo.setCrearEvento(crearEvento);
 		 miModelo.setCrearPerfil(crearPerfil);
 		 miModelo.setEditarPerfil(editarPerfil);
@@ -48,8 +48,8 @@ public class Main {
 		 miModelo.setMisEventos(misEventos);
 		 miModelo.setModificarEvento(modificarEvento);
 		 miModelo.setPerfil(perfil);
-		 miModelo.setRecuperarContraseña(recuperarContraseña);
-		 miModelo.setRecuperarContraseñaV2(recuperarContraseñaV2);
+		 miModelo.setRecuperarContrasena(recuperarContrasena);
+		 miModelo.setRecuperarContrasenaV2(recuperarContrasenaV2);
 		 miModelo.setRegistro(registro);
 		 miModelo.setSalirForo(salirForo);
 		 miModelo.setUnirseEvento(unirseEvento);
@@ -67,8 +67,8 @@ public class Main {
 		misEventos.setMiControlador(miControlador);
 		modificarEvento.setMiControlador(miControlador);
 		perfil.setMiControlador(miControlador);
-		recuperarContraseña.setMiControlador(miControlador);
-		recuperarContraseñaV2.setMiControlador(miControlador);
+		recuperarContrasena.setMiControlador(miControlador);
+		recuperarContrasenaV2.setMiControlador(miControlador);
 		registro.setMiControlador(miControlador);
 		salirForo.setMiControlador(miControlador);
 		unirseEvento.setMiControlador(miControlador);
@@ -86,8 +86,8 @@ public class Main {
 		misEventos.setMiModelo(miModelo);
 		modificarEvento.setMiModelo(miModelo);
 		perfil.setMiModelo(miModelo);
-		recuperarContraseña.setMiModelo(miModelo);
-		recuperarContraseñaV2.setMiModelo(miModelo);
+		recuperarContrasena.setMiModelo(miModelo);
+		recuperarContrasenaV2.setMiModelo(miModelo);
 		registro.setMiModelo(miModelo);
 		salirForo.setMiModelo(miModelo);
 		unirseEvento.setMiModelo(miModelo);

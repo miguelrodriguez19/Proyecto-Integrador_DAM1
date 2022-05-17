@@ -1,7 +1,7 @@
 package SportChoice;
 
 public class Modelo {
-	private CambiarContrasena cambiarContraseña;
+	private CambiarContrasena cambiarContrasena;
 	private ConfCrearPerfil crearPerfil;
 	private crearEvento crearEvento;
 	private editarPerfil editarPerfil;
@@ -13,18 +13,18 @@ public class Modelo {
 	private MisEventos misEventos;
 	private ModificarEvento modificarEvento;
 	private Perfil perfil;
-	private RecuperarContrasena recuperarContraseña;
-	private RecuperarContrasenaV2 recuperarContraseñaV2;
+	private RecuperarContrasena recuperarContrasena;
+	private RecuperarContrasenaV2 recuperarContrasenaV2;
 	private Register registro;
 	private salirForo salirForo;
 	private unirseEvento unirseEvento;
 	private Valoracion valoracion;
 	private verEvento verEvento;
-	public void setCambiarContraseña(CambiarContrasena cambiarContraseña) {
-		this.cambiarContraseña = cambiarContraseña;
+	public void setCambiarContrasena(CambiarContrasena cambiarContrasena) {
+		this.cambiarContrasena = cambiarContrasena;
 	}
-	public void setRecuperarContraseñaV2(RecuperarContrasenaV2 recuperarContraseñaV2) {
-		this.recuperarContraseñaV2 = recuperarContraseñaV2;
+	public void setRecuperarContrasenaV2(RecuperarContrasenaV2 recuperarContrasenaV2) {
+		this.recuperarContrasenaV2 = recuperarContrasenaV2;
 	}
 	public void setMainPage(MainPage mainPage) {
 		this.mainPage = mainPage;
@@ -59,8 +59,8 @@ public class Modelo {
 	public void setPerfil(Perfil perfil) {
 		this.perfil = perfil;
 	}
-	public void setRecuperarContraseña(RecuperarContrasena recuperarContraseña) {
-		this.recuperarContraseña = recuperarContraseña;
+	public void setRecuperarContrasena(RecuperarContrasena recuperarContrasena) {
+		this.recuperarContrasena = recuperarContrasena;
 	}
 	public void setRegistro(Register registro) {
 		this.registro = registro;

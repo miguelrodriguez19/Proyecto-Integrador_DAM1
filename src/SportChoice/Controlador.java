@@ -8,7 +8,7 @@ public class Controlador {
 
 
 
-	private CambiarContrasena cambiarContraseña=new CambiarContrasena();
+	private CambiarContrasena cambiarContrasena=new CambiarContrasena();
 	private ConfCrearPerfil crearPerfil= new ConfCrearPerfil();
 	private crearEvento crearEvento=new crearEvento();
 	private editarPerfil editarPerfil=new editarPerfil();
@@ -20,8 +20,8 @@ public class Controlador {
 	private MisEventos misEventos=new MisEventos();
 	private ModificarEvento modificarEvento=new ModificarEvento();
 	private Perfil perfil=new Perfil();
-	private RecuperarContrasena recuperarContraseña=new RecuperarContrasena();
-	private RecuperarContrasenaV2 recuperarContraseñaV2=new RecuperarContrasenaV2();
+	private RecuperarContrasena recuperarContrasena=new RecuperarContrasena();
+	private RecuperarContrasenaV2 recuperarContrasenaV2=new RecuperarContrasenaV2();
 	private Register registro=new Register();
 	private salirForo salirForo=new salirForo();
 	private unirseEvento unirseEvento=new unirseEvento();
@@ -29,8 +29,8 @@ public class Controlador {
 	private verEvento verEvento=new verEvento();
 
 	
-	private  JFrame[]pantallas={cambiarContraseña,crearPerfil,crearEvento,editarPerfil,FAQs,foro,
-			login,misEventos,modificarEvento,perfil,mainPage,recuperarContraseña,recuperarContraseñaV2,registro,salirForo,unirseEvento,valoracion,verEvento
+	private  JFrame[]pantallas={cambiarContrasena,crearPerfil,crearEvento,editarPerfil,FAQs,foro,
+			login,misEventos,modificarEvento,perfil,mainPage,recuperarContrasena,recuperarContrasenaV2,registro,salirForo,unirseEvento,valoracion,verEvento
 	};
 	
 	public void actualizar(int pantallaAnterior, int pantallaNueva) {
@@ -43,7 +43,7 @@ public class Controlador {
 		this.miModelo = miModelo;
 	}
 	public void setCambiarContrasena(CambiarContrasena cambiarContrasena) {
-		this.cambiarContraseña = cambiarContrasena;
+		this.cambiarContrasena = cambiarContrasena;
 
 	}
 
@@ -78,7 +78,7 @@ public class Controlador {
 		this.perfil = perfil;
 	}
 	public void setRecuperarContrasena(RecuperarContrasena recuperarContrasena) {
-		this.recuperarContraseña = recuperarContrasena;
+		this.recuperarContrasena = recuperarContrasena;
 	}
 	public void setRegistro(Register registro) {
 		this.registro = registro;
