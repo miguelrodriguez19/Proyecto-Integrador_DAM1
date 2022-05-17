@@ -19,10 +19,6 @@ public class Perfil extends JFrame{
 	private JTextArea txtrFdsfsd;
 	private JButton btnNewButton_1, btnEditarPerfil, btnHistorial, btnPuntitos, btnLogOut;
 
-	public static void main(String[] args) {
-		Perfil window = new Perfil();
-		window.setVisible(true);
-	}
 	
 	public static void Perfil() {
 		Perfil window = new Perfil();
