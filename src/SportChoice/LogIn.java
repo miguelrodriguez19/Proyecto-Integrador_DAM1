@@ -27,11 +27,6 @@ public class LogIn extends JFrame{
 	private JSeparator separator;
 	private JButton btnRecuperarContrasena, btnIniciarSesion;
 
-	public static void main(String[] args) {
-		LogIn window = new LogIn();
-		window.setVisible(true);
-	}
-	
 	public static void LogIn() {
 		LogIn window = new LogIn();
 		window.setVisible(true);
