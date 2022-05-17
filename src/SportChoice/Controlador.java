@@ -3,7 +3,7 @@ package SportChoice;
 import javax.swing.JFrame;
 
 public class Controlador {
-	private CambiarContrasena cambiarContraseña;
+	private CambiarContrasena cambiarContrasena;
 	private ConfCrearPerfil crearPerfil;
 	private crearEvento crearEvento;
 	private editarPerfil editarPerfil;
@@ -14,7 +14,7 @@ public class Controlador {
 	private MisEventos misEventos;
 	private ModificarEvento modificarEvento;
 	private Perfil perfil;
-	private RecuperarContrasena recuperarContraseña;
+	private RecuperarContrasena recuperarContrasena;
 	private Register registro;
 	private salirForo salirForo;
 	private unirseEvento unirseEvento;
@@ -25,8 +25,8 @@ public class Controlador {
 		pantallaAnterior.setVisible(false);
 	}
 	
-	public void setCambiarContraseña(CambiarContrasena cambiarContrasena) {
-		this.cambiarContraseña = cambiarContraseña;
+	public void setCambiarContrasena(CambiarContrasena cambiarContrasena) {
+		this.cambiarContrasena = cambiarContrasena;
 	}
 	public void setCrearPerfil(ConfCrearPerfil crearPerfil) {
 		this.crearPerfil = crearPerfil;
@@ -58,8 +58,8 @@ public class Controlador {
 	public void setPerfil(Perfil perfil) {
 		this.perfil = perfil;
 	}
-	public void setRecuperarContraseña(RecuperarContrasena recuperarContraseña) {
-		this.recuperarContraseña = recuperarContraseña;
+	public void setRecuperarContrasena(RecuperarContrasena recuperarContrasena) {
+		this.recuperarContrasena = recuperarContrasena;
 	}
 	public void setRegistro(Register registro) {
 		this.registro = registro;
