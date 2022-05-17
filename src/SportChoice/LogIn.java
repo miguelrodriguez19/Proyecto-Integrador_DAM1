@@ -6,8 +6,18 @@ import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-import javax.swing.*;
+import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JSeparator;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 public class LogIn extends JFrame{
 	private Controlador miControlador;
@@ -15,12 +25,11 @@ public class LogIn extends JFrame{
 	private JTextField txtMail, textField;
 	private JPanel panel;
 	private JSeparator separator;
-	private JButton btnNewButton, btnOK;
+	private JButton btnRecuperarContrasena, btnIniciarSesion;
 
 	public static void LogIn() {
 		LogIn window = new LogIn();
 		window.setVisible(true);
-
 	}
 
 	public LogIn() {
@@ -48,7 +57,8 @@ public class LogIn extends JFrame{
 		txtMail.setForeground(Color.GRAY);
 		txtMail.setBounds(28, 79, 275, 48);
 		panel.add(txtMail);
-		txtMail.setText("Email o Usuario");
+		String mensajeTxtMail = "Email o Usuario";
+		txtMail.setText(mensajeTxtMail);
 		txtMail.setColumns(10);
 
 		JLabel lblNewLabel = new JLabel("Iniciar Sesi\u00F3n\r\n");
@@ -57,21 +67,21 @@ public class LogIn extends JFrame{
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 46));
 
-		btnNewButton = new JButton("Recuperar Contrase\u00F1a\r\n");
-		btnNewButton.setBounds(23, 266, 275, 21);
-		panel.add(btnNewButton);
-		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNewButton.setBorder(null);
-		btnNewButton.setForeground(new Color(255, 255, 255));
-		btnNewButton.setBackground(new Color(57, 62, 70));
+		btnRecuperarContrasena = new JButton("Recuperar Contrase\u00F1a\r\n");
+		btnRecuperarContrasena.setBounds(23, 266, 275, 21);
+		panel.add(btnRecuperarContrasena);
+		btnRecuperarContrasena.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnRecuperarContrasena.setBorder(null);
+		btnRecuperarContrasena.setForeground(new Color(255, 255, 255));
+		btnRecuperarContrasena.setBackground(new Color(57, 62, 70));
 
-		btnOK = new JButton("Iniciar Sesi\u00F3n\r\n\r\n");
-		btnOK.setBorder(null);
-		btnOK.setForeground(Color.WHITE);
-		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnOK.setBackground(new Color(53, 187, 95));
-		btnOK.setBounds(28, 213, 275, 42);
-		panel.add(btnOK);
+		btnIniciarSesion = new JButton("Iniciar Sesi\u00F3n\r\n\r\n");
+		btnIniciarSesion.setBorder(null);
+		btnIniciarSesion.setForeground(Color.WHITE);
+		btnIniciarSesion.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnIniciarSesion.setBackground(new Color(53, 187, 95));
+		btnIniciarSesion.setBounds(28, 213, 275, 42);
+		panel.add(btnIniciarSesion);
 
 		JButton btnOK_1 = new JButton("Crear Cuenta\r\n");
 		btnOK_1.setBorder(null);
@@ -91,11 +101,50 @@ public class LogIn extends JFrame{
 
 		textField = new JTextField();
 		textField.setForeground(Color.GRAY);
+		String mensajeTextField = "Contraseña";
 		textField.setText("Contrase\u00F1a");
 		textField.setColumns(10);
 		textField.setBounds(28, 149, 275, 48);
 		panel.add(textField);
-		btnNewButton.addActionListener(new ActionListener() {
+		txtMail.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				if (txtMail.getText().equals(mensajeTxtMail)) {
+					txtMail.setText("");
+					txtMail.setForeground(Color.BLACK);
+				}
+				if (textField.getText().equals("")) {
+					textField.setText(mensajeTextField);
+					textField.setForeground(Color.GRAY);
+				}
+			}
+		});
+		textField.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				if (textField.getText().equals(mensajeTextField)) {
+					textField.setText("");
+					textField.setForeground(Color.BLACK);
+				}
+				if (txtMail.getText().equals("")) {
+					txtMail.setText(mensajeTxtMail);
+					txtMail.setForeground(Color.GRAY);
+				}
+			}
+		});
+		panel.add(textField);
+		btnRecuperarContrasena.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+
+		btnIniciarSesion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtMail.setText(mensajeTxtMail);
+				textField.setText(mensajeTextField);
+				txtMail.setForeground(Color.GRAY);
+				textField.setForeground(Color.GRAY);
+			}
+		});
+		btnRecuperarContrasena.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
