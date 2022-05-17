@@ -74,7 +74,7 @@ public class Foro extends JFrame{
 
 		btnEnviar = new JButton("ENVIAR");
 		btnEnviar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnEnviar.setBounds(269, 381, 85, 27);
+		btnEnviar.setBounds(269, 380, 85, 27);
 		panelFondo.add(btnEnviar);
 
 		btnPerfil1 = new JButton("");
