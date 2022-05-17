@@ -40,7 +40,7 @@ private Modelo miModelo;
 				// System.out.println(txtNombre.getText());
 //				comboBox.addItem(txtNombre.getText());
 //				System.out.println(chckbxNewCheckBox.isSelected());
-//				System.out.println("La Contrase�a es " + String.valueOf(passwordField.getPassword()));
+//				System.out.println("La Contraseï¿½a es " + String.valueOf(passwordField.getPassword()));
 			}
 		});
 		btnOK.setBounds(508, 366, 275, 42);
