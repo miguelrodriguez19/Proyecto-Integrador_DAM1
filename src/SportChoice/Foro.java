@@ -8,8 +8,8 @@ import java.awt.EventQueue;
 import javax.swing.*;
 
 public class Foro extends JFrame{
-
-	private JFrame frame;
+	private Controlador miControlador;
+	private Modelo miModelo;
 	private JTextField txtGenialGracias, txtHolaYoLlevo, txtElTemaDe, txtLlevamosCamisetasAzules, txtAlliNosVemos,
 			txtEscribeAqui, txtPartidoFutbolColegas;
 	private JButton btnNewButton_2, btnNewButton_3, btnNewButton_4, btnNewButton_5, btnNewButton_6, btnEnviar;
@@ -17,7 +17,7 @@ public class Foro extends JFrame{
 
 	public static void Foro() {
 		Foro window = new Foro();
-		window.frame.setVisible(true);
+		window.setVisible(true);
 	}
 
 	public Foro() {
@@ -25,13 +25,12 @@ public class Foro extends JFrame{
 	}
 
 	private void initialize() {
-		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(34, 40, 49));
-		Container contenedor = frame.getContentPane();
-		frame.getContentPane().setLayout(null);
-		frame.setBounds(100, 100, 750, 480);
-		frame.setTitle("Sport Choice - Foro");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().setBackground(new Color(34, 40, 49));
+		Container contenedor = getContentPane();
+		getContentPane().setLayout(null);
+		setBounds(100, 100, 750, 480);
+		setTitle("Sport Choice - Foro");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		JButton btnUnirse = new JButton("FORO");
 		btnUnirse.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -39,13 +38,13 @@ public class Foro extends JFrame{
 		btnUnirse.setForeground(Color.WHITE);
 		btnUnirse.setBackground(new Color(53, 187, 95));
 		btnUnirse.setBounds(553, 363, 157, 51);
-		frame.getContentPane().add(btnUnirse);
+		getContentPane().add(btnUnirse);
 
 		panel_1 = new JPanel();
 		panel_1.setBorder(null);
 		panel_1.setBackground(new Color(70, 130, 180));
 		panel_1.setBounds(55, 10, 366, 39);
-		frame.getContentPane().add(panel_1);
+		getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 
 		txtPartidoFutbolColegas = new JTextField();
@@ -64,7 +63,7 @@ public class Foro extends JFrame{
 
 		panelFondo = new JPanel();
 		panelFondo.setBounds(55, 10, 364, 404);
-		frame.getContentPane().add(panelFondo);
+		getContentPane().add(panelFondo);
 		panelFondo.setLayout(null);
 
 		txtHolaYoLlevo = new JTextField();
@@ -140,4 +139,11 @@ public class Foro extends JFrame{
 	}
 
 	
+	public void setMiControlador(Controlador miControlador) {
+		this.miControlador = miControlador;
+	}
+	
+	public void setMiModelo(Modelo miModelo) {
+		this.miModelo = miModelo;
+	}
 }

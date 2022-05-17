@@ -8,14 +8,14 @@ import javax.swing.*;
 import java.awt.SystemColor;
 
 public class salirForo extends JFrame{
-
-	private JFrame frame;
+	private Controlador miControlador;
+	private Modelo miModelo;
 	private JTextField txtestaSeguroQue;
 	private JButton btnSiSalir, btnNoSalir, btnX, btnNewButton;
 
 	public static void main(String[] args) {
 		salirForo window = new salirForo();
-		window.frame.setVisible(true);
+		window.setVisible(true);
 	}
 
 	public salirForo() {
@@ -23,16 +23,15 @@ public class salirForo extends JFrame{
 	}
 
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 850, 480);
-		frame.getContentPane().setBackground(new Color(34, 40, 49));
-		Container contenedor = frame.getContentPane();
-		frame.getContentPane().setLayout(null);
+		setBounds(100, 100, 850, 480);
+		getContentPane().setBackground(new Color(34, 40, 49));
+		Container contenedor = getContentPane();
+		getContentPane().setLayout(null);
 
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(240, 240, 240));
 		panel.setBounds(148, 107, 460, 164);
-		frame.getContentPane().add(panel);
+		getContentPane().add(panel);
 		panel.setLayout(null);
 
 		txtestaSeguroQue = new JTextField();
@@ -61,7 +60,7 @@ public class salirForo extends JFrame{
 		btnNewButton.setBorder(null);
 		btnNewButton.setBackground(Color.RED);
 		btnNewButton.setBounds(622, 355, 157, 51);
-		frame.getContentPane().add(btnNewButton);
+		getContentPane().add(btnNewButton);
 
 		btnX = new JButton("X");
 		btnX.setBorder(null);
@@ -72,4 +71,11 @@ public class salirForo extends JFrame{
 
 	
 
+	public void setMiControlador(Controlador miControlador) {
+		this.miControlador = miControlador;
+	}
+	
+	public void setMiModelo(Modelo miModelo) {
+		this.miModelo = miModelo;
+	}
 }

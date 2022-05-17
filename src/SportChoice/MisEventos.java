@@ -10,7 +10,8 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 public class MisEventos extends JFrame{
-	private JFrame frame;
+	private Controlador miControlador;
+	private Modelo miModelo;
 	private JTextField txtLocalidad;
 	private JButton btnFAQs, btnPerfil, btnCrearEventos, btnAplicarFiltros, btnEventosRecientes, btnMisEventos,
 			btnUnirseEvento, btnHouse, btnEditarEvento, btnEliminarEvento, btnPerfilFoto;
@@ -22,22 +23,21 @@ public class MisEventos extends JFrame{
 
 	public static void MisEventos() {
 		MisEventos mainPage = new MisEventos();
-		mainPage.frame.setVisible(true);
+		mainPage.setVisible(true);
 	}
 
 	public MisEventos() {
-		frame = new JFrame();
-		frame.setResizable(false);
-		Container contenedor = frame.getContentPane();
-		frame.setBounds(100, 100, 850, 480);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setTitle("Sport Choice - Mis eventos");
+		setResizable(false);
+		Container contenedor = getContentPane();
+		setBounds(100, 100, 850, 480);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle("Sport Choice - Mis eventos");
 		contenedor.setLayout(null);
 
 		panelHeader = new JPanel();
 		panelHeader.setBackground(new Color(57, 62, 70));
 		panelHeader.setBounds(0, 0, 834, 100);
-		frame.getContentPane().add(panelHeader);
+		getContentPane().add(panelHeader);
 		panelHeader.setLayout(null);
 
 		btnPerfilFoto = new JButton("");
@@ -79,7 +79,7 @@ public class MisEventos extends JFrame{
 		panelPaginaPrincipal = new JPanel();
 		panelPaginaPrincipal.setBackground(new Color(34, 40, 49));
 		panelPaginaPrincipal.setBounds(0, 100, 834, 341);
-		frame.getContentPane().add(panelPaginaPrincipal);
+		getContentPane().add(panelPaginaPrincipal);
 		panelPaginaPrincipal.setLayout(null);
 
 		btnCrearEventos = new JButton("Crear Eventos");
@@ -213,4 +213,11 @@ public class MisEventos extends JFrame{
 	}
 
 	
+	public void setMiControlador(Controlador miControlador) {
+		this.miControlador = miControlador;
+	}
+	
+	public void setMiModelo(Modelo miModelo) {
+		this.miModelo = miModelo;
+	}
 }

@@ -10,8 +10,8 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class FAQsWindow extends JFrame{
-
-	private JFrame frame;
+	private Controlador miControlador;
+	private Modelo miModelo;
 	private JButton btnHomeIcon,btnFAQs,btnPerfil,btnProfileIcon,btnBackIcon,btnPregunta1,btnPregunta2,btnPregunta3;
 	private JPanel panelMain,panelHeader;
 	private JLabel lblFAQsTitle;
@@ -20,7 +20,7 @@ public class FAQsWindow extends JFrame{
 
 	public static void FAQsWindow() {
 					FAQsWindow window = new FAQsWindow();
-					window.frame.setVisible(true);
+					window.setVisible(true);
 	}
 
 	public FAQsWindow() {
@@ -28,20 +28,19 @@ public class FAQsWindow extends JFrame{
 	}
 
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 850, 480);
-		frame.setMaximizedBounds(null);
-		frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		frame.setTitle("Sport Choice - FAQs");
-		frame.setResizable(false);
+		setBounds(100, 100, 850, 480);
+		setMaximizedBounds(null);
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().setLayout(null);
+		setTitle("Sport Choice - FAQs");
+		setResizable(false);
 
 		panelHeader = new JPanel();
 		panelHeader.setForeground(Color.WHITE);
 		panelHeader.setBackground(new Color(57, 62, 70));
 		panelHeader.setBounds(0, 0, 849, 100);
-		frame.getContentPane().add(panelHeader);
+		getContentPane().add(panelHeader);
 		panelHeader.setLayout(null);
 
 		btnHomeIcon = new JButton("");
@@ -81,7 +80,7 @@ public class FAQsWindow extends JFrame{
 		panelMain = new JPanel();
 		panelMain.setBackground(new Color(34, 40, 59));
 		panelMain.setBounds(0, 100, 836, 343);
-		frame.getContentPane().add(panelMain);
+		getContentPane().add(panelMain);
 		panelMain.setLayout(null);
 
 		btnBackIcon = new JButton("");
@@ -211,4 +210,11 @@ public class FAQsWindow extends JFrame{
 	}
 
 	
+	public void setMiControlador(Controlador miControlador) {
+		this.miControlador = miControlador;
+	}
+	
+	public void setMiModelo(Modelo miModelo) {
+		this.miModelo = miModelo;
+	}
 }

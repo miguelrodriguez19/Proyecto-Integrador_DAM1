@@ -10,8 +10,8 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class RecuperarContrasenaV2 extends JFrame{
-
-	private JFrame frame;
+	private Controlador miControlador;
+	private Modelo miModelo;
 	private JButton btnOK;
 	private JPanel panel;
 	private JLabel lblContrasea;
@@ -23,17 +23,16 @@ public class RecuperarContrasenaV2 extends JFrame{
 	 */
 	public static void RecuperarContrasena() {
 		RecuperarContrasenaV2 window = new RecuperarContrasenaV2();
-		window.frame.setVisible(true);
+		window.setVisible(true);
 
 	}
 
 	public RecuperarContrasenaV2() {
-		frame = new JFrame();
-		frame.setResizable(false);
-		Container container = frame.getContentPane();
-		frame.setBounds(100, 100, 850, 480);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setTitle("Sport Choice - Confirmar e-mail");
+		setResizable(false);
+		Container container = getContentPane();
+		setBounds(100, 100, 850, 480);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle("Sport Choice - Confirmar e-mail");
 		container.setLayout(null);
 
 		btnOK = new JButton("Confirmar ");
@@ -58,20 +57,20 @@ public class RecuperarContrasenaV2 extends JFrame{
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 36));
 		lblNewLabel.setBounds(562, -19, 308, 98);
-		frame.getContentPane().add(lblNewLabel);
+		getContentPane().add(lblNewLabel);
 
 		lblContrasea = new JLabel("tu Mail\r\n");
 		lblContrasea.setForeground(Color.WHITE);
 		lblContrasea.setFont(new Font("Trebuchet MS", Font.PLAIN, 36));
 		lblContrasea.setBounds(582, 24, 308, 98);
-		frame.getContentPane().add(lblContrasea);
+		getContentPane().add(lblContrasea);
 
 		txtAntiguaContrasena = new JTextField();
 		txtAntiguaContrasena.setForeground(Color.GRAY);
 		txtAntiguaContrasena.setBackground(Color.WHITE);
 		txtAntiguaContrasena.setText("Escribe tu mail");
 		txtAntiguaContrasena.setBounds(529, 224, 239, 42);
-		frame.getContentPane().add(txtAntiguaContrasena);
+		getContentPane().add(txtAntiguaContrasena);
 		txtAntiguaContrasena.setColumns(10);
 
 		JButton btnNewButton = new JButton("");
@@ -79,34 +78,41 @@ public class RecuperarContrasenaV2 extends JFrame{
 		btnNewButton.setBackground(new Color(57, 62, 70));
 		btnNewButton.setIcon(new ImageIcon(RecuperarContrasenaV2.class.getResource("/Imagenes/arrow.png")));
 		btnNewButton.setBounds(482, 10, 58, 33);
-		frame.getContentPane().add(btnNewButton);
+		getContentPane().add(btnNewButton);
 
 		lblNewLabel_1 = new JLabel("Escriba el Mail de la ");
 		lblNewLabel_1.setForeground(Color.WHITE);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblNewLabel_1.setBounds(560, 112, 266, 21);
-		frame.getContentPane().add(lblNewLabel_1);
+		getContentPane().add(lblNewLabel_1);
 
 		lblNewLabel_2 = new JLabel("cuenta que quiera recuperar");
 		lblNewLabel_2.setForeground(Color.WHITE);
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblNewLabel_2.setBounds(535, 143, 218, 21);
-		frame.getContentPane().add(lblNewLabel_2);
+		getContentPane().add(lblNewLabel_2);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(57, 62, 70));
 		panel.setForeground(Color.WHITE);
 		panel.setBounds(468, 0, 368, 443);
-		frame.getContentPane().add(panel);
+		getContentPane().add(panel);
 
 		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 91));
 		lblNewLabel_1.setIcon(
 				new ImageIcon(RecuperarContrasenaV2.class.getResource("/Imagenes/basketball-sports-court- (1).jpg")));
 		lblNewLabel_1.setBounds(-232, -13, 1586, 456);
-		frame.getContentPane().add(lblNewLabel_1);
+		getContentPane().add(lblNewLabel_1);
 
 	}
 
+	public void setMiControlador(Controlador miControlador) {
+		this.miControlador = miControlador;
+	}
+	
+	public void setMiModelo(Modelo miModelo) {
+		this.miModelo = miModelo;
+	}
 	
 }

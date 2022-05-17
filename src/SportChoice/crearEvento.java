@@ -9,7 +9,8 @@ import java.awt.*;
 import com.toedter.calendar.JCalendar;
 
 public class crearEvento extends JFrame{
-
+	private Controlador miControlador;
+	private Modelo miModelo;
 	private JButton btnCrear, btnLogo, btnPerfil, btnFAQs, btnLogo_1, btnNewButton_1;
 	private JTextField txtLocalizacion, txtPartidoFutbol;
 	private JLabel lblTipoEvento, lblDeporteFutbol, lblFechaEvento, lblNombreEvento, lblParticipantes, lblHora,
@@ -208,5 +209,12 @@ public class crearEvento extends JFrame{
 		calendar.setBounds(156, 315, 168, 111);
 		getContentPane().add(calendar);
 
+	}
+	public void setMiControlador(Controlador miControlador) {
+		this.miControlador = miControlador;
+	}
+	
+	public void setMiModelo(Modelo miModelo) {
+		this.miModelo = miModelo;
 	}
 }

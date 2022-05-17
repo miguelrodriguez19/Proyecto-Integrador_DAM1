@@ -10,8 +10,8 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class ConfCrearPerfil extends JFrame{
-
-	private JFrame frame;
+	private Controlador miControlador;
+	private Modelo miModelo;
 	private JButton btnOK;
 	private JPanel panel;
 	private JLabel lblContrasea;
@@ -26,17 +26,16 @@ public class ConfCrearPerfil extends JFrame{
 	 */
 	public static void ConfCrearPerfil() {
 		ConfCrearPerfil window = new ConfCrearPerfil();
-		window.frame.setVisible(true);
+		window.setVisible(true);
 
 	}
 
 	public ConfCrearPerfil() {
-		frame = new JFrame();
-		frame.setResizable(false);
-		Container container = frame.getContentPane();
-		frame.setBounds(100, 100, 850, 480);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setTitle("Sport Choice - Configurar perfil");
+		setResizable(false);
+		Container container = getContentPane();
+	setBounds(100, 100, 850, 480);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle("Sport Choice - Configurar perfil");
 		container.setLayout(null);
 
 		btnOK = new JButton("Crear Cuenta");
@@ -61,18 +60,18 @@ public class ConfCrearPerfil extends JFrame{
 		lblContrasea.setForeground(Color.WHITE);
 		lblContrasea.setFont(new Font("Trebuchet MS", Font.PLAIN, 36));
 		lblContrasea.setBounds(604, 10, 308, 98);
-		frame.getContentPane().add(lblContrasea);
+		getContentPane().add(lblContrasea);
 
 		txtUsername = new JTextField();
 		txtUsername.setForeground(Color.GRAY);
 		txtUsername.setText("@Username\r\n");
 		txtUsername.setColumns(10);
 		txtUsername.setBounds(537, 262, 239, 42);
-		frame.getContentPane().add(txtUsername);
+		getContentPane().add(txtUsername);
 
 		panel_1 = new JPanel();
 		panel_1.setBounds(588, 99, 116, 103);
-		frame.getContentPane().add(panel_1);
+		getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 
 		lblNewLabel_3 = new JLabel("");
@@ -86,19 +85,19 @@ public class ConfCrearPerfil extends JFrame{
 		btnNewButton.setBackground(new Color(57, 62, 70));
 		btnNewButton.setIcon(new ImageIcon(ConfCrearPerfil.class.getResource("/Imagenes/arrow.png")));
 		btnNewButton.setBounds(494, 10, 58, 52);
-		frame.getContentPane().add(btnNewButton);
+		getContentPane().add(btnNewButton);
 
 		lblNewLabel_2 = new JLabel("imagen por defecto\r\n");
 		lblNewLabel_2.setForeground(Color.WHITE);
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblNewLabel_2.setBounds(578, 231, 218, 21);
-		frame.getContentPane().add(lblNewLabel_2);
+		getContentPane().add(lblNewLabel_2);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(57, 62, 70));
 		panel.setForeground(Color.WHITE);
 		panel.setBounds(477, 0, 359, 443);
-		frame.getContentPane().add(panel);
+		getContentPane().add(panel);
 
 		JLabel lblNewLabel = new JLabel("Configurar\r\n");
 		panel.add(lblNewLabel);
@@ -110,8 +109,15 @@ public class ConfCrearPerfil extends JFrame{
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 91));
 		//lblNewLabel_1.setIcon(new ImageIcon(ConfCrearPerfil.class.getResource("/Imagenes/basketball-sports-court-(1).jpg")));
 		lblNewLabel_1.setBounds(-139, -13, 1586, 456);
-		frame.getContentPane().add(lblNewLabel_1);
+		getContentPane().add(lblNewLabel_1);
 
 	}
 
+	public void setMiControlador(Controlador miControlador) {
+		this.miControlador = miControlador;
+	}
+	
+	public void setMiModelo(Modelo miModelo) {
+		this.miModelo = miModelo;
+	}
 }

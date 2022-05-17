@@ -10,8 +10,8 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class LogIn extends JFrame{
-
-	private JFrame frame;
+	private Controlador miControlador;
+	private Modelo miModelo;
 	private JTextField txtMail, textField;
 	private JPanel panel;
 	private JSeparator separator;
@@ -19,17 +19,16 @@ public class LogIn extends JFrame{
 
 	public static void LogIn() {
 		LogIn window = new LogIn();
-		window.frame.setVisible(true);
+		window.setVisible(true);
 
 	}
 
 	public LogIn() {
-		frame = new JFrame();
-		frame.setResizable(false);
-		Container container = frame.getContentPane();
-		frame.setBounds(100, 100, 850, 480);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setTitle("Sport Choice - Inicio de sesion");
+		setResizable(false);
+		Container container = getContentPane();
+		setBounds(100, 100, 850, 480);
+	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle("Sport Choice - Inicio de sesion");
 		container.setLayout(null);
 
 		ButtonGroup group = new ButtonGroup();
@@ -38,7 +37,7 @@ public class LogIn extends JFrame{
 		panel.setBackground(new Color(57, 62, 70));
 		panel.setForeground(Color.WHITE);
 		panel.setBounds(503, 0, 331, 443);
-		frame.getContentPane().add(panel);
+		getContentPane().add(panel);
 		panel.setLayout(null);
 
 		separator = new JSeparator();
@@ -105,9 +104,16 @@ public class LogIn extends JFrame{
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 91));
 		lblNewLabel.setIcon(new ImageIcon(LogIn.class.getResource("/Imagenes/basketball-sports-court- (1).jpg")));
 		lblNewLabel.setBounds(-232, -13, 1586, 456);
-		frame.getContentPane().add(lblNewLabel);
+		getContentPane().add(lblNewLabel);
 
 	}
 
 	
+	public void setMiControlador(Controlador miControlador) {
+		this.miControlador = miControlador;
+	}
+	
+	public void setMiModelo(Modelo miModelo) {
+		this.miModelo = miModelo;
+	}
 }

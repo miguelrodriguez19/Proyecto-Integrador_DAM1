@@ -8,8 +8,9 @@ import javax.swing.*;
 
 
 public class CambiarContrasena extends JFrame{
+private Controlador miControlador;
+private Modelo miModelo;
 
-	private JFrame frame;
 	private JButton btnOK;
 	private JPanel panel;
 	private JLabel lblContrasea;
@@ -19,16 +20,15 @@ public class CambiarContrasena extends JFrame{
 
 	public static void CambiarContrasena() {
 		CambiarContrasena window = new CambiarContrasena();
-		window.frame.setVisible(true);
+		window.setVisible(true);
 	}
 
 	public CambiarContrasena() {
-		frame = new JFrame();
-		frame.setResizable(false);
-		Container container = frame.getContentPane();
-		frame.setBounds(100, 100, 850, 480);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setTitle("Sport Choice - Cambiar contrasena");
+		setResizable(false);
+		Container container = getContentPane();
+		setBounds(100, 100, 850, 480);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle("Sport Choice - Cambiar contrasena");
 		container.setLayout(null);
 
 		btnOK = new JButton("Iniciar Sesi\u00F3n\r\n\r\n");
@@ -52,20 +52,20 @@ public class CambiarContrasena extends JFrame{
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 36));
 		lblNewLabel.setBounds(578, -26, 308, 98);
-		frame.getContentPane().add(lblNewLabel);
+		getContentPane().add(lblNewLabel);
 
 		lblContrasea = new JLabel("Contrase\u00F1a");
 		lblContrasea.setForeground(Color.WHITE);
 		lblContrasea.setFont(new Font("Trebuchet MS", Font.PLAIN, 36));
 		lblContrasea.setBounds(562, 21, 308, 98);
-		frame.getContentPane().add(lblContrasea);
+		getContentPane().add(lblContrasea);
 
 		txtAntiguaContrasena = new JTextField();
 		txtAntiguaContrasena.setForeground(Color.GRAY);
 		txtAntiguaContrasena.setBackground(Color.WHITE);
 		txtAntiguaContrasena.setText("Antigua Contrase\u00F1a");
 		txtAntiguaContrasena.setBounds(527, 140, 239, 42);
-		frame.getContentPane().add(txtAntiguaContrasena);
+		getContentPane().add(txtAntiguaContrasena);
 		txtAntiguaContrasena.setColumns(10);
 
 		txtNuevaContrasena = new JTextField();
@@ -73,14 +73,14 @@ public class CambiarContrasena extends JFrame{
 		txtNuevaContrasena.setText("Nueva Contrase\u00F1a1");
 		txtNuevaContrasena.setColumns(10);
 		txtNuevaContrasena.setBounds(527, 222, 239, 42);
-		frame.getContentPane().add(txtNuevaContrasena);
+		getContentPane().add(txtNuevaContrasena);
 
 		txtNuevaContrasena_1 = new JTextField();
 		txtNuevaContrasena_1.setForeground(Color.GRAY);
 		txtNuevaContrasena_1.setText("Nueva Contrase\u00F1a2\r\n");
 		txtNuevaContrasena_1.setColumns(10);
 		txtNuevaContrasena_1.setBounds(527, 274, 239, 42);
-		frame.getContentPane().add(txtNuevaContrasena_1);
+		getContentPane().add(txtNuevaContrasena_1);
 
 		JButton btnNewButton = new JButton("");
 		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -88,22 +88,29 @@ public class CambiarContrasena extends JFrame{
 		btnNewButton.setBackground(new Color(57, 62, 70));
 		btnNewButton.setIcon(new ImageIcon(CambiarContrasena.class.getResource("/Imagenes/arrow.png")));
 		btnNewButton.setBounds(494, 10, 58, 33);
-		frame.getContentPane().add(btnNewButton);
+		getContentPane().add(btnNewButton);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(57, 62, 70));
 		panel.setForeground(Color.WHITE);
 		panel.setBounds(479, 0, 357, 443);
-		frame.getContentPane().add(panel);
+		getContentPane().add(panel);
 
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 91));
 		lblNewLabel.setIcon(
 				new ImageIcon(CambiarContrasena.class.getResource("/Imagenes/basketball-sports-court- (1).jpg")));
 		lblNewLabel.setBounds(-232, -13, 1586, 456);
-		frame.getContentPane().add(lblNewLabel);
+		getContentPane().add(lblNewLabel);
 
 	}
 
 	
+	public void setMiControlador(Controlador miControlador) {
+		this.miControlador = miControlador;
+	}
+	
+	public void setMiModelo(Modelo miModelo) {
+		this.miModelo = miModelo;
+	}
 }
