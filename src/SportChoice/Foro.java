@@ -12,7 +12,7 @@ public class Foro extends JFrame{
 	private Modelo miModelo;
 	private JTextField txtGenialGracias, txtHolaYoLlevo, txtElTemaDe, txtLlevamosCamisetasAzules, txtAlliNosVemos,
 			txtEscribeAqui, txtPartidoFutbolColegas;
-	private JButton btnNewButton_2, btnNewButton_3, btnNewButton_4, btnNewButton_5, btnNewButton_6, btnEnviar;
+	private JButton btnPerfil1, btnPerfil2, btnPerfil3, btnPerfil4, btnPerfil5, btnEnviar;
 	private JPanel panel_1, panelFondo;
 
 	public static void Foro() {
@@ -54,12 +54,12 @@ public class Foro extends JFrame{
 		txtPartidoFutbolColegas.setText("PARTIDO FUTBOL COLEGAS");
 		txtPartidoFutbolColegas.setColumns(10);
 
-		JButton btnNewButton_1 = new JButton("X");
-		btnNewButton_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNewButton_1.setBounds(322, 6, 34, 27);
-		panel_1.add(btnNewButton_1);
-		btnNewButton_1.setBorder(null);
-		btnNewButton_1.setBackground(Color.WHITE);
+		JButton btnX = new JButton("X");
+		btnX.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnX.setBounds(322, 6, 34, 27);
+		panel_1.add(btnX);
+		btnX.setBorder(null);
+		btnX.setBackground(Color.WHITE);
 
 		panelFondo = new JPanel();
 		panelFondo.setBounds(55, 10, 364, 404);
@@ -107,35 +107,35 @@ public class Foro extends JFrame{
 		btnEnviar.setBounds(269, 361, 85, 27);
 		panelFondo.add(btnEnviar);
 
-		btnNewButton_2 = new JButton("");
-		btnNewButton_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNewButton_2.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
-		btnNewButton_2.setBounds(10, 48, 52, 46);
-		panelFondo.add(btnNewButton_2);
+		btnPerfil1 = new JButton("");
+		btnPerfil1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnPerfil1.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
+		btnPerfil1.setBounds(10, 48, 52, 46);
+		panelFondo.add(btnPerfil1);
 
-		btnNewButton_3 = new JButton("");
-		btnNewButton_3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNewButton_3.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
-		btnNewButton_3.setBounds(302, 106, 52, 46);
-		panelFondo.add(btnNewButton_3);
+		btnPerfil2 = new JButton("");
+		btnPerfil2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnPerfil2.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
+		btnPerfil2.setBounds(302, 106, 52, 46);
+		panelFondo.add(btnPerfil2);
 
-		btnNewButton_4 = new JButton("");
-		btnNewButton_4.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNewButton_4.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
-		btnNewButton_4.setBounds(10, 154, 52, 46);
-		panelFondo.add(btnNewButton_4);
+		btnPerfil3 = new JButton("");
+		btnPerfil3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnPerfil3.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
+		btnPerfil3.setBounds(10, 154, 52, 46);
+		panelFondo.add(btnPerfil3);
 
-		btnNewButton_5 = new JButton("");
-		btnNewButton_5.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNewButton_5.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
-		btnNewButton_5.setBounds(10, 213, 52, 46);
-		panelFondo.add(btnNewButton_5);
+		btnPerfil4 = new JButton("");
+		btnPerfil4.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnPerfil4.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
+		btnPerfil4.setBounds(10, 213, 52, 46);
+		panelFondo.add(btnPerfil4);
 
-		btnNewButton_6 = new JButton("");
-		btnNewButton_6.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNewButton_6.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
-		btnNewButton_6.setBounds(303, 261, 52, 46);
-		panelFondo.add(btnNewButton_6);
+		btnPerfil5 = new JButton("");
+		btnPerfil5.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnPerfil5.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
+		btnPerfil5.setBounds(303, 261, 52, 46);
+		panelFondo.add(btnPerfil5);
 	}
 
 	
