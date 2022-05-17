@@ -13,7 +13,7 @@ public class editarPerfil  extends JFrame {
 	private JPanel header;
 	private JLabel lblNewLabel, lblNewLabel_3, lblNewLabel_4, lblNewLabel_5, lblNewLabel_6, lblNewLabel_7,
 			lblNewLabel_8, lblNewLabel_11, lblNewLabel_13, lblNewLabel_14, lblNewLabel_1, lblPerfil;
-	private JButton btnNewButton, btnEliminar, btnNewButton_1, btnNewButton_2, btnNewButton_3;
+	private JButton btnEliminar, btnNewButton_1, btnNewButton_2, btnNewButton_3;
 	private JComboBox comboBox_1;
 	private JTextArea txtrModificarDescripcion;
 	private JTextField txtNuevaLocalidad, txtNuevoNombreDe, txtMoralzarzalMadrid;
@@ -171,17 +171,10 @@ public class editarPerfil  extends JFrame {
 		txtMoralzarzalMadrid.setBounds(550, 161, 177, 24);
 		getContentPane().add(txtMoralzarzalMadrid);
 
-		btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon(editarPerfil.class.getResource("/Imagenes/arrow.png")));
-		btnNewButton.setBorder(null);
-		btnNewButton.setBackground((Color) null);
-		btnNewButton.setBounds(0, 100, 47, 37);
-		getContentPane().add(btnNewButton);
-
 		lblPerfil = new JLabel("Perfil");
 		lblPerfil.setForeground(Color.WHITE);
 		lblPerfil.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblPerfil.setBounds(57, 106, 248, 23);
+		lblPerfil.setBounds(33, 110, 248, 23);
 		getContentPane().add(lblPerfil);
 
 		btnEliminar = new JButton("Cancelar");

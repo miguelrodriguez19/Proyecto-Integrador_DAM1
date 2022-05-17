@@ -6,6 +6,8 @@ import java.awt.Font;
 
 import javax.swing.*;
 
+import com.toedter.calendar.JCalendar;
+
 public class ModificarEvento extends JFrame{
 	private Controlador miControlador;
 	private Modelo miModelo;
@@ -13,10 +15,10 @@ public class ModificarEvento extends JFrame{
 	private JTextField txtPartidoFutbol, txtCCruzDe;
 	private JSpinner spinner, spinner_1, spinner_2;
 	private JRadioButton rdbtnPublico, rdbtnPrivado;
-	private JComboBox comboBox, comboBox_1, comboBox_1_1, comboBox_2;
+	private JComboBox comboBox;
 	private JLabel lblNombreEvento, lblDeporteFutbol, lblHora, lblHora_1, lblParticipantes, lblTipoEvento,
 			lblFechaEvento, lblDescripcin, lblLocalizacin, lblCrearEvento;
-	private JButton btnPerfil, btnCrear, btnNewButton, btnEliminar, btnLogo, btnPerfil_1, btnFAQs, btnLogo_1;
+	private JButton btnPerfil, btnCrear, btnEliminar, btnLogo, btnPerfil_1, btnFAQs, btnLogo_1;
 
 	public static void ModificarEvento() {
 
@@ -40,60 +42,60 @@ public class ModificarEvento extends JFrame{
 		lblNombreEvento = new JLabel("Nombre:");
 		lblNombreEvento.setForeground(Color.WHITE);
 		lblNombreEvento.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNombreEvento.setBounds(40, 133, 94, 23);
+		lblNombreEvento.setBounds(40, 143, 94, 23);
 		getContentPane().add(lblNombreEvento);
 
 		txtPartidoFutbol = new JTextField();
 		txtPartidoFutbol.setForeground(Color.GRAY);
 		txtPartidoFutbol.setText("Partido Futbol");
 		txtPartidoFutbol.setColumns(10);
-		txtPartidoFutbol.setBounds(40, 155, 284, 25);
+		txtPartidoFutbol.setBounds(110, 144, 214, 25);
 		getContentPane().add(txtPartidoFutbol);
 
 		lblDeporteFutbol = new JLabel("Deporte:");
 		lblDeporteFutbol.setForeground(Color.WHITE);
 		lblDeporteFutbol.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblDeporteFutbol.setBounds(40, 191, 101, 23);
+		lblDeporteFutbol.setBounds(40, 176, 101, 23);
 		getContentPane().add(lblDeporteFutbol);
 
 		comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] { "FUTBOL", "BALONCESTO", "TENIS" }));
-		comboBox.setBounds(174, 194, 150, 21);
+		comboBox.setBounds(162, 179, 162, 21);
 		getContentPane().add(comboBox);
 
 		lblHora = new JLabel("Hora:");
 		lblHora.setForeground(Color.WHITE);
 		lblHora.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblHora.setBounds(40, 225, 101, 23);
+		lblHora.setBounds(40, 209, 101, 23);
 		getContentPane().add(lblHora);
 
 		spinner = new JSpinner();
 		spinner.setModel(new SpinnerNumberModel(17, 1, 24, 1));
-		spinner.setBounds(174, 228, 60, 21);
+		spinner.setBounds(162, 213, 72, 21);
 		getContentPane().add(spinner);
 
 		lblHora_1 = new JLabel(":");
 		lblHora_1.setForeground(Color.WHITE);
 		lblHora_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblHora_1.setAlignmentX(0.5f);
-		lblHora_1.setBounds(244, 225, 17, 23);
+		lblHora_1.setBounds(244, 210, 17, 23);
 		getContentPane().add(lblHora_1);
 
 		spinner_1 = new JSpinner();
 		spinner_1.setModel(new SpinnerNumberModel(30, 0, 60, 1));
-		spinner_1.setBounds(264, 228, 60, 21);
+		spinner_1.setBounds(264, 213, 60, 21);
 		getContentPane().add(spinner_1);
 
 		lblParticipantes = new JLabel("Participantes:");
 		lblParticipantes.setForeground(Color.WHITE);
 		lblParticipantes.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblParticipantes.setBounds(40, 260, 101, 23);
+		lblParticipantes.setBounds(40, 245, 101, 23);
 		getContentPane().add(lblParticipantes);
 
 		spinner_2 = new JSpinner();
 		spinner_2.setEnabled(false);
 		spinner_2.setModel(new SpinnerNumberModel(14, 2, 100, 1));
-		spinner_2.setBounds(174, 259, 150, 21);
+		spinner_2.setBounds(162, 250, 162, 21);
 		getContentPane().add(spinner_2);
 
 		lblTipoEvento = new JLabel("Visibilidad:");
@@ -105,7 +107,7 @@ public class ModificarEvento extends JFrame{
 		lblFechaEvento = new JLabel("Fecha:");
 		lblFechaEvento.setForeground(Color.WHITE);
 		lblFechaEvento.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblFechaEvento.setBounds(174, 285, 94, 23);
+		lblFechaEvento.setBounds(40, 318, 94, 23);
 		getContentPane().add(lblFechaEvento);
 
 		rdbtnPublico = new JRadioButton("P\u00FAblico");
@@ -113,7 +115,7 @@ public class ModificarEvento extends JFrame{
 		rdbtnPublico.setForeground(Color.WHITE);
 		rdbtnPublico.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		rdbtnPublico.setBackground((Color) null);
-		rdbtnPublico.setBounds(40, 315, 72, 21);
+		rdbtnPublico.setBounds(162, 287, 72, 21);
 		getContentPane().add(rdbtnPublico);
 
 		rdbtnPrivado = new JRadioButton("Privado");
@@ -121,23 +123,8 @@ public class ModificarEvento extends JFrame{
 		rdbtnPrivado.setForeground(Color.WHITE);
 		rdbtnPrivado.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		rdbtnPrivado.setBackground((Color) null);
-		rdbtnPrivado.setBounds(40, 339, 72, 21);
+		rdbtnPrivado.setBounds(252, 287, 72, 21);
 		getContentPane().add(rdbtnPrivado);
-
-		comboBox_1 = new JComboBox();
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] { "15" }));
-		comboBox_1.setBounds(174, 310, 65, 22);
-		getContentPane().add(comboBox_1);
-
-		comboBox_1_1 = new JComboBox();
-		comboBox_1_1.setModel(new DefaultComboBoxModel(new String[] { "2022" }));
-		comboBox_1_1.setBounds(174, 339, 150, 22);
-		getContentPane().add(comboBox_1_1);
-
-		comboBox_2 = new JComboBox();
-		comboBox_2.setModel(new DefaultComboBoxModel(new String[] { "05" }));
-		comboBox_2.setBounds(259, 310, 65, 22);
-		getContentPane().add(comboBox_2);
 
 		lblDescripcin = new JLabel("Descripci\u00F3n:");
 		lblDescripcin.setForeground(Color.WHITE);
@@ -166,17 +153,10 @@ public class ModificarEvento extends JFrame{
 		btnCrear.setBounds(700, 372, 113, 40);
 		getContentPane().add(btnCrear);
 
-		btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon(ModificarEvento.class.getResource("/Imagenes/arrow.png")));
-		btnNewButton.setBorder(null);
-		btnNewButton.setBackground(null);
-		btnNewButton.setBounds(0, 98, 47, 37);
-		getContentPane().add(btnNewButton);
-
 		lblCrearEvento = new JLabel("Modificar Evento");
 		lblCrearEvento.setForeground(Color.WHITE);
 		lblCrearEvento.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblCrearEvento.setBounds(57, 104, 248, 23);
+		lblCrearEvento.setBounds(40, 110, 248, 23);
 		getContentPane().add(lblCrearEvento);
 
 		btnEliminar = new JButton("Cancelar");
@@ -228,6 +208,10 @@ public class ModificarEvento extends JFrame{
 		btnLogo_1.setBackground((Color) null);
 		btnLogo_1.setBounds(28, 21, 64, 68);
 		panelHeader.add(btnLogo_1);
+		
+		JCalendar calendar = new JCalendar();
+		calendar.setBounds(156, 315, 168, 111);
+		getContentPane().add(calendar);
 
 	}
 

@@ -12,7 +12,7 @@ import javax.swing.*;
 public class verEvento extends JFrame {
 	private Controlador miControlador;
 	private Modelo miModelo;
-	private JButton btnFlechaAtras, btnSalirEvento, btnForo, btnLogo, btnPerfil, btnFAQs, btnLogo_1;
+	private JButton btnSalirEvento, btnForo, btnLogo, btnPerfil, btnFAQs, btnLogo_1;
 	private JTextArea txtrDescripcionVariable;
 	private JLabel lblDescripcion, lblVerEvento, lblNombre, lblNombreEvento, lblDeporteVariable, lblDeporte,
 			lblParticipantes, lblParticipantesVariable, lblTipoEvento, lblTipoEventoVariable, lblFecha,
@@ -35,17 +35,6 @@ public class verEvento extends JFrame {
 		setTitle("Sport Choice - Ver evento");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
-
-		btnFlechaAtras = new JButton("");
-		btnFlechaAtras.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnFlechaAtras.setBounds(0, 100, 43, 35);
-		getContentPane().add(btnFlechaAtras);
-		btnFlechaAtras.setBorder(null);
-		btnFlechaAtras.setBackground(null);
-		btnFlechaAtras.setIcon(new ImageIcon(crearEvento.class.getResource("/Imagenes/arrow.png")));
 
 		txtrDescripcionVariable = new JTextArea();
 		txtrDescripcionVariable.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -78,7 +67,7 @@ public class verEvento extends JFrame {
 		lblVerEvento = new JLabel("Ver Evento");
 		lblVerEvento.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblVerEvento.setForeground(Color.WHITE);
-		lblVerEvento.setBounds(53, 106, 248, 23);
+		lblVerEvento.setBounds(25, 110, 248, 23);
 		getContentPane().add(lblVerEvento);
 
 		lblNombre = new JLabel("Nombre Evento:");

@@ -15,7 +15,7 @@ public class unirseEvento extends JFrame{
 			lblHoraVariable, lblDeporte, lblDeporteVariable, lblParticipantes, lblParticipantesVariable, lblTipoEvento,
 			lblTipoEventoVariable;
 	private JPanel panelHeader;
-	private JButton btnPerfil, btnNewButton_2, btnUnirse, btnLogo, btnPerfil_1, btnFAQs, btnLogo_1;
+	private JButton btnPerfil, btnUnirse, btnLogo, btnPerfil_1, btnFAQs, btnLogo_1;
 
 	public static void unirseEvento() {
 		unirseEvento window = new unirseEvento();
@@ -42,17 +42,10 @@ public class unirseEvento extends JFrame{
 		btnUnirse.setBounds(687, 370, 120, 38);
 		getContentPane().add(btnUnirse);
 
-		btnNewButton_2 = new JButton("");
-		btnNewButton_2.setBorder(null);
-		btnNewButton_2.setBackground(null);
-		btnNewButton_2.setIcon(new ImageIcon(crearEvento.class.getResource("/Imagenes/arrow.png")));
-		btnNewButton_2.setBounds(0, 100, 47, 37);
-		getContentPane().add(btnNewButton_2);
-
 		lblUnirseEvento = new JLabel("Unirse Evento");
 		lblUnirseEvento.setForeground(Color.WHITE);
 		lblUnirseEvento.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblUnirseEvento.setBounds(57, 106, 248, 23);
+		lblUnirseEvento.setBounds(25, 110, 248, 23);
 		getContentPane().add(lblUnirseEvento);
 
 		lblNombre = new JLabel("Nombre Evento:");

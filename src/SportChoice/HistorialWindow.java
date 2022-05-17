@@ -87,17 +87,10 @@ public class HistorialWindow extends JFrame{
 		panelMain.add(scrollPane);
 		scrollPane.setViewportView(table);
 		
-		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setIcon(new ImageIcon(HistorialWindow.class.getResource("/Imagenes/arrow.png")));
-		btnNewButton_1.setBorder(null);
-		btnNewButton_1.setBackground((Color) null);
-		btnNewButton_1.setBounds(0, 0, 47, 37);
-		panelMain.add(btnNewButton_1);
-		
 		JLabel lblHistorialDeEventos = new JLabel("Historial De Eventos");
 		lblHistorialDeEventos.setForeground(Color.WHITE);
 		lblHistorialDeEventos.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblHistorialDeEventos.setBounds(57, 6, 276, 23);
+		lblHistorialDeEventos.setBounds(37, 10, 276, 23);
 		panelMain.add(lblHistorialDeEventos);
 		
 		btnNewButton = new JButton("Valorar");

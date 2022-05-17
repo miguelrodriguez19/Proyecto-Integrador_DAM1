@@ -11,7 +11,7 @@ import com.toedter.calendar.JCalendar;
 public class crearEvento extends JFrame{
 	private Controlador miControlador;
 	private Modelo miModelo;
-	private JButton btnCrear, btnLogo, btnPerfil, btnFAQs, btnLogo_1, btnNewButton_1;
+	private JButton btnCrear, btnLogo, btnPerfil, btnFAQs, btnLogo_1;
 	private JTextField txtLocalizacion, txtPartidoFutbol;
 	private JLabel lblTipoEvento, lblDeporteFutbol, lblFechaEvento, lblNombreEvento, lblParticipantes, lblHora,
 			lblHora_1, lblCrearEvento, lblDescripcin;
@@ -150,18 +150,11 @@ public class crearEvento extends JFrame{
 		lblDescripcin.setBounds(387, 193, 101, 23);
 		getContentPane().add(lblDescripcin);
 
-		btnNewButton_1 = new JButton("");
-		btnNewButton_1.setIcon(new ImageIcon(crearEvento.class.getResource("/Imagenes/arrow.png")));
-		btnNewButton_1.setBorder(null);
-		btnNewButton_1.setBackground((Color) null);
-		btnNewButton_1.setBounds(0, 100, 47, 37);
-		getContentPane().add(btnNewButton_1);
-
 		lblCrearEvento = new JLabel("Crear Evento");
 		lblCrearEvento.setIcon(null);
 		lblCrearEvento.setForeground(Color.WHITE);
 		lblCrearEvento.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblCrearEvento.setBounds(57, 106, 248, 23);
+		lblCrearEvento.setBounds(40, 110, 248, 23);
 		getContentPane().add(lblCrearEvento);
 
 		txtpnOrganizamosUnPartido = new JTextPane();
