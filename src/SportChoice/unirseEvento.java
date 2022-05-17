@@ -16,6 +16,8 @@ public class unirseEvento extends JFrame{
 			lblTipoEventoVariable;
 	private JPanel panelHeader;
 	private JButton btnPerfil, btnNewButton_2, btnUnirse, btnLogo, btnPerfil_1, btnFAQs, btnLogo_1;
+	private JLabel lblLocalizacion;
+	private JLabel lblDescripcion;
 
 	public static void unirseEvento() {
 		unirseEvento window = new unirseEvento();
@@ -138,7 +140,7 @@ public class unirseEvento extends JFrame{
 		lblNewLabel.setIconTextGap(2);
 		lblNewLabel.setIcon(new ImageIcon(unirseEvento.class.getResource("/Imagenes/icons8-soccer-ball-100.png")));
 
-		JLabel lblLocalizacion = new JLabel("Localizacion:");
+		lblLocalizacion = new JLabel("Localizacion:");
 		lblLocalizacion.setForeground(Color.WHITE);
 		lblLocalizacion.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblLocalizacion.setBounds(366, 159, 87, 23);
@@ -150,7 +152,7 @@ public class unirseEvento extends JFrame{
 		lblLocalizacionVariable.setBounds(463, 159, 344, 23);
 		frame.getContentPane().add(lblLocalizacionVariable);
 
-		JLabel lblDescripcion = new JLabel("Descripci\u00F3n:");
+		lblDescripcion = new JLabel("Descripci\u00F3n:");
 		lblDescripcion.setForeground(Color.WHITE);
 		lblDescripcion.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblDescripcion.setBounds(366, 212, 87, 23);
