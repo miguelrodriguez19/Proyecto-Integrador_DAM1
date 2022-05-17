@@ -17,8 +17,13 @@ public class Perfil extends JFrame{
 			lblNewLabel_6, lblNewLabel_7, lblNewLabel_8, lblNewLabel_9, lblNewLabel_10, lblNewLabel_11, lblNewLabel_12,
 			lblNewLabel_13, lblNewLabel_14;
 	private JTextArea txtrFdsfsd;
-	private JButton btnNewButton_1, btnNewButton_2, btnNewButton_3;
+	private JButton btnNewButton_1, btnEditarPerfil, btnHistorial, btnPuntitos, btnLogOut;
 
+	public static void main(String[] args) {
+		Perfil window = new Perfil();
+		window.setVisible(true);
+	}
+	
 	public static void Perfil() {
 		Perfil window = new Perfil();
 		window.setVisible(true);
@@ -72,83 +77,72 @@ public class Perfil extends JFrame{
 		btnNewButton_1.setBounds(10, 10, 85, 70);
 		header.add(btnNewButton_1);
 
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setBorder(null);
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton.setBackground(new Color(34, 40, 49));
-		btnNewButton.setIcon(new ImageIcon(Perfil.class.getResource("/Imagenes/arrow.png")));
-		btnNewButton.setBounds(20, 99, 59, 52);
-		getContentPane().add(btnNewButton);
-
 		lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setIcon(
 				new ImageIcon(Perfil.class.getResource("/Imagenes/marker-free-icon-font (1) (1) (1) (1).png")));
-		lblNewLabel_3.setBounds(79, 129, 33, 33);
+		lblNewLabel_3.setBounds(55, 134, 33, 33);
 		getContentPane().add(lblNewLabel_3);
 
 		lblNewLabel_4 = new JLabel("");
 		lblNewLabel_4.setIcon(new ImageIcon(Perfil.class.getResource("/Imagenes/venus-mars-free-icon-font (1).png")));
-		lblNewLabel_4.setBounds(79, 172, 33, 33);
+		lblNewLabel_4.setBounds(55, 177, 33, 33);
 		getContentPane().add(lblNewLabel_4);
 
 		lblNewLabel_5 = new JLabel("");
 		lblNewLabel_5.setIcon(new ImageIcon(Perfil.class.getResource("/Imagenes/calendar-free-icon-font (1).png")));
-		lblNewLabel_5.setBounds(299, 129, 33, 33);
+		lblNewLabel_5.setBounds(258, 134, 33, 33);
 		getContentPane().add(lblNewLabel_5);
 
 		lblNewLabel_6 = new JLabel("");
 		lblNewLabel_6.setIcon(new ImageIcon(Perfil.class.getResource("/Imagenes/basketball-free-icon-font (1).png")));
-		lblNewLabel_6.setBounds(299, 172, 33, 33);
+		lblNewLabel_6.setBounds(258, 177, 33, 33);
 		getContentPane().add(lblNewLabel_6);
 
 		lblNewLabel_7 = new JLabel("");
 		lblNewLabel_7.setIcon(new ImageIcon(Perfil.class.getResource("/Imagenes/thumbs-up-free-icon-font (1).png")));
-		lblNewLabel_7.setBounds(505, 129, 33, 33);
+		lblNewLabel_7.setBounds(454, 134, 33, 33);
 		getContentPane().add(lblNewLabel_7);
 
 		lblNewLabel_8 = new JLabel("");
 		lblNewLabel_8.setIcon(new ImageIcon(Perfil.class.getResource("/Imagenes/document-free-icon-font (1).png")));
-		lblNewLabel_8.setBounds(79, 215, 33, 33);
+		lblNewLabel_8.setBounds(55, 220, 33, 33);
 		getContentPane().add(lblNewLabel_8);
 
-		lblNewLabel_9 = new JLabel("Eapa\u00F1a, Madid");
+		lblNewLabel_9 = new JLabel("Espa\u00F1a, Madid");
 		lblNewLabel_9.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblNewLabel_9.setForeground(Color.WHITE);
 		lblNewLabel_9.setBackground(Color.GREEN);
-		lblNewLabel_9.setBounds(111, 129, 145, 33);
+		lblNewLabel_9.setBounds(89, 134, 145, 33);
 		getContentPane().add(lblNewLabel_9);
 
 		lblNewLabel_10 = new JLabel("Hombre");
 		lblNewLabel_10.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblNewLabel_10.setForeground(Color.WHITE);
-		lblNewLabel_10.setBounds(111, 172, 145, 33);
+		lblNewLabel_10.setBounds(89, 177, 145, 33);
 		getContentPane().add(lblNewLabel_10);
 
 		lblNewLabel_11 = new JLabel("19 a\u00F1os");
 		lblNewLabel_11.setForeground(Color.WHITE);
 		lblNewLabel_11.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblNewLabel_11.setBounds(336, 129, 145, 33);
+		lblNewLabel_11.setBounds(299, 134, 145, 33);
 		getContentPane().add(lblNewLabel_11);
 
 		lblNewLabel_12 = new JLabel("Padel, Baloncesto");
 		lblNewLabel_12.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblNewLabel_12.setForeground(Color.WHITE);
-		lblNewLabel_12.setBounds(336, 172, 145, 33);
+		lblNewLabel_12.setBounds(299, 177, 145, 33);
 		getContentPane().add(lblNewLabel_12);
 
 		lblNewLabel_13 = new JLabel("125");
 		lblNewLabel_13.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblNewLabel_13.setForeground(Color.WHITE);
-		lblNewLabel_13.setBounds(542, 129, 145, 33);
+		lblNewLabel_13.setBounds(497, 134, 145, 33);
 		getContentPane().add(lblNewLabel_13);
 
 		lblNewLabel_14 = new JLabel("Descripcion");
 		lblNewLabel_14.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblNewLabel_14.setForeground(Color.WHITE);
-		lblNewLabel_14.setBounds(111, 215, 145, 33);
+		lblNewLabel_14.setBounds(89, 220, 145, 33);
 		getContentPane().add(lblNewLabel_14);
 
 		txtrFdsfsd = new JTextArea();
@@ -157,30 +151,63 @@ public class Perfil extends JFrame{
 		txtrFdsfsd.setText(
 				"Soy una persona un tanto egocentrica, me gusta la perfeccion en todos los ambitos posibles.En\r\ncuanto a los deprotes me considero un jugador con una deportividad ejemplar, no destaco\r\nen ningun deporte sinembargo, tento en baloncesto como en padel considero que estoy por\r\nencima de la media.\r\nMe uno a esta app para encontrar compa\u00F1eros con los que poder jugar partidos y porque \r\nno entablar alguna que otra amistad.");
 		txtrFdsfsd.setBackground(new Color(34, 40, 49));
-		txtrFdsfsd.setBounds(111, 244, 593, 113);
+		txtrFdsfsd.setBounds(55, 263, 593, 113);
 		getContentPane().add(txtrFdsfsd);
 
-		btnNewButton_2 = new JButton("Editar perfil");
-		btnNewButton_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnNewButton_2.setForeground(Color.WHITE);
-		btnNewButton_2.setBackground(new Color(53, 187, 95));
-		btnNewButton_2.setBorder(null);
-		btnNewButton_2.setBounds(642, 382, 133, 33);
-		getContentPane().add(btnNewButton_2);
 
-		btnNewButton_3 = new JButton("Historial");
-		btnNewButton_3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNewButton_3.setForeground(Color.WHITE);
-		btnNewButton_3.setBorder(null);
-		btnNewButton_3.addActionListener(new ActionListener() {
+		
+		btnPuntitos = new JButton("");
+		btnPuntitos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnPuntitos.setBounds(741, 110, 85, 41);
+		getContentPane().add(btnPuntitos);
+		btnPuntitos.setBorder(null);
+		btnPuntitos.setBackground(null);
+		btnPuntitos.setIcon(new ImageIcon(Perfil.class.getResource("/Imagenes/puntitos32.png")));
+		
+		btnEditarPerfil = new JButton("Editar perfil");
+		btnEditarPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnEditarPerfil.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnEditarPerfil.setForeground(Color.WHITE);
+		btnEditarPerfil.setBackground(new Color(156, 163, 219));
+		btnEditarPerfil.setBorder(null);
+		btnEditarPerfil.setBounds(697, 161, 123, 33);
+		getContentPane().add(btnEditarPerfil);
+		btnEditarPerfil.setVisible(false);
+		
+		btnHistorial = new JButton("Historial");
+		btnHistorial.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnHistorial.setForeground(Color.WHITE);
+		btnHistorial.setBorder(null);
+		btnHistorial.setBackground(new Color(156, 163, 219));
+		btnHistorial.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnHistorial.setBounds(697, 214, 123, 33);
+		getContentPane().add(btnHistorial);
+		btnHistorial.setVisible(false);
+		
+		btnLogOut = new JButton("LogOut");
+		btnLogOut.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnLogOut.setForeground(Color.WHITE);
+		btnLogOut.setBorder(null);
+		btnLogOut.setBackground(new Color(156, 163, 219));
+		btnLogOut.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnLogOut.setBounds(697, 267, 123, 33);
+		getContentPane().add(btnLogOut);
+		btnLogOut.setVisible(false);
+		
+		btnPuntitos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if (btnHistorial.isVisible() && btnEditarPerfil.isVisible() && btnLogOut.isVisible()) {
+					btnHistorial.setVisible(false);
+					btnEditarPerfil.setVisible(false);
+					btnLogOut.setVisible(false);
+				} else {
+					btnHistorial.setVisible(true);
+					btnEditarPerfil.setVisible(true);
+					btnLogOut.setVisible(true);
+				}
+					
 			}
 		});
-		btnNewButton_3.setBackground(new Color(156, 163, 219));
-		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnNewButton_3.setBounds(74, 382, 133, 33);
-		getContentPane().add(btnNewButton_3);
 	}
 
 	public void setMiControlador(Controlador miControlador) {
