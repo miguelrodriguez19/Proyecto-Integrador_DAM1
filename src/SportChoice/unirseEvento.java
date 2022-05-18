@@ -15,7 +15,8 @@ public class unirseEvento extends JFrame{
 			lblHoraVariable, lblDeporte, lblDeporteVariable, lblParticipantes, lblParticipantesVariable, lblTipoEvento,
 			lblTipoEventoVariable;
 	private JPanel panelHeader;
-	private JButton btnPerfil, btnUnirse, btnLogo, btnPerfil_1, btnFAQs, btnLogo_1;
+	private JButton btnPerfil, btnUnirse, btnLogo, btnPerfil_1, btnFAQs;
+	private JButton btnLogo_1;
 
 	public static void unirseEvento() {
 		unirseEvento window = new unirseEvento();
@@ -182,12 +183,12 @@ public class unirseEvento extends JFrame{
 		btnFAQs.setBackground((Color) null);
 		btnFAQs.setBounds(587, 43, 64, 23);
 		panelHeader.add(btnFAQs);
-
+		
 		btnLogo_1 = new JButton("");
-		btnLogo_1.setIcon(new ImageIcon(unirseEvento.class.getResource("/Imagenes/home-48.png")));
+		btnLogo_1.setIcon(new ImageIcon(unirseEvento.class.getResource("/Imagenes/logoSportChoice.png")));
 		btnLogo_1.setBorder(null);
 		btnLogo_1.setBackground((Color) null);
-		btnLogo_1.setBounds(28, 21, 64, 68);
+		btnLogo_1.setBounds(30, 15, 114, 68);
 		panelHeader.add(btnLogo_1);
 	}
 

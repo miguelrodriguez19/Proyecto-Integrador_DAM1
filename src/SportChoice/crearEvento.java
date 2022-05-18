@@ -11,7 +11,7 @@ import com.toedter.calendar.JCalendar;
 public class crearEvento extends JFrame{
 	private Controlador miControlador;
 	private Modelo miModelo;
-	private JButton btnCrear, btnLogo, btnPerfil, btnFAQs, btnLogo_1;
+	private JButton btnCrear, btnLogo, btnPerfil, btnFAQs, btnLogo_2;
 	private JTextField txtLocalizacion, txtPartidoFutbol;
 	private JLabel lblTipoEvento, lblDeporteFutbol, lblFechaEvento, lblNombreEvento, lblParticipantes, lblHora,
 			lblHora_1, lblCrearEvento, lblDescripcin;
@@ -196,17 +196,19 @@ public class crearEvento extends JFrame{
 		btnFAQs.setBounds(587, 43, 64, 23);
 		panelHeader.add(btnFAQs);
 
-		btnLogo_1 = new JButton("");
-		btnLogo_1.addActionListener(new ActionListener() {
+
+		btnLogo_2 = new JButton("");
+		btnLogo_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(2, 11);
 			}
 		});
-		btnLogo_1.setIcon(new ImageIcon(crearEvento.class.getResource("/Imagenes/home-48.png")));
-		btnLogo_1.setBorder(null);
-		btnLogo_1.setBackground((Color) null);
-		btnLogo_1.setBounds(28, 21, 64, 68);
-		panelHeader.add(btnLogo_1);
+		btnLogo_2.setIcon(new ImageIcon(crearEvento.class.getResource("/Imagenes/logoSportChoice.png")));
+		btnLogo_2.setBorder(null);
+		btnLogo_2.setBackground((Color) null);
+		btnLogo_2.setBounds(30, 15, 114, 68);
+		panelHeader.add(btnLogo_2);
+
 		
 		JCalendar calendar = new JCalendar();
 		calendar.setBounds(156, 315, 168, 111);

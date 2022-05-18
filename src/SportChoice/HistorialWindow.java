@@ -21,7 +21,7 @@ public class HistorialWindow extends JFrame {
 	private JButton btnFotoPerfil;
 	private JButton btnPerfil;
 	private JButton btnFAQs;
-	private JButton btnHome;
+	private JButton btnLogo;
 
 	public static void HistorialWindow() {
 		HistorialWindow window = null;
@@ -139,21 +139,16 @@ public class HistorialWindow extends JFrame {
 		btnFAQs.setBackground((Color) null);
 		btnFAQs.setBounds(587, 43, 64, 23);
 		panelHeader.add(btnFAQs);
+		
+		btnLogo = new JButton("");
+		btnLogo.setIcon(new ImageIcon(HistorialWindow.class.getResource("/Imagenes/logoSportChoice.png")));
+		btnLogo.setBorder(null);
+		btnLogo.setBackground((Color) null);
+		btnLogo.setBounds(30, 15, 114, 68);
+		panelHeader.add(btnLogo);
 		btnFAQs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(6, 4);
-			}
-		});
-
-		btnHome = new JButton("");
-		btnHome.setIcon(new ImageIcon(HistorialWindow.class.getResource("/Imagenes/home-48.png")));
-		btnHome.setBorder(null);
-		btnHome.setBackground((Color) null);
-		btnHome.setBounds(28, 21, 64, 68);
-		panelHeader.add(btnHome);
-		btnHome.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(6, 11);
 			}
 		});
 	}

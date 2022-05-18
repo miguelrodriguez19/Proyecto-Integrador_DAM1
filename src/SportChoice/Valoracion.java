@@ -16,13 +16,18 @@ import java.awt.event.ActionEvent;
 public class Valoracion extends JFrame {
 	private Controlador miControlador;
 	private Modelo miModelo;
-	private JButton btnHome, btnPerfil, btnNewButton_2, btnFaqs;
+	private JButton btnPerfil, btnNewButton_2;
 	private JLabel lblNewLabel_1, lblNewLabel_2, lblNewLabel_1_1, lblNewLabel_3, lblNewLabel_4, lblNewLabel_1_2,
 			lblNewLabel_5, lblNewLabel_6, lblNewLabel_1_3, lblNewLabel_7, lblNewLabel_8, lblNewLabel_1_4;
 	private JToggleButton tglbtnNewToggleButton_1;
 	private JToggleButton tglbtnNewToggleButton;
 	private JToggleButton tglbtnNewToggleButton_2;
 	private JToggleButton tglbtnNewToggleButton_3;
+	private JPanel panelHeader;
+	private JButton btnFotoPerfil;
+	private JButton btnPerfil_1;
+	private JButton btnFAQs;
+	private JButton btnLogo;
 
 	public static void Valoracion() {
 		Valoracion window = new Valoracion();
@@ -42,12 +47,6 @@ public class Valoracion extends JFrame {
 
 		contenedor.setLayout(null);
 
-		Panel panel = new Panel();
-		panel.setBackground(new Color(57, 62, 70));
-		panel.setBounds(0, 0, 834, 100);
-		getContentPane().add(panel);
-		panel.setLayout(null);
-
 		JButton btnValoran = new JButton("Guardar");
 		btnValoran.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnValoran.setBorder(null);
@@ -55,39 +54,6 @@ public class Valoracion extends JFrame {
 		btnValoran.setBackground(new Color(53, 187, 95));
 		btnValoran.setBounds(691, 382, 120, 38);
 		getContentPane().add(btnValoran);
-
-		btnHome = new JButton("");
-		btnHome.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnHome.setBorderPainted(false);
-		btnHome.setBackground(null);
-		btnHome.setBorder(null);
-		btnHome.setToolTipText("");
-		btnHome.setIcon(new ImageIcon(Valoracion.class.getResource("/Imagenes/home-48.png")));
-		btnHome.setBounds(36, 18, 85, 70);
-		panel.add(btnHome);
-
-		btnPerfil = new JButton("");
-		btnPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnPerfil.setIcon(new ImageIcon(Valoracion.class.getResource("/Imagenes/usuario-de-perfil.png")));
-		btnPerfil.setBounds(726, 18, 85, 70);
-		btnPerfil.setBackground(null);
-		btnPerfil.setBorder(null);
-		panel.add(btnPerfil);
-
-		btnFaqs = new JButton("FAQS");
-		btnFaqs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnFaqs.setBorder(null);
-		btnFaqs.setBackground(null);
-		btnFaqs.setForeground(Color.WHITE);
-		btnFaqs.setBounds(516, 43, 85, 21);
-		panel.add(btnFaqs);
-
-		btnPerfil = new JButton("PERFIL");
-		btnPerfil.setForeground(Color.WHITE);
-		btnPerfil.setBorder(null);
-		btnPerfil.setBackground(null);
-		btnPerfil.setBounds(631, 43, 85, 21);
-		panel.add(btnPerfil);
 
 		btnNewButton_2 = new JButton("");
 		btnNewButton_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -212,6 +178,41 @@ public class Valoracion extends JFrame {
 		tglbtnNewToggleButton_3.setBackground(new Color(139, 0, 0));
 		tglbtnNewToggleButton_3.setBounds(594, 157, 85, 92);
 		getContentPane().add(tglbtnNewToggleButton_3);
+		
+		panelHeader = new JPanel();
+		panelHeader.setLayout(null);
+		panelHeader.setBackground(new Color(57, 62, 70));
+		panelHeader.setBounds(0, 0, 834, 100);
+		getContentPane().add(panelHeader);
+		
+		btnFotoPerfil = new JButton("");
+		btnFotoPerfil.setIcon(new ImageIcon(Valoracion.class.getResource("/Imagenes/appppp-modified.png")));
+		btnFotoPerfil.setBorder(null);
+		btnFotoPerfil.setBackground((Color) null);
+		btnFotoPerfil.setBounds(718, 0, 99, 100);
+		panelHeader.add(btnFotoPerfil);
+		
+		btnPerfil_1 = new JButton("Perfil");
+		btnPerfil_1.setToolTipText("");
+		btnPerfil_1.setForeground(Color.WHITE);
+		btnPerfil_1.setBorder(null);
+		btnPerfil_1.setBackground((Color) null);
+		btnPerfil_1.setBounds(644, 43, 64, 23);
+		panelHeader.add(btnPerfil_1);
+		
+		btnFAQs = new JButton("FAQs");
+		btnFAQs.setForeground(Color.WHITE);
+		btnFAQs.setBorder(null);
+		btnFAQs.setBackground((Color) null);
+		btnFAQs.setBounds(587, 43, 64, 23);
+		panelHeader.add(btnFAQs);
+		
+		btnLogo = new JButton("");
+		btnLogo.setIcon(new ImageIcon(Valoracion.class.getResource("/Imagenes/logoSportChoice.png")));
+		btnLogo.setBorder(null);
+		btnLogo.setBackground((Color) null);
+		btnLogo.setBounds(30, 15, 114, 68);
+		panelHeader.add(btnLogo);
 
 	}
 
