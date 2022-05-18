@@ -46,6 +46,11 @@ public class verEvento extends JFrame {
 		getContentPane().add(txtrDescripcionVariable);
 
 		btnForo = new JButton("FORO");
+		btnForo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(17, 5);
+			}
+		});
 		btnForo.setBounds(650, 361, 157, 51);
 		btnForo.setBorder(null);
 		btnForo.setForeground(Color.WHITE);

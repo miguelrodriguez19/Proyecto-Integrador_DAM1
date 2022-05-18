@@ -8,6 +8,8 @@ import java.awt.EventQueue;
 import javax.swing.*;
 import java.awt.SystemColor;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Foro extends JFrame{
 	private Controlador miControlador;
@@ -49,6 +51,11 @@ public class Foro extends JFrame{
 		panel_1.setLayout(null);
 
 		JButton btnX = new JButton("X");
+		btnX.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(5, 17);
+			}
+		});
 		btnX.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnX.setBounds(322, 6, 34, 27);
 		panel_1.add(btnX);
