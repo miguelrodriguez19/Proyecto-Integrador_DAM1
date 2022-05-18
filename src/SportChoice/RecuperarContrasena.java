@@ -45,7 +45,7 @@ public class RecuperarContrasena extends JFrame{
 //				System.out.println("La Contrase�a es " + String.valueOf(passwordField.getPassword()));
 			}
 		});
-		btnOK.setBounds(508, 366, 275, 42);
+		btnOK.setBounds(527, 366, 239, 42);
 		container.add(btnOK);
 
 		ButtonGroup group = new ButtonGroup();
