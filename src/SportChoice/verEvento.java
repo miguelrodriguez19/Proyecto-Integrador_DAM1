@@ -188,6 +188,11 @@ public class verEvento extends JFrame {
 		panelHeader.add(btnFAQs);
 
 		btnLogo_1 = new JButton("");
+		btnLogo_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(17, 11);
+			}
+		});
 		btnLogo_1.setIcon(new ImageIcon(verEvento.class.getResource("/Imagenes/home-48.png")));
 		btnLogo_1.setBorder(null);
 		btnLogo_1.setBackground((Color) null);
