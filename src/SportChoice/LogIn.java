@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.font.TextAttribute;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -19,10 +20,10 @@ import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-public class LogIn extends JFrame{
+public class LogIn extends JFrame {
 	private Controlador miControlador;
 	private Modelo miModelo;
-	private JTextField txtMail, textField;
+	private JTextField txtMail, textPwd;
 	private JPanel panel;
 	private JSeparator separator;
 	private JButton btnRecuperarContrasena, btnIniciarSesion;
@@ -36,7 +37,7 @@ public class LogIn extends JFrame{
 		setResizable(false);
 		Container container = getContentPane();
 		setBounds(100, 100, 850, 480);
-	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Sport Choice - Inicio de sesion");
 		container.setLayout(null);
 
@@ -50,12 +51,12 @@ public class LogIn extends JFrame{
 		panel.setLayout(null);
 
 		separator = new JSeparator();
-		separator.setBounds(28, 298, 275, 2);
+		separator.setBounds(28, 354, 275, 2);
 		panel.add(separator);
 
 		txtMail = new JTextField();
 		txtMail.setForeground(Color.GRAY);
-		txtMail.setBounds(28, 79, 275, 48);
+		txtMail.setBounds(28, 95, 275, 48);
 		panel.add(txtMail);
 		String mensajeTxtMail = "Email o Usuario";
 		txtMail.setText(mensajeTxtMail);
@@ -68,7 +69,8 @@ public class LogIn extends JFrame{
 		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 46));
 
 		btnRecuperarContrasena = new JButton("Recuperar Contrase\u00F1a\r\n");
-		btnRecuperarContrasena.setBounds(23, 266, 275, 21);
+		btnRecuperarContrasena.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnRecuperarContrasena.setBounds(28, 308, 275, 21);
 		panel.add(btnRecuperarContrasena);
 		btnRecuperarContrasena.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRecuperarContrasena.setBorder(null);
@@ -80,49 +82,54 @@ public class LogIn extends JFrame{
 		btnIniciarSesion.setForeground(Color.WHITE);
 		btnIniciarSesion.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnIniciarSesion.setBackground(new Color(53, 187, 95));
-		btnIniciarSesion.setBounds(28, 213, 275, 42);
+		btnIniciarSesion.setBounds(28, 235, 275, 42);
 		panel.add(btnIniciarSesion);
 
-		JButton btnOK_1 = new JButton("Crear Cuenta\r\n");
-		btnOK_1.setBorder(null);
-		btnOK_1.setForeground(Color.WHITE);
-		btnOK_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnOK_1.setBackground(new Color(156, 163, 219));
-		btnOK_1.setBounds(28, 351, 275, 42);
-		panel.add(btnOK_1);
+		JButton btnRegistro = new JButton("R\u0332e\u0332g\u0332i\u0332s\u0332t\u0332r\u0332o\u0332");
+		btnRegistro.setSelected(true);
+		btnRegistro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnRegistro.setBorder(null);
+		btnRegistro.setForeground(new Color(156, 163, 219));
+		btnRegistro.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnRegistro.setBackground(null);
+		btnRegistro.setBounds(169, 381, 88, 26);
+		panel.add(btnRegistro);
 
 		JLabel lblnoTienesCuenta = new JLabel("\u00BFNo tienes cuenta?\r\n");
 		lblnoTienesCuenta.setHorizontalAlignment(SwingConstants.CENTER);
 		lblnoTienesCuenta.setVerticalAlignment(SwingConstants.TOP);
 		lblnoTienesCuenta.setForeground(Color.WHITE);
-		lblnoTienesCuenta.setFont(new Font("Trebuchet MS", Font.PLAIN, 25));
-		lblnoTienesCuenta.setBounds(28, 316, 275, 35);
+		lblnoTienesCuenta.setFont(new Font("Trebuchet MS", Font.PLAIN, 16));
+		lblnoTienesCuenta.setBounds(10, 386, 205, 26);
 		panel.add(lblnoTienesCuenta);
 
-		textField = new JTextField();
-		textField.setForeground(Color.GRAY);
+		textPwd = new JTextField();
+		textPwd.setForeground(Color.GRAY);
 		String mensajeTextField = "Contraseña";
-		textField.setText("Contrase\u00F1a");
-		textField.setColumns(10);
-		textField.setBounds(28, 149, 275, 48);
-		panel.add(textField);
+		textPwd.setText("Contrase\u00F1a");
+		textPwd.setColumns(10);
+		textPwd.setBounds(28, 164, 275, 48);
+		panel.add(textPwd);
 		txtMail.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				if (txtMail.getText().equals(mensajeTxtMail)) {
 					txtMail.setText("");
 					txtMail.setForeground(Color.BLACK);
 				}
-				if (textField.getText().equals("")) {
-					textField.setText(mensajeTextField);
-					textField.setForeground(Color.GRAY);
+				if (textPwd.getText().equals("")) {
+					textPwd.setText(mensajeTextField);
+					textPwd.setForeground(Color.GRAY);
 				}
 			}
 		});
-		textField.addMouseListener(new MouseAdapter() {
+		textPwd.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				if (textField.getText().equals(mensajeTextField)) {
-					textField.setText("");
-					textField.setForeground(Color.BLACK);
+				if (textPwd.getText().equals(mensajeTextField)) {
+					textPwd.setText("");
+					textPwd.setForeground(Color.BLACK);
 				}
 				if (txtMail.getText().equals("")) {
 					txtMail.setText(mensajeTxtMail);
@@ -130,13 +137,13 @@ public class LogIn extends JFrame{
 				}
 			}
 		});
-		panel.add(textField);
+		panel.add(textPwd);
 		btnIniciarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				txtMail.setText(mensajeTxtMail);
-				textField.setText(mensajeTextField);
+				textPwd.setText(mensajeTextField);
 				txtMail.setForeground(Color.GRAY);
-				textField.setForeground(Color.GRAY);
+				textPwd.setForeground(Color.GRAY);
 			}
 		});
 		btnRecuperarContrasena.addActionListener(new ActionListener() {
@@ -152,11 +159,10 @@ public class LogIn extends JFrame{
 
 	}
 
-	
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}
-	
+
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
 	}
