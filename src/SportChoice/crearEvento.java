@@ -20,6 +20,7 @@ public class crearEvento extends JFrame{
 	private JSpinner spinner, spinner_1, spinner_2;
 	private JTextPane txtpnOrganizamosUnPartido;
 	private JPanel panelHeader;
+	private JButton btnAtras;
 
 	public static void crearEvento() {
 		crearEvento window = new crearEvento();
@@ -159,7 +160,7 @@ public class crearEvento extends JFrame{
 		lblCrearEvento.setIcon(null);
 		lblCrearEvento.setForeground(Color.WHITE);
 		lblCrearEvento.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblCrearEvento.setBounds(40, 110, 248, 23);
+		lblCrearEvento.setBounds(90, 108, 189, 23);
 		getContentPane().add(lblCrearEvento);
 
 		txtpnOrganizamosUnPartido = new JTextPane();
@@ -223,6 +224,18 @@ public class crearEvento extends JFrame{
 		btnLogo_2.setBackground((Color) null);
 		btnLogo_2.setBounds(30, 15, 114, 68);
 		panelHeader.add(btnLogo_2);
+		
+		btnAtras = new JButton("");
+		btnAtras.setBorder(null);
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(17, 11);
+			}
+		});
+		btnAtras.setBackground(null);
+		btnAtras.setIcon(new ImageIcon(verEvento.class.getResource("/Imagenes/arrow.png")));
+		btnAtras.setBounds(21, 102, 56, 39);
+		getContentPane().add(btnAtras);
 
 		
 		JCalendar calendar = new JCalendar();
