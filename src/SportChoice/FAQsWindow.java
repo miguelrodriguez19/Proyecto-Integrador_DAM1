@@ -51,7 +51,7 @@ public class FAQsWindow extends JFrame {
 		panelHeader.add(btnFotoPerfil);
 		btnFotoPerfil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(11, 10);
+				miControlador.actualizar(4, 10);
 			}
 		});
 
@@ -65,7 +65,7 @@ public class FAQsWindow extends JFrame {
 		panelHeader.add(btnPerfil);
 		btnPerfil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(11, 10);
+				miControlador.actualizar(4, 10);
 			}
 		});
 		btnFAQs = new JButton("FAQs");
@@ -77,7 +77,7 @@ public class FAQsWindow extends JFrame {
 		panelHeader.add(btnFAQs);
 		btnFAQs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(11, 4);
+				miControlador.actualizar(4, 4);
 			}
 		});
 		btnLogo = new JButton("");
@@ -87,6 +87,11 @@ public class FAQsWindow extends JFrame {
 		btnLogo.setIcon(new ImageIcon(MainPage.class.getResource("/Imagenes/logoSportChoice.png")));
 		btnLogo.setBounds(29, 18, 114, 68);
 		panelHeader.add(btnLogo);
+		btnLogo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(4, 11);
+			}
+		});
 
 		panelMain = new JPanel();
 		panelMain.setBackground(new Color(34, 40, 59));
