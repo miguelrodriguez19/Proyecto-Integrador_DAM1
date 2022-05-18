@@ -173,6 +173,11 @@ public class verEvento extends JFrame {
 		getContentPane().add(panelHeader);
 
 		btnLogo = new JButton("");
+		btnLogo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(17, 10);
+			}
+		});
 		btnLogo.setIcon(new ImageIcon(verEvento.class.getResource("/Imagenes/appppp-modified.png")));
 		btnLogo.setBorder(null);
 		btnLogo.setBackground((Color) null);
