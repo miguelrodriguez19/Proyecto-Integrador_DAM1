@@ -25,9 +25,9 @@ public class Controlador {
 	private Valoracion valoracion;
 	private verEvento verEvento;
 
-	private JFrame[] pantallas = { cambiarContrasena, crearPerfil, crearEvento, editarPerfil, FAQs, foro, historial, login,
-			misEventos, modificarEvento, perfil, mainPage, recuperarContrasena, recuperarContrasenaV2, registro,
-			unirseEvento, valoracion, verEvento };
+	private JFrame[] pantallas = { /*0*/cambiarContrasena, /*1*/crearPerfil, /*2*/crearEvento, /*3*/editarPerfil, /*4*/FAQs, /*5*/foro, /*6*/historial, /*7*/login,
+			/*8*/misEventos, /*9*/modificarEvento, /*10*/perfil, /*11*/mainPage, /*12*/recuperarContrasena, /*13*/recuperarContrasenaV2, /*14*/registro,
+			/*15*/unirseEvento, /*16*/valoracion, /*17*/verEvento };
 
 	public void actualizar(int pantallaAnterior, int pantallaNueva) {
 		pantallas[pantallaAnterior].setVisible(false);
