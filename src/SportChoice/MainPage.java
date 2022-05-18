@@ -46,7 +46,7 @@ public class MainPage extends JFrame{
 		panelHeader.add(btnFotoPerfil);
 		btnFotoPerfil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(10, 9);
+				miControlador.actualizar(11, 10);
 			}
 		});
 
