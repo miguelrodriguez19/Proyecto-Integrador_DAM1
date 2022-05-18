@@ -17,7 +17,7 @@ public class Perfil extends JFrame{
 			lblNewLabel_6, lblNewLabel_7, lblNewLabel_8, lblNewLabel_9, lblNewLabel_10, lblNewLabel_11, lblNewLabel_12,
 			lblNewLabel_13, lblNewLabel_14;
 	private JTextArea txtrFdsfsd;
-	private JButton btnHome, btnEditarPerfil, btnHistorial, btnPuntitos, btnLogOut;
+	private JButton btnHome, btnEditarPerfil, btnHistorial, btnPuntitos, btnLogOut, btnFAQs;
 
 	
 	public static void Perfil() {
@@ -186,7 +186,7 @@ public class Perfil extends JFrame{
 		btnHistorial.setBorder(null);
 		btnHistorial.setBackground(new Color(156, 163, 219));
 		btnHistorial.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnHistorial.setBounds(697, 214, 123, 33);
+		btnHistorial.setBounds(697, 204, 123, 33);
 		getContentPane().add(btnHistorial);
 		btnHistorial.setVisible(false);
 		btnHistorial.addActionListener(new ActionListener() {
@@ -201,12 +201,27 @@ public class Perfil extends JFrame{
 		btnLogOut.setBorder(null);
 		btnLogOut.setBackground(new Color(156, 163, 219));
 		btnLogOut.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnLogOut.setBounds(697, 267, 123, 33);
+		btnLogOut.setBounds(697, 290, 123, 33);
 		getContentPane().add(btnLogOut);
 		btnLogOut.setVisible(false);
 		btnLogOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(10, 6);
+				miControlador.actualizar(10, 7);
+			}
+		});
+		
+		btnFAQs = new JButton("FAQs");
+		btnFAQs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnFAQs.setForeground(Color.WHITE);
+		btnFAQs.setBorder(null);
+		btnFAQs.setBackground(new Color(156, 163, 219));
+		btnFAQs.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnFAQs.setBounds(697, 247, 123, 33);
+		getContentPane().add(btnFAQs);
+		btnFAQs.setVisible(false);
+		btnFAQs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(10, 4);
 			}
 		});
 		
@@ -215,10 +230,12 @@ public class Perfil extends JFrame{
 				if (btnHistorial.isVisible() && btnEditarPerfil.isVisible() && btnLogOut.isVisible()) {
 					btnHistorial.setVisible(false);
 					btnEditarPerfil.setVisible(false);
+					btnFAQs.setVisible(false);
 					btnLogOut.setVisible(false);
 				} else {
 					btnHistorial.setVisible(true);
 					btnEditarPerfil.setVisible(true);
+					btnFAQs.setVisible(true);
 					btnLogOut.setVisible(true);
 				}
 					
