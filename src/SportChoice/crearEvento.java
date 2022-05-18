@@ -45,6 +45,7 @@ public class crearEvento extends JFrame{
 		});
 		btnCrear.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnCrear.setBorder(null);
+		btnCrear.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCrear.setBackground(new Color(53, 187, 95));
 		btnCrear.setForeground(Color.WHITE);
 		btnCrear.setBounds(700, 386, 113, 40);
