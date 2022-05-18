@@ -49,7 +49,7 @@ public class unirseEvento extends JFrame{
 		lblUnirseEvento = new JLabel("Unirse Evento");
 		lblUnirseEvento.setForeground(Color.WHITE);
 		lblUnirseEvento.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblUnirseEvento.setBounds(25, 110, 248, 23);
+		lblUnirseEvento.setBounds(71, 115, 202, 23);
 		getContentPane().add(lblUnirseEvento);
 
 		lblNombre = new JLabel("Nombre Evento:");
@@ -223,7 +223,7 @@ public class unirseEvento extends JFrame{
 		});
 		btnAtras.setBackground(null);
 		btnAtras.setIcon(new ImageIcon(verEvento.class.getResource("/Imagenes/arrow.png")));
-		btnAtras.setBounds(10, 115, 56, 39);
+		btnAtras.setBounds(10, 108, 56, 39);
 		getContentPane().add(btnAtras);
 	}
 
