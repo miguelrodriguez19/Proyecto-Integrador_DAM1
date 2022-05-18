@@ -59,7 +59,7 @@ public class verEvento extends JFrame {
 		btnSalirEvento = new JButton("SALIR DEL EVENTO\r\n");
 		btnSalirEvento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(17, 8);
+				miControlador.actualizar(17, 11);
 			}
 		});
 		btnSalirEvento.setBounds(366, 361, 157, 51);
