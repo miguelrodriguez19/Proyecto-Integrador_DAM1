@@ -41,6 +41,11 @@ public class unirseEvento extends JFrame{
 		contenedor.setLayout(null);
 
 		btnUnirse = new JButton("UNIRSE");
+		btnUnirse.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(15, 17);
+			}
+		});
 		btnUnirse.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnUnirse.setBorder(null);
 		btnUnirse.setForeground(Color.WHITE);
