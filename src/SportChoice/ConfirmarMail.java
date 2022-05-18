@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class RecuperarContrasenaV2 extends JFrame{
+public class ConfirmarMail extends JFrame{
 	private Controlador miControlador;
 	private Modelo miModelo;
 	private JButton btnOK;
@@ -22,12 +22,12 @@ public class RecuperarContrasenaV2 extends JFrame{
 	 * Launch the application.
 	 */
 	public static void RecuperarContrasena() {
-		RecuperarContrasenaV2 window = new RecuperarContrasenaV2();
+		ConfirmarMail window = new ConfirmarMail();
 		window.setVisible(true);
 
 	}
 
-	public RecuperarContrasenaV2() {
+	public ConfirmarMail() {
 		setResizable(false);
 		Container container = getContentPane();
 		setBounds(100, 100, 850, 480);
@@ -48,7 +48,7 @@ public class RecuperarContrasenaV2 extends JFrame{
 //				System.out.println("La Contrase�a es " + String.valueOf(passwordField.getPassword()));
 			}
 		});
-		btnOK.setBounds(516, 294, 275, 42);
+		btnOK.setBounds(529, 294, 239, 42);
 		container.add(btnOK);
 
 		ButtonGroup group = new ButtonGroup();
@@ -76,7 +76,7 @@ public class RecuperarContrasenaV2 extends JFrame{
 		JButton btnNewButton = new JButton("");
 		btnNewButton.setBorderPainted(false);
 		btnNewButton.setBackground(new Color(57, 62, 70));
-		btnNewButton.setIcon(new ImageIcon(RecuperarContrasenaV2.class.getResource("/Imagenes/arrow.png")));
+		btnNewButton.setIcon(new ImageIcon(ConfirmarMail.class.getResource("/Imagenes/arrow.png")));
 		btnNewButton.setBounds(482, 10, 58, 33);
 		getContentPane().add(btnNewButton);
 
@@ -101,7 +101,7 @@ public class RecuperarContrasenaV2 extends JFrame{
 		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 91));
 		lblNewLabel_1.setIcon(
-				new ImageIcon(RecuperarContrasenaV2.class.getResource("/Imagenes/basketball-sports-court- (1).jpg")));
+				new ImageIcon(ConfirmarMail.class.getResource("/Imagenes/basketball-sports-court- (1).jpg")));
 		lblNewLabel_1.setBounds(-232, -13, 1586, 456);
 		getContentPane().add(lblNewLabel_1);
 

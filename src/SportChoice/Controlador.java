@@ -19,7 +19,7 @@ public class Controlador {
 	private ModificarEvento modificarEvento;
 	private Perfil perfil;
 	private RecuperarContrasena recuperarContrasena;
-	private RecuperarContrasenaV2 recuperarContrasenaV2;
+	private ConfirmarMail recuperarContrasenaV2;
 	private Register registro;
 	private unirseEvento unirseEvento;
 	private Valoracion valoracion;

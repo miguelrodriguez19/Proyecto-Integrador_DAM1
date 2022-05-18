@@ -51,7 +51,7 @@ public class ConfCrearPerfil extends JFrame{
 //				System.out.println("La Contrase�a es " + String.valueOf(passwordField.getPassword()));
 			}
 		});
-		btnOK.setBounds(521, 363, 275, 42);
+		btnOK.setBounds(537, 363, 239, 42);
 		container.add(btnOK);
 
 		ButtonGroup group = new ButtonGroup();
@@ -75,7 +75,7 @@ public class ConfCrearPerfil extends JFrame{
 		panel_1.setLayout(null);
 
 		lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setBounds(27, 10, 64, 71);
+		lblNewLabel_3.setBounds(29, 10, 77, 83);
 		lblNewLabel_3.setIcon(new ImageIcon(ConfCrearPerfil.class.getResource("/Imagenes/usuario-de-perfil.png")));
 		panel_1.add(lblNewLabel_3);
 

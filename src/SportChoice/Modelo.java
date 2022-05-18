@@ -14,7 +14,7 @@ public class Modelo {
 	private ModificarEvento modificarEvento;
 	private Perfil perfil;
 	private RecuperarContrasena recuperarContrasena;
-	private RecuperarContrasenaV2 recuperarContrasenaV2;
+	private ConfirmarMail recuperarContrasenaV2;
 	private Register registro;
 	private unirseEvento unirseEvento;
 	private Valoracion valoracion;
@@ -22,7 +22,7 @@ public class Modelo {
 	public void setCambiarContrasena(CambiarContrasena cambiarContrasena) {
 		this.cambiarContrasena = cambiarContrasena;
 	}
-	public void setRecuperarContrasenaV2(RecuperarContrasenaV2 recuperarContrasenaV2) {
+	public void setRecuperarContrasenaV2(ConfirmarMail recuperarContrasenaV2) {
 		this.recuperarContrasenaV2 = recuperarContrasenaV2;
 	}
 	public void setMainPage(MainPage mainPage) {

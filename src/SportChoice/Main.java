@@ -27,7 +27,7 @@ public class Main {
 		ModificarEvento modificarEvento = new ModificarEvento();
 		Perfil perfil = new Perfil();
 		RecuperarContrasena recuperarContrasena = new RecuperarContrasena();
-		RecuperarContrasenaV2 recuperarContrasenaV2 = new RecuperarContrasenaV2();
+		ConfirmarMail recuperarContrasenaV2 = new ConfirmarMail();
 		Register registro = new Register();
 		unirseEvento unirseEvento = new unirseEvento();
 		Valoracion valoracion = new Valoracion();
