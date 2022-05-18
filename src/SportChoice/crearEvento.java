@@ -194,7 +194,7 @@ public class crearEvento extends JFrame{
 		btnLogo_1 = new JButton("");
 		btnLogo_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(2, 10);
+				miControlador.actualizar(2, 11);
 			}
 		});
 		btnLogo_1.setIcon(new ImageIcon(crearEvento.class.getResource("/Imagenes/home-48.png")));
