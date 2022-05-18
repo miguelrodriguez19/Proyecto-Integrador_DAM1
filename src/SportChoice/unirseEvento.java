@@ -2,6 +2,7 @@ package SportChoice;
 
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -40,6 +41,7 @@ public class unirseEvento extends JFrame{
 		contenedor.setLayout(null);
 
 		btnUnirse = new JButton("UNIRSE");
+		btnUnirse.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnUnirse.setBorder(null);
 		btnUnirse.setForeground(Color.WHITE);
 		btnUnirse.setBackground(new Color(53, 187, 95));
@@ -166,6 +168,7 @@ public class unirseEvento extends JFrame{
 		getContentPane().add(panelHeader);
 
 		btnLogo = new JButton("");
+		btnLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(15, 10);
@@ -178,6 +181,7 @@ public class unirseEvento extends JFrame{
 		panelHeader.add(btnLogo);
 
 		btnPerfil_1 = new JButton("Perfil");
+		btnPerfil_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPerfil_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(15, 10);
@@ -191,6 +195,7 @@ public class unirseEvento extends JFrame{
 		panelHeader.add(btnPerfil_1);
 
 		btnFAQs = new JButton("FAQs");
+		btnFAQs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFAQs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(15, 10);
@@ -203,6 +208,7 @@ public class unirseEvento extends JFrame{
 		panelHeader.add(btnFAQs);
 		
 		btnLogo_1 = new JButton("");
+		btnLogo_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogo_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(15, 11);
@@ -215,6 +221,7 @@ public class unirseEvento extends JFrame{
 		panelHeader.add(btnLogo_1);
 		
 		btnAtras = new JButton("");
+		btnAtras.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAtras.setBorder(null);
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
