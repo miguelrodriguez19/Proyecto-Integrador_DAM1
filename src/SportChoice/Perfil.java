@@ -9,16 +9,16 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class Perfil extends JFrame{
+public class Perfil extends JFrame {
 	private Controlador miControlador;
 	private Modelo miModelo;
 	private JPanel header;
-	private JLabel lblUsername, lblNombre, lblFotoPerfil, lblNewLabel_3, lblNewLabel_4, lblNewLabel_5,
-			lblNewLabel_6, lblNewLabel_7, lblNewLabel_8, lblNewLabel_9, lblNewLabel_10, lblNewLabel_11, lblNewLabel_12,
-			lblNewLabel_13, lblNewLabel_14;
+	private JLabel lblUsername, lblNombre, lblFotoPerfil, lblNewLabel_3, lblNewLabel_4, lblNewLabel_5, lblNewLabel_6,
+			lblNewLabel_7, lblNewLabel_8, lblNewLabel_9, lblNewLabel_10, lblNewLabel_11, lblNewLabel_12, lblNewLabel_13,
+			lblNewLabel_14;
 	private JTextArea txtrFdsfsd;
 	private JButton btnLogo, btnEditarPerfil, btnHistorial, btnPuntitos, btnLogOut, btnFAQs;
-	
+
 	public static void Perfil() {
 		Perfil window = new Perfil();
 		window.setVisible(true);
@@ -59,7 +59,7 @@ public class Perfil extends JFrame{
 		lblFotoPerfil.setIcon(new ImageIcon(Perfil.class.getResource("/Imagenes/appppp-modified.png")));
 		lblFotoPerfil.setBounds(736, 0, 101, 100);
 		header.add(lblFotoPerfil);
-		
+
 		btnLogo = new JButton("");
 		btnLogo.setIcon(new ImageIcon(Perfil.class.getResource("/Imagenes/logoSportChoice.png")));
 		btnLogo.setBorder(null);
@@ -144,8 +144,6 @@ public class Perfil extends JFrame{
 		txtrFdsfsd.setBounds(55, 263, 593, 113);
 		getContentPane().add(txtrFdsfsd);
 
-
-		
 		btnPuntitos = new JButton("");
 		btnPuntitos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPuntitos.setBounds(741, 110, 85, 41);
@@ -153,7 +151,7 @@ public class Perfil extends JFrame{
 		btnPuntitos.setBorder(null);
 		btnPuntitos.setBackground(null);
 		btnPuntitos.setIcon(new ImageIcon(Perfil.class.getResource("/Imagenes/puntitos32.png")));
-		
+
 		btnEditarPerfil = new JButton("Editar perfil");
 		btnEditarPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEditarPerfil.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -168,7 +166,7 @@ public class Perfil extends JFrame{
 				miControlador.actualizar(10, 3);
 			}
 		});
-		
+
 		btnHistorial = new JButton("Historial");
 		btnHistorial.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnHistorial.setForeground(Color.WHITE);
@@ -183,7 +181,7 @@ public class Perfil extends JFrame{
 				miControlador.actualizar(10, 6);
 			}
 		});
-		
+
 		btnLogOut = new JButton("LogOut");
 		btnLogOut.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogOut.setForeground(Color.WHITE);
@@ -198,7 +196,7 @@ public class Perfil extends JFrame{
 				miControlador.actualizar(10, 7);
 			}
 		});
-		
+
 		btnFAQs = new JButton("FAQs");
 		btnFAQs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFAQs.setForeground(Color.WHITE);
@@ -213,7 +211,7 @@ public class Perfil extends JFrame{
 				miControlador.actualizar(10, 4);
 			}
 		});
-		
+
 		btnPuntitos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (btnHistorial.isVisible() && btnEditarPerfil.isVisible() && btnLogOut.isVisible()) {
@@ -227,7 +225,7 @@ public class Perfil extends JFrame{
 					btnFAQs.setVisible(true);
 					btnLogOut.setVisible(true);
 				}
-					
+
 			}
 		});
 	}
@@ -240,7 +238,4 @@ public class Perfil extends JFrame{
 		this.miModelo = miModelo;
 	}
 
-
-
-	
 }

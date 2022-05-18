@@ -20,9 +20,8 @@ public class FAQsWindow extends JFrame {
 	private JScrollBar scrollBar;
 	private JPanel panelHeader;
 	private JButton btnLogo;
-	private JButton btnPerfil;
+	private JButton btnPerfil, btnFotoPerfil;
 	private JButton btnFAQs;
-	private JButton btnLogo_1;
 
 	public static void FAQsWindow() {
 		FAQsWindow window = new FAQsWindow();
@@ -80,6 +79,19 @@ public class FAQsWindow extends JFrame {
 		btnLogo.setIcon(new ImageIcon(MainPage.class.getResource("/Imagenes/logoSportChoice.png")));
 		btnLogo.setBounds(29, 18, 114, 68);
 		panelHeader.add(btnLogo);
+		
+		btnFotoPerfil = new JButton("");
+		btnFotoPerfil.setIcon(new ImageIcon(HistorialWindow.class.getResource("/Imagenes/appppp-modified.png")));
+		btnFotoPerfil.setBorder(null);
+		btnFotoPerfil.setBackground((Color) null);
+		btnFotoPerfil.setBounds(718, 0, 99, 100);
+		panelHeader.add(btnFotoPerfil);
+		btnFotoPerfil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(4, 10);
+			}
+		});
+		
 		btnLogo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(4, 11);
@@ -166,41 +178,6 @@ public class FAQsWindow extends JFrame {
 				+ "\nLlamando a este n�mero: 633 456" + "\nO en nuestras oficinas localizadas en Toledo");
 		txtpnPregunta3.setBounds(157, 240, 524, 70);
 		panelMain.add(txtpnPregunta3);
-		
-		panelHeader = new JPanel();
-		panelHeader.setLayout(null);
-		panelHeader.setBackground(new Color(57, 62, 70));
-		panelHeader.setBounds(0, 0, 834, 100);
-		getContentPane().add(panelHeader);
-		
-		btnLogo = new JButton("");
-		btnLogo.setIcon(new ImageIcon(FAQsWindow.class.getResource("/Imagenes/appppp-modified.png")));
-		btnLogo.setBorder(null);
-		btnLogo.setBackground((Color) null);
-		btnLogo.setBounds(718, 0, 99, 100);
-		panelHeader.add(btnLogo);
-		
-		btnPerfil = new JButton("Perfil");
-		btnPerfil.setToolTipText("");
-		btnPerfil.setForeground(Color.WHITE);
-		btnPerfil.setBorder(null);
-		btnPerfil.setBackground((Color) null);
-		btnPerfil.setBounds(644, 43, 64, 23);
-		panelHeader.add(btnPerfil);
-		
-		btnFAQs = new JButton("FAQs");
-		btnFAQs.setForeground(Color.WHITE);
-		btnFAQs.setBorder(null);
-		btnFAQs.setBackground((Color) null);
-		btnFAQs.setBounds(587, 43, 64, 23);
-		panelHeader.add(btnFAQs);
-		
-		btnLogo_1 = new JButton("");
-		btnLogo_1.setIcon(new ImageIcon(FAQsWindow.class.getResource("/Imagenes/logoSportChoice.png")));
-		btnLogo_1.setBorder(null);
-		btnLogo_1.setBackground((Color) null);
-		btnLogo_1.setBounds(30, 15, 114, 68);
-		panelHeader.add(btnLogo_1);
 		txtpnPregunta3.setVisible(false);
 
 		btnPregunta1.addActionListener(new ActionListener() {
