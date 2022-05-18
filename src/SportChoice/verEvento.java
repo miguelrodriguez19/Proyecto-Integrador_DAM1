@@ -9,12 +9,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+import java.awt.Insets;
 
 public class verEvento extends JFrame {
 	private Controlador miControlador;
 	private Modelo miModelo;
 	private JButton btnSalirEvento, btnForo, btnLogo, btnPerfil, btnFAQs;
-	private JTextArea txtrDescripcionVariable;
+	private JTextArea txtAreaDescripcionVariable;
 	private JLabel lblDescripcion, lblVerEvento, lblNombre, lblNombreEvento, lblDeporteVariable, lblDeporte,
 			lblParticipantes, lblParticipantesVariable, lblTipoEvento, lblTipoEventoVariable, lblFecha,
 			lblFechaVariable, lblHora, lblHoraVariable, lblLocalizacionVariable, lblLocalizacion;
@@ -40,13 +41,16 @@ public class verEvento extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 
-		txtrDescripcionVariable = new JTextArea();
-		txtrDescripcionVariable.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		txtrDescripcionVariable.setTabSize(0);
-		txtrDescripcionVariable.setText(
-				"Organizamos un partido de futbol unos amigos y yo pero no somos\r\nsuficientes. Buscamos a 5 personas.\r\nNecesitas llevar una botella de agua propia y dos camisetas, \r\nuna roja y otra verde para poder cambiarnos y jugar todos con todos.\r\nLugar: Polideportivo de Moralzarzal, a las 17:30, el dia 25 de mayo\r\nAPUNTAROS!\r\n");
-		txtrDescripcionVariable.setBounds(366, 237, 441, 130);
-		getContentPane().add(txtrDescripcionVariable);
+		txtAreaDescripcionVariable = new JTextArea();
+		txtAreaDescripcionVariable.setWrapStyleWord(true);
+		txtAreaDescripcionVariable.setLineWrap(true);
+		txtAreaDescripcionVariable.setEditable(false);
+		txtAreaDescripcionVariable.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		txtAreaDescripcionVariable.setTabSize(0);
+		txtAreaDescripcionVariable.setText(
+				"Organizamos un partido de futbol unos amigos y yo pero no somos suficientes. Buscamos a 5 personas.\r\nNecesitas llevar una botella de agua propia y dos camisetas,  una roja y otra verde para poder cambiarnos y jugar todos con todos.\r\nLugar: Polideportivo de Moralzarzal, a las 17:30, el dia 25 de mayo\r\nAPUNTAROS!\r\n");
+		txtAreaDescripcionVariable.setBounds(366, 237, 441, 130);
+		getContentPane().add(txtAreaDescripcionVariable);
 
 		btnForo = new JButton("Foro");
 		btnForo.setFont(new Font("Tahoma", Font.PLAIN, 13));
