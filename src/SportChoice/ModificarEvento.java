@@ -55,7 +55,7 @@ public class ModificarEvento extends JFrame{
 		lblDeporteFutbol = new JLabel("Deporte:");
 		lblDeporteFutbol.setForeground(Color.WHITE);
 		lblDeporteFutbol.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblDeporteFutbol.setBounds(40, 176, 101, 23);
+		lblDeporteFutbol.setBounds(40, 178, 101, 23);
 		getContentPane().add(lblDeporteFutbol);
 
 		comboBox = new JComboBox();
@@ -66,7 +66,7 @@ public class ModificarEvento extends JFrame{
 		lblHora = new JLabel("Hora:");
 		lblHora.setForeground(Color.WHITE);
 		lblHora.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblHora.setBounds(40, 209, 101, 23);
+		lblHora.setBounds(40, 212, 101, 23);
 		getContentPane().add(lblHora);
 
 		spinner = new JSpinner();
@@ -89,7 +89,7 @@ public class ModificarEvento extends JFrame{
 		lblParticipantes = new JLabel("Participantes:");
 		lblParticipantes.setForeground(Color.WHITE);
 		lblParticipantes.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblParticipantes.setBounds(40, 245, 101, 23);
+		lblParticipantes.setBounds(40, 248, 101, 23);
 		getContentPane().add(lblParticipantes);
 
 		spinner_2 = new JSpinner();
@@ -101,13 +101,13 @@ public class ModificarEvento extends JFrame{
 		lblTipoEvento = new JLabel("Visibilidad:");
 		lblTipoEvento.setForeground(Color.WHITE);
 		lblTipoEvento.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblTipoEvento.setBounds(40, 285, 94, 23);
+		lblTipoEvento.setBounds(40, 283, 94, 23);
 		getContentPane().add(lblTipoEvento);
 
 		lblFechaEvento = new JLabel("Fecha:");
 		lblFechaEvento.setForeground(Color.WHITE);
 		lblFechaEvento.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblFechaEvento.setBounds(40, 318, 94, 23);
+		lblFechaEvento.setBounds(42, 312, 94, 23);
 		getContentPane().add(lblFechaEvento);
 
 		rdbtnPublico = new JRadioButton("P\u00FAblico");
@@ -129,7 +129,7 @@ public class ModificarEvento extends JFrame{
 		lblDescripcin = new JLabel("Descripci\u00F3n:");
 		lblDescripcin.setForeground(Color.WHITE);
 		lblDescripcin.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblDescripcin.setBounds(387, 191, 101, 23);
+		lblDescripcin.setBounds(387, 199, 101, 23);
 		getContentPane().add(lblDescripcin);
 
 		txtCCruzDe = new JTextField();
