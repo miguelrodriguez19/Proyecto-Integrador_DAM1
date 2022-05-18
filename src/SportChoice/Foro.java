@@ -35,18 +35,10 @@ public class Foro extends JFrame{
 		setTitle("Sport Choice - Foro");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		JButton btnUnirse = new JButton("FORO");
-		btnUnirse.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnUnirse.setBorder(null);
-		btnUnirse.setForeground(Color.WHITE);
-		btnUnirse.setBackground(new Color(53, 187, 95));
-		btnUnirse.setBounds(553, 363, 157, 51);
-		getContentPane().add(btnUnirse);
-
 		panel_1 = new JPanel();
 		panel_1.setBorder(null);
 		panel_1.setBackground(new Color(0, 0, 128));
-		panel_1.setBounds(55, 10, 366, 39);
+		panel_1.setBounds(132, 10, 366, 39);
 		getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 
@@ -65,11 +57,11 @@ public class Foro extends JFrame{
 		JLabel lblNewLabel_5 = new JLabel("PARTIDO FUTBOL COLEGAS");
 		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 23));
 		lblNewLabel_5.setForeground(Color.WHITE);
-		lblNewLabel_5.setBounds(10, 6, 302, 20);
+		lblNewLabel_5.setBounds(10, 4, 302, 20);
 		panel_1.add(lblNewLabel_5);
 
 		panelFondo = new JPanel();
-		panelFondo.setBounds(55, 10, 364, 423);
+		panelFondo.setBounds(132, 10, 364, 423);
 		getContentPane().add(panelFondo);
 		panelFondo.setLayout(null);
 

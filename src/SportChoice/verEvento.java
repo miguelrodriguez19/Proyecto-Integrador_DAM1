@@ -58,6 +58,11 @@ public class verEvento extends JFrame {
 		getContentPane().add(btnForo);
 
 		btnSalirEvento = new JButton("SALIR DEL EVENTO\r\n");
+		btnSalirEvento.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(17, 11);
+			}
+		});
 		btnSalirEvento.setBounds(366, 361, 157, 51);
 		btnSalirEvento.setForeground(Color.WHITE);
 		btnSalirEvento.setBorder(null);
@@ -190,6 +195,12 @@ public class verEvento extends JFrame {
 		
 		btnLogo_1 = new JButton("");
 		btnLogo_1.setIcon(new ImageIcon(verEvento.class.getResource("/Imagenes/logoSportChoice.png")));
+
+		btnLogo_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(17, 11);
+			}
+		});
 		btnLogo_1.setBorder(null);
 		btnLogo_1.setBackground((Color) null);
 		btnLogo_1.setBounds(30, 15, 114, 68);
