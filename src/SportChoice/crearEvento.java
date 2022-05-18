@@ -39,6 +39,11 @@ public class crearEvento extends JFrame{
 		contenedor.setLayout(null);
 
 		btnCrear = new JButton("Crear");
+		btnCrear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(2, 17);
+			}
+		});
 		btnCrear.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnCrear.setBorder(null);
 		btnCrear.setBackground(new Color(53, 187, 95));
