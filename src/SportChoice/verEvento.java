@@ -21,6 +21,7 @@ public class verEvento extends JFrame {
 	private JPanel panelHeader;
 	private JButton btnLogo_1;
 	private JButton btnAtras;
+	private JButton btnEditar;
 
 	public static void verEvento() {
 		verEvento window = new verEvento();
@@ -44,7 +45,7 @@ public class verEvento extends JFrame {
 		txtrDescripcionVariable.setTabSize(0);
 		txtrDescripcionVariable.setText(
 				"Organizamos un partido de futbol unos amigos y yo pero no somos\r\nsuficientes. Buscamos a 5 personas.\r\nNecesitas llevar una botella de agua propia y dos camisetas, \r\nuna roja y otra verde para poder cambiarnos y jugar todos con todos.\r\nLugar: Polideportivo de Moralzarzal, a las 17:30, el dia 25 de mayo\r\nAPUNTAROS!\r\n");
-		txtrDescripcionVariable.setBounds(366, 237, 441, 113);
+		txtrDescripcionVariable.setBounds(366, 237, 441, 130);
 		getContentPane().add(txtrDescripcionVariable);
 
 		btnForo = new JButton("Foro");
@@ -54,21 +55,21 @@ public class verEvento extends JFrame {
 				miControlador.actualizar(17, 5);
 			}
 		});
-		btnForo.setBounds(650, 361, 157, 51);
+		btnForo.setBounds(697, 378, 110, 35);
 		btnForo.setBorder(null);
 		btnForo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnForo.setForeground(Color.WHITE);
 		btnForo.setBackground(new Color(53, 187, 95));
 		getContentPane().add(btnForo);
 
-		btnSalirEvento = new JButton("Abandonar evento");
+		btnSalirEvento = new JButton("Abandonar");
 		btnSalirEvento.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnSalirEvento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(17, 11);
 			}
 		});
-		btnSalirEvento.setBounds(366, 361, 157, 51);
+		btnSalirEvento.setBounds(366, 378, 110, 35);
 		btnSalirEvento.setForeground(Color.WHITE);
 		btnSalirEvento.setBorder(null);
 		btnSalirEvento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -243,6 +244,19 @@ public class verEvento extends JFrame {
 		btnAtras.setIcon(new ImageIcon(verEvento.class.getResource("/Imagenes/arrow.png")));
 		btnAtras.setBounds(10, 115, 56, 39);
 		getContentPane().add(btnAtras);
+		
+		btnEditar = new JButton("Editar");
+		btnEditar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(17, 9);
+			}
+		});
+		btnEditar.setForeground(Color.WHITE);
+		btnEditar.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnEditar.setBorder(null);
+		btnEditar.setBackground(new Color(129, 136, 212));
+		btnEditar.setBounds(530, 378, 110, 35);
+		getContentPane().add(btnEditar);
 
 	}
 

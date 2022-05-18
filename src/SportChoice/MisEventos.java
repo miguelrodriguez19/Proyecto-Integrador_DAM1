@@ -16,7 +16,7 @@ public class MisEventos extends JFrame{
 	private Modelo miModelo;
 	private JTextField txtLocalidad;
 	private JButton btnFAQs, btnPerfil, btnCrearEventos, btnAplicarFiltros, btnEventosRecientes, btnMisEventos,
-			btnUnirseEvento, btnEditarEvento, btnEliminarEvento, btnPerfilFoto;
+			btnUnirseEvento, btnPerfilFoto;
 	private JLabel lblFiltros;
 	private JPanel panelHeader, panelPaginaPrincipal;
 	private JComboBox comboBoxDeportes, comboBoxDia, comboBoxMes;
@@ -233,21 +233,6 @@ public class MisEventos extends JFrame{
 		btnUnirseEvento.setBackground(new Color(53, 187, 95));
 		btnUnirseEvento.setBounds(735, 300, 89, 23);
 		panelPaginaPrincipal.add(btnUnirseEvento);
-
-		btnEditarEvento = new JButton("Editar Evento");
-		btnEditarEvento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnEditarEvento.setForeground(Color.WHITE);
-		btnEditarEvento.setBorder(null);
-		btnEditarEvento.setBackground(new Color(217, 201, 62));
-		btnEditarEvento.setBounds(636, 300, 89, 23);
-		panelPaginaPrincipal.add(btnEditarEvento);
-
-		btnEliminarEvento = new JButton("Eliminar");
-		btnEliminarEvento.setForeground(Color.WHITE);
-		btnEliminarEvento.setBorder(null);
-		btnEliminarEvento.setBackground(new Color(223, 62, 60));
-		btnEliminarEvento.setBounds(537, 300, 89, 23);
-		panelPaginaPrincipal.add(btnEliminarEvento);
 	}
 
 	
