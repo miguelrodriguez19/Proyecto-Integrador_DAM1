@@ -95,7 +95,7 @@ public class Foro extends JFrame{
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("18-05-2022 // 12:22");
-		lblNewLabel.setBounds(253, 45, 101, 13);
+		lblNewLabel.setBounds(245, 45, 101, 13);
 		panel.add(lblNewLabel);
 		
 		JLabel lblNewLabel_6 = new JLabel("Hola, yo llevo la pelota");
@@ -123,7 +123,7 @@ public class Foro extends JFrame{
 				panel_2.add(lblNewLabel_7_1);
 				
 				JLabel lblNewLabel_1 = new JLabel("18-05-2022 // 12:35");
-				lblNewLabel_1.setBounds(253, 45, 94, 13);
+				lblNewLabel_1.setBounds(245, 45, 109, 13);
 				panel_2.add(lblNewLabel_1);
 		
 		JPanel panel_3 = new JPanel();
@@ -139,7 +139,7 @@ public class Foro extends JFrame{
 				btnPerfil3.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
 						
 						JLabel lblNewLabel_2 = new JLabel("18-05-2022 // 13:10");
-						lblNewLabel_2.setBounds(253, 45, 101, 13);
+						lblNewLabel_2.setBounds(245, 45, 109, 13);
 						panel_3.add(lblNewLabel_2);
 						
 						JLabel lblNewLabel_6_1_1 = new JLabel("El tema de las equipaciones?");
@@ -164,7 +164,7 @@ public class Foro extends JFrame{
 				btnPerfil4.setIcon(new ImageIcon(Foro.class.getResource("/Imagenes/usuario-de-perfil.png")));
 						
 						JLabel lblNewLabel_3 = new JLabel("18-05-2022  // 13:11");
-						lblNewLabel_3.setBounds(253, 45, 101, 13);
+						lblNewLabel_3.setBounds(245, 45, 109, 13);
 						panel_2_1.add(lblNewLabel_3);
 						
 						JLabel lblNewLabel_6_1_1_1 = new JLabel("LLevamos camisetas azules y blancas");
