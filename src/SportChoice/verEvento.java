@@ -58,7 +58,7 @@ public class verEvento extends JFrame {
 		btnForo.setBackground(new Color(53, 187, 95));
 		getContentPane().add(btnForo);
 
-		btnSalirEvento = new JButton("SALIR DEL EVENTO\r\n");
+		btnSalirEvento = new JButton("ABANDONAR EVENTO\r\n");
 		btnSalirEvento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(17, 11);
