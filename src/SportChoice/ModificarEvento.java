@@ -18,7 +18,8 @@ public class ModificarEvento extends JFrame{
 	private JComboBox comboBox;
 	private JLabel lblNombreEvento, lblDeporteFutbol, lblHora, lblHora_1, lblParticipantes, lblTipoEvento,
 			lblFechaEvento, lblDescripcin, lblLocalizacin, lblCrearEvento;
-	private JButton btnPerfil, btnCrear, btnEliminar, btnLogo, btnPerfil_1, btnFAQs, btnLogo_1;
+	private JButton btnPerfil, btnCrear, btnEliminar, btnLogo, btnPerfil_1, btnFAQs;
+	private JButton btnLogo_1;
 
 	public static void ModificarEvento() {
 
@@ -201,12 +202,12 @@ public class ModificarEvento extends JFrame{
 		btnFAQs.setBackground((Color) null);
 		btnFAQs.setBounds(587, 43, 64, 23);
 		panelHeader.add(btnFAQs);
-
+		
 		btnLogo_1 = new JButton("");
-		btnLogo_1.setIcon(new ImageIcon(ModificarEvento.class.getResource("/Imagenes/home-48.png")));
+		btnLogo_1.setIcon(new ImageIcon(ModificarEvento.class.getResource("/Imagenes/logoSportChoice.png")));
 		btnLogo_1.setBorder(null);
 		btnLogo_1.setBackground((Color) null);
-		btnLogo_1.setBounds(28, 21, 64, 68);
+		btnLogo_1.setBounds(30, 15, 114, 68);
 		panelHeader.add(btnLogo_1);
 		
 		JCalendar calendar = new JCalendar();

@@ -14,12 +14,13 @@ public class MisEventos extends JFrame{
 	private Modelo miModelo;
 	private JTextField txtLocalidad;
 	private JButton btnFAQs, btnPerfil, btnCrearEventos, btnAplicarFiltros, btnEventosRecientes, btnMisEventos,
-			btnUnirseEvento, btnHouse, btnEditarEvento, btnEliminarEvento, btnPerfilFoto;
+			btnUnirseEvento, btnEditarEvento, btnEliminarEvento, btnPerfilFoto;
 	private JLabel lblFiltros;
 	private JPanel panelHeader, panelPaginaPrincipal;
 	private JComboBox comboBoxDeportes, comboBoxDia, comboBoxMes;
 	private JScrollPane scrollPaneEventos;
 	private JTable table;
+	private JButton btnLogo;
 
 	public static void MisEventos() {
 		MisEventos mainPage = new MisEventos();
@@ -67,14 +68,13 @@ public class MisEventos extends JFrame{
 		btnFAQs.setBackground(null);
 		btnFAQs.setBounds(587, 43, 64, 23);
 		panelHeader.add(btnFAQs);
-
-		btnHouse = new JButton("");
-		btnHouse.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnHouse.setBorder(null);
-		btnHouse.setBackground(null);
-		btnHouse.setIcon(new ImageIcon(MisEventos.class.getResource("/Imagenes/home-48.png")));
-		btnHouse.setBounds(28, 21, 64, 68);
-		panelHeader.add(btnHouse);
+		
+		btnLogo = new JButton("");
+		btnLogo.setIcon(new ImageIcon(MisEventos.class.getResource("/Imagenes/logoSportChoice.png")));
+		btnLogo.setBorder(null);
+		btnLogo.setBackground((Color) null);
+		btnLogo.setBounds(30, 15, 114, 68);
+		panelHeader.add(btnLogo);
 
 		panelPaginaPrincipal = new JPanel();
 		panelPaginaPrincipal.setBackground(new Color(34, 40, 49));

@@ -13,7 +13,7 @@ public class MainPage extends JFrame{
 	private Modelo miModelo;
 	private JTextField txtLocalidad;
 	private JButton btnFAQs, btnPerfil, btnCrearEventos, btnAplicarFiltros, btnEventosRecientes, btnMisEventos, btnUnirseEvento, btnLogo;
-	private JLabel lblNewLabel;
+	private JLabel lblFiltros;
 	private JPanel panelHeader, panelPaginaPrincipal;
 	private JComboBox comboBoxDeportes, comboBoxDia, comboBoxMes;
 	private JScrollPane scrollPaneEventos;
@@ -80,7 +80,7 @@ public class MainPage extends JFrame{
 		btnLogo.setBorder(null);
 		btnLogo.setBackground(null);
 		btnLogo.setIcon(new ImageIcon(MainPage.class.getResource("/Imagenes/logoSportChoice.png")));
-		btnLogo.setBounds(29, 18, 114, 68);
+		btnLogo.setBounds(30, 15, 114, 68);
 		panelHeader.add(btnLogo);
 
 		panelPaginaPrincipal = new JPanel();
@@ -102,10 +102,10 @@ public class MainPage extends JFrame{
 		btnCrearEventos.setBounds(29, 5, 148, 30);
 		panelPaginaPrincipal.add(btnCrearEventos);
 
-		lblNewLabel = new JLabel("Buscar por filtros: ");
-		lblNewLabel.setForeground(Color.WHITE);
-		lblNewLabel.setBounds(29, 51, 148, 29);
-		panelPaginaPrincipal.add(lblNewLabel);
+		lblFiltros = new JLabel("Buscar por filtros: ");
+		lblFiltros.setForeground(Color.WHITE);
+		lblFiltros.setBounds(29, 51, 148, 29);
+		panelPaginaPrincipal.add(lblFiltros);
 
 		comboBoxDeportes = new JComboBox();
 		comboBoxDeportes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

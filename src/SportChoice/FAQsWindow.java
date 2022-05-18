@@ -12,11 +12,16 @@ import javax.swing.*;
 public class FAQsWindow extends JFrame{
 	private Controlador miControlador;
 	private Modelo miModelo;
-	private JButton btnHomeIcon,btnFAQs,btnPerfil,btnProfileIcon,btnBackIcon,btnPregunta1,btnPregunta2,btnPregunta3;
-	private JPanel panelMain,panelHeader;
+	private JButton btnBackIcon,btnPregunta1,btnPregunta2,btnPregunta3;
+	private JPanel panelMain;
 	private JLabel lblFAQsTitle;
 	private JTextPane txtpnPregunta1,txtpnPregunta2,txtpnPregunta3;
 	private JScrollBar scrollBar;
+	private JPanel panelHeader;
+	private JButton btnLogo;
+	private JButton btnPerfil;
+	private JButton btnFAQs;
+	private JButton btnLogo_1;
 
 	public static void FAQsWindow() {
 					FAQsWindow window = new FAQsWindow();
@@ -35,47 +40,6 @@ public class FAQsWindow extends JFrame{
 		getContentPane().setLayout(null);
 		setTitle("Sport Choice - FAQs");
 		setResizable(false);
-
-		panelHeader = new JPanel();
-		panelHeader.setForeground(Color.WHITE);
-		panelHeader.setBackground(new Color(57, 62, 70));
-		panelHeader.setBounds(0, 0, 849, 100);
-		getContentPane().add(panelHeader);
-		panelHeader.setLayout(null);
-
-		btnHomeIcon = new JButton("");
-		btnHomeIcon.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnHomeIcon.setIcon(new ImageIcon(FAQsWindow.class.getResource("/Imagenes/home-48.png")));
-		btnHomeIcon.setBounds(20, 12, 58, 74);
-		btnHomeIcon.setBackground(null);
-		btnHomeIcon.setBorder(null);
-		panelHeader.add(btnHomeIcon);
-
-		btnFAQs = new JButton("FAQs");
-		btnFAQs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnFAQs.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnFAQs.setBorder(null);
-		btnFAQs.setForeground(Color.WHITE);
-		btnFAQs.setBackground(null);
-		btnFAQs.setBounds(519, 37, 85, 21);
-		panelHeader.add(btnFAQs);
-
-		btnPerfil = new JButton("Perfil");
-		btnPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnPerfil.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnPerfil.setForeground(Color.WHITE);
-		btnPerfil.setBorder(null);
-		btnPerfil.setBounds(614, 37, 85, 21);
-		btnPerfil.setBackground(null);
-		panelHeader.add(btnPerfil);
-
-		btnProfileIcon = new JButton("");
-		btnProfileIcon.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnProfileIcon.setIcon(new ImageIcon(FAQsWindow.class.getResource("/Imagenes/usuario-de-perfil.png")));
-		btnProfileIcon.setBounds(722, 12, 73, 76);
-		btnProfileIcon.setBackground(null);
-		btnProfileIcon.setBorder(null);
-		panelHeader.add(btnProfileIcon);
 
 		panelMain = new JPanel();
 		panelMain.setBackground(new Color(34, 40, 59));
@@ -158,6 +122,41 @@ public class FAQsWindow extends JFrame{
 				+ "\nO en nuestras oficinas localizadas en Toledo");
 		txtpnPregunta3.setBounds(157, 240, 524, 70);
 		panelMain.add(txtpnPregunta3);
+		
+		panelHeader = new JPanel();
+		panelHeader.setLayout(null);
+		panelHeader.setBackground(new Color(57, 62, 70));
+		panelHeader.setBounds(0, 0, 834, 100);
+		getContentPane().add(panelHeader);
+		
+		btnLogo = new JButton("");
+		btnLogo.setIcon(new ImageIcon(FAQsWindow.class.getResource("/Imagenes/appppp-modified.png")));
+		btnLogo.setBorder(null);
+		btnLogo.setBackground((Color) null);
+		btnLogo.setBounds(718, 0, 99, 100);
+		panelHeader.add(btnLogo);
+		
+		btnPerfil = new JButton("Perfil");
+		btnPerfil.setToolTipText("");
+		btnPerfil.setForeground(Color.WHITE);
+		btnPerfil.setBorder(null);
+		btnPerfil.setBackground((Color) null);
+		btnPerfil.setBounds(644, 43, 64, 23);
+		panelHeader.add(btnPerfil);
+		
+		btnFAQs = new JButton("FAQs");
+		btnFAQs.setForeground(Color.WHITE);
+		btnFAQs.setBorder(null);
+		btnFAQs.setBackground((Color) null);
+		btnFAQs.setBounds(587, 43, 64, 23);
+		panelHeader.add(btnFAQs);
+		
+		btnLogo_1 = new JButton("");
+		btnLogo_1.setIcon(new ImageIcon(FAQsWindow.class.getResource("/Imagenes/logoSportChoice.png")));
+		btnLogo_1.setBorder(null);
+		btnLogo_1.setBackground((Color) null);
+		btnLogo_1.setBounds(30, 15, 114, 68);
+		panelHeader.add(btnLogo_1);
 		txtpnPregunta3.setVisible(false);
 		
 		btnPregunta1.addActionListener(new ActionListener() {

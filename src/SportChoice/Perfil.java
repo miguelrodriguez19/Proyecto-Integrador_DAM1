@@ -13,11 +13,12 @@ public class Perfil extends JFrame{
 	private Controlador miControlador;
 	private Modelo miModelo;
 	private JPanel header;
-	private JLabel lblNewLabel_1, lblNewLabel_2, lblNewLabel, lblNewLabel_3, lblNewLabel_4, lblNewLabel_5,
+	private JLabel lblUsername, lblNombre, lblFotoPerfil, lblNewLabel_3, lblNewLabel_4, lblNewLabel_5,
 			lblNewLabel_6, lblNewLabel_7, lblNewLabel_8, lblNewLabel_9, lblNewLabel_10, lblNewLabel_11, lblNewLabel_12,
 			lblNewLabel_13, lblNewLabel_14;
 	private JTextArea txtrFdsfsd;
-	private JButton btnHome, btnEditarPerfil, btnHistorial, btnPuntitos, btnLogOut;
+	private JButton btnEditarPerfil, btnHistorial, btnPuntitos, btnLogOut;
+	private JButton btnLogo;
 
 	
 	public static void Perfil() {
@@ -43,40 +44,30 @@ public class Perfil extends JFrame{
 		getContentPane().add(header);
 		header.setLayout(null);
 
-		lblNewLabel_1 = new JLabel("@DogueDrake");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1.setBounds(618, 28, 123, 28);
-		header.add(lblNewLabel_1);
+		lblUsername = new JLabel("@DogueDrake");
+		lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblUsername.setForeground(new Color(255, 255, 255));
+		lblUsername.setBounds(618, 28, 123, 28);
+		header.add(lblUsername);
 
-		lblNewLabel_2 = new JLabel("Luis Rodriguez Gonzalez");
-		lblNewLabel_2.setForeground(new Color(255, 255, 255));
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel_2.setBounds(547, 52, 194, 28);
-		header.add(lblNewLabel_2);
+		lblNombre = new JLabel("Luis Rodriguez Gonzalez");
+		lblNombre.setForeground(new Color(255, 255, 255));
+		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNombre.setBounds(547, 52, 194, 28);
+		header.add(lblNombre);
 
-		lblNewLabel = new JLabel("");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setIcon(new ImageIcon(Perfil.class.getResource("/Imagenes/appppp-modified.png")));
-		lblNewLabel.setBounds(736, 0, 101, 100);
-		header.add(lblNewLabel);
-
-		btnHome = new JButton("");
-		btnHome.setBorder(null);
-		btnHome.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnHome.setBackground(new Color(57, 62, 70));
-		btnHome.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnHome.setIcon(new ImageIcon(Perfil.class.getResource("/Imagenes/home-48.png")));
-		btnHome.setBounds(10, 10, 85, 70);
-		header.add(btnHome);
-		btnHome.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(10, 11);
-			}
-		});
+		lblFotoPerfil = new JLabel("");
+		lblFotoPerfil.setHorizontalAlignment(SwingConstants.CENTER);
+		lblFotoPerfil.setIcon(new ImageIcon(Perfil.class.getResource("/Imagenes/appppp-modified.png")));
+		lblFotoPerfil.setBounds(736, 0, 101, 100);
+		header.add(lblFotoPerfil);
+		
+		btnLogo = new JButton("");
+		btnLogo.setIcon(new ImageIcon(Perfil.class.getResource("/Imagenes/logoSportChoice.png")));
+		btnLogo.setBorder(null);
+		btnLogo.setBackground((Color) null);
+		btnLogo.setBounds(30, 15, 114, 68);
+		header.add(btnLogo);
 
 		lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setIcon(
@@ -112,7 +103,7 @@ public class Perfil extends JFrame{
 		lblNewLabel_9 = new JLabel("Espa\u00F1a, Madid");
 		lblNewLabel_9.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblNewLabel_9.setForeground(Color.WHITE);
-		lblNewLabel_9.setBackground(Color.GREEN);
+		lblNewLabel_9.setBackground(null);
 		lblNewLabel_9.setBounds(89, 134, 145, 33);
 		getContentPane().add(lblNewLabel_9);
 
@@ -128,7 +119,7 @@ public class Perfil extends JFrame{
 		lblNewLabel_11.setBounds(299, 134, 145, 33);
 		getContentPane().add(lblNewLabel_11);
 
-		lblNewLabel_12 = new JLabel("Padel, Baloncesto");
+		lblNewLabel_12 = new JLabel("Baloncesto");
 		lblNewLabel_12.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblNewLabel_12.setForeground(Color.WHITE);
 		lblNewLabel_12.setBounds(299, 177, 145, 33);

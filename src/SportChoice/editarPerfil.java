@@ -15,10 +15,11 @@ public class editarPerfil  extends JFrame {
 	private JPanel header;
 	private JLabel lblNewLabel, lblNewLabel_3, lblNewLabel_4, lblNewLabel_5, lblNewLabel_6, lblNewLabel_7,
 			lblNewLabel_8, lblNewLabel_11, lblNewLabel_13, lblNewLabel_14, lblNewLabel_1, lblPerfil;
-	private JButton btnEliminar, btnHome, btnGuardar, btnNewButton_3;
+	private JButton btnEliminar, btnGuardar, btnNewButton_3;
 	private JComboBox comboBox_1;
 	private JTextArea txtrModificarDescripcion;
 	private JTextField txtNuevaLocalidad, txtNuevoNombreDe, txtMoralzarzalMadrid;
+	private JButton btnLogo;
 
 	public static void editarPerfil() {
 		editarPerfil window = new editarPerfil();
@@ -49,18 +50,6 @@ public class editarPerfil  extends JFrame {
 		lblNewLabel.setBounds(736, 0, 101, 100);
 		header.add(lblNewLabel);
 
-		btnHome = new JButton("");
-		btnHome.setBorder(null);
-		btnHome.setBackground(new Color(57, 62, 70));
-		btnHome.setIcon(new ImageIcon(editarPerfil.class.getResource("/Imagenes/home-48.png")));
-		btnHome.setBounds(10, 10, 85, 70);
-		header.add(btnHome);
-		btnHome.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(3, 11);
-			}
-		});
-
 		txtNuevoNombreDe = new JTextField();
 		txtNuevoNombreDe.setForeground(Color.LIGHT_GRAY);
 		txtNuevoNombreDe.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -76,6 +65,13 @@ public class editarPerfil  extends JFrame {
 		btnNewButton_3.setForeground(Color.WHITE);
 		btnNewButton_3.setBounds(569, 61, 157, 19);
 		header.add(btnNewButton_3);
+		
+		btnLogo = new JButton("");
+		btnLogo.setIcon(new ImageIcon(editarPerfil.class.getResource("/Imagenes/logoSportChoice.png")));
+		btnLogo.setBorder(null);
+		btnLogo.setBackground((Color) null);
+		btnLogo.setBounds(30, 15, 114, 68);
+		header.add(btnLogo);
 
 		lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setIcon(

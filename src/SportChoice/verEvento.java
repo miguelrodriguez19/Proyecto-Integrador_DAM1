@@ -12,12 +12,13 @@ import javax.swing.*;
 public class verEvento extends JFrame {
 	private Controlador miControlador;
 	private Modelo miModelo;
-	private JButton btnSalirEvento, btnForo, btnLogo, btnPerfil, btnFAQs, btnLogo_1;
+	private JButton btnSalirEvento, btnForo, btnLogo, btnPerfil, btnFAQs;
 	private JTextArea txtrDescripcionVariable;
 	private JLabel lblDescripcion, lblVerEvento, lblNombre, lblNombreEvento, lblDeporteVariable, lblDeporte,
 			lblParticipantes, lblParticipantesVariable, lblTipoEvento, lblTipoEventoVariable, lblFecha,
 			lblFechaVariable, lblHora, lblHoraVariable, lblLocalizacionVariable, lblLocalizacion;
 	private JPanel panelHeader;
+	private JButton btnLogo_1;
 
 	public static void verEvento() {
 		verEvento window = new verEvento();
@@ -181,12 +182,12 @@ public class verEvento extends JFrame {
 		btnFAQs.setBackground((Color) null);
 		btnFAQs.setBounds(587, 43, 64, 23);
 		panelHeader.add(btnFAQs);
-
+		
 		btnLogo_1 = new JButton("");
-		btnLogo_1.setIcon(new ImageIcon(verEvento.class.getResource("/Imagenes/home-48.png")));
+		btnLogo_1.setIcon(new ImageIcon(verEvento.class.getResource("/Imagenes/logoSportChoice.png")));
 		btnLogo_1.setBorder(null);
 		btnLogo_1.setBackground((Color) null);
-		btnLogo_1.setBounds(28, 21, 64, 68);
+		btnLogo_1.setBounds(30, 15, 114, 68);
 		panelHeader.add(btnLogo_1);
 
 	}
