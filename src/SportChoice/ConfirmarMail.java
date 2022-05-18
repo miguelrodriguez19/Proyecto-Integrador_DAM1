@@ -42,6 +42,7 @@ public class ConfirmarMail extends JFrame{
 		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnOK.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				 miControlador.actualizar(13, 12);
 				// System.out.println(txtNombre.getText());
 //				comboBox.addItem(txtNombre.getText());
 //				System.out.println(chckbxNewCheckBox.isSelected());
@@ -74,6 +75,11 @@ public class ConfirmarMail extends JFrame{
 		txtAntiguaContrasena.setColumns(10);
 
 		JButton btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 miControlador.actualizar(13, 7);
+			}
+		});
 		btnNewButton.setBorderPainted(false);
 		btnNewButton.setBackground(new Color(57, 62, 70));
 		btnNewButton.setIcon(new ImageIcon(ConfirmarMail.class.getResource("/Imagenes/arrow.png")));

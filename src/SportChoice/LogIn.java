@@ -89,6 +89,7 @@ public class LogIn extends JFrame {
 		btnRegistro.setSelected(true);
 		btnRegistro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				 miControlador.actualizar(7, 14);	
 			}
 		});
 		btnRegistro.setBorder(null);
@@ -138,16 +139,18 @@ public class LogIn extends JFrame {
 			}
 		});
 		panel.add(textPwd);
+		txtMail.setText(mensajeTxtMail);
+		textPwd.setText(mensajeTextField);
+		txtMail.setForeground(Color.GRAY);
+		textPwd.setForeground(Color.GRAY);
 		btnIniciarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				txtMail.setText(mensajeTxtMail);
-				textPwd.setText(mensajeTextField);
-				txtMail.setForeground(Color.GRAY);
-				textPwd.setForeground(Color.GRAY);
+				 miControlador.actualizar(7, 11);
 			}
 		});
 		btnRecuperarContrasena.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				 miControlador.actualizar(7, 13);
 			}
 		});
 

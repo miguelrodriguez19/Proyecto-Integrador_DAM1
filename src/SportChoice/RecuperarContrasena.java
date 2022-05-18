@@ -39,6 +39,7 @@ public class RecuperarContrasena extends JFrame{
 		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnOK.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				 miControlador.actualizar(12, 7);
 				// System.out.println(txtNombre.getText());
 //				comboBox.addItem(txtNombre.getText());
 //				System.out.println(chckbxNewCheckBox.isSelected());
@@ -85,6 +86,11 @@ public class RecuperarContrasena extends JFrame{
 		getContentPane().add(txtNuevaContrasena_1);
 
 		JButton btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 miControlador.actualizar(12, 13);
+			}
+		});
 		btnNewButton.setBorderPainted(false);
 		btnNewButton.setBackground(new Color(57, 62, 70));
 		btnNewButton.setIcon(new ImageIcon(RecuperarContrasena.class.getResource("/Imagenes/arrow.png")));

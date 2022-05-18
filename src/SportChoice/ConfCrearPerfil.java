@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class ConfCrearPerfil extends JFrame{
+public class ConfCrearPerfil extends JFrame {
 	private Controlador miControlador;
 	private Modelo miModelo;
 	private JButton btnOK;
@@ -33,7 +33,7 @@ public class ConfCrearPerfil extends JFrame{
 	public ConfCrearPerfil() {
 		setResizable(false);
 		Container container = getContentPane();
-	setBounds(100, 100, 850, 480);
+		setBounds(100, 100, 850, 480);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Sport Choice - Configurar perfil");
 		container.setLayout(null);
@@ -45,6 +45,7 @@ public class ConfCrearPerfil extends JFrame{
 		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnOK.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(1, 7);
 				// System.out.println(txtNombre.getText());
 //				comboBox.addItem(txtNombre.getText());
 //				System.out.println(chckbxNewCheckBox.isSelected());
@@ -80,6 +81,11 @@ public class ConfCrearPerfil extends JFrame{
 		panel_1.add(lblNewLabel_3);
 
 		JButton btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(1, 14);
+			}
+		});
 		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton.setBorderPainted(false);
 		btnNewButton.setBackground(new Color(57, 62, 70));
@@ -105,9 +111,11 @@ public class ConfCrearPerfil extends JFrame{
 		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 36));
 
 		lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(ConfCrearPerfil.class.getResource("/Imagenes/basketball-sports-court- (1).jpg")));
+		lblNewLabel_1.setIcon(
+				new ImageIcon(ConfCrearPerfil.class.getResource("/Imagenes/basketball-sports-court- (1).jpg")));
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 91));
-		//lblNewLabel_1.setIcon(new ImageIcon(ConfCrearPerfil.class.getResource("/Imagenes/basketball-sports-court-(1).jpg")));
+		// lblNewLabel_1.setIcon(new
+		// ImageIcon(ConfCrearPerfil.class.getResource("/Imagenes/basketball-sports-court-(1).jpg")));
 		lblNewLabel_1.setBounds(-139, -13, 1586, 456);
 		getContentPane().add(lblNewLabel_1);
 
@@ -116,7 +124,7 @@ public class ConfCrearPerfil extends JFrame{
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}
-	
+
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
 	}

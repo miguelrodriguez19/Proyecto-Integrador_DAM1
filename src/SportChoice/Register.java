@@ -52,6 +52,7 @@ public class Register extends JFrame {
 		btnSiguiente.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnSiguiente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				 miControlador.actualizar(14, 1);
 				// System.out.println(txtNombre.getText());
 //				comboBox.addItem(txtNombre.getText());
 //				System.out.println(chckbxNewCheckBox.isSelected());
@@ -131,6 +132,7 @@ public class Register extends JFrame {
 		btnIniciarSesion.setBackground(new Color(57, 62, 70));
 		btnIniciarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				 miControlador.actualizar(14, 7);
 			}
 		});
 		btnIniciarSesion.setBounds(520, 397, 275, 21);
