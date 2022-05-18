@@ -180,6 +180,11 @@ public class crearEvento extends JFrame{
 		btnLogo.setBackground((Color) null);
 		btnLogo.setBounds(718, 0, 99, 100);
 		panelHeader.add(btnLogo);
+		btnLogo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(2, 11);
+			}
+		});
 
 		btnPerfil = new JButton("Perfil");
 		btnPerfil.setToolTipText("");
@@ -188,6 +193,11 @@ public class crearEvento extends JFrame{
 		btnPerfil.setBackground((Color) null);
 		btnPerfil.setBounds(644, 43, 64, 23);
 		panelHeader.add(btnPerfil);
+		btnPerfil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(2, 10);
+			}
+		});
 
 		btnFAQs = new JButton("FAQs");
 		btnFAQs.setForeground(Color.WHITE);
@@ -195,6 +205,11 @@ public class crearEvento extends JFrame{
 		btnFAQs.setBackground((Color) null);
 		btnFAQs.setBounds(587, 43, 64, 23);
 		panelHeader.add(btnFAQs);
+		btnFAQs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(2, 4);
+			}
+		});
 
 
 		btnLogo_2 = new JButton("");
