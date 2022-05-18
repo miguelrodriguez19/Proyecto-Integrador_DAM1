@@ -7,6 +7,8 @@ import java.awt.EventQueue;
 import java.awt.Font;
 
 import javax.swing.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class unirseEvento extends JFrame{
 	private Controlador miControlador;
@@ -17,6 +19,7 @@ public class unirseEvento extends JFrame{
 	private JPanel panelHeader;
 	private JButton btnPerfil, btnUnirse, btnLogo, btnPerfil_1, btnFAQs;
 	private JButton btnLogo_1;
+	private JButton btnAtras;
 
 	public static void unirseEvento() {
 		unirseEvento window = new unirseEvento();
@@ -46,7 +49,7 @@ public class unirseEvento extends JFrame{
 		lblUnirseEvento = new JLabel("Unirse Evento");
 		lblUnirseEvento.setForeground(Color.WHITE);
 		lblUnirseEvento.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblUnirseEvento.setBounds(25, 110, 248, 23);
+		lblUnirseEvento.setBounds(71, 115, 202, 23);
 		getContentPane().add(lblUnirseEvento);
 
 		lblNombre = new JLabel("Nombre Evento:");
@@ -163,6 +166,11 @@ public class unirseEvento extends JFrame{
 		getContentPane().add(panelHeader);
 
 		btnLogo = new JButton("");
+		btnLogo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(15, 10);
+			}
+		});
 		btnLogo.setIcon(new ImageIcon(unirseEvento.class.getResource("/Imagenes/appppp-modified.png")));
 		btnLogo.setBorder(null);
 		btnLogo.setBackground((Color) null);
@@ -170,6 +178,11 @@ public class unirseEvento extends JFrame{
 		panelHeader.add(btnLogo);
 
 		btnPerfil_1 = new JButton("Perfil");
+		btnPerfil_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(15, 10);
+			}
+		});
 		btnPerfil_1.setToolTipText("");
 		btnPerfil_1.setForeground(Color.WHITE);
 		btnPerfil_1.setBorder(null);
@@ -178,6 +191,11 @@ public class unirseEvento extends JFrame{
 		panelHeader.add(btnPerfil_1);
 
 		btnFAQs = new JButton("FAQs");
+		btnFAQs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(15, 10);
+			}
+		});
 		btnFAQs.setForeground(Color.WHITE);
 		btnFAQs.setBorder(null);
 		btnFAQs.setBackground((Color) null);
@@ -185,11 +203,28 @@ public class unirseEvento extends JFrame{
 		panelHeader.add(btnFAQs);
 		
 		btnLogo_1 = new JButton("");
+		btnLogo_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(15, 11);
+			}
+		});
 		btnLogo_1.setIcon(new ImageIcon(unirseEvento.class.getResource("/Imagenes/logoSportChoice.png")));
 		btnLogo_1.setBorder(null);
 		btnLogo_1.setBackground((Color) null);
 		btnLogo_1.setBounds(30, 15, 114, 68);
 		panelHeader.add(btnLogo_1);
+		
+		btnAtras = new JButton("");
+		btnAtras.setBorder(null);
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(17, 11);
+			}
+		});
+		btnAtras.setBackground(null);
+		btnAtras.setIcon(new ImageIcon(verEvento.class.getResource("/Imagenes/arrow.png")));
+		btnAtras.setBounds(10, 108, 56, 39);
+		getContentPane().add(btnAtras);
 	}
 
 	

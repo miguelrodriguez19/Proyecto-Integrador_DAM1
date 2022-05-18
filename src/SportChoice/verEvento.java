@@ -61,7 +61,6 @@ public class verEvento extends JFrame {
 		btnForo.setForeground(Color.WHITE);
 		btnForo.setBackground(new Color(53, 187, 95));
 		getContentPane().add(btnForo);
-
 		btnSalirEvento = new JButton("Abandonar");
 		btnSalirEvento.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnSalirEvento.addActionListener(new ActionListener() {
@@ -179,6 +178,11 @@ public class verEvento extends JFrame {
 		getContentPane().add(panelHeader);
 
 		btnLogo = new JButton("");
+		btnLogo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(17, 10);
+			}
+		});
 		btnLogo.setIcon(new ImageIcon(verEvento.class.getResource("/Imagenes/appppp-modified.png")));
 		btnLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogo.setBorder(null);
@@ -192,6 +196,11 @@ public class verEvento extends JFrame {
 		});
 
 		btnPerfil = new JButton("Perfil");
+		btnPerfil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(17, 10);
+			}
+		});
 		btnPerfil.setToolTipText("");
 		btnPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPerfil.setForeground(Color.WHITE);
@@ -206,6 +215,11 @@ public class verEvento extends JFrame {
 		});
 
 		btnFAQs = new JButton("FAQs");
+		btnFAQs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(17, 4);
+			}
+		});
 		btnFAQs.setForeground(Color.WHITE);
 		btnFAQs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFAQs.setBorder(null);

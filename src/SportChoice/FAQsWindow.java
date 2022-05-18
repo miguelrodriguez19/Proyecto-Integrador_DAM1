@@ -102,6 +102,11 @@ public class FAQsWindow extends JFrame {
 		panelMain.setLayout(null);
 
 		btnBackIcon = new JButton("");
+		btnBackIcon.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(4, 11);
+			}
+		});
 		btnBackIcon.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnBackIcon.setBounds(0, 0, 50, 50);
 		btnBackIcon.setIcon(new ImageIcon(FAQsWindow.class.getResource("/Imagenes/arrow.png")));
