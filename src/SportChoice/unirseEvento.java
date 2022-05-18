@@ -160,6 +160,7 @@ public class unirseEvento extends JFrame{
 		getContentPane().add(lblDescripcion);
 
 		JTextPane txtpnOrganizamosUnPartido = new JTextPane();
+		txtpnOrganizamosUnPartido.setEditable(false);
 		txtpnOrganizamosUnPartido.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		txtpnOrganizamosUnPartido.setText(
 				"Organizamos un partido de futbol unos amigos y yo pero no somos suficientes. \r\nNecesitas llevar una botella de agua propia y dos camisetas, una roja y otra verde para poder cambiarnos y jugar todos con todos.\r\nLugar: Polideportivo de Moralzarzal, a las 17:30, el dia 25 de mayo\r\nAPUNTAROS!\r\n");
@@ -203,7 +204,7 @@ public class unirseEvento extends JFrame{
 		btnFAQs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFAQs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(15, 10);
+				miControlador.actualizar(15, 4);
 			}
 		});
 		btnFAQs.setForeground(Color.WHITE);

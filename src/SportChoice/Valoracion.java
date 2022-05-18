@@ -12,22 +12,30 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeEvent;
 
 public class Valoracion extends JFrame {
 	private Controlador miControlador;
 	private Modelo miModelo;
-	private JButton btnPerfil, btnNewButton_2;
+	private JButton btnPerfil;
 	private JLabel lblNewLabel_1, lblNewLabel_2, lblNewLabel_1_1, lblNewLabel_3, lblNewLabel_4, lblNewLabel_1_2,
 			lblNewLabel_5, lblNewLabel_6, lblNewLabel_1_3, lblNewLabel_7, lblNewLabel_8, lblNewLabel_1_4;
-	private JToggleButton tglbtnNewToggleButton_1;
-	private JToggleButton tglbtnNewToggleButton;
-	private JToggleButton tglbtnNewToggleButton_2;
-	private JToggleButton tglbtnNewToggleButton_3;
+	private JToggleButton tglbtnLikeUsr3;
+	private JToggleButton tglbtnLikeUsr1;
+	private JToggleButton tglbtnLikeUsr4;
+	private JToggleButton tglbtnLikeUsr2;
 	private JPanel panelHeader;
 	private JButton btnFotoPerfil;
 	private JButton btnPerfil_1;
 	private JButton btnFAQs;
 	private JButton btnLogo;
+	private JButton btnValoran;
+	private JButton btnNewButton;
+	private JButton btnAtras;
+	private JLabel lblTitulo;
 
 	public static void Valoracion() {
 		Valoracion window = new Valoracion();
@@ -47,27 +55,18 @@ public class Valoracion extends JFrame {
 
 		contenedor.setLayout(null);
 
-		JButton btnValoran = new JButton("Guardar");
+		btnValoran = new JButton("Guardar");
+		btnValoran.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(16, 6);
+			}
+		});
 		btnValoran.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnValoran.setBorder(null);
 		btnValoran.setForeground(Color.WHITE);
 		btnValoran.setBackground(new Color(53, 187, 95));
 		btnValoran.setBounds(691, 382, 120, 38);
 		getContentPane().add(btnValoran);
-
-		btnNewButton_2 = new JButton("");
-		btnNewButton_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNewButton_2.setBorder(null);
-		btnNewButton_2.setBackground(null);
-		btnNewButton_2.setIcon(new ImageIcon(crearEvento.class.getResource("/Imagenes/arrow.png")));
-		btnNewButton_2.setBounds(10, 106, 65, 37);
-		getContentPane().add(btnNewButton_2);
-
-		JLabel lblNewLabel = new JLabel("Valora a tus compa\u00F1eros\r\n");
-		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 50));
-		lblNewLabel.setBounds(75, 90, 705, 80);
-		getContentPane().add(lblNewLabel);
 
 		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon(Valoracion.class.getResource("/Imagenes/usuario-de-perfil.png")));
@@ -146,73 +145,120 @@ public class Valoracion extends JFrame {
 		lblNewLabel_1_4.setBounds(440, 347, 106, 13);
 		getContentPane().add(lblNewLabel_1_4);
 
-		tglbtnNewToggleButton = new JToggleButton("");
-		tglbtnNewToggleButton.setBackground(new Color(139, 0, 0));
-		tglbtnNewToggleButton.setForeground(new Color(255, 99, 71));
-		tglbtnNewToggleButton.setIcon(new ImageIcon(Valoracion.class.getResource("/Imagenes/Like.png")));
-		tglbtnNewToggleButton.setBounds(259, 169, 85, 92);
-		tglbtnNewToggleButton.setOpaque(false);
-		getContentPane().add(tglbtnNewToggleButton);
+		tglbtnLikeUsr1 = new JToggleButton("");
+		tglbtnLikeUsr1.setBorderPainted(false);
+		tglbtnLikeUsr1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		tglbtnLikeUsr1.setBorder(null);
+		tglbtnLikeUsr1.setBackground(null);
+		tglbtnLikeUsr1.setSelectedIcon(new ImageIcon(Valoracion.class.getResource("/Imagenes/LikeYellow.png")));
+		tglbtnLikeUsr1.setIcon(new ImageIcon(Valoracion.class.getResource("/Imagenes/Like.png")));
+		tglbtnLikeUsr1.setBounds(259, 169, 85, 92);
+		getContentPane().add(tglbtnLikeUsr1);
 
-		tglbtnNewToggleButton_1 = new JToggleButton("");
-		tglbtnNewToggleButton_1.setIcon(new ImageIcon(Valoracion.class.getResource("/Imagenes/Like.png")));
-		tglbtnNewToggleButton_1.setOpaque(false);
-		tglbtnNewToggleButton_1.setForeground(new Color(255, 99, 71));
-		tglbtnNewToggleButton_1.setBackground(new Color(139, 0, 0));
-		tglbtnNewToggleButton_1.setBounds(259, 282, 85, 92);
-		getContentPane().add(tglbtnNewToggleButton_1);
+		tglbtnLikeUsr2 = new JToggleButton("");
+		tglbtnLikeUsr2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		tglbtnLikeUsr2.setSelectedIcon(new ImageIcon(Valoracion.class.getResource("/Imagenes/LikeYellow.png")));
+		tglbtnLikeUsr2.setBorder(null);
+		tglbtnLikeUsr2.setIcon(new ImageIcon(Valoracion.class.getResource("/Imagenes/Like.png")));
+		tglbtnLikeUsr2.setBackground(null);
+		tglbtnLikeUsr2.setBounds(594, 169, 85, 92);
+		getContentPane().add(tglbtnLikeUsr2);
 
-		tglbtnNewToggleButton_2 = new JToggleButton("");
-		tglbtnNewToggleButton_2.setIcon(new ImageIcon(Valoracion.class.getResource("/Imagenes/Like.png")));
-		tglbtnNewToggleButton_2.setOpaque(false);
-		tglbtnNewToggleButton_2.setForeground(new Color(255, 99, 71));
-		tglbtnNewToggleButton_2.setBackground(new Color(139, 0, 0));
-		tglbtnNewToggleButton_2.setBounds(594, 282, 85, 92);
-		getContentPane().add(tglbtnNewToggleButton_2);
+		tglbtnLikeUsr3 = new JToggleButton("");
+		tglbtnLikeUsr3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		tglbtnLikeUsr3.setSelectedIcon(new ImageIcon(Valoracion.class.getResource("/Imagenes/LikeYellow.png")));
+		tglbtnLikeUsr3.setBorder(null);
+		tglbtnLikeUsr3.setIcon(new ImageIcon(Valoracion.class.getResource("/Imagenes/Like.png")));
+		tglbtnLikeUsr3.setBackground(null);
+		tglbtnLikeUsr3.setBounds(259, 294, 85, 92);
+		getContentPane().add(tglbtnLikeUsr3);
 
-		tglbtnNewToggleButton_3 = new JToggleButton("");
-		tglbtnNewToggleButton_3.setIcon(new ImageIcon(Valoracion.class.getResource("/Imagenes/LikeYellow.png")));
-		tglbtnNewToggleButton_3.setSelected(true);
-		tglbtnNewToggleButton_3.setOpaque(false);
-		tglbtnNewToggleButton_3.setForeground(new Color(255, 99, 71));
-		tglbtnNewToggleButton_3.setBackground(new Color(139, 0, 0));
-		tglbtnNewToggleButton_3.setBounds(594, 157, 85, 92);
-		getContentPane().add(tglbtnNewToggleButton_3);
-		
+		tglbtnLikeUsr4 = new JToggleButton("");
+		tglbtnLikeUsr4.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		tglbtnLikeUsr4.setSelectedIcon(new ImageIcon(Valoracion.class.getResource("/Imagenes/LikeYellow.png")));
+		tglbtnLikeUsr4.setBorder(null);
+		tglbtnLikeUsr4.setIcon(new ImageIcon(Valoracion.class.getResource("/Imagenes/Like.png")));
+		tglbtnLikeUsr4.setBackground(null);
+		tglbtnLikeUsr4.setBounds(594, 294, 85, 92);
+		getContentPane().add(tglbtnLikeUsr4);
+
 		panelHeader = new JPanel();
 		panelHeader.setLayout(null);
 		panelHeader.setBackground(new Color(57, 62, 70));
 		panelHeader.setBounds(0, 0, 834, 100);
 		getContentPane().add(panelHeader);
-		
+
 		btnFotoPerfil = new JButton("");
+		btnFotoPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnFotoPerfil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(16, 10);
+			}
+		});
 		btnFotoPerfil.setIcon(new ImageIcon(Valoracion.class.getResource("/Imagenes/appppp-modified.png")));
 		btnFotoPerfil.setBorder(null);
 		btnFotoPerfil.setBackground((Color) null);
 		btnFotoPerfil.setBounds(718, 0, 99, 100);
 		panelHeader.add(btnFotoPerfil);
-		
+
 		btnPerfil_1 = new JButton("Perfil");
+		btnPerfil_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnPerfil_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(16, 10);
+			}
+		});
 		btnPerfil_1.setToolTipText("");
 		btnPerfil_1.setForeground(Color.WHITE);
 		btnPerfil_1.setBorder(null);
 		btnPerfil_1.setBackground((Color) null);
 		btnPerfil_1.setBounds(644, 43, 64, 23);
 		panelHeader.add(btnPerfil_1);
-		
+
 		btnFAQs = new JButton("FAQs");
+		btnFAQs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnFAQs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(16, 4);
+			}
+		});
 		btnFAQs.setForeground(Color.WHITE);
 		btnFAQs.setBorder(null);
 		btnFAQs.setBackground((Color) null);
 		btnFAQs.setBounds(587, 43, 64, 23);
 		panelHeader.add(btnFAQs);
-		
+
 		btnLogo = new JButton("");
+		btnLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnLogo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(16, 11);
+			}
+		});
 		btnLogo.setIcon(new ImageIcon(Valoracion.class.getResource("/Imagenes/logoSportChoice.png")));
 		btnLogo.setBorder(null);
 		btnLogo.setBackground((Color) null);
 		btnLogo.setBounds(30, 15, 114, 68);
 		panelHeader.add(btnLogo);
+
+		btnAtras = new JButton("");
+		btnAtras.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(16, 6);
+			}
+		});
+		btnAtras.setIcon(new ImageIcon(Valoracion.class.getResource("/Imagenes/arrow.png")));
+		btnAtras.setBorder(null);
+		btnAtras.setBackground((Color) null);
+		btnAtras.setBounds(10, 111, 56, 39);
+		getContentPane().add(btnAtras);
+
+		lblTitulo = new JLabel("Valora a tus compañeros");
+		lblTitulo.setForeground(Color.WHITE);
+		lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblTitulo.setBounds(71, 118, 385, 23);
+		getContentPane().add(lblTitulo);
 
 	}
 

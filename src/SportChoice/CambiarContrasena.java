@@ -10,13 +10,14 @@ import javax.swing.*;
 public class CambiarContrasena extends JFrame{
 private Controlador miControlador;
 private Modelo miModelo;
-
-	private JButton btnOK;
 	private JPanel panel;
-	private JLabel lblContrasea;
-	private JTextField txtAntiguaContrasena;
-	private JTextField txtNuevaContrasena;
-	private JTextField txtNuevaContrasena_1;
+	private JLabel lblNewLabel;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JLabel lblCambiarContrasena;
+	private JLabel lblCambiar;
+	private JSeparator separator;
 
 	public static void CambiarContrasena() {
 		CambiarContrasena window = new CambiarContrasena();
@@ -31,70 +32,79 @@ private Modelo miModelo;
 		setTitle("Sport Choice - Cambiar contrasena");
 		container.setLayout(null);
 
-		btnOK = new JButton("Iniciar Sesi\u00F3n\r\n\r\n");
-		btnOK.setForeground(Color.WHITE);
-		btnOK.setBackground(new Color(53, 187, 95));
-		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnOK.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				// System.out.println(txtNombre.getText());
-//				comboBox.addItem(txtNombre.getText());
-//				System.out.println(chckbxNewCheckBox.isSelected());
-//				System.out.println("La Contraseï¿½a es " + String.valueOf(passwordField.getPassword()));
-			}
-		});
-		btnOK.setBounds(508, 366, 275, 42);
-		container.add(btnOK);
-
 		ButtonGroup group = new ButtonGroup();
-
-		JLabel lblNewLabel = new JLabel("Cambiar\r\n\r\n");
-		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 36));
-		lblNewLabel.setBounds(578, -26, 308, 98);
-		getContentPane().add(lblNewLabel);
-
-		lblContrasea = new JLabel("Contrase\u00F1a");
-		lblContrasea.setForeground(Color.WHITE);
-		lblContrasea.setFont(new Font("Trebuchet MS", Font.PLAIN, 36));
-		lblContrasea.setBounds(562, 21, 308, 98);
-		getContentPane().add(lblContrasea);
-
-		txtAntiguaContrasena = new JTextField();
-		txtAntiguaContrasena.setForeground(Color.GRAY);
-		txtAntiguaContrasena.setBackground(Color.WHITE);
-		txtAntiguaContrasena.setText("Antigua Contrase\u00F1a");
-		txtAntiguaContrasena.setBounds(527, 140, 239, 42);
-		getContentPane().add(txtAntiguaContrasena);
-		txtAntiguaContrasena.setColumns(10);
-
-		txtNuevaContrasena = new JTextField();
-		txtNuevaContrasena.setForeground(Color.GRAY);
-		txtNuevaContrasena.setText("Nueva Contrase\u00F1a1");
-		txtNuevaContrasena.setColumns(10);
-		txtNuevaContrasena.setBounds(527, 222, 239, 42);
-		getContentPane().add(txtNuevaContrasena);
-
-		txtNuevaContrasena_1 = new JTextField();
-		txtNuevaContrasena_1.setForeground(Color.GRAY);
-		txtNuevaContrasena_1.setText("Nueva Contrase\u00F1a2\r\n");
-		txtNuevaContrasena_1.setColumns(10);
-		txtNuevaContrasena_1.setBounds(527, 274, 239, 42);
-		getContentPane().add(txtNuevaContrasena_1);
-
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNewButton.setBorderPainted(false);
-		btnNewButton.setBackground(new Color(57, 62, 70));
-		btnNewButton.setIcon(new ImageIcon(CambiarContrasena.class.getResource("/Imagenes/arrow.png")));
-		btnNewButton.setBounds(494, 10, 58, 33);
-		getContentPane().add(btnNewButton);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(57, 62, 70));
 		panel.setForeground(Color.WHITE);
 		panel.setBounds(479, 0, 357, 443);
 		getContentPane().add(panel);
+				panel.setLayout(null);
+		
+				JButton btnAtras = new JButton("");
+				btnAtras.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						miControlador.actualizar(0, 3);
+					}
+				});
+				btnAtras.setBounds(0, 11, 57, 33);
+				panel.add(btnAtras);
+				btnAtras.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+				btnAtras.setBorderPainted(false);
+				btnAtras.setBackground(new Color(57, 62, 70));
+				btnAtras.setIcon(new ImageIcon(CambiarContrasena.class.getResource("/Imagenes/arrow.png")));
+				
+				JButton btnOK = new JButton("Iniciar Sesión\r\n\r\n");
+				btnOK.setForeground(Color.WHITE);
+				btnOK.setFont(new Font("Tahoma", Font.PLAIN, 20));
+				btnOK.setBorder(null);
+				btnOK.setBackground(new Color(53, 187, 95));
+				btnOK.setBounds(55, 361, 256, 42);
+				panel.add(btnOK);
+				
+				lblCambiarContrasena = new JLabel("\r\nContrasena");
+				lblCambiarContrasena.setVerticalAlignment(SwingConstants.TOP);
+				lblCambiarContrasena.setHorizontalTextPosition(SwingConstants.CENTER);
+				lblCambiarContrasena.setHorizontalAlignment(SwingConstants.CENTER);
+				lblCambiarContrasena.setForeground(Color.WHITE);
+				lblCambiarContrasena.setFont(new Font("Trebuchet MS", Font.PLAIN, 36));
+				lblCambiarContrasena.setBounds(55, 68, 256, 55);
+				panel.add(lblCambiarContrasena);
+				
+				textField = new JTextField();
+				textField.setText("Contrasena actual");
+				textField.setForeground(Color.GRAY);
+				textField.setColumns(10);
+				textField.setBackground(Color.WHITE);
+				textField.setBounds(55, 134, 256, 42);
+				panel.add(textField);
+				
+				textField_1 = new JTextField();
+				textField_1.setText("Nueva Contrasena");
+				textField_1.setForeground(Color.GRAY);
+				textField_1.setColumns(10);
+				textField_1.setBounds(55, 221, 256, 42);
+				panel.add(textField_1);
+				
+				textField_2 = new JTextField();
+				textField_2.setText("Confirmar Contrasena");
+				textField_2.setForeground(Color.GRAY);
+				textField_2.setColumns(10);
+				textField_2.setBounds(55, 274, 256, 42);
+				panel.add(textField_2);
+				
+				lblCambiar = new JLabel("Cambiar\r\n");
+				lblCambiar.setVerticalAlignment(SwingConstants.BOTTOM);
+				lblCambiar.setHorizontalAlignment(SwingConstants.CENTER);
+				lblCambiar.setHorizontalTextPosition(SwingConstants.CENTER);
+				lblCambiar.setForeground(Color.WHITE);
+				lblCambiar.setFont(new Font("Trebuchet MS", Font.PLAIN, 36));
+				lblCambiar.setBounds(55, 11, 256, 55);
+				panel.add(lblCambiar);
+				
+				separator = new JSeparator();
+				separator.setBounds(55, 196, 255, 2);
+				panel.add(separator);
 
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 91));
