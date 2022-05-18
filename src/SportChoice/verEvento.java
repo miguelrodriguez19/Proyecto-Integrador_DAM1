@@ -180,6 +180,11 @@ public class verEvento extends JFrame {
 		panelHeader.add(btnLogo);
 
 		btnPerfil = new JButton("Perfil");
+		btnPerfil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(17, 10);
+			}
+		});
 		btnPerfil.setToolTipText("");
 		btnPerfil.setForeground(Color.WHITE);
 		btnPerfil.setBorder(null);
@@ -188,6 +193,11 @@ public class verEvento extends JFrame {
 		panelHeader.add(btnPerfil);
 
 		btnFAQs = new JButton("FAQs");
+		btnFAQs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(17, 4);
+			}
+		});
 		btnFAQs.setForeground(Color.WHITE);
 		btnFAQs.setBorder(null);
 		btnFAQs.setBackground((Color) null);
