@@ -8,6 +8,10 @@ import java.awt.Font;
 import java.awt.Panel;
 
 import javax.swing.*;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Valoracion extends JFrame {
 	private Controlador miControlador;
@@ -15,7 +19,10 @@ public class Valoracion extends JFrame {
 	private JButton btnHome, btnPerfil, btnNewButton_2, btnFaqs;
 	private JLabel lblNewLabel_1, lblNewLabel_2, lblNewLabel_1_1, lblNewLabel_3, lblNewLabel_4, lblNewLabel_1_2,
 			lblNewLabel_5, lblNewLabel_6, lblNewLabel_1_3, lblNewLabel_7, lblNewLabel_8, lblNewLabel_1_4;
-	private JToggleButton tglbtnNewToggleButton_1, tglbtnNewToggleButton_2, tglbtnNewToggleButton_3;
+	private JToggleButton tglbtnNewToggleButton_1;
+	private JToggleButton tglbtnNewToggleButton;
+	private JToggleButton tglbtnNewToggleButton_2;
+	private JToggleButton tglbtnNewToggleButton_3;
 
 	public static void Valoracion() {
 		Valoracion window = new Valoracion();
@@ -41,12 +48,12 @@ public class Valoracion extends JFrame {
 		getContentPane().add(panel);
 		panel.setLayout(null);
 
-		JButton btnValoran = new JButton("Valorar");
+		JButton btnValoran = new JButton("Guardar");
 		btnValoran.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnValoran.setBorder(null);
 		btnValoran.setForeground(Color.WHITE);
 		btnValoran.setBackground(new Color(53, 187, 95));
-		btnValoran.setBounds(687, 370, 120, 38);
+		btnValoran.setBounds(691, 382, 120, 38);
 		getContentPane().add(btnValoran);
 
 		btnHome = new JButton("");
@@ -127,7 +134,7 @@ public class Valoracion extends JFrame {
 		lblNewLabel_4.setForeground(Color.WHITE);
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_4.setBounds(99, 311, 161, 33);
-	getContentPane().add(lblNewLabel_4);
+		getContentPane().add(lblNewLabel_4);
 
 		lblNewLabel_1_2 = new JLabel("@Username\r\n");
 		lblNewLabel_1_2.setForeground(Color.WHITE);
@@ -173,12 +180,7 @@ public class Valoracion extends JFrame {
 		lblNewLabel_1_4.setBounds(440, 347, 106, 13);
 		getContentPane().add(lblNewLabel_1_4);
 
-		JScrollBar scrollBar = new JScrollBar();
-		scrollBar.setMaximum(30);
-		scrollBar.setBounds(790, 157, 17, 203);
-		getContentPane().add(scrollBar);
-
-		JToggleButton tglbtnNewToggleButton = new JToggleButton("");
+		tglbtnNewToggleButton = new JToggleButton("");
 		tglbtnNewToggleButton.setBackground(new Color(139, 0, 0));
 		tglbtnNewToggleButton.setForeground(new Color(255, 99, 71));
 		tglbtnNewToggleButton.setIcon(new ImageIcon(Valoracion.class.getResource("/Imagenes/Like.png")));
@@ -213,11 +215,10 @@ public class Valoracion extends JFrame {
 
 	}
 
-	
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}
-	
+
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
 	}
