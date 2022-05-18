@@ -46,7 +46,8 @@ public class verEvento extends JFrame {
 		txtrDescripcionVariable.setBounds(366, 237, 441, 113);
 		getContentPane().add(txtrDescripcionVariable);
 
-		btnForo = new JButton("FORO");
+		btnForo = new JButton("Foro");
+		btnForo.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnForo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(17, 5);
@@ -58,7 +59,8 @@ public class verEvento extends JFrame {
 		btnForo.setBackground(new Color(53, 187, 95));
 		getContentPane().add(btnForo);
 
-		btnSalirEvento = new JButton("SALIR DEL EVENTO\r\n");
+		btnSalirEvento = new JButton("Abandonar evento");
+		btnSalirEvento.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnSalirEvento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(17, 11);
