@@ -160,6 +160,11 @@ public class MainPage extends JFrame{
 		btnMisEventos.setBackground(new Color(156, 163, 219));
 		btnMisEventos.setBounds(514, 0, 310, 40);
 		panelPaginaPrincipal.add(btnMisEventos);
+		btnMisEventos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(11, 8);
+			}
+		});
 
 		table = new JTable();
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

@@ -2,6 +2,7 @@ package SportChoice;
 
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -54,6 +55,7 @@ public class verEvento extends JFrame {
 		});
 		btnForo.setBounds(650, 361, 157, 51);
 		btnForo.setBorder(null);
+		btnForo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnForo.setForeground(Color.WHITE);
 		btnForo.setBackground(new Color(53, 187, 95));
 		getContentPane().add(btnForo);
@@ -67,6 +69,7 @@ public class verEvento extends JFrame {
 		btnSalirEvento.setBounds(366, 361, 157, 51);
 		btnSalirEvento.setForeground(Color.WHITE);
 		btnSalirEvento.setBorder(null);
+		btnSalirEvento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnSalirEvento.setBackground(Color.RED);
 		getContentPane().add(btnSalirEvento);
 
@@ -174,27 +177,46 @@ public class verEvento extends JFrame {
 
 		btnLogo = new JButton("");
 		btnLogo.setIcon(new ImageIcon(verEvento.class.getResource("/Imagenes/appppp-modified.png")));
+		btnLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogo.setBorder(null);
 		btnLogo.setBackground((Color) null);
 		btnLogo.setBounds(718, 0, 99, 100);
 		panelHeader.add(btnLogo);
+		btnLogo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(17, 10);
+			}
+		});
 
 		btnPerfil = new JButton("Perfil");
 		btnPerfil.setToolTipText("");
+		btnPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPerfil.setForeground(Color.WHITE);
 		btnPerfil.setBorder(null);
 		btnPerfil.setBackground((Color) null);
 		btnPerfil.setBounds(644, 43, 64, 23);
 		panelHeader.add(btnPerfil);
+		btnPerfil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(17, 10);
+			}
+		});
 
 		btnFAQs = new JButton("FAQs");
 		btnFAQs.setForeground(Color.WHITE);
+		btnFAQs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFAQs.setBorder(null);
 		btnFAQs.setBackground((Color) null);
 		btnFAQs.setBounds(587, 43, 64, 23);
 		panelHeader.add(btnFAQs);
+		btnFAQs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(17, 4);
+			}
+		});
 		
 		btnLogo_1 = new JButton("");
+		btnLogo_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogo_1.setIcon(new ImageIcon(verEvento.class.getResource("/Imagenes/logoSportChoice.png")));
 
 		btnLogo_1.addActionListener(new ActionListener() {
@@ -208,6 +230,7 @@ public class verEvento extends JFrame {
 		panelHeader.add(btnLogo_1);
 		
 		btnAtras = new JButton("");
+		btnAtras.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAtras.setBorder(null);
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
