@@ -13,15 +13,11 @@ import javax.swing.*;
 public class FAQsWindow extends JFrame {
 	private Controlador miControlador;
 	private Modelo miModelo;
-	private JButton btnBackIcon,btnPregunta1,btnPregunta2,btnPregunta3;
-	private JPanel panelMain;
+	private JPanel panelMain, panelHeader;
 	private JLabel lblFAQsTitle;
 	private JTextPane txtpnPregunta1, txtpnPregunta2, txtpnPregunta3;
 	private JScrollBar scrollBar;
-	private JPanel panelHeader;
-	private JButton btnLogo;
-	private JButton btnPerfil, btnFotoPerfil;
-	private JButton btnFAQs;
+	private JButton btnLogo,  btnPerfil, btnFotoPerfil, btnFAQs, btnBackIcon,btnPregunta1,btnPregunta2,btnPregunta3;
 
 	public static void FAQsWindow() {
 		FAQsWindow window = new FAQsWindow();
@@ -79,10 +75,16 @@ public class FAQsWindow extends JFrame {
 		btnLogo.setIcon(new ImageIcon(MainPage.class.getResource("/Imagenes/logoSportChoice.png")));
 		btnLogo.setBounds(29, 18, 114, 68);
 		panelHeader.add(btnLogo);
+		btnLogo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(4, 11);
+			}
+		});
 		
 		btnFotoPerfil = new JButton("");
 		btnFotoPerfil.setIcon(new ImageIcon(HistorialWindow.class.getResource("/Imagenes/appppp-modified.png")));
 		btnFotoPerfil.setBorder(null);
+		btnFotoPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFotoPerfil.setBackground((Color) null);
 		btnFotoPerfil.setBounds(718, 0, 99, 100);
 		panelHeader.add(btnFotoPerfil);
@@ -92,11 +94,6 @@ public class FAQsWindow extends JFrame {
 			}
 		});
 		
-		btnLogo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(4, 11);
-			}
-		});
 
 		panelMain = new JPanel();
 		panelMain.setBackground(new Color(34, 40, 59));

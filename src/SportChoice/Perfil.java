@@ -63,9 +63,15 @@ public class Perfil extends JFrame {
 		btnLogo = new JButton("");
 		btnLogo.setIcon(new ImageIcon(Perfil.class.getResource("/Imagenes/logoSportChoice.png")));
 		btnLogo.setBorder(null);
+		btnLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogo.setBackground((Color) null);
 		btnLogo.setBounds(30, 15, 114, 68);
 		header.add(btnLogo);
+		btnLogo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(10, 11);
+			}
+		});
 
 		lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setIcon(

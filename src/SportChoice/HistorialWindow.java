@@ -17,11 +17,7 @@ public class HistorialWindow extends JFrame {
 	private JTable table;
 	private JPanel panelMain;
 	private JScrollPane scrollPane;
-	private JButton btnValorar;
-	private JButton btnFotoPerfil;
-	private JButton btnPerfil;
-	private JButton btnFAQs;
-	private JButton btnLogo;
+	private JButton btnValorar, btnFotoPerfil, btnPerfil, btnFAQs, btnLogo;
 
 	public static void HistorialWindow() {
 		HistorialWindow window = null;
