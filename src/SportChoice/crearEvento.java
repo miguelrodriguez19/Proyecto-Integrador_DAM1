@@ -182,7 +182,7 @@ public class crearEvento extends JFrame{
 		panelHeader.add(btnLogo);
 		btnLogo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(2, 11);
+				miControlador.actualizar(2, 10);
 			}
 		});
 
