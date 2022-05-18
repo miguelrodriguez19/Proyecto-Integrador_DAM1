@@ -154,6 +154,11 @@ public class MainPage extends JFrame{
 		panelPaginaPrincipal.add(btnEventosRecientes);
 
 		btnMisEventos = new JButton("Mis Eventos");
+		btnMisEventos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(11, 8);
+			}
+		});
 		btnMisEventos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnMisEventos.setForeground(Color.WHITE);
 		btnMisEventos.setBorder(null);
@@ -210,6 +215,11 @@ public class MainPage extends JFrame{
 		scrollPaneEventos.setViewportView(table);
 
 		btnUnirseEvento = new JButton("Unirse ");
+		btnUnirseEvento.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(11, 15);
+			}
+		});
 		btnUnirseEvento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnUnirseEvento.setForeground(Color.WHITE);
 		btnUnirseEvento.setBorder(null);

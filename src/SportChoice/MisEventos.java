@@ -8,6 +8,8 @@ import java.awt.Dimension;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MisEventos extends JFrame{
 	private Controlador miControlador;
@@ -83,6 +85,11 @@ public class MisEventos extends JFrame{
 		panelPaginaPrincipal.setLayout(null);
 
 		btnCrearEventos = new JButton("Crear Eventos");
+		btnCrearEventos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(8, 2);
+			}
+		});
 		btnCrearEventos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCrearEventos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCrearEventos.setBorder(null);
@@ -133,6 +140,11 @@ public class MisEventos extends JFrame{
 		panelPaginaPrincipal.add(btnAplicarFiltros);
 
 		btnEventosRecientes = new JButton("Eventos Recientes");
+		btnEventosRecientes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(8, 11);
+			}
+		});
 		btnEventosRecientes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEventosRecientes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEventosRecientes.setSelected(true);
@@ -189,6 +201,11 @@ public class MisEventos extends JFrame{
 		scrollPaneEventos.setViewportView(table);
 
 		btnUnirseEvento = new JButton("Ver Evento");
+		btnUnirseEvento.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(8, 17);
+			}
+		});
 		btnUnirseEvento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnUnirseEvento.setForeground(Color.WHITE);
 		btnUnirseEvento.setBorder(null);
