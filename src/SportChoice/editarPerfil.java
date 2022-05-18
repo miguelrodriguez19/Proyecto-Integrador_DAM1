@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
@@ -13,7 +15,7 @@ public class editarPerfil  extends JFrame {
 	private JPanel header;
 	private JLabel lblNewLabel, lblNewLabel_3, lblNewLabel_4, lblNewLabel_5, lblNewLabel_6, lblNewLabel_7,
 			lblNewLabel_8, lblNewLabel_11, lblNewLabel_13, lblNewLabel_14, lblNewLabel_1, lblPerfil;
-	private JButton btnEliminar, btnNewButton_1, btnNewButton_2, btnNewButton_3;
+	private JButton btnEliminar, btnHome, btnGuardar, btnNewButton_3;
 	private JComboBox comboBox_1;
 	private JTextArea txtrModificarDescripcion;
 	private JTextField txtNuevaLocalidad, txtNuevoNombreDe, txtMoralzarzalMadrid;
@@ -47,12 +49,17 @@ public class editarPerfil  extends JFrame {
 		lblNewLabel.setBounds(736, 0, 101, 100);
 		header.add(lblNewLabel);
 
-		btnNewButton_1 = new JButton("");
-		btnNewButton_1.setBorder(null);
-		btnNewButton_1.setBackground(new Color(57, 62, 70));
-		btnNewButton_1.setIcon(new ImageIcon(editarPerfil.class.getResource("/Imagenes/home-48.png")));
-		btnNewButton_1.setBounds(10, 10, 85, 70);
-		header.add(btnNewButton_1);
+		btnHome = new JButton("");
+		btnHome.setBorder(null);
+		btnHome.setBackground(new Color(57, 62, 70));
+		btnHome.setIcon(new ImageIcon(editarPerfil.class.getResource("/Imagenes/home-48.png")));
+		btnHome.setBounds(10, 10, 85, 70);
+		header.add(btnHome);
+		btnHome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(3, 11);
+			}
+		});
 
 		txtNuevoNombreDe = new JTextField();
 		txtNuevoNombreDe.setForeground(Color.LIGHT_GRAY);
@@ -124,14 +131,19 @@ public class editarPerfil  extends JFrame {
 		lblNewLabel_14.setBounds(136, 233, 145, 33);
 		getContentPane().add(lblNewLabel_14);
 
-		btnNewButton_2 = new JButton("Guardar");
-		btnNewButton_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnNewButton_2.setForeground(Color.WHITE);
-		btnNewButton_2.setBackground(new Color(53, 187, 95));
-		btnNewButton_2.setBorder(null);
-		btnNewButton_2.setBounds(607, 382, 120, 30);
-		getContentPane().add(btnNewButton_2);
+		btnGuardar = new JButton("Guardar");
+		btnGuardar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnGuardar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnGuardar.setForeground(Color.WHITE);
+		btnGuardar.setBackground(new Color(53, 187, 95));
+		btnGuardar.setBorder(null);
+		btnGuardar.setBounds(607, 382, 120, 30);
+		getContentPane().add(btnGuardar);
+		btnGuardar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(3, 10);
+			}
+		});
 
 		txtNuevaLocalidad = new JTextField();
 		txtNuevaLocalidad.setForeground(Color.LIGHT_GRAY);
@@ -185,6 +197,11 @@ public class editarPerfil  extends JFrame {
 		btnEliminar.setBackground(new Color(204, 0, 0));
 		btnEliminar.setBounds(476, 383, 120, 30);
 		getContentPane().add(btnEliminar);
+		btnEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(3, 10);
+			}
+		});
 	}
 
 	

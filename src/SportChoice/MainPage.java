@@ -37,13 +37,18 @@ public class MainPage extends JFrame{
 		getContentPane().add(panelHeader);
 		panelHeader.setLayout(null);
 		
-		JButton btnLogo_1 = new JButton("");
-		btnLogo_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnLogo_1.setIcon(new ImageIcon(MainPage.class.getResource("/Imagenes/appppp-modified.png")));
-		btnLogo_1.setBorder(null);
-		btnLogo_1.setBackground((Color) null);
-		btnLogo_1.setBounds(718, 0, 99, 100);
-		panelHeader.add(btnLogo_1);
+		JButton btnFotoPerfil = new JButton("");
+		btnFotoPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnFotoPerfil.setIcon(new ImageIcon(MainPage.class.getResource("/Imagenes/appppp-modified.png")));
+		btnFotoPerfil.setBorder(null);
+		btnFotoPerfil.setBackground((Color) null);
+		btnFotoPerfil.setBounds(718, 0, 99, 100);
+		panelHeader.add(btnFotoPerfil);
+		btnFotoPerfil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(10, 9);
+			}
+		});
 
 		btnPerfil = new JButton("Perfil");
 		btnPerfil.setBorder(null);
@@ -55,10 +60,9 @@ public class MainPage extends JFrame{
 		panelHeader.add(btnPerfil);
 		btnPerfil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(10, 9);
+				miControlador.actualizar(11, 10);
 			}
 		});
-
 		btnFAQs = new JButton("FAQs");
 		btnFAQs.setBorder(null);
 		btnFAQs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -68,7 +72,7 @@ public class MainPage extends JFrame{
 		panelHeader.add(btnFAQs);
 		btnFAQs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(10, 4);
+				miControlador.actualizar(11, 4);
 			}
 		});
 		
@@ -89,7 +93,7 @@ public class MainPage extends JFrame{
 		btnCrearEventos = new JButton("Crear Eventos");
 		btnCrearEventos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(10, 2);
+				miControlador.actualizar(11, 2);
 			}
 		});
 		btnCrearEventos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

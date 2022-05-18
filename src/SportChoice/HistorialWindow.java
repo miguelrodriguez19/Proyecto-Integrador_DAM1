@@ -18,6 +18,10 @@ public class HistorialWindow extends JFrame {
 	private JPanel panelMain;
 	private JScrollPane scrollPane;
 	private JButton btnValorar;
+	private JButton btnFotoPerfil;
+	private JButton btnPerfil;
+	private JButton btnFAQs;
+	private JButton btnHome;
 
 	public static void HistorialWindow() {
 		HistorialWindow window = null;
@@ -86,12 +90,17 @@ public class HistorialWindow extends JFrame {
 		btnValorar.setBorder(null);
 		btnValorar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(6, 8);
+				miControlador.actualizar(5, 8);
 			}
 		});
 		btnValorar.setForeground(Color.WHITE);
 		btnValorar.setBounds(709, 292, 103, 30);
 		panelMain.add(btnValorar);
+		btnValorar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(6, 16);
+			}
+		});
 
 		JPanel panelHeader = new JPanel();
 		panelHeader.setLayout(null);
@@ -99,19 +108,19 @@ public class HistorialWindow extends JFrame {
 		panelHeader.setBounds(0, 0, 834, 100);
 		getContentPane().add(panelHeader);
 
-		JButton btnLogo_1 = new JButton("");
-		btnLogo_1.setIcon(new ImageIcon(HistorialWindow.class.getResource("/Imagenes/appppp-modified.png")));
-		btnLogo_1.setBorder(null);
-		btnLogo_1.setBackground((Color) null);
-		btnLogo_1.setBounds(718, 0, 99, 100);
-		panelHeader.add(btnLogo_1);
-		btnLogo_1.addActionListener(new ActionListener() {
+		btnFotoPerfil = new JButton("");
+		btnFotoPerfil.setIcon(new ImageIcon(HistorialWindow.class.getResource("/Imagenes/appppp-modified.png")));
+		btnFotoPerfil.setBorder(null);
+		btnFotoPerfil.setBackground((Color) null);
+		btnFotoPerfil.setBounds(718, 0, 99, 100);
+		panelHeader.add(btnFotoPerfil);
+		btnFotoPerfil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(6, 10);
 			}
 		});
 
-		JButton btnPerfil = new JButton("Perfil");
+		btnPerfil = new JButton("Perfil");
 		btnPerfil.setToolTipText("");
 		btnPerfil.setForeground(Color.WHITE);
 		btnPerfil.setBorder(null);
@@ -120,24 +129,33 @@ public class HistorialWindow extends JFrame {
 		panelHeader.add(btnPerfil);
 		btnPerfil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(6, 9);
+				miControlador.actualizar(6, 10);
 			}
 		});
 
-		JButton btnFAQs = new JButton("FAQs");
+		btnFAQs = new JButton("FAQs");
 		btnFAQs.setForeground(Color.WHITE);
 		btnFAQs.setBorder(null);
 		btnFAQs.setBackground((Color) null);
 		btnFAQs.setBounds(587, 43, 64, 23);
 		panelHeader.add(btnFAQs);
+		btnFAQs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(6, 4);
+			}
+		});
 
-		JButton btnLogo = new JButton("");
-		btnLogo.setIcon(new ImageIcon(HistorialWindow.class.getResource("/Imagenes/home-48.png")));
-		btnLogo.setBorder(null);
-		btnLogo.setBackground((Color) null);
-		btnLogo.setBounds(28, 21, 64, 68);
-		panelHeader.add(btnLogo);
-
+		btnHome = new JButton("");
+		btnHome.setIcon(new ImageIcon(HistorialWindow.class.getResource("/Imagenes/home-48.png")));
+		btnHome.setBorder(null);
+		btnHome.setBackground((Color) null);
+		btnHome.setBounds(28, 21, 64, 68);
+		panelHeader.add(btnHome);
+		btnHome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(6, 11);
+			}
+		});
 	}
 	
 	public void setMiControlador(Controlador miControlador) {

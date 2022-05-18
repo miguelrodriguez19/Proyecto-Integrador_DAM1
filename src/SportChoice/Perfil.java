@@ -17,7 +17,7 @@ public class Perfil extends JFrame{
 			lblNewLabel_6, lblNewLabel_7, lblNewLabel_8, lblNewLabel_9, lblNewLabel_10, lblNewLabel_11, lblNewLabel_12,
 			lblNewLabel_13, lblNewLabel_14;
 	private JTextArea txtrFdsfsd;
-	private JButton btnNewButton_1, btnEditarPerfil, btnHistorial, btnPuntitos, btnLogOut;
+	private JButton btnHome, btnEditarPerfil, btnHistorial, btnPuntitos, btnLogOut;
 
 	
 	public static void Perfil() {
@@ -61,17 +61,22 @@ public class Perfil extends JFrame{
 		lblNewLabel.setBounds(736, 0, 101, 100);
 		header.add(lblNewLabel);
 
-		btnNewButton_1 = new JButton("");
-		btnNewButton_1.setBorder(null);
-		btnNewButton_1.addActionListener(new ActionListener() {
+		btnHome = new JButton("");
+		btnHome.setBorder(null);
+		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_1.setBackground(new Color(57, 62, 70));
-		btnNewButton_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNewButton_1.setIcon(new ImageIcon(Perfil.class.getResource("/Imagenes/home-48.png")));
-		btnNewButton_1.setBounds(10, 10, 85, 70);
-		header.add(btnNewButton_1);
+		btnHome.setBackground(new Color(57, 62, 70));
+		btnHome.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnHome.setIcon(new ImageIcon(Perfil.class.getResource("/Imagenes/home-48.png")));
+		btnHome.setBounds(10, 10, 85, 70);
+		header.add(btnHome);
+		btnHome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(10, 11);
+			}
+		});
 
 		lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setIcon(
@@ -169,6 +174,11 @@ public class Perfil extends JFrame{
 		btnEditarPerfil.setBounds(697, 161, 123, 33);
 		getContentPane().add(btnEditarPerfil);
 		btnEditarPerfil.setVisible(false);
+		btnEditarPerfil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(10, 3);
+			}
+		});
 		
 		btnHistorial = new JButton("Historial");
 		btnHistorial.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -179,6 +189,11 @@ public class Perfil extends JFrame{
 		btnHistorial.setBounds(697, 214, 123, 33);
 		getContentPane().add(btnHistorial);
 		btnHistorial.setVisible(false);
+		btnHistorial.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(10, 6);
+			}
+		});
 		
 		btnLogOut = new JButton("LogOut");
 		btnLogOut.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -189,6 +204,11 @@ public class Perfil extends JFrame{
 		btnLogOut.setBounds(697, 267, 123, 33);
 		getContentPane().add(btnLogOut);
 		btnLogOut.setVisible(false);
+		btnLogOut.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(10, 6);
+			}
+		});
 		
 		btnPuntitos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

@@ -33,9 +33,9 @@ public class Main {
 		Valoracion valoracion = new Valoracion();
 		verEvento verEvento = new verEvento();
 
-		JFrame[] pantallas = { cambiarContrasena, crearPerfil, crearEvento, editarPerfil, FAQs, foro, login, misEventos,
+		JFrame[] pantallas = { cambiarContrasena, crearPerfil, crearEvento, editarPerfil, FAQs, foro, historial, login, misEventos,
 				modificarEvento, perfil, mainPage, recuperarContrasena, recuperarContrasenaV2, registro, unirseEvento,
-				valoracion, verEvento, historial };
+				valoracion, verEvento };
 
 		miControlador.setMiModelo(miModelo);
 
