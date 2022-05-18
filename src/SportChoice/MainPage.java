@@ -53,11 +53,6 @@ public class MainPage extends JFrame{
 		btnPerfil.setToolTipText("");
 		btnPerfil.setBounds(644, 43, 64, 23);
 		panelHeader.add(btnPerfil);
-		btnPerfil.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(10, 9);
-			}
-		});
 
 		btnFAQs = new JButton("FAQs");
 		btnFAQs.setBorder(null);
@@ -66,18 +61,13 @@ public class MainPage extends JFrame{
 		btnFAQs.setBackground(null);
 		btnFAQs.setBounds(587, 43, 64, 23);
 		panelHeader.add(btnFAQs);
-		btnFAQs.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(10, 4);
-			}
-		});
 		
 		btnLogo = new JButton("");
 		btnLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogo.setBorder(null);
 		btnLogo.setBackground(null);
-		btnLogo.setIcon(new ImageIcon(MainPage.class.getResource("/Imagenes/home-48.png")));
-		btnLogo.setBounds(28, 21, 64, 68);
+		btnLogo.setIcon(new ImageIcon(MainPage.class.getResource("/Imagenes/logoSportChoice.png")));
+		btnLogo.setBounds(29, 18, 114, 68);
 		panelHeader.add(btnLogo);
 
 		panelPaginaPrincipal = new JPanel();
