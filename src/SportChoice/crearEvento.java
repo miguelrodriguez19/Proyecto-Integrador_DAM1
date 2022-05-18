@@ -1,6 +1,5 @@
 package SportChoice;
 
-import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,7 +10,7 @@ import com.toedter.calendar.JCalendar;
 public class crearEvento extends JFrame{
 	private Controlador miControlador;
 	private Modelo miModelo;
-	private JButton btnCrear, btnLogo, btnPerfil, btnFAQs, btnLogo_2;
+	private JButton btnCrear, btnFotoPerfil, btnPerfil, btnFAQs, btnLogoApp;
 	private JTextField txtLocalizacion, txtPartidoFutbol;
 	private JLabel lblTipoEvento, lblDeporteFutbol, lblFechaEvento, lblNombreEvento, lblParticipantes, lblHora,
 			lblHora_1, lblCrearEvento, lblDescripcin;
@@ -47,6 +46,7 @@ public class crearEvento extends JFrame{
 		});
 		btnCrear.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnCrear.setBorder(null);
+		btnCrear.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCrear.setBackground(new Color(53, 187, 95));
 		btnCrear.setForeground(Color.WHITE);
 		btnCrear.setBounds(700, 386, 113, 40);
@@ -175,13 +175,15 @@ public class crearEvento extends JFrame{
 		panelHeader.setBounds(0, 0, 834, 100);
 		getContentPane().add(panelHeader);
 
-		btnLogo = new JButton("");
-		btnLogo.setIcon(new ImageIcon(crearEvento.class.getResource("/Imagenes/appppp-modified.png")));
-		btnLogo.setBorder(null);
-		btnLogo.setBackground((Color) null);
-		btnLogo.setBounds(718, 0, 99, 100);
-		panelHeader.add(btnLogo);
-		btnLogo.addActionListener(new ActionListener() {
+		btnFotoPerfil = new JButton("");
+		btnFotoPerfil.setIcon(new ImageIcon(crearEvento.class.getResource("/Imagenes/appppp-modified.png")));
+		btnFotoPerfil.setBorder(null);
+		btnFotoPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnFotoPerfil.setBackground((Color) null);
+		btnFotoPerfil.setBounds(718, 0, 99, 100);
+		btnFotoPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		panelHeader.add(btnFotoPerfil);
+		btnFotoPerfil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(2, 10);
 			}
@@ -193,6 +195,7 @@ public class crearEvento extends JFrame{
 		btnPerfil.setBorder(null);
 		btnPerfil.setBackground((Color) null);
 		btnPerfil.setBounds(644, 43, 64, 23);
+		btnPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panelHeader.add(btnPerfil);
 		btnPerfil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -205,6 +208,7 @@ public class crearEvento extends JFrame{
 		btnFAQs.setBorder(null);
 		btnFAQs.setBackground((Color) null);
 		btnFAQs.setBounds(587, 43, 64, 23);
+		btnFAQs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panelHeader.add(btnFAQs);
 		btnFAQs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -213,17 +217,18 @@ public class crearEvento extends JFrame{
 		});
 
 
-		btnLogo_2 = new JButton("");
-		btnLogo_2.addActionListener(new ActionListener() {
+		btnLogoApp = new JButton("");
+		btnLogoApp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(2, 11);
 			}
 		});
-		btnLogo_2.setIcon(new ImageIcon(crearEvento.class.getResource("/Imagenes/logoSportChoice.png")));
-		btnLogo_2.setBorder(null);
-		btnLogo_2.setBackground((Color) null);
-		btnLogo_2.setBounds(30, 15, 114, 68);
-		panelHeader.add(btnLogo_2);
+		btnLogoApp.setIcon(new ImageIcon(crearEvento.class.getResource("/Imagenes/logoSportChoice.png")));
+		btnLogoApp.setBorder(null);
+		btnLogoApp.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnLogoApp.setBackground((Color) null);
+		btnLogoApp.setBounds(30, 15, 114, 68);
+		panelHeader.add(btnLogoApp);
 		
 		btnAtras = new JButton("");
 		btnAtras.setBorder(null);
@@ -236,6 +241,7 @@ public class crearEvento extends JFrame{
 		btnAtras.setIcon(new ImageIcon(verEvento.class.getResource("/Imagenes/arrow.png")));
 		btnAtras.setBounds(21, 102, 56, 39);
 		getContentPane().add(btnAtras);
+		
 
 		
 		JCalendar calendar = new JCalendar();

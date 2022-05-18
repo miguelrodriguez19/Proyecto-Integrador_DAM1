@@ -3,6 +3,8 @@ package SportChoice;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
@@ -20,6 +22,7 @@ public class ModificarEvento extends JFrame{
 			lblFechaEvento, lblDescripcin, lblLocalizacin, lblCrearEvento;
 	private JButton btnPerfil, btnCrear, btnEliminar, btnLogo, btnPerfil_1, btnFAQs;
 	private JButton btnLogo_1;
+	private JButton btnAtras;
 
 	public static void ModificarEvento() {
 
@@ -157,7 +160,7 @@ public class ModificarEvento extends JFrame{
 		lblCrearEvento = new JLabel("Modificar Evento");
 		lblCrearEvento.setForeground(Color.WHITE);
 		lblCrearEvento.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblCrearEvento.setBounds(40, 110, 248, 23);
+		lblCrearEvento.setBounds(76, 110, 248, 23);
 		getContentPane().add(lblCrearEvento);
 
 		btnEliminar = new JButton("Cancelar");
@@ -209,6 +212,18 @@ public class ModificarEvento extends JFrame{
 		btnLogo_1.setBackground((Color) null);
 		btnLogo_1.setBounds(30, 15, 114, 68);
 		panelHeader.add(btnLogo_1);
+		
+		btnAtras = new JButton("");
+		btnAtras.setBorder(null);
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(17, 11);
+			}
+		});
+		btnAtras.setBackground(null);
+		btnAtras.setIcon(new ImageIcon(verEvento.class.getResource("/Imagenes/arrow.png")));
+		btnAtras.setBounds(10, 100, 56, 39);
+		getContentPane().add(btnAtras);
 		
 		JCalendar calendar = new JCalendar();
 		calendar.setBounds(156, 315, 168, 111);

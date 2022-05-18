@@ -95,6 +95,7 @@ public class Main {
 		verEvento.setMiModelo(miModelo);
 		mainPage.setMiModelo(miModelo);
 		miControlador.setPantallas(pantallas);
+		
 		historial.setMiModelo(miModelo);
 		mainPage.setVisible(true);
 	}

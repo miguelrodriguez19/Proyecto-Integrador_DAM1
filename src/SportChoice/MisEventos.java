@@ -8,6 +8,8 @@ import java.awt.Dimension;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MisEventos extends JFrame{
 	private Controlador miControlador;
@@ -49,6 +51,11 @@ public class MisEventos extends JFrame{
 		btnPerfilFoto.setBackground((Color) null);
 		btnPerfilFoto.setBounds(718, 0, 99, 100);
 		panelHeader.add(btnPerfilFoto);
+		btnPerfilFoto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(8, 10);
+			}
+		});
 
 		btnPerfil = new JButton("Perfil");
 		btnPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -59,6 +66,11 @@ public class MisEventos extends JFrame{
 		btnPerfil.setToolTipText("");
 		btnPerfil.setBounds(644, 43, 64, 23);
 		panelHeader.add(btnPerfil);
+		btnPerfil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(8, 10);
+			}
+		});
 
 		btnFAQs = new JButton("FAQs");
 		btnFAQs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -68,13 +80,23 @@ public class MisEventos extends JFrame{
 		btnFAQs.setBackground(null);
 		btnFAQs.setBounds(587, 43, 64, 23);
 		panelHeader.add(btnFAQs);
-		
+		btnFAQs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(8, 4);
+			}
+		});
 		btnLogo = new JButton("");
+		btnLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogo.setIcon(new ImageIcon(MisEventos.class.getResource("/Imagenes/logoSportChoice.png")));
 		btnLogo.setBorder(null);
 		btnLogo.setBackground((Color) null);
 		btnLogo.setBounds(30, 15, 114, 68);
 		panelHeader.add(btnLogo);
+		btnLogo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(8, 11);
+			}
+		});
 
 		panelPaginaPrincipal = new JPanel();
 		panelPaginaPrincipal.setBackground(new Color(34, 40, 49));
@@ -83,6 +105,11 @@ public class MisEventos extends JFrame{
 		panelPaginaPrincipal.setLayout(null);
 
 		btnCrearEventos = new JButton("Crear Eventos");
+		btnCrearEventos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(8, 2);
+			}
+		});
 		btnCrearEventos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCrearEventos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCrearEventos.setBorder(null);
@@ -133,6 +160,11 @@ public class MisEventos extends JFrame{
 		panelPaginaPrincipal.add(btnAplicarFiltros);
 
 		btnEventosRecientes = new JButton("Eventos Recientes");
+		btnEventosRecientes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(8, 11);
+			}
+		});
 		btnEventosRecientes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEventosRecientes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEventosRecientes.setSelected(true);
@@ -189,6 +221,11 @@ public class MisEventos extends JFrame{
 		scrollPaneEventos.setViewportView(table);
 
 		btnUnirseEvento = new JButton("Ver Evento");
+		btnUnirseEvento.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(8, 17);
+			}
+		});
 		btnUnirseEvento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnUnirseEvento.setForeground(Color.WHITE);
 		btnUnirseEvento.setBorder(null);
