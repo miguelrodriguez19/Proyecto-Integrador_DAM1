@@ -156,9 +156,9 @@ public class FAQsWindow extends JFrame {
 		panelMain.add(txtpnPregunta2);
 		txtpnPregunta2.setVisible(false);
 
-		scrollBar = new JScrollBar();
-		scrollBar.setBounds(750, 71, 17, 231);
-		panelMain.add(scrollBar);
+//		scrollBar = new JScrollBar();
+//		scrollBar.setBounds(750, 71, 17, 231);
+//		panelMain.add(scrollBar);
 
 		btnPregunta3 = new JButton("\u00BFTiene alguna pregunta m\u00E1s?: Soporte T�cnico");
 		btnPregunta3.setBorder(null);

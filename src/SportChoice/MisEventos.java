@@ -85,7 +85,6 @@ public class MisEventos extends JFrame{
 				miControlador.actualizar(8, 4);
 			}
 		});
-		
 		btnLogo = new JButton("");
 		btnLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogo.setIcon(new ImageIcon(MisEventos.class.getResource("/Imagenes/logoSportChoice.png")));
