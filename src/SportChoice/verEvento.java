@@ -65,7 +65,7 @@ public class verEvento extends JFrame {
 		btnSalirEvento.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnSalirEvento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(17, 11);
+				miControlador.actualizar(17, 8);
 			}
 		});
 		btnSalirEvento.setBounds(366, 378, 110, 35);

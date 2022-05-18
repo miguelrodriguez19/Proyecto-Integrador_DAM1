@@ -150,6 +150,11 @@ public class ModificarEvento extends JFrame{
 		getContentPane().add(lblLocalizacin);
 
 		btnCrear = new JButton("Confirmar");
+		btnCrear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(9, 17);
+			}
+		});
 		btnCrear.setForeground(Color.WHITE);
 		btnCrear.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnCrear.setBorder(null);
@@ -164,6 +169,11 @@ public class ModificarEvento extends JFrame{
 		getContentPane().add(lblCrearEvento);
 
 		btnEliminar = new JButton("Cancelar");
+		btnEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(9, 17);
+			}
+		});
 		btnEliminar.setForeground(Color.WHITE);
 		btnEliminar.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnEliminar.setBorder(null);
