@@ -192,6 +192,11 @@ public class crearEvento extends JFrame{
 		panelHeader.add(btnFAQs);
 
 		btnLogo_1 = new JButton("");
+		btnLogo_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(2, 10);
+			}
+		});
 		btnLogo_1.setIcon(new ImageIcon(crearEvento.class.getResource("/Imagenes/home-48.png")));
 		btnLogo_1.setBorder(null);
 		btnLogo_1.setBackground((Color) null);
