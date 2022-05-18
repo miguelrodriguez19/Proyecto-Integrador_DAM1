@@ -19,6 +19,7 @@ public class verEvento extends JFrame {
 			lblFechaVariable, lblHora, lblHoraVariable, lblLocalizacionVariable, lblLocalizacion;
 	private JPanel panelHeader;
 	private JButton btnLogo_1;
+	private JButton btnAtras;
 
 	public static void verEvento() {
 		verEvento window = new verEvento();
@@ -78,7 +79,7 @@ public class verEvento extends JFrame {
 		lblVerEvento = new JLabel("Ver Evento");
 		lblVerEvento.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblVerEvento.setForeground(Color.WHITE);
-		lblVerEvento.setBounds(25, 110, 248, 23);
+		lblVerEvento.setBounds(70, 123, 248, 23);
 		getContentPane().add(lblVerEvento);
 
 		lblNombre = new JLabel("Nombre Evento:");
@@ -205,6 +206,18 @@ public class verEvento extends JFrame {
 		btnLogo_1.setBackground((Color) null);
 		btnLogo_1.setBounds(30, 15, 114, 68);
 		panelHeader.add(btnLogo_1);
+		
+		btnAtras = new JButton("");
+		btnAtras.setBorder(null);
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(17, 11);
+			}
+		});
+		btnAtras.setBackground(null);
+		btnAtras.setIcon(new ImageIcon(verEvento.class.getResource("/Imagenes/arrow.png")));
+		btnAtras.setBounds(10, 115, 56, 39);
+		getContentPane().add(btnAtras);
 
 	}
 
