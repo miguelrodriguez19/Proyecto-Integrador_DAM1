@@ -21,14 +21,13 @@ public class Controlador {
 	private RecuperarContrasena recuperarContrasena;
 	private RecuperarContrasenaV2 recuperarContrasenaV2;
 	private Register registro;
-	private salirForo salirForo;
 	private unirseEvento unirseEvento;
 	private Valoracion valoracion;
 	private verEvento verEvento;
 
-	private JFrame[] pantallas = { cambiarContrasena, crearPerfil, crearEvento, editarPerfil, FAQs, foro, login,
+	private JFrame[] pantallas = { cambiarContrasena, crearPerfil, crearEvento, editarPerfil, FAQs, foro, historial, login,
 			misEventos, modificarEvento, perfil, mainPage, recuperarContrasena, recuperarContrasenaV2, registro,
-			salirForo, unirseEvento, valoracion, verEvento, historial };
+			unirseEvento, valoracion, verEvento };
 
 	public void actualizar(int pantallaAnterior, int pantallaNueva) {
 		pantallas[pantallaAnterior].setVisible(false);

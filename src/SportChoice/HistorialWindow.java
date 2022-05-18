@@ -17,7 +17,7 @@ public class HistorialWindow extends JFrame {
 	private JTable table;
 	private JPanel panelMain;
 	private JScrollPane scrollPane;
-	private JButton btnNewButton;
+	private JButton btnValorar;
 
 	public static void HistorialWindow() {
 		HistorialWindow window = null;
@@ -81,16 +81,17 @@ public class HistorialWindow extends JFrame {
 		lblHistorialDeEventos.setBounds(37, 10, 276, 23);
 		panelMain.add(lblHistorialDeEventos);
 
-		btnNewButton = new JButton("Valorar");
-		btnNewButton.setBackground(new Color(53, 187, 95));
-		btnNewButton.setBorder(null);
-		btnNewButton.addActionListener(new ActionListener() {
+		btnValorar = new JButton("Valorar");
+		btnValorar.setBackground(new Color(53, 187, 95));
+		btnValorar.setBorder(null);
+		btnValorar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(6, 8);
 			}
 		});
-		btnNewButton.setForeground(Color.WHITE);
-		btnNewButton.setBounds(709, 292, 103, 30);
-		panelMain.add(btnNewButton);
+		btnValorar.setForeground(Color.WHITE);
+		btnValorar.setBounds(709, 292, 103, 30);
+		panelMain.add(btnValorar);
 
 		JPanel panelHeader = new JPanel();
 		panelHeader.setLayout(null);
@@ -104,6 +105,11 @@ public class HistorialWindow extends JFrame {
 		btnLogo_1.setBackground((Color) null);
 		btnLogo_1.setBounds(718, 0, 99, 100);
 		panelHeader.add(btnLogo_1);
+		btnLogo_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(6, 10);
+			}
+		});
 
 		JButton btnPerfil = new JButton("Perfil");
 		btnPerfil.setToolTipText("");
@@ -112,6 +118,11 @@ public class HistorialWindow extends JFrame {
 		btnPerfil.setBackground((Color) null);
 		btnPerfil.setBounds(644, 43, 64, 23);
 		panelHeader.add(btnPerfil);
+		btnPerfil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(6, 9);
+			}
+		});
 
 		JButton btnFAQs = new JButton("FAQs");
 		btnFAQs.setForeground(Color.WHITE);

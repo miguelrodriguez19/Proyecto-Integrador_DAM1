@@ -29,14 +29,13 @@ public class Main {
 		RecuperarContrasena recuperarContrasena = new RecuperarContrasena();
 		RecuperarContrasenaV2 recuperarContrasenaV2 = new RecuperarContrasenaV2();
 		Register registro = new Register();
-		salirForo salirForo = new salirForo();
 		unirseEvento unirseEvento = new unirseEvento();
 		Valoracion valoracion = new Valoracion();
 		verEvento verEvento = new verEvento();
 
 		JFrame[] pantallas = { cambiarContrasena, crearPerfil, crearEvento, editarPerfil, FAQs, foro, login, misEventos,
-				modificarEvento, perfil, mainPage, recuperarContrasena, recuperarContrasenaV2, registro, salirForo,
-				unirseEvento, valoracion, verEvento, historial };
+				modificarEvento, perfil, mainPage, recuperarContrasena, recuperarContrasenaV2, registro, unirseEvento,
+				valoracion, verEvento, historial };
 
 		miControlador.setMiModelo(miModelo);
 
@@ -53,7 +52,6 @@ public class Main {
 		miModelo.setRecuperarContrasena(recuperarContrasena);
 		miModelo.setRecuperarContrasenaV2(recuperarContrasenaV2);
 		miModelo.setRegistro(registro);
-		miModelo.setSalirForo(salirForo);
 		miModelo.setUnirseEvento(unirseEvento);
 		miModelo.setValoracion(valoracion);
 		miModelo.setVerEvento(verEvento);
@@ -73,7 +71,6 @@ public class Main {
 		recuperarContrasena.setMiControlador(miControlador);
 		recuperarContrasenaV2.setMiControlador(miControlador);
 		registro.setMiControlador(miControlador);
-		salirForo.setMiControlador(miControlador);
 		unirseEvento.setMiControlador(miControlador);
 		valoracion.setMiControlador(miControlador);
 		historial.setMiControlador(miControlador);
@@ -93,7 +90,6 @@ public class Main {
 		recuperarContrasena.setMiModelo(miModelo);
 		recuperarContrasenaV2.setMiModelo(miModelo);
 		registro.setMiModelo(miModelo);
-		salirForo.setMiModelo(miModelo);
 		unirseEvento.setMiModelo(miModelo);
 		valoracion.setMiModelo(miModelo);
 		verEvento.setMiModelo(miModelo);

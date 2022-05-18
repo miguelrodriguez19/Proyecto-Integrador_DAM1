@@ -16,7 +16,6 @@ public class Modelo {
 	private RecuperarContrasena recuperarContrasena;
 	private RecuperarContrasenaV2 recuperarContrasenaV2;
 	private Register registro;
-	private salirForo salirForo;
 	private unirseEvento unirseEvento;
 	private Valoracion valoracion;
 	private verEvento verEvento;
@@ -64,9 +63,6 @@ public class Modelo {
 	}
 	public void setRegistro(Register registro) {
 		this.registro = registro;
-	}
-	public void setSalirForo(salirForo salirForo) {
-		this.salirForo = salirForo;
 	}
 	public void setUnirseEvento(unirseEvento unirseEvento) {
 		this.unirseEvento = unirseEvento;
