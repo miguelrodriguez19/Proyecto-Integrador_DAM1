@@ -185,6 +185,11 @@ public class ModificarEvento extends JFrame{
 		getContentPane().add(panelHeader);
 
 		btnLogo = new JButton("");
+		btnLogo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(9, 10);
+			}
+		});
 		btnLogo.setIcon(new ImageIcon(ModificarEvento.class.getResource("/Imagenes/appppp-modified.png")));
 		btnLogo.setBorder(null);
 		btnLogo.setBackground((Color) null);
@@ -192,6 +197,11 @@ public class ModificarEvento extends JFrame{
 		panelHeader.add(btnLogo);
 
 		btnPerfil_1 = new JButton("Perfil");
+		btnPerfil_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(9, 10);
+			}
+		});
 		btnPerfil_1.setToolTipText("");
 		btnPerfil_1.setForeground(Color.WHITE);
 		btnPerfil_1.setBorder(null);
@@ -200,6 +210,11 @@ public class ModificarEvento extends JFrame{
 		panelHeader.add(btnPerfil_1);
 
 		btnFAQs = new JButton("FAQs");
+		btnFAQs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(9, 4);
+			}
+		});
 		btnFAQs.setForeground(Color.WHITE);
 		btnFAQs.setBorder(null);
 		btnFAQs.setBackground((Color) null);
@@ -217,7 +232,7 @@ public class ModificarEvento extends JFrame{
 		btnAtras.setBorder(null);
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(17, 11);
+				miControlador.actualizar(9, 17);
 			}
 		});
 		btnAtras.setBackground(null);
