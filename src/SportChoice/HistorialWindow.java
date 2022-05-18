@@ -1,6 +1,7 @@
 package SportChoice;
 
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -27,14 +28,12 @@ public class HistorialWindow extends JFrame {
 
 	public HistorialWindow() {
 
-		setBounds(100, 100, 850, 480);
-		setMaximizedBounds(null);
-		setLocationRelativeTo(null);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		getContentPane().setLayout(null);
-		setTitle("Sport Choice - Historial de eventos");
 		setResizable(false);
-
+		Container contenedor = getContentPane();
+		setBounds(100, 100, 850, 480);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		contenedor.setLayout(null);
+		setTitle("Sport Choice - Historial de eventos");
 		panelMain = new JPanel();
 		panelMain.setBackground(new Color(34, 40, 49));
 		panelMain.setBounds(0, 100, 834, 343);
