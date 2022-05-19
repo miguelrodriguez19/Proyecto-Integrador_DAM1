@@ -70,6 +70,7 @@ public class LogIn extends JFrame {
 
 		btnRecuperarContrasena = new JButton("Recuperar Contrase\u00F1a\r\n");
 		btnRecuperarContrasena.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnRecuperarContrasena.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRecuperarContrasena.setBounds(28, 308, 275, 21);
 		panel.add(btnRecuperarContrasena);
 		btnRecuperarContrasena.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -78,6 +79,7 @@ public class LogIn extends JFrame {
 		btnRecuperarContrasena.setBackground(new Color(57, 62, 70));
 
 		btnIniciarSesion = new JButton("Iniciar Sesi\u00F3n\r\n\r\n");
+		btnIniciarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIniciarSesion.setBorder(null);
 		btnIniciarSesion.setForeground(Color.WHITE);
 		btnIniciarSesion.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -93,6 +95,7 @@ public class LogIn extends JFrame {
 			}
 		});
 		btnRegistro.setBorder(null);
+		btnRegistro.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRegistro.setForeground(new Color(156, 163, 219));
 		btnRegistro.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnRegistro.setBackground(null);

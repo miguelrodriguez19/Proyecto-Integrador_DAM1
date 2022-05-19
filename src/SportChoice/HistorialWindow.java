@@ -77,6 +77,7 @@ public class HistorialWindow extends JFrame {
 		scrollPane.setViewportView(table);
 
 		btnValorar = new JButton("Valorar");
+		btnValorar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnValorar.setBackground(new Color(53, 187, 95));
 		btnValorar.setBorder(null);
 		btnValorar.addActionListener(new ActionListener() {
@@ -95,6 +96,7 @@ public class HistorialWindow extends JFrame {
 		panelMain.add(lblHistorialDeEventos);
 		
 		btnAtras = new JButton("");
+		btnAtras.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(6, 10);
@@ -118,6 +120,7 @@ public class HistorialWindow extends JFrame {
 		getContentPane().add(panelHeader);
 
 		btnFotoPerfil = new JButton("");
+		btnFotoPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFotoPerfil.setIcon(new ImageIcon(HistorialWindow.class.getResource("/Imagenes/appppp-modified.png")));
 		btnFotoPerfil.setBorder(null);
 		btnFotoPerfil.setBackground((Color) null);
@@ -130,6 +133,7 @@ public class HistorialWindow extends JFrame {
 		});
 
 		btnPerfil = new JButton("Perfil");
+		btnPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPerfil.setToolTipText("");
 		btnPerfil.setForeground(Color.WHITE);
 		btnPerfil.setBorder(null);
@@ -143,6 +147,7 @@ public class HistorialWindow extends JFrame {
 		});
 
 		btnFAQs = new JButton("FAQs");
+		btnFAQs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFAQs.setForeground(Color.WHITE);
 		btnFAQs.setBorder(null);
 		btnFAQs.setBackground((Color) null);
@@ -150,6 +155,7 @@ public class HistorialWindow extends JFrame {
 		panelHeader.add(btnFAQs);
 		
 		btnLogo = new JButton("");
+		btnLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(6, 11);

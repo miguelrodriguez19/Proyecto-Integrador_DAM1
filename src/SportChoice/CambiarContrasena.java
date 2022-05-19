@@ -58,6 +58,7 @@ private Modelo miModelo;
 				btnOK.setForeground(Color.WHITE);
 				btnOK.setFont(new Font("Tahoma", Font.PLAIN, 20));
 				btnOK.setBorder(null);
+				btnOK.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 				btnOK.setBackground(new Color(53, 187, 95));
 				btnOK.setBounds(55, 361, 256, 42);
 				panel.add(btnOK);
@@ -112,6 +113,7 @@ private Modelo miModelo;
 				new ImageIcon(CambiarContrasena.class.getResource("/Imagenes/basketball-sports-court- (1).jpg")));
 		lblNewLabel.setBounds(-232, -13, 1586, 456);
 		getContentPane().add(lblNewLabel);
+		btnAtras.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 	}
 

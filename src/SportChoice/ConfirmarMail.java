@@ -110,6 +110,8 @@ public class ConfirmarMail extends JFrame{
 				new ImageIcon(ConfirmarMail.class.getResource("/Imagenes/basketball-sports-court- (1).jpg")));
 		lblNewLabel_1.setBounds(-232, -13, 1586, 456);
 		getContentPane().add(lblNewLabel_1);
+		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnOK.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 	}
 

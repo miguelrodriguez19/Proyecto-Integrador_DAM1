@@ -264,6 +264,7 @@ public class verEvento extends JFrame {
 		getContentPane().add(btnAtras);
 		
 		btnEditar = new JButton("Editar");
+		btnEditar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEditar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(17, 9);
