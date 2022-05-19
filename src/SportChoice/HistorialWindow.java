@@ -63,11 +63,11 @@ public class HistorialWindow extends JFrame {
 			//
 			boolean[] columnEditables = new boolean[] { true, true, true, true };
 
-			public boolean isCellEditable(int row, int column) {
-				return columnEditables[column];
-			}
-		});
-//		table.getColumnModel().getColumn(4).setPreferredWidth(720);
+//			public boolean isCellEditable(int row, int column) {
+//			//return columnEditables[column];
+//			}
+	});
+		table.getColumnModel().getColumn(4).setPreferredWidth(720);
 		table.setRowHeight(60);
 		table.setBounds(96, 58, 709, 285);
 
