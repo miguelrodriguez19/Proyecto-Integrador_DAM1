@@ -11,7 +11,7 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class unirseEvento extends JFrame{
+public class unirseEvento extends JFrame {
 	private Controlador miControlador;
 	private Modelo miModelo;
 	private JLabel lblNewLabel, lblUnirseEvento, lblNombre, lblNombreEvento, lblFecha, lblFechaVariable, lblHora,
@@ -212,7 +212,7 @@ public class unirseEvento extends JFrame{
 		btnFAQs.setBackground((Color) null);
 		btnFAQs.setBounds(587, 43, 64, 23);
 		panelHeader.add(btnFAQs);
-		
+
 		btnLogo_1 = new JButton("");
 		btnLogo_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogo_1.addActionListener(new ActionListener() {
@@ -225,13 +225,13 @@ public class unirseEvento extends JFrame{
 		btnLogo_1.setBackground((Color) null);
 		btnLogo_1.setBounds(30, 15, 114, 68);
 		panelHeader.add(btnLogo_1);
-		
+
 		btnAtras = new JButton("");
 		btnAtras.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAtras.setBorder(null);
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(17, 11);
+				miControlador.actualizar(15, 11);
 			}
 		});
 		btnAtras.setBackground(null);
@@ -240,11 +240,10 @@ public class unirseEvento extends JFrame{
 		getContentPane().add(btnAtras);
 	}
 
-	
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}
-	
+
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
 	}
