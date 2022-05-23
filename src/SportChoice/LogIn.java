@@ -27,6 +27,7 @@ public class LogIn extends JFrame {
 	private JPanel panel;
 	private JSeparator separator;
 	private JButton btnRecuperarContrasena, btnIniciarSesion;
+	private JLabel lblErrorLogIn;
 
 	public static void LogIn() {
 		LogIn window = new LogIn();
@@ -147,6 +148,7 @@ public class LogIn extends JFrame {
 		textPwd.setForeground(Color.GRAY);
 		
 		JButton btnAccederInvitado = new JButton("Acceder como invitado");
+		btnAccederInvitado.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAccederInvitado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(9,11);
@@ -159,6 +161,11 @@ public class LogIn extends JFrame {
 		btnAccederInvitado.setBackground((Color) null);
 		btnAccederInvitado.setBounds(84, 292, 168, 21);
 		panel.add(btnAccederInvitado);
+		
+		lblErrorLogIn = new JLabel("Usuario o contraseña incorrectos");
+		lblErrorLogIn.setForeground(Color.RED);
+		lblErrorLogIn.setBounds(90, 222, 162, 13);
+		panel.add(lblErrorLogIn);
 		btnIniciarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 miControlador.actualizar(7, 11);
