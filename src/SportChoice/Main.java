@@ -97,6 +97,6 @@ public class Main {
 		miControlador.setPantallas(pantallas);
 		
 		historial.setMiModelo(miModelo);
-		mainPage.setVisible(true);
+		login.setVisible(true);
 	}
 }
