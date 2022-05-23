@@ -70,7 +70,7 @@ public class LogIn extends JFrame {
 
 		btnRecuperarContrasena = new JButton("Recuperar Contrase\u00F1a\r\n");
 		btnRecuperarContrasena.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		btnRecuperarContrasena.setBounds(28, 308, 275, 21);
+		btnRecuperarContrasena.setBounds(28, 323, 275, 21);
 		panel.add(btnRecuperarContrasena);
 		btnRecuperarContrasena.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRecuperarContrasena.setBorder(null);
@@ -96,7 +96,7 @@ public class LogIn extends JFrame {
 		btnRegistro.setForeground(new Color(156, 163, 219));
 		btnRegistro.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnRegistro.setBackground(null);
-		btnRegistro.setBounds(169, 381, 88, 26);
+		btnRegistro.setBounds(181, 371, 88, 26);
 		panel.add(btnRegistro);
 
 		JLabel lblnoTienesCuenta = new JLabel("\u00BFNo tienes cuenta?\r\n");
@@ -104,7 +104,7 @@ public class LogIn extends JFrame {
 		lblnoTienesCuenta.setVerticalAlignment(SwingConstants.TOP);
 		lblnoTienesCuenta.setForeground(Color.WHITE);
 		lblnoTienesCuenta.setFont(new Font("Trebuchet MS", Font.PLAIN, 16));
-		lblnoTienesCuenta.setBounds(10, 386, 205, 26);
+		lblnoTienesCuenta.setBounds(10, 376, 205, 26);
 		panel.add(lblnoTienesCuenta);
 
 		textPwd = new JTextField();
@@ -143,6 +143,20 @@ public class LogIn extends JFrame {
 		textPwd.setText(mensajeTextField);
 		txtMail.setForeground(Color.GRAY);
 		textPwd.setForeground(Color.GRAY);
+		
+		JButton btnAccederInvitado = new JButton("Acceder como invitado");
+		btnAccederInvitado.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(9,11);
+			}
+		});
+		btnAccederInvitado.setSelected(true);
+		btnAccederInvitado.setForeground(Color.WHITE);
+		btnAccederInvitado.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnAccederInvitado.setBorder(null);
+		btnAccederInvitado.setBackground((Color) null);
+		btnAccederInvitado.setBounds(84, 292, 168, 21);
+		panel.add(btnAccederInvitado);
 		btnIniciarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 miControlador.actualizar(7, 11);
