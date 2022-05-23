@@ -147,6 +147,7 @@ public class LogIn extends JFrame {
 		textPwd.setForeground(Color.GRAY);
 		
 		JButton btnAccederInvitado = new JButton("Acceder como invitado");
+		btnAccederInvitado.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAccederInvitado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(9,11);
