@@ -206,7 +206,7 @@ public class LogIn extends JFrame {
 		String resultado = miModelo.getResultado();
 		if (resultado.equals("Correcto")) {
 			if (rol.equals("admin")) {
-				miControlador.actualizar(7, 10);
+				miControlador.actualizar(7, 18);
 			}else
 			miControlador.actualizar(7, 11);
 		} else if (resultado.equals("Incorrecto")) {

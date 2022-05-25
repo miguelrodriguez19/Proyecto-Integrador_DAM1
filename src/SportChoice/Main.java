@@ -37,7 +37,7 @@ public class Main {
 
 		JFrame[] pantallas = { cambiarContrasena, crearPerfil, crearEvento, editarPerfil, FAQs, foro, historial, login,
 				misEventos, modificarEvento, perfil, mainPage, recuperarContrasena, recuperarContrasenaV2, registro,
-				unirseEvento, valoracion, verEvento };
+				unirseEvento, valoracion, verEvento, AdminitradorEventos, AdministradorUsuarios };
 
 		miControlador.setMiModelo(miModelo);
 		miModelo.setPantallas(pantallas);

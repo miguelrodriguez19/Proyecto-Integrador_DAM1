@@ -68,7 +68,7 @@ public class AdministradorEventos extends JFrame {
 		btnUsuarios = new JButton("Usuarios");
 		btnUsuarios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(18, 14);
+				miControlador.actualizar(18, 19);
 			}
 		});
 		btnUsuarios.setForeground(Color.WHITE);

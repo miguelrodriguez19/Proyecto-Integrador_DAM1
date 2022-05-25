@@ -46,7 +46,7 @@ public class Modelo {
 			/* 3 */editarPerfil, /* 4 */FAQs, /* 5 */foro, /* 6 */historial, /* 7 */loginPantalla, /* 8 */misEventos,
 			/* 9 */modificarEvento, /* 10 */perfil, /* 11 */mainPage, /* 12 */recuperarContrasena,
 			/* 13 */recuperarContrasenaV2, /* 14 */registro, /* 15 */unirseEvento, /* 16 */valoracion,
-			/* 17 */verEvento };
+			/* 17 */verEvento, AdministrarEventos, AdminsistrarUsuarios };
 	private LogIn login;
 
 	public Modelo() {
