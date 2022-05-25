@@ -18,6 +18,7 @@ public class Perfil extends JFrame {
 			lblNewLabel_14;
 	private JTextArea txtrFdsfsd;
 	private JButton btnLogo, btnEditarPerfil, btnHistorial, btnPuntitos, btnLogOut, btnFAQs;
+	private JLabel lblPerfil_1;
 
 	public static void Perfil() {
 		Perfil window = new Perfil();
@@ -66,79 +67,79 @@ public class Perfil extends JFrame {
 		btnLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogo.setBackground((Color) null);
 		btnLogo.setBounds(30, 15, 114, 68);
-		header.add(btnLogo);
 		btnLogo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(10, 11);
 			}
 		});
+		header.add(btnLogo);
 
 		lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setIcon(
 				new ImageIcon(Perfil.class.getResource("/Imagenes/marker-free-icon-font (1) (1) (1) (1).png")));
-		lblNewLabel_3.setBounds(55, 134, 33, 33);
+		lblNewLabel_3.setBounds(55, 147, 33, 33);
 		getContentPane().add(lblNewLabel_3);
 
 		lblNewLabel_4 = new JLabel("");
 		lblNewLabel_4.setIcon(new ImageIcon(Perfil.class.getResource("/Imagenes/venus-mars-free-icon-font (1).png")));
-		lblNewLabel_4.setBounds(55, 177, 33, 33);
+		lblNewLabel_4.setBounds(55, 190, 33, 33);
 		getContentPane().add(lblNewLabel_4);
 
 		lblNewLabel_5 = new JLabel("");
 		lblNewLabel_5.setIcon(new ImageIcon(Perfil.class.getResource("/Imagenes/calendar-free-icon-font (1).png")));
-		lblNewLabel_5.setBounds(258, 134, 33, 33);
+		lblNewLabel_5.setBounds(258, 147, 33, 33);
 		getContentPane().add(lblNewLabel_5);
 
 		lblNewLabel_6 = new JLabel("");
 		lblNewLabel_6.setIcon(new ImageIcon(Perfil.class.getResource("/Imagenes/basketball-free-icon-font (1).png")));
-		lblNewLabel_6.setBounds(258, 177, 33, 33);
+		lblNewLabel_6.setBounds(258, 190, 33, 33);
 		getContentPane().add(lblNewLabel_6);
 
 		lblNewLabel_7 = new JLabel("");
 		lblNewLabel_7.setIcon(new ImageIcon(Perfil.class.getResource("/Imagenes/thumbs-up-free-icon-font (1).png")));
-		lblNewLabel_7.setBounds(454, 134, 33, 33);
+		lblNewLabel_7.setBounds(454, 147, 33, 33);
 		getContentPane().add(lblNewLabel_7);
 
 		lblNewLabel_8 = new JLabel("");
 		lblNewLabel_8.setIcon(new ImageIcon(Perfil.class.getResource("/Imagenes/document-free-icon-font (1).png")));
-		lblNewLabel_8.setBounds(55, 220, 33, 33);
+		lblNewLabel_8.setBounds(55, 233, 33, 33);
 		getContentPane().add(lblNewLabel_8);
 
 		lblNewLabel_9 = new JLabel("Espa\u00F1a, Madid");
 		lblNewLabel_9.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblNewLabel_9.setForeground(Color.WHITE);
 		lblNewLabel_9.setBackground(null);
-		lblNewLabel_9.setBounds(89, 134, 145, 33);
+		lblNewLabel_9.setBounds(89, 147, 145, 33);
 		getContentPane().add(lblNewLabel_9);
 
 		lblNewLabel_10 = new JLabel("Hombre");
 		lblNewLabel_10.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblNewLabel_10.setForeground(Color.WHITE);
-		lblNewLabel_10.setBounds(89, 177, 145, 33);
+		lblNewLabel_10.setBounds(89, 190, 145, 33);
 		getContentPane().add(lblNewLabel_10);
 
 		lblNewLabel_11 = new JLabel("19 a\u00F1os");
 		lblNewLabel_11.setForeground(Color.WHITE);
 		lblNewLabel_11.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblNewLabel_11.setBounds(299, 134, 145, 33);
+		lblNewLabel_11.setBounds(299, 147, 145, 33);
 		getContentPane().add(lblNewLabel_11);
 
 		lblNewLabel_12 = new JLabel("Baloncesto");
 		lblNewLabel_12.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblNewLabel_12.setForeground(Color.WHITE);
-		lblNewLabel_12.setBounds(299, 177, 145, 33);
+		lblNewLabel_12.setBounds(299, 190, 145, 33);
 		getContentPane().add(lblNewLabel_12);
 
 		lblNewLabel_13 = new JLabel("125");
 		lblNewLabel_13.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblNewLabel_13.setForeground(Color.WHITE);
-		lblNewLabel_13.setBounds(497, 134, 145, 33);
+		lblNewLabel_13.setBounds(497, 147, 145, 33);
 		getContentPane().add(lblNewLabel_13);
 
 		lblNewLabel_14 = new JLabel("Descripcion");
 		lblNewLabel_14.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblNewLabel_14.setForeground(Color.WHITE);
-		lblNewLabel_14.setBounds(89, 220, 145, 33);
+		lblNewLabel_14.setBounds(89, 233, 145, 33);
 		getContentPane().add(lblNewLabel_14);
 
 		txtrFdsfsd = new JTextArea();
@@ -147,7 +148,7 @@ public class Perfil extends JFrame {
 		txtrFdsfsd.setText(
 				"Soy una persona un tanto egocentrica, me gusta la perfeccion en todos los ambitos posibles.En\r\ncuanto a los deprotes me considero un jugador con una deportividad ejemplar, no destaco\r\nen ningun deporte sinembargo, tento en baloncesto como en padel considero que estoy por\r\nencima de la media.\r\nMe uno a esta app para encontrar compa\u00F1eros con los que poder jugar partidos y porque \r\nno entablar alguna que otra amistad.");
 		txtrFdsfsd.setBackground(new Color(34, 40, 49));
-		txtrFdsfsd.setBounds(55, 263, 593, 113);
+		txtrFdsfsd.setBounds(55, 276, 593, 113);
 		getContentPane().add(txtrFdsfsd);
 
 		btnPuntitos = new JButton("");
@@ -211,6 +212,12 @@ public class Perfil extends JFrame {
 		btnFAQs.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnFAQs.setBounds(697, 247, 123, 33);
 		getContentPane().add(btnFAQs);
+		
+		lblPerfil_1 = new JLabel("Perfil");
+		lblPerfil_1.setForeground(Color.WHITE);
+		lblPerfil_1.setFont(new Font("Tahoma", Font.PLAIN, 28));
+		lblPerfil_1.setBounds(39, 111, 248, 33);
+		getContentPane().add(lblPerfil_1);
 		btnFAQs.setVisible(false);
 		btnFAQs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

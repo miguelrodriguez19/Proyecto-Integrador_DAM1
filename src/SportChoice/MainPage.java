@@ -21,7 +21,6 @@ public class MainPage extends JFrame{
 	public static void MainPage() {
 		MainPage window = new MainPage();
 		window.setVisible(true);
-
 	}
 	public MainPage() {
 		setResizable(false);

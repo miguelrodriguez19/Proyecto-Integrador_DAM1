@@ -2,6 +2,7 @@ package SportChoice;
 
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -150,6 +151,12 @@ public class ModificarEvento extends JFrame{
 		getContentPane().add(lblLocalizacin);
 
 		btnCrear = new JButton("Confirmar");
+		btnCrear.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnCrear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(9, 17);
+			}
+		});
 		btnCrear.setForeground(Color.WHITE);
 		btnCrear.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnCrear.setBorder(null);
@@ -164,6 +171,12 @@ public class ModificarEvento extends JFrame{
 		getContentPane().add(lblCrearEvento);
 
 		btnEliminar = new JButton("Cancelar");
+		btnEliminar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(9, 17);
+			}
+		});
 		btnEliminar.setForeground(Color.WHITE);
 		btnEliminar.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnEliminar.setBorder(null);
@@ -185,6 +198,12 @@ public class ModificarEvento extends JFrame{
 		getContentPane().add(panelHeader);
 
 		btnLogo = new JButton("");
+		btnLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnLogo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(9, 10);
+			}
+		});
 		btnLogo.setIcon(new ImageIcon(ModificarEvento.class.getResource("/Imagenes/appppp-modified.png")));
 		btnLogo.setBorder(null);
 		btnLogo.setBackground((Color) null);
@@ -192,6 +211,12 @@ public class ModificarEvento extends JFrame{
 		panelHeader.add(btnLogo);
 
 		btnPerfil_1 = new JButton("Perfil");
+		btnPerfil_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnPerfil_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(9, 10);
+			}
+		});
 		btnPerfil_1.setToolTipText("");
 		btnPerfil_1.setForeground(Color.WHITE);
 		btnPerfil_1.setBorder(null);
@@ -200,6 +225,12 @@ public class ModificarEvento extends JFrame{
 		panelHeader.add(btnPerfil_1);
 
 		btnFAQs = new JButton("FAQs");
+		btnFAQs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnFAQs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(9, 4);
+			}
+		});
 		btnFAQs.setForeground(Color.WHITE);
 		btnFAQs.setBorder(null);
 		btnFAQs.setBackground((Color) null);
@@ -207,6 +238,7 @@ public class ModificarEvento extends JFrame{
 		panelHeader.add(btnFAQs);
 		
 		btnLogo_1 = new JButton("");
+		btnLogo_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogo_1.setIcon(new ImageIcon(ModificarEvento.class.getResource("/Imagenes/logoSportChoice.png")));
 		btnLogo_1.setBorder(null);
 		btnLogo_1.setBackground((Color) null);
@@ -217,10 +249,11 @@ public class ModificarEvento extends JFrame{
 		btnAtras.setBorder(null);
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(17, 11);
+				miControlador.actualizar(9, 17);
 			}
 		});
 		btnAtras.setBackground(null);
+		btnAtras.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAtras.setIcon(new ImageIcon(verEvento.class.getResource("/Imagenes/arrow.png")));
 		btnAtras.setBounds(10, 100, 56, 39);
 		getContentPane().add(btnAtras);

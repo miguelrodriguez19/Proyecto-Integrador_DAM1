@@ -58,7 +58,12 @@ public class editarPerfil  extends JFrame {
 		header.add(txtNuevoNombreDe);
 		txtNuevoNombreDe.setColumns(10);
 
-		btnNewButton_3 = new JButton("Cambiar contrase�a");
+		btnNewButton_3 = new JButton("Cambiar contrasena");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(10, 0);
+			}
+		});
 		btnNewButton_3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_3.setBackground(null);
 		btnNewButton_3.setBorder(null);
@@ -67,6 +72,11 @@ public class editarPerfil  extends JFrame {
 		header.add(btnNewButton_3);
 		
 		btnLogo = new JButton("");
+		btnLogo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(3, 11);
+			}
+		});
 		btnLogo.setIcon(new ImageIcon(editarPerfil.class.getResource("/Imagenes/logoSportChoice.png")));
 		btnLogo.setBorder(null);
 		btnLogo.setBackground((Color) null);
@@ -179,10 +189,10 @@ public class editarPerfil  extends JFrame {
 		txtMoralzarzalMadrid.setBounds(550, 161, 177, 24);
 		getContentPane().add(txtMoralzarzalMadrid);
 
-		lblPerfil = new JLabel("Perfil");
+		lblPerfil = new JLabel("Editar perfil");
 		lblPerfil.setForeground(Color.WHITE);
-		lblPerfil.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblPerfil.setBounds(33, 110, 248, 23);
+		lblPerfil.setFont(new Font("Tahoma", Font.PLAIN, 28));
+		lblPerfil.setBounds(40, 115, 248, 33);
 		getContentPane().add(lblPerfil);
 
 		btnEliminar = new JButton("Cancelar");

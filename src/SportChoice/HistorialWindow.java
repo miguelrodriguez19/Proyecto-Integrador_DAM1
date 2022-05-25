@@ -19,6 +19,8 @@ public class HistorialWindow extends JFrame {
 	private JPanel panelMain;
 	private JScrollPane scrollPane;
 	private JButton btnValorar, btnFotoPerfil, btnPerfil, btnFAQs, btnLogo;
+	private JLabel lblHistorialDeEventos;
+	private JButton btnAtras;
 
 	public static void HistorialWindow() {
 		HistorialWindow window = null;
@@ -61,36 +63,50 @@ public class HistorialWindow extends JFrame {
 			//
 			boolean[] columnEditables = new boolean[] { true, true, true, true };
 
-			public boolean isCellEditable(int row, int column) {
-				return columnEditables[column];
-			}
-		});
-//		table.getColumnModel().getColumn(4).setPreferredWidth(720);
+//			public boolean isCellEditable(int row, int column) {
+//			//return columnEditables[column];
+//			}
+	});
+		table.getColumnModel().getColumn(4).setPreferredWidth(720);
 		table.setRowHeight(60);
 		table.setBounds(96, 58, 709, 285);
 
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(38, 48, 652, 274);
+		scrollPane.setBounds(38, 60, 652, 262);
 		panelMain.add(scrollPane);
 		scrollPane.setViewportView(table);
 
-		JLabel lblHistorialDeEventos = new JLabel("Historial De Eventos");
-		lblHistorialDeEventos.setForeground(Color.WHITE);
-		lblHistorialDeEventos.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblHistorialDeEventos.setBounds(37, 10, 276, 23);
-		panelMain.add(lblHistorialDeEventos);
-
 		btnValorar = new JButton("Valorar");
+		btnValorar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnValorar.setBackground(new Color(53, 187, 95));
 		btnValorar.setBorder(null);
 		btnValorar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(5, 8);
+				miControlador.actualizar(6, 16);
 			}
 		});
 		btnValorar.setForeground(Color.WHITE);
 		btnValorar.setBounds(709, 292, 103, 30);
 		panelMain.add(btnValorar);
+		
+		lblHistorialDeEventos = new JLabel("Historial de eventos");
+		lblHistorialDeEventos.setForeground(Color.WHITE);
+		lblHistorialDeEventos.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblHistorialDeEventos.setBounds(71, 18, 385, 23);
+		panelMain.add(lblHistorialDeEventos);
+		
+		btnAtras = new JButton("");
+		btnAtras.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(6, 10);
+			}
+		});
+		btnAtras.setIcon(new ImageIcon(HistorialWindow.class.getResource("/Imagenes/arrow.png")));
+		btnAtras.setBorder(null);
+		btnAtras.setBackground((Color) null);
+		btnAtras.setBounds(10, 11, 56, 39);
+		panelMain.add(btnAtras);
 		btnValorar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(6, 16);
@@ -104,6 +120,7 @@ public class HistorialWindow extends JFrame {
 		getContentPane().add(panelHeader);
 
 		btnFotoPerfil = new JButton("");
+		btnFotoPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFotoPerfil.setIcon(new ImageIcon(HistorialWindow.class.getResource("/Imagenes/appppp-modified.png")));
 		btnFotoPerfil.setBorder(null);
 		btnFotoPerfil.setBackground((Color) null);
@@ -116,6 +133,7 @@ public class HistorialWindow extends JFrame {
 		});
 
 		btnPerfil = new JButton("Perfil");
+		btnPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPerfil.setToolTipText("");
 		btnPerfil.setForeground(Color.WHITE);
 		btnPerfil.setBorder(null);
@@ -129,6 +147,7 @@ public class HistorialWindow extends JFrame {
 		});
 
 		btnFAQs = new JButton("FAQs");
+		btnFAQs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFAQs.setForeground(Color.WHITE);
 		btnFAQs.setBorder(null);
 		btnFAQs.setBackground((Color) null);
@@ -136,11 +155,18 @@ public class HistorialWindow extends JFrame {
 		panelHeader.add(btnFAQs);
 		
 		btnLogo = new JButton("");
+		btnLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnLogo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(6, 11);
+			}
+		});
 		btnLogo.setIcon(new ImageIcon(HistorialWindow.class.getResource("/Imagenes/logoSportChoice.png")));
 		btnLogo.setBorder(null);
 		btnLogo.setBackground((Color) null);
 		btnLogo.setBounds(30, 15, 114, 68);
 		panelHeader.add(btnLogo);
+		
 		btnFAQs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(6, 4);
