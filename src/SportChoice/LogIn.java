@@ -166,6 +166,7 @@ public class LogIn extends JFrame {
 		lblErrorLogIn.setForeground(Color.RED);
 		lblErrorLogIn.setBounds(90, 222, 162, 13);
 		panel.add(lblErrorLogIn);
+		lblErrorLogIn.setVisible(false);
 		btnIniciarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 miControlador.actualizar(7, 11);
