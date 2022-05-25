@@ -32,10 +32,12 @@ public class Main {
 		unirseEvento unirseEvento = new unirseEvento();
 		Valoracion valoracion = new Valoracion();
 		verEvento verEvento = new verEvento();
+		AdministradorEventos AdminitradorEventos = new AdministradorEventos();
+		AdministradorUsuarios AdministradorUsuarios = new AdministradorUsuarios();
 
-		JFrame[] pantallas = { cambiarContrasena, crearPerfil, crearEvento, editarPerfil, FAQs, foro, historial, login, misEventos,
-				modificarEvento, perfil, mainPage, recuperarContrasena, recuperarContrasenaV2, registro, unirseEvento,
-				valoracion, verEvento };
+		JFrame[] pantallas = { cambiarContrasena, crearPerfil, crearEvento, editarPerfil, FAQs, foro, historial, login,
+				misEventos, modificarEvento, perfil, mainPage, recuperarContrasena, recuperarContrasenaV2, registro,
+				unirseEvento, valoracion, verEvento };
 
 		miControlador.setMiModelo(miModelo);
 
@@ -57,6 +59,8 @@ public class Main {
 		miModelo.setVerEvento(verEvento);
 		miModelo.setMainPage(mainPage);
 		miModelo.setHistorial(historial);
+		miModelo.setAdministrarEventos(AdminitradorEventos);
+		miModelo.setAdminsistrarUsuarios(AdministradorUsuarios);
 
 		cambiarContrasena.setMiControlador(miControlador);
 		crearEvento.setMiControlador(miControlador);
@@ -76,6 +80,8 @@ public class Main {
 		historial.setMiControlador(miControlador);
 		verEvento.setMiControlador(miControlador);
 		mainPage.setMiControlador(miControlador);
+		AdministradorUsuarios.setMiControlador(miControlador);
+		AdminitradorEventos.setMiControlador(miControlador);
 
 		cambiarContrasena.setMiModelo(miModelo);
 		crearEvento.setMiModelo(miModelo);
@@ -94,8 +100,10 @@ public class Main {
 		valoracion.setMiModelo(miModelo);
 		verEvento.setMiModelo(miModelo);
 		mainPage.setMiModelo(miModelo);
+		AdminitradorEventos.setMiModelo(miModelo);
+		AdministradorUsuarios.setMiModelo(miModelo);
 		miControlador.setPantallas(pantallas);
-		
+
 		historial.setMiModelo(miModelo);
 		mainPage.setVisible(true);
 	}
