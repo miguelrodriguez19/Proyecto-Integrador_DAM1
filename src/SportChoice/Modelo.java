@@ -5,6 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.swing.JFrame;
+
+// NUESTRO
 public class Modelo {
 	private CambiarContrasena cambiarContrasena;
 	private ConfCrearPerfil crearPerfil;
@@ -24,59 +27,15 @@ public class Modelo {
 	private unirseEvento unirseEvento;
 	private Valoracion valoracion;
 	private verEvento verEvento;
-	public void setCambiarContrasena(CambiarContrasena cambiarContrasena) {
-		this.cambiarContrasena = cambiarContrasena;
-	}
-	public void setRecuperarContrasenaV2(ConfirmarMail recuperarContrasenaV2) {
-		this.recuperarContrasenaV2 = recuperarContrasenaV2;
-	}
-	public void setMainPage(MainPage mainPage) {
-		this.mainPage = mainPage;
-	}
-	public void setCrearPerfil(ConfCrearPerfil crearPerfil) {
-		this.crearPerfil = crearPerfil;
-	}
-	public void setCrearEvento(crearEvento crearEvento) {
-		this.crearEvento = crearEvento;
-	}
-	public void setEditarPerfil(editarPerfil editarPerfil) {
-		this.editarPerfil = editarPerfil;
-	}
-	public void setFAQs(FAQsWindow fAQs) {
-		FAQs = fAQs;
-	}
-	public void setForo(Foro foro) {
-		this.foro = foro;
-	}
-	public void setHistorial(HistorialWindow historial) {
-		this.historial = historial;
-	}
-	public void setLogin(LogIn login) {
-		this.login = login;
-	}
-	public void setMisEventos(MisEventos misEventos) {
-		this.misEventos = misEventos;
-	}
-	public void setModificarEvento(ModificarEvento modificarEvento) {
-		this.modificarEvento = modificarEvento;
-	}
-	public void setPerfil(Perfil perfil) {
-		this.perfil = perfil;
-	}
-	public void setRecuperarContrasena(RecuperarContrasena recuperarContrasena) {
-		this.recuperarContrasena = recuperarContrasena;
-	}
-	public void setRegistro(Register registro) {
-		this.registro = registro;
-	}
-	public void setUnirseEvento(unirseEvento unirseEvento) {
-		this.unirseEvento = unirseEvento;
-	}
-	public void setValoracion(Valoracion valoracion) {
-		this.valoracion = valoracion;
-	}
-	public void setVerEvento(verEvento verEvento) {
-		this.verEvento = verEvento;
+
+	private JFrame[] pantallas = { /*0*/cambiarContrasena, /*1*/crearPerfil, /*2*/crearEvento, /*3*/editarPerfil, /*4*/FAQs, /*5*/foro, /*6*/historial, /*7*/login,
+			/*8*/misEventos, /*9*/modificarEvento, /*10*/perfil, /*11*/mainPage, /*12*/recuperarContrasena, /*13*/recuperarContrasenaV2, /*14*/registro,
+			/*15*/unirseEvento, /*16*/valoracion, /*17*/verEvento };
+	
+	public void setPantallas(JFrame[] pantallas) {
+		for (int i = 0; i < pantallas.length; i++) {
+			this.pantallas[i] = pantallas[i];
+		}
 	}
 	
 	public class Conexion {
@@ -88,14 +47,14 @@ public class Modelo {
 		private Connection conexion;
 		private Statement stmt;
 
-		// Constructor que crea la conexión
+		// Constructor que crea la conexiï¿½n
 		public Conexion() {
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
 				conexion = DriverManager.getConnection(url, login, pwd);
 				stmt = conexion.createStatement();
 				if (conexion != null) {
-					System.out.println("Conexión a la bd" + url + ".... ok !!");
+					System.out.println("Conexiï¿½n a la bd" + url + ".... ok !!");
 					// conn.close();
 				}
 			} catch (ClassNotFoundException cnfe) {
