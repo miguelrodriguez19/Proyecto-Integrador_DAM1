@@ -17,7 +17,7 @@ public class FAQsWindow extends JFrame {
 	private JLabel lblFAQsTitle;
 	private JTextPane txtpnPregunta1, txtpnPregunta2, txtpnPregunta3;
 	private JScrollBar scrollBar;
-	private JButton btnLogo,  btnPerfil, btnFotoPerfil, btnFAQs, btnBackIcon,btnPregunta1,btnPregunta2,btnPregunta3;
+	private JButton btnLogo,  btnPerfil, btnFotoPerfil, btnFAQs,btnPregunta1,btnPregunta2,btnPregunta3;
 
 	public static void FAQsWindow() {
 		FAQsWindow window = new FAQsWindow();
@@ -101,19 +101,6 @@ public class FAQsWindow extends JFrame {
 		getContentPane().add(panelMain);
 		panelMain.setLayout(null);
 
-		btnBackIcon = new JButton("");
-		btnBackIcon.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(4, 11);
-			}
-		});
-		btnBackIcon.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnBackIcon.setBounds(0, 0, 50, 50);
-		btnBackIcon.setIcon(new ImageIcon(FAQsWindow.class.getResource("/Imagenes/arrow.png")));
-		btnBackIcon.setBackground(null);
-		btnBackIcon.setBorder(null);
-		panelMain.add(btnBackIcon);
-
 		lblFAQsTitle = new JLabel("Preguntas Frecuentes", SwingConstants.CENTER);
 		lblFAQsTitle.setForeground(new Color(255, 255, 255));
 		lblFAQsTitle.setFont(new Font("Tahoma", Font.BOLD, 16));
@@ -127,9 +114,6 @@ public class FAQsWindow extends JFrame {
 		btnPregunta1.setForeground(Color.WHITE);
 		btnPregunta1.setBackground(new Color(53, 187, 95));
 		btnPregunta1.setBounds(157, 64, 524, 55);
-
-		btnBackIcon.setBackground(null);
-		btnBackIcon.setBorder(null);
 		panelMain.add(btnPregunta1);
 
 		txtpnPregunta1 = new JTextPane();
