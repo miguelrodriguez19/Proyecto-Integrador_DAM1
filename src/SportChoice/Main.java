@@ -39,24 +39,7 @@ public class Main {
 
 		miControlador.setMiModelo(miModelo);
 
-		miModelo.setCambiarContrasena(cambiarContrasena);
-		miModelo.setCrearEvento(crearEvento);
-		miModelo.setCrearPerfil(crearPerfil);
-		miModelo.setEditarPerfil(editarPerfil);
-		miModelo.setFAQs(FAQs);
-		miModelo.setForo(foro);
-		miModelo.setLogin(login);
-		miModelo.setMisEventos(misEventos);
-		miModelo.setModificarEvento(modificarEvento);
-		miModelo.setPerfil(perfil);
-		miModelo.setRecuperarContrasena(recuperarContrasena);
-		miModelo.setRecuperarContrasenaV2(recuperarContrasenaV2);
-		miModelo.setRegistro(registro);
-		miModelo.setUnirseEvento(unirseEvento);
-		miModelo.setValoracion(valoracion);
-		miModelo.setVerEvento(verEvento);
-		miModelo.setMainPage(mainPage);
-		miModelo.setHistorial(historial);
+		miModelo.setPantallas(pantallas);
 
 		cambiarContrasena.setMiControlador(miControlador);
 		crearEvento.setMiControlador(miControlador);
