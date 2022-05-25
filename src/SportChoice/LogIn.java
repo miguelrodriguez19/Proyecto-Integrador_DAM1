@@ -205,7 +205,7 @@ public class LogIn extends JFrame {
 		if (resultado.equals("Correcto")) {
 			miControlador.actualizar(7, 11);;
 		} else if (resultado.equals("Incorrecto")) {
-			
+			//desplegable de error
 		} else {
 			System.exit(0);
 		}
