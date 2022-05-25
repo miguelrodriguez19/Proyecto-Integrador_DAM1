@@ -168,7 +168,7 @@ public class LogIn extends JFrame {
 		panel.add(lblErrorLogIn);
 		btnIniciarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				 miControlador.actualizar(7, 11);
+				miControlador.login(txtMail.getText(), textPwd.getText());
 			}
 		});
 		btnRecuperarContrasena.addActionListener(new ActionListener() {
@@ -200,10 +200,14 @@ public class LogIn extends JFrame {
 		return String.valueOf(textPwd.getText());
 	}
 
-	public void actualizar() {
+	public void update(String rol) {
+		System.out.println("Entrando en update.");
 		String resultado = miModelo.getResultado();
 		if (resultado.equals("Correcto")) {
-			miControlador.actualizar(7, 11);;
+			if (rol.equals("admin")) {
+				miControlador.actualizar(7, 10);
+			}else
+			miControlador.actualizar(7, 11);
 		} else if (resultado.equals("Incorrecto")) {
 			//desplegable de error
 		} else {
