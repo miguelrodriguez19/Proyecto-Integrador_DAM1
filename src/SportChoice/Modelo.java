@@ -1,5 +1,10 @@
 package SportChoice;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 public class Modelo {
 	private CambiarContrasena cambiarContrasena;
 	private ConfCrearPerfil crearPerfil;
@@ -73,4 +78,36 @@ public class Modelo {
 	public void setVerEvento(verEvento verEvento) {
 		this.verEvento = verEvento;
 	}
+	
+	public class Conexion {
+		// Atributos de la clase
+		private String bd = "ProyectoIntegrador";
+		private String login = "";
+		private String pwd = "";
+		private String url = "jdbc:mysql://localhost/" + bd;
+		private Connection conexion;
+		private Statement stmt;
+
+		// Constructor que crea la conexión
+		public Conexion() {
+			try {
+				Class.forName("com.mysql.cj.jdbc.Driver");
+				conexion = DriverManager.getConnection(url, login, pwd);
+				stmt = conexion.createStatement();
+				if (conexion != null) {
+					System.out.println("Conexión a la bd" + url + ".... ok !!");
+					// conn.close();
+				}
+			} catch (ClassNotFoundException cnfe) {
+				System.out.println("Driver JDBC no encontrado");
+				cnfe.printStackTrace();
+			} catch (SQLException sqle) {
+				System.out.println("Error al conectarse a la BBDD");
+				sqle.printStackTrace();
+			} catch (Exception e) {
+				System.out.println("Error general");
+				e.printStackTrace();
+			}
+		}
+}
 }

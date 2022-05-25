@@ -27,6 +27,7 @@ public class LogIn extends JFrame {
 	private JPanel panel;
 	private JSeparator separator;
 	private JButton btnRecuperarContrasena, btnIniciarSesion;
+	private JLabel lblErrorLogIn;
 
 	public static void LogIn() {
 		LogIn window = new LogIn();
@@ -71,9 +72,8 @@ public class LogIn extends JFrame {
 		btnRecuperarContrasena = new JButton("Recuperar Contrase\u00F1a\r\n");
 		btnRecuperarContrasena.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnRecuperarContrasena.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnRecuperarContrasena.setBounds(28, 308, 275, 21);
+		btnRecuperarContrasena.setBounds(28, 323, 275, 21);
 		panel.add(btnRecuperarContrasena);
-		btnRecuperarContrasena.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRecuperarContrasena.setBorder(null);
 		btnRecuperarContrasena.setForeground(new Color(255, 255, 255));
 		btnRecuperarContrasena.setBackground(new Color(57, 62, 70));
@@ -161,6 +161,11 @@ public class LogIn extends JFrame {
 		btnAccederInvitado.setBackground((Color) null);
 		btnAccederInvitado.setBounds(84, 292, 168, 21);
 		panel.add(btnAccederInvitado);
+		
+		lblErrorLogIn = new JLabel("Usuario o contraseña incorrectos");
+		lblErrorLogIn.setForeground(Color.RED);
+		lblErrorLogIn.setBounds(90, 222, 162, 13);
+		panel.add(lblErrorLogIn);
 		btnIniciarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 miControlador.actualizar(7, 11);
