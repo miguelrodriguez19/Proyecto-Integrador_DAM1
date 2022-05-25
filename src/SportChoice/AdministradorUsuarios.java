@@ -12,16 +12,25 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class AdministradorUsuarios extends JFrame {
 
 	private JFrame frame;
 	private JTable table;
+	private Controlador miControlador;
+	private Modelo miModelo;
+	private JButton btnEventos;
+	private JButton btnUsuarios;
+	private JLabel lblNewLabel;
+	private JButton btnNewButton;
+	private JButton btnNewButton_1;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void AdministradorUsuarios() {
 		AdministradorUsuarios window = new AdministradorUsuarios();
 		window.frame.setVisible(true);
 	}
@@ -43,7 +52,12 @@ public class AdministradorUsuarios extends JFrame {
 		getContentPane().add(panel);
 		panel.setLayout(null);
 
-		JButton btnEventos = new JButton("Eventos");
+		btnEventos = new JButton("Eventos");
+		btnEventos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(19, 18);
+			}
+		});
 		btnEventos.setSelected(true);
 		btnEventos.setForeground(Color.WHITE);
 		btnEventos.setBorder(null);
@@ -51,7 +65,12 @@ public class AdministradorUsuarios extends JFrame {
 		btnEventos.setBounds(174, 28, 244, 40);
 		panel.add(btnEventos);
 
-		JButton btnUsuarios = new JButton("Usuarios");
+		btnUsuarios = new JButton("Usuarios");
+		btnUsuarios.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(19, 18);
+			}
+		});
 		btnUsuarios.setForeground(Color.WHITE);
 		btnUsuarios.setBorder(null);
 		btnUsuarios.setBackground(new Color(156, 163, 219));
@@ -69,43 +88,60 @@ public class AdministradorUsuarios extends JFrame {
 		table.setRowHeight(55);
 		scrollPane.setViewportView(table);
 		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{" @PedroJuarez", "Futbol", "12/02/2022", null, "6/9"},
-				{" @JuanPerez", "Futbol", "15/02/2022", null, "10/12"},
-				{" @JuanPerez", "Tenis", "17/02/2022", null, "1/4"},
-				{" @IgnacioPerez", "Futbol", "20/02/2022", null, "5/12"},
-				{" @LuisGonzalez", "Baloncesto", "2/03/2022", null, "12/12"},
-				{" @IgnacioPerez", "Futbol", "20/02/2022", null, "18/22"},
-				{" @MiguelRod", "Padel", "29/02/2022", null, "3/6"},
-				{" @IgnacioPerez", "Futbol", "20/02/2022", null, "10/22"},
-			},
-			new String[] {
-				"Creador", "Nombre", "Apellidos", "Mail", "Reportes"
-			}
-		) {
-			boolean[] columnEditables = new boolean[] {
-				false, false, false, true, false
-			};
+				new Object[][] { { " @PedroJuarez", "Pedro", "Juarez", "PedroJuarez@gmail.com", "0" },
+						{ " @PacoPerez", "Paco", "Perez", "PacoPerez@gmail.com", "30" },
+						{ " @JuanPerez", "Juan", "Perez", "JuanPerez@gmail.com", "1" },
+						{ " @GuillermoBayejo", "Guillermo", "Bayejo", "AnimeLover@gmail.com", "0" },
+						{ " @LuisGonzalez", "Luis", "Gonzalez", "LuisGonzalez@gmail.com", "2" },
+						{ " @Recesvinto Perez", "Recesvinto ", "Perez", "RecesvintoPerez@gmail.com", "12" },
+						{ " @MiguelRod", "Miguel", "Rodriguez", "MiguelRod@gmail.com", "8" },
+						{ " @IgnacioPerez", "Ignacio", "Perez", "IgnacioPerez@gmail.com", "0" }, },
+				new String[] { "Usuario", "Nombre", "Apellidos", "Mail", "Reportes" }) {
+			boolean[] columnEditables = new boolean[] { false, false, false, true, false };
+
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
 		});
-		JButton btnNewButton = new JButton("Banear");
+		table.getColumnModel().getColumn(1).setPreferredWidth(55);
+		table.getColumnModel().getColumn(3).setPreferredWidth(143);
+		table.getColumnModel().getColumn(4).setPreferredWidth(39);
+		btnNewButton = new JButton("Banear");
+		btnNewButton.setEnabled(false);
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setBorder(null);
+		btnNewButton.setBackground(Color.RED);
 		btnNewButton.setBounds(701, 386, 112, 30);
 		panel.add(btnNewButton);
 
-		JLabel lblNewLabel = new JLabel("\r\n");
+		lblNewLabel = new JLabel("\r\n");
 		lblNewLabel.setIcon(new ImageIcon(AdministradorUsuarios.class.getResource("/Imagenes/logoSportChoice.png")));
 		lblNewLabel.setBounds(30, 28, 109, 54);
 		panel.add(lblNewLabel);
-		
-		JButton btnNewButton_1 = new JButton("LogOut");
-		btnNewButton_1.setBounds(728, 28, 85, 30);
+
+		btnNewButton_1 = new JButton("LogOut");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(19, 7);
+			}
+		});
+		btnNewButton_1.setForeground(Color.WHITE);
+		btnNewButton_1.setBorder(null);
+		btnNewButton_1.setBackground(new Color(156, 163, 219));
+		btnNewButton_1.setBounds(701, 28, 109, 30);
 		panel.add(btnNewButton_1);
 
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+	}
+
+	public void setMiControlador(Controlador miControlador) {
+		this.miControlador = miControlador;
+	}
+
+	public void setMiModelo(Modelo miModelo) {
+		this.miModelo = miModelo;
 	}
 }

@@ -12,16 +12,25 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class AdministradorEventos extends JFrame {
 
 	private JFrame frame;
 	private JTable table;
+	private Controlador miControlador;
+	private Modelo miModelo;
+	private JButton btnEventos;
+	private JButton btnUsuarios;
+	private JButton btnlogOut;
+	private JButton btnBorrar;
+	private JLabel lblNewLabel;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void AdministradorEventos() {
 		AdministradorEventos window = new AdministradorEventos();
 		window.frame.setVisible(true);
 	}
@@ -43,7 +52,12 @@ public class AdministradorEventos extends JFrame {
 		getContentPane().add(panel);
 		panel.setLayout(null);
 
-		JButton btnEventos = new JButton("Eventos");
+		btnEventos = new JButton("Eventos");
+		btnEventos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(18, 18);
+			}
+		});
 		btnEventos.setSelected(true);
 		btnEventos.setForeground(Color.WHITE);
 		btnEventos.setBorder(null);
@@ -51,7 +65,12 @@ public class AdministradorEventos extends JFrame {
 		btnEventos.setBounds(174, 28, 244, 40);
 		panel.add(btnEventos);
 
-		JButton btnUsuarios = new JButton("Usuarios");
+		btnUsuarios = new JButton("Usuarios");
+		btnUsuarios.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(18, 14);
+			}
+		});
 		btnUsuarios.setForeground(Color.WHITE);
 		btnUsuarios.setBorder(null);
 		btnUsuarios.setBackground(new Color(129, 136, 212));
@@ -87,22 +106,43 @@ public class AdministradorEventos extends JFrame {
 				return columnEditables[column];
 			}
 		});
-		JButton btnNewButton = new JButton("Banear");
-		btnNewButton.setBounds(701, 386, 112, 30);
-		panel.add(btnNewButton);
+		btnBorrar = new JButton("Borrar");
+		btnBorrar.setEnabled(false);
+		btnBorrar.setForeground(Color.WHITE);
+		btnBorrar.setBorder(null);
+		btnBorrar.setBackground(Color.RED);
+		btnBorrar.setBounds(701, 386, 112, 30);
+		panel.add(btnBorrar);
 
-		JLabel lblNewLabel = new JLabel("\r\n");
+		lblNewLabel = new JLabel("\r\n");
 		lblNewLabel.setIcon(new ImageIcon(AdministradorEventos.class.getResource("/Imagenes/logoSportChoice.png")));
 		lblNewLabel.setBounds(30, 28, 109, 54);
 		panel.add(lblNewLabel);
 
-		JButton btnNewButton_1 = new JButton("LogOut");
-		btnNewButton_1.setBounds(728, 28, 85, 30);
-		panel.add(btnNewButton_1);
+		btnlogOut = new JButton("LogOut");
+		btnlogOut.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(18, 7);
+			}
+		});
+		btnlogOut.setForeground(Color.WHITE);
+		btnlogOut.setBorder(null);
+		btnlogOut.setBackground(new Color(156, 163, 219));
+		btnlogOut.setBounds(701, 28, 112, 30);
+		panel.add(btnlogOut);
 
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+
+	}
+
+	public void setMiControlador(Controlador miControlador) {
+		this.miControlador = miControlador;
+	}
+
+	public void setMiModelo(Modelo miModelo) {
+		this.miModelo = miModelo;
 	}
 }

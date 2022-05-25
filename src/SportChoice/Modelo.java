@@ -31,7 +31,7 @@ public class Modelo {
 	private verEvento verEvento;
 
 	private String bd = "ProyectoIntegrador";
-	private String login = "root";
+	private String usuariologin = "root";
 	private String pwd = "";
 	private String url = "jdbc:mysql://localhost/" + bd;
 	private Connection conexion;
@@ -39,11 +39,13 @@ public class Modelo {
 	private String usr;
 	private String resultado;
 	private int fallos;
+	private AdministradorEventos AdministrarEventos;
+	private AdministradorUsuarios AdminsistrarUsuarios;
 
 	public Modelo() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conexion = DriverManager.getConnection(url, login, pwd);
+			conexion = DriverManager.getConnection(url, usuariologin, pwd);
 			stmt = conexion.createStatement();
 
 			if (conexion != null) {
@@ -62,11 +64,16 @@ public class Modelo {
 		}
 	}
 
+	public void setCambiarContrasena(CambiarContrasena cambiarContrasena) {
+		this.cambiarContrasena = cambiarContrasena;
+	}
+
 	private JFrame[] pantallas = { /* 0 */cambiarContrasena, /* 1 */crearPerfil, /* 2 */crearEvento,
 			/* 3 */editarPerfil, /* 4 */FAQs, /* 5 */foro, /* 6 */historial, /* 7 */loginPantalla, /* 8 */misEventos,
 			/* 9 */modificarEvento, /* 10 */perfil, /* 11 */mainPage, /* 12 */recuperarContrasena,
 			/* 13 */recuperarContrasenaV2, /* 14 */registro, /* 15 */unirseEvento, /* 16 */valoracion,
 			/* 17 */verEvento };
+	private LogIn login;
 
 	public void setPantallas(JFrame[] pantallas) {
 		for (int i = 0; i < pantallas.length; i++) {
@@ -74,15 +81,23 @@ public class Modelo {
 		}
 	}
 
+	public void setRecuperarContrasenaV2(ConfirmarMail recuperarContrasenaV2) {
+		this.recuperarContrasenaV2 = recuperarContrasenaV2;
+	}
+
 	public String getResultado() {
 		return this.resultado;
+	}
+
+	public void setMainPage(MainPage mainPage) {
+		this.mainPage = mainPage;
 	}
 
 	// Constructor que crea la conexi�n
 	public void Conexion() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conexion = DriverManager.getConnection(url, login, pwd);
+			conexion = DriverManager.getConnection(url, usuariologin, pwd);
 			stmt = conexion.createStatement();
 			if (conexion != null) {
 				System.out.println("Conexi�n a la bd" + url + ".... ok !!");
@@ -100,6 +115,10 @@ public class Modelo {
 		}
 	}
 
+	public void setCrearPerfil(ConfCrearPerfil crearPerfil) {
+		this.crearPerfil = crearPerfil;
+	}
+
 	public void login(String usr, String pwd) {
 		if (this.usr.equals(usr) && this.pwd.equals(pwd)) {
 			resultado = "Correcto";
@@ -114,4 +133,67 @@ public class Modelo {
 		loginPantalla.actualizar();
 	}
 
+	public void setCrearEvento(crearEvento crearEvento) {
+		this.crearEvento = crearEvento;
+	}
+
+	public void setEditarPerfil(editarPerfil editarPerfil) {
+		this.editarPerfil = editarPerfil;
+	}
+
+	public void setFAQs(FAQsWindow fAQs) {
+		FAQs = fAQs;
+	}
+
+	public void setForo(Foro foro) {
+		this.foro = foro;
+	}
+
+	public void setHistorial(HistorialWindow historial) {
+		this.historial = historial;
+	}
+
+	public void setLogin(LogIn login) {
+		this.login = login;
+	}
+
+	public void setMisEventos(MisEventos misEventos) {
+		this.misEventos = misEventos;
+	}
+
+	public void setModificarEvento(ModificarEvento modificarEvento) {
+		this.modificarEvento = modificarEvento;
+	}
+
+	public void setPerfil(Perfil perfil) {
+		this.perfil = perfil;
+	}
+
+	public void setRecuperarContrasena(RecuperarContrasena recuperarContrasena) {
+		this.recuperarContrasena = recuperarContrasena;
+	}
+
+	public void setRegistro(Register registro) {
+		this.registro = registro;
+	}
+
+	public void setUnirseEvento(unirseEvento unirseEvento) {
+		this.unirseEvento = unirseEvento;
+	}
+
+	public void setValoracion(Valoracion valoracion) {
+		this.valoracion = valoracion;
+	}
+
+	public void setVerEvento(verEvento verEvento) {
+		this.verEvento = verEvento;
+	}
+
+	public void setAdministrarEventos(AdministradorEventos AdministrarEventos) {
+		this.AdministrarEventos = AdministrarEventos;
+	}
+
+	public void setAdminsistrarUsuarios(AdministradorUsuarios AdminsistrarUsuarios) {
+		this.AdminsistrarUsuarios = AdminsistrarUsuarios;
+	}
 }
