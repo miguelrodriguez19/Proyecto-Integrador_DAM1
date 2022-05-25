@@ -29,7 +29,7 @@ public class Modelo {
 	private Valoracion valoracion;
 	private verEvento verEvento;
 
-	private String bd = "jardineria";
+	private String bd = "ProyectoIntegrador";
 	private String login = "root";
 	private String pwd = "";
 	private String url = "jdbc:mysql://localhost/" + bd;
