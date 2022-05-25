@@ -43,4 +43,10 @@ public class Controlador {
 			this.pantallas[i] = pantallas[i];
 		}
 	}
+	public void login() {
+		String usr = login.getUsr();
+		String pwd = login.getPwd();
+		miModelo.login(usr,pwd);
+		
+	}
 }

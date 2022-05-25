@@ -193,4 +193,22 @@ public class LogIn extends JFrame {
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
 	}
+	public String getUsr() {
+		return txtMail.getText();
+	}
+
+	public String getPwd() {
+		return String.valueOf(textPwd.getText());
+	}
+
+	public void actualizar() {
+		String resultado = miModelo.getResultado();
+		if (resultado.equals("Correcto")) {
+			miControlador.actualizar(7, 11);;
+		} else if (resultado.equals("Incorrecto")) {
+			
+		} else {
+			System.exit(0);
+		}
+	}
 }
