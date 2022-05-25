@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+
 import java.sql.*;
 
 import javax.swing.JFrame;
@@ -35,6 +36,9 @@ public class Modelo {
 	private String url = "jdbc:mysql://localhost/" + bd;
 	private Connection conexion;
 	private Statement stmt;
+	private String usr;
+	private String resultado;
+	private int fallos;
 
 	public Modelo() {
 		try {
@@ -69,36 +73,45 @@ public class Modelo {
 			this.pantallas[i] = pantallas[i];
 		}
 	}
-	
-	public class Conexion {
-		// Atributos de la clase
-		private String bd = "ProyectoIntegrador";
-		private String login = "";
-		private String pwd = "";
-		private String url = "jdbc:mysql://localhost/" + bd;
-		private Connection conexion;
-		private Statement stmt;
 
-		// Constructor que crea la conexi�n
-		public Conexion() {
-			try {
-				Class.forName("com.mysql.cj.jdbc.Driver");
-				conexion = DriverManager.getConnection(url, login, pwd);
-				stmt = conexion.createStatement();
-				if (conexion != null) {
-					System.out.println("Conexi�n a la bd" + url + ".... ok !!");
-					// conn.close();
-				}
-			} catch (ClassNotFoundException cnfe) {
-				System.out.println("Driver JDBC no encontrado");
-				cnfe.printStackTrace();
-			} catch (SQLException sqle) {
-				System.out.println("Error al conectarse a la BBDD");
-				sqle.printStackTrace();
-			} catch (Exception e) {
-				System.out.println("Error general");
-				e.printStackTrace();
+	public String getResultado() {
+		return this.resultado;
+	}
+
+	// Constructor que crea la conexi�n
+	public void Conexion() {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conexion = DriverManager.getConnection(url, login, pwd);
+			stmt = conexion.createStatement();
+			if (conexion != null) {
+				System.out.println("Conexi�n a la bd" + url + ".... ok !!");
+				// conn.close();
 			}
+		} catch (ClassNotFoundException cnfe) {
+			System.out.println("Driver JDBC no encontrado");
+			cnfe.printStackTrace();
+		} catch (SQLException sqle) {
+			System.out.println("Error al conectarse a la BBDD");
+			sqle.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Error general");
+			e.printStackTrace();
 		}
-}
+	}
+
+	public void login(String usr, String pwd) {
+		if (this.usr.equals(usr) && this.pwd.equals(pwd)) {
+			resultado = "Correcto";
+			fallos = 0;
+		} else {
+			fallos++;
+			if (fallos == 3) {
+				resultado = "Cerrar";
+			} else
+				resultado = "Incorrecto";
+		}
+		loginPantalla.actualizar();
+	}
+
 }
