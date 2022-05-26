@@ -59,8 +59,8 @@ public class LogIn extends JFrame {
 		txtMail.setForeground(Color.GRAY);
 		txtMail.setBounds(28, 95, 275, 48);
 		panel.add(txtMail);
-		String mensajeTxtMail = "Email o Usuario";
-		txtMail.setText(mensajeTxtMail);
+		String mensajeTxtMail = "Usuario";
+		txtMail.setText("Usuario");
 		txtMail.setColumns(10);
 
 		JLabel lblNewLabel = new JLabel("Iniciar Sesi\u00F3n\r\n");
