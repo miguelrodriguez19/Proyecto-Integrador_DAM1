@@ -164,7 +164,7 @@ public class LogIn extends JFrame {
 		
 		lblErrorLogIn = new JLabel("Usuario o contraseña incorrectos");
 		lblErrorLogIn.setForeground(Color.RED);
-		lblErrorLogIn.setBounds(64, 222, 205, 13);
+		lblErrorLogIn.setBounds(64, 280, 205, 13);
 		panel.add(lblErrorLogIn);
 		lblErrorLogIn.setVisible(false);
 		btnIniciarSesion.addActionListener(new ActionListener() {
