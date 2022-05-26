@@ -32,12 +32,35 @@ public class Main {
 		unirseEvento unirseEvento = new unirseEvento();
 		Valoracion valoracion = new Valoracion();
 		verEvento verEvento = new verEvento();
+		AdministradorEventos AdminitradorEventos = new AdministradorEventos();
+		AdministradorUsuarios AdministradorUsuarios = new AdministradorUsuarios();
 
-		JFrame[] pantallas = { cambiarContrasena, crearPerfil, crearEvento, editarPerfil, FAQs, foro, historial, login, misEventos,
-				modificarEvento, perfil, mainPage, recuperarContrasena, recuperarContrasenaV2, registro, unirseEvento,
-				valoracion, verEvento };
+		JFrame[] pantallas = { cambiarContrasena, crearPerfil, crearEvento, editarPerfil, FAQs, foro, historial, login,
+				misEventos, modificarEvento, perfil, mainPage, recuperarContrasena, recuperarContrasenaV2, registro,
+				unirseEvento, valoracion, verEvento, AdminitradorEventos, AdministradorUsuarios };
 
 		miControlador.setMiModelo(miModelo);
+		miModelo.setPantallas(pantallas);
+		miModelo.setCambiarContrasena(cambiarContrasena);
+		miModelo.setCrearEvento(crearEvento);
+		miModelo.setCrearPerfil(crearPerfil);
+		miModelo.setEditarPerfil(editarPerfil);
+		miModelo.setFAQs(FAQs);
+		miModelo.setForo(foro);
+		miModelo.setLogin(login);
+		miModelo.setMisEventos(misEventos);
+		miModelo.setModificarEvento(modificarEvento);
+		miModelo.setPerfil(perfil);
+		miModelo.setRecuperarContrasena(recuperarContrasena);
+		miModelo.setRecuperarContrasenaV2(recuperarContrasenaV2);
+		miModelo.setRegistro(registro);
+		miModelo.setUnirseEvento(unirseEvento);
+		miModelo.setValoracion(valoracion);
+		miModelo.setVerEvento(verEvento);
+		miModelo.setMainPage(mainPage);
+		miModelo.setHistorial(historial);
+		miModelo.setAdministrarEventos(AdminitradorEventos);
+		miModelo.setAdminsistrarUsuarios(AdministradorUsuarios);
 
 		miModelo.setCambiarContrasena(cambiarContrasena);
 		miModelo.setCrearEvento(crearEvento);
@@ -76,6 +99,8 @@ public class Main {
 		historial.setMiControlador(miControlador);
 		verEvento.setMiControlador(miControlador);
 		mainPage.setMiControlador(miControlador);
+		AdministradorUsuarios.setMiControlador(miControlador);
+		AdminitradorEventos.setMiControlador(miControlador);
 
 		cambiarContrasena.setMiModelo(miModelo);
 		crearEvento.setMiModelo(miModelo);
@@ -94,8 +119,10 @@ public class Main {
 		valoracion.setMiModelo(miModelo);
 		verEvento.setMiModelo(miModelo);
 		mainPage.setMiModelo(miModelo);
+		AdminitradorEventos.setMiModelo(miModelo);
+		AdministradorUsuarios.setMiModelo(miModelo);
 		miControlador.setPantallas(pantallas);
-		
+
 		historial.setMiModelo(miModelo);
 		login.setVisible(true);
 	}

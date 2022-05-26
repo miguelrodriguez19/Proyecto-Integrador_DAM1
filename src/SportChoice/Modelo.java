@@ -5,6 +5,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import java.sql.*;
+
+import javax.swing.JFrame;
+
+// NUESTRO
 public class Modelo {
 	private CambiarContrasena cambiarContrasena;
 	private ConfCrearPerfil crearPerfil;
@@ -13,7 +18,7 @@ public class Modelo {
 	private FAQsWindow FAQs;
 	private Foro foro;
 	private HistorialWindow historial;
-	private LogIn login;
+	private LogIn loginPantalla = new LogIn();
 	private MainPage mainPage;
 	private MisEventos misEventos;
 	private ModificarEvento modificarEvento;
@@ -24,90 +29,199 @@ public class Modelo {
 	private unirseEvento unirseEvento;
 	private Valoracion valoracion;
 	private verEvento verEvento;
+
+	private String bd = "ProyectoIntegrador";
+	private String usuariologin = "root";
+	private String pwd = "";
+	private String url = "jdbc:mysql://localhost/" + bd;
+	private Connection conexion;
+	private Statement stmt;
+	private String usr;
+	private String pwdBBDD;
+	private String resultado;
+	private int fallos;
+	private AdministradorEventos AdministrarEventos;
+	private AdministradorUsuarios AdminsistrarUsuarios;
+	private JFrame[] pantallas = { /* 0 */cambiarContrasena, /* 1 */crearPerfil, /* 2 */crearEvento,
+			/* 3 */editarPerfil, /* 4 */FAQs, /* 5 */foro, /* 6 */historial, /* 7 */loginPantalla, /* 8 */misEventos,
+			/* 9 */modificarEvento, /* 10 */perfil, /* 11 */mainPage, /* 12 */recuperarContrasena,
+			/* 13 */recuperarContrasenaV2, /* 14 */registro, /* 15 */unirseEvento, /* 16 */valoracion,
+			/* 17 */verEvento, AdministrarEventos, AdminsistrarUsuarios };
+	private LogIn login;
+
+	public Modelo() {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conexion = DriverManager.getConnection(url, usuariologin, pwd);
+			stmt = conexion.createStatement();
+
+			if (conexion != null) {
+				// System.out.println("Conexi√≥n a la BBDD: " + url + " <-- ok!! -->");
+				// conn.close();
+			}
+		} catch (ClassNotFoundException cnfe) {
+			System.out.println("Driver JDBC no encontrado");
+			cnfe.printStackTrace();
+		} catch (SQLException sqle) {
+			System.out.println("Error al conectarse a la BBDD");
+			sqle.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Error general");
+			e.printStackTrace();
+		}
+	}
+
 	public void setCambiarContrasena(CambiarContrasena cambiarContrasena) {
 		this.cambiarContrasena = cambiarContrasena;
 	}
+
+
+	public void setPantallas(JFrame[] pantallas) {
+		for (int i = 0; i < pantallas.length; i++) {
+			this.pantallas[i] = pantallas[i];
+		}
+	}
+
 	public void setRecuperarContrasenaV2(ConfirmarMail recuperarContrasenaV2) {
 		this.recuperarContrasenaV2 = recuperarContrasenaV2;
 	}
+
 	public void setMainPage(MainPage mainPage) {
 		this.mainPage = mainPage;
 	}
+
 	public void setCrearPerfil(ConfCrearPerfil crearPerfil) {
 		this.crearPerfil = crearPerfil;
 	}
+
 	public void setCrearEvento(crearEvento crearEvento) {
 		this.crearEvento = crearEvento;
 	}
+
 	public void setEditarPerfil(editarPerfil editarPerfil) {
 		this.editarPerfil = editarPerfil;
 	}
+
 	public void setFAQs(FAQsWindow fAQs) {
 		FAQs = fAQs;
 	}
+
 	public void setForo(Foro foro) {
 		this.foro = foro;
 	}
+
 	public void setHistorial(HistorialWindow historial) {
 		this.historial = historial;
 	}
+
 	public void setLogin(LogIn login) {
-		this.login = login;
+		this.loginPantalla = login;
 	}
+
 	public void setMisEventos(MisEventos misEventos) {
 		this.misEventos = misEventos;
 	}
+
 	public void setModificarEvento(ModificarEvento modificarEvento) {
 		this.modificarEvento = modificarEvento;
 	}
+
 	public void setPerfil(Perfil perfil) {
 		this.perfil = perfil;
 	}
+
 	public void setRecuperarContrasena(RecuperarContrasena recuperarContrasena) {
 		this.recuperarContrasena = recuperarContrasena;
 	}
+
 	public void setRegistro(Register registro) {
 		this.registro = registro;
 	}
+
 	public void setUnirseEvento(unirseEvento unirseEvento) {
 		this.unirseEvento = unirseEvento;
 	}
+
 	public void setValoracion(Valoracion valoracion) {
 		this.valoracion = valoracion;
 	}
+
 	public void setVerEvento(verEvento verEvento) {
 		this.verEvento = verEvento;
 	}
-	
-	public class Conexion {
-		// Atributos de la clase
-		private String bd = "ProyectoIntegrador";
-		private String login = "";
-		private String pwd = "";
-		private String url = "jdbc:mysql://localhost/" + bd;
-		private Connection conexion;
-		private Statement stmt;
 
-		// Constructor que crea la conexiÛn
-		public Conexion() {
-			try {
-				Class.forName("com.mysql.cj.jdbc.Driver");
-				conexion = DriverManager.getConnection(url, login, pwd);
-				stmt = conexion.createStatement();
-				if (conexion != null) {
-					System.out.println("ConexiÛn a la bd" + url + ".... ok !!");
-					// conn.close();
-				}
-			} catch (ClassNotFoundException cnfe) {
-				System.out.println("Driver JDBC no encontrado");
-				cnfe.printStackTrace();
-			} catch (SQLException sqle) {
-				System.out.println("Error al conectarse a la BBDD");
-				sqle.printStackTrace();
-			} catch (Exception e) {
-				System.out.println("Error general");
-				e.printStackTrace();
+	public String getResultado() {
+		return this.resultado;
+	}
+
+
+	// Constructor que crea la conexiÔøΩn
+	public void Conexion() {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conexion = DriverManager.getConnection(url, usuariologin, pwd);
+			stmt = conexion.createStatement();
+			if (conexion != null) {
+				System.out.println("ConexiÔøΩn a la bd" + url + ".... ok !!");
+				// conn.close();
 			}
+		} catch (ClassNotFoundException cnfe) {
+			System.out.println("Driver JDBC no encontrado");
+			cnfe.printStackTrace();
+		} catch (SQLException sqle) {
+			System.out.println("Error al conectarse a la BBDD");
+			sqle.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Error general");
+			e.printStackTrace();
 		}
-}
+	}
+
+	public void login(String usr, String pwd) {
+		String rol;
+		this.usr = consulta("select * from users where usr=?", usr, "usr");
+		this.pwdBBDD = consulta("select * from users where usr=?", usr, "pwd");
+		System.out.println("Locales: " + usr + " - " + pwd);
+		System.out.println("Atributos: " + this.usr + " - " + this.pwdBBDD);
+		rol = consulta("select * from users where usr=?", usr, "rol");
+		if (this.usr.equals(usr) && this.pwdBBDD.equals(pwd)) {
+			resultado = "Correcto";
+			fallos = 0;
+		} else {
+			fallos++;
+			if (fallos == 3) {
+				resultado = "Cerrar";
+			} else
+				resultado = "Incorrecto";
+		}
+		loginPantalla.update(rol);
+	}
+
+	public String consulta(String query, String cod, String nombreColumna) {
+		String ej = "";
+		try {
+			PreparedStatement pstmt = conexion.prepareStatement(query);
+			pstmt.setString(1, cod);
+			ResultSet rset = pstmt.executeQuery();
+
+			while (rset.next()) {
+				ej = rset.getString(nombreColumna);
+				System.out.println("patata");
+				System.out.println(ej);
+			}
+			rset.close();
+			pstmt.close();
+		} catch (SQLException s) {
+			s.printStackTrace();
+		}
+		return ej;
+	}
+
+	public void setAdministrarEventos(AdministradorEventos AdministrarEventos) {
+		this.AdministrarEventos = AdministrarEventos;
+	}
+
+	public void setAdminsistrarUsuarios(AdministradorUsuarios AdminsistrarUsuarios) {
+		this.AdminsistrarUsuarios = AdminsistrarUsuarios;
+	}
 }

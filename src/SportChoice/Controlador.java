@@ -24,10 +24,18 @@ public class Controlador {
 	private unirseEvento unirseEvento;
 	private Valoracion valoracion;
 	private verEvento verEvento;
+	private AdministradorEventos AdministrarEventos;
+	private AdministradorUsuarios AdministrarUsuarios;
 
-	private JFrame[] pantallas = { /*0*/cambiarContrasena, /*1*/crearPerfil, /*2*/crearEvento, /*3*/editarPerfil, /*4*/FAQs, /*5*/foro, /*6*/historial, /*7*/login,
-			/*8*/misEventos, /*9*/modificarEvento, /*10*/perfil, /*11*/mainPage, /*12*/recuperarContrasena, /*13*/recuperarContrasenaV2, /*14*/registro,
-			/*15*/unirseEvento, /*16*/valoracion, /*17*/verEvento };
+	private JFrame[] pantallas = { /* 0 */cambiarContrasena, /* 1 */crearPerfil, /* 2 */crearEvento,
+			/* 3 */editarPerfil, /* 4 */FAQs, /* 5 */foro, /* 6 */historial, /* 7 */login, /* 8 */misEventos,
+			/* 9 */modificarEvento, /* 10 */perfil, /* 11 */mainPage, /* 12 */recuperarContrasena,
+			/* 13 */recuperarContrasenaV2, /* 14 */registro, /* 15 */unirseEvento, /* 16 */valoracion,
+			/* 17 */verEvento, /* 18 */ AdministrarEventos, /* 19 */ AdministrarUsuarios };
+	
+//	= { /*0*/cambiarContrasena, /*1*/crearPerfil, /*2*/crearEvento, /*3*/editarPerfil, /*4*/FAQs, /*5*/foro, /*6*/historial, /*7*/login,
+//			/*8*/misEventos, /*9*/modificarEvento, /*10*/perfil, /*11*/mainPage, /*12*/recuperarContrasena, /*13*/recuperarContrasenaV2, /*14*/registro,
+//			/*15*/unirseEvento, /*16*/valoracion, /*17*/verEvento };
 
 	public void actualizar(int pantallaAnterior, int pantallaNueva) {
 		pantallas[pantallaAnterior].setVisible(false);
@@ -39,8 +47,13 @@ public class Controlador {
 	}
 
 	public void setPantallas(JFrame[] pantallas) {
-		for (int i = 0; i < pantallas.length; i++) {
-			this.pantallas[i] = pantallas[i];
-		}
+		this.pantallas = pantallas;
+
+	}
+	public void login(String Usr, String Pwd) {
+		String usr = Usr;
+		String pwd = Pwd;
+		miModelo.login(usr,pwd);
+		
 	}
 }
