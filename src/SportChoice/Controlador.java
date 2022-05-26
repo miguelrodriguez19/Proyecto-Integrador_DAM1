@@ -32,7 +32,7 @@ public class Controlador {
 			/* 9 */modificarEvento, /* 10 */perfil, /* 11 */mainPage, /* 12 */recuperarContrasena,
 			/* 13 */recuperarContrasenaV2, /* 14 */registro, /* 15 */unirseEvento, /* 16 */valoracion,
 			/* 17 */verEvento, /* 18 */ AdministrarEventos, /* 19 */ AdministrarUsuarios };
-	
+
 //	= { /*0*/cambiarContrasena, /*1*/crearPerfil, /*2*/crearEvento, /*3*/editarPerfil, /*4*/FAQs, /*5*/foro, /*6*/historial, /*7*/login,
 //			/*8*/misEventos, /*9*/modificarEvento, /*10*/perfil, /*11*/mainPage, /*12*/recuperarContrasena, /*13*/recuperarContrasenaV2, /*14*/registro,
 //			/*15*/unirseEvento, /*16*/valoracion, /*17*/verEvento };
@@ -50,10 +50,14 @@ public class Controlador {
 		this.pantallas = pantallas;
 
 	}
-	public void login(String Usr, String Pwd) {
+
+	public boolean login(String Usr, String Pwd) {
 		String usr = Usr;
 		String pwd = Pwd;
-		miModelo.login(usr,pwd);
-		
+		if (miModelo.login(usr, pwd))
+			return true;
+		else
+			return false;
+
 	}
 }

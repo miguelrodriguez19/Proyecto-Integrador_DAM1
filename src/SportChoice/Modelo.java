@@ -177,7 +177,7 @@ public class Modelo {
 		}
 	}
 
-	public void login(String usr, String pwd) {
+	public boolean login(String usr, String pwd) {
 		String rol;
 		this.usr = consulta("select * from users where usr=?", usr, "usr");
 		this.pwdBBDD = consulta("select * from users where usr=?", usr, "pwd");
@@ -195,6 +195,11 @@ public class Modelo {
 				resultado = "Incorrecto";
 		}
 		loginPantalla.update(rol);
+		if (resultado.equals("Cerrar") || resultado.equals("Incorrecto"))
+			return false;
+		else
+			return true;
+		
 	}
 
 	public String consulta(String query, String cod, String nombreColumna) {
