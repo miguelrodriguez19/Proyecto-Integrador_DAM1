@@ -1,6 +1,7 @@
 package SportChoice;
 
 import java.awt.Container;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -66,6 +67,7 @@ public class AdministradorEventos extends JFrame {
 		panel.add(btnEventos);
 
 		btnUsuarios = new JButton("Usuarios");
+		btnUsuarios.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnUsuarios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(18, 19);
@@ -107,6 +109,7 @@ public class AdministradorEventos extends JFrame {
 			}
 		});
 		btnBorrar = new JButton("Borrar");
+		btnBorrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnBorrar.setEnabled(false);
 		btnBorrar.setForeground(Color.WHITE);
 		btnBorrar.setBorder(null);
@@ -120,6 +123,7 @@ public class AdministradorEventos extends JFrame {
 		panel.add(lblNewLabel);
 
 		btnlogOut = new JButton("LogOut");
+		btnlogOut.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnlogOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(18, 7);

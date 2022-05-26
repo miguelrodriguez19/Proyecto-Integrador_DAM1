@@ -1,6 +1,7 @@
 package SportChoice;
 
 import java.awt.Container;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -53,6 +54,7 @@ public class AdministradorUsuarios extends JFrame {
 		panel.setLayout(null);
 
 		btnEventos = new JButton("Eventos");
+		btnEventos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEventos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(19, 18);
@@ -66,6 +68,7 @@ public class AdministradorUsuarios extends JFrame {
 		panel.add(btnEventos);
 
 		btnUsuarios = new JButton("Usuarios");
+		btnUsuarios.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnUsuarios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(19, 18);
@@ -107,6 +110,7 @@ public class AdministradorUsuarios extends JFrame {
 		table.getColumnModel().getColumn(3).setPreferredWidth(143);
 		table.getColumnModel().getColumn(4).setPreferredWidth(39);
 		btnNewButton = new JButton("Banear");
+		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton.setEnabled(false);
 		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setBorder(null);
@@ -126,6 +130,7 @@ public class AdministradorUsuarios extends JFrame {
 			}
 		});
 		btnNewButton_1.setForeground(Color.WHITE);
+		btnNewButton_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_1.setBorder(null);
 		btnNewButton_1.setBackground(new Color(156, 163, 219));
 		btnNewButton_1.setBounds(701, 28, 109, 30);
