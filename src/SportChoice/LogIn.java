@@ -29,8 +29,8 @@ public class LogIn extends JFrame {
 	private JPasswordField txtPwd;
 	private JPanel panel;
 	private JSeparator separator;
-	private JButton btnRecuperarContrasena, btnIniciarSesion;
-	private JLabel lblErrorLogIn;
+	private JLabel lblContraseñaPlaceHolder, lblnoTienesCuenta, lblErrorLogIn, lblNewLabel_1,lblNewLabel;
+	private JButton btnRegistro, btnIniciarSesion, btnRecuperarContrasena, btnAccederInvitado;
 
 	public static void LogIn() {
 		LogIn window = new LogIn();
@@ -44,8 +44,6 @@ public class LogIn extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Sport Choice - Inicio de sesion");
 		container.setLayout(null);
-
-		ButtonGroup group = new ButtonGroup();
 
 		panel = new JPanel();
 		panel.setBackground(new Color(57, 62, 70));
@@ -66,11 +64,11 @@ public class LogIn extends JFrame {
 		txtMail.setText("Usuario");
 		txtMail.setColumns(10);
 
-		JLabel lblNewLabel = new JLabel("Iniciar Sesi\u00F3n\r\n");
-		lblNewLabel.setBounds(28, 0, 275, 98);
-		panel.add(lblNewLabel);
-		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 46));
+		lblNewLabel_1 = new JLabel("Iniciar Sesi\u00F3n\r\n");
+		lblNewLabel_1.setBounds(28, 0, 275, 98);
+		panel.add(lblNewLabel_1);
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1.setFont(new Font("Trebuchet MS", Font.PLAIN, 46));
 
 		btnRecuperarContrasena = new JButton("Recuperar Contrase\u00F1a\r\n");
 		btnRecuperarContrasena.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -90,7 +88,7 @@ public class LogIn extends JFrame {
 		btnIniciarSesion.setBounds(28, 235, 275, 42);
 		panel.add(btnIniciarSesion);
 
-		JButton btnRegistro = new JButton("R\u0332e\u0332g\u0332i\u0332s\u0332t\u0332r\u0332o\u0332");
+		btnRegistro = new JButton("R\u0332e\u0332g\u0332i\u0332s\u0332t\u0332r\u0332o\u0332");
 		btnRegistro.setSelected(true);
 		btnRegistro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -105,19 +103,22 @@ public class LogIn extends JFrame {
 		btnRegistro.setBounds(181, 371, 88, 26);
 		panel.add(btnRegistro);
 
-		JLabel lblnoTienesCuenta = new JLabel("\u00BFNo tienes cuenta?\r\n");
+		lblnoTienesCuenta = new JLabel("\u00BFNo tienes cuenta?\r\n");
 		lblnoTienesCuenta.setHorizontalAlignment(SwingConstants.CENTER);
 		lblnoTienesCuenta.setVerticalAlignment(SwingConstants.TOP);
 		lblnoTienesCuenta.setForeground(Color.WHITE);
 		lblnoTienesCuenta.setFont(new Font("Trebuchet MS", Font.PLAIN, 16));
 		lblnoTienesCuenta.setBounds(10, 376, 205, 26);
 		panel.add(lblnoTienesCuenta);
+		
+		lblContraseñaPlaceHolder = new JLabel("Contraseña");
+		lblContraseñaPlaceHolder.setBounds(28, 163, 275, 49);
+		panel.add(lblContraseñaPlaceHolder);
+		lblContraseñaPlaceHolder.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		lblContraseñaPlaceHolder.setForeground(Color.GRAY);
 
-		txtPwd = new JPasswordField();
-		txtPwd.setEchoChar(' ');
+		txtPwd = new JPasswordField("");
 		txtPwd.setForeground(Color.GRAY);
-		String mensajeTextField = "Contraseña";
-		txtPwd.setText("Contrase\u00F1a");
 		txtPwd.setColumns(10);
 		txtPwd.setBounds(28, 164, 275, 48);
 		panel.add(txtPwd);
@@ -140,26 +141,24 @@ public class LogIn extends JFrame {
 		txtPwd.addFocusListener(new FocusListener() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				if (String.valueOf(txtPwd.getPassword()).equals(mensajeTextField))
-					txtPwd.setText("");
+				if (String.valueOf(txtPwd.getPassword()).equals(""))
+					lblContraseñaPlaceHolder.setVisible(false);
 				txtPwd.setForeground(Color.BLACK);
 			}
 
 			@Override
 			public void focusLost(FocusEvent e) {
 				if (String.valueOf(txtPwd.getPassword()).equals("")) {
-					txtPwd.setText(mensajeTextField);
-					txtPwd.setForeground(Color.GRAY);
+					lblContraseñaPlaceHolder.setVisible(true);
 				}
 			}
 		});
 		panel.add(txtPwd);
 		txtMail.setText(mensajeTxtMail);
-		txtPwd.setText(mensajeTextField);
 		txtMail.setForeground(Color.GRAY);
 		txtPwd.setForeground(Color.GRAY);
 
-		JButton btnAccederInvitado = new JButton("Acceder como invitado");
+		btnAccederInvitado = new JButton("Acceder como invitado");
 		btnAccederInvitado.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAccederInvitado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -176,7 +175,7 @@ public class LogIn extends JFrame {
 
 		lblErrorLogIn = new JLabel("Usuario o contraseña incorrectos");
 		lblErrorLogIn.setForeground(Color.RED);
-		lblErrorLogIn.setBounds(64, 280, 205, 13);
+		lblErrorLogIn.setBounds(69, 280, 205, 13);
 		panel.add(lblErrorLogIn);
 		lblErrorLogIn.setVisible(false);
 		btnIniciarSesion.addActionListener(new ActionListener() {
