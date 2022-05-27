@@ -32,55 +32,19 @@ public class Main {
 		unirseEvento unirseEvento = new unirseEvento();
 		Valoracion valoracion = new Valoracion();
 		verEvento verEvento = new verEvento();
-		AdministradorEventos AdminitradorEventos = new AdministradorEventos();
+		AdministradorEventos AdministradorEventos = new AdministradorEventos();
 		AdministradorUsuarios AdministradorUsuarios = new AdministradorUsuarios();
 
-		JFrame[] pantallas = { cambiarContrasena, crearPerfil, crearEvento, editarPerfil, FAQs, foro, historial, login,
-				misEventos, modificarEvento, perfil, mainPage, recuperarContrasena, recuperarContrasenaV2, registro,
-				unirseEvento, valoracion, verEvento, AdminitradorEventos, AdministradorUsuarios };
+		JFrame[] pantallas = { /* 0 */cambiarContrasena, /* 1 */crearPerfil, /* 2 */crearEvento,
+				/* 3 */editarPerfil, /* 4 */FAQs, /* 5 */foro, /* 6 */historial, /* 7 */login, /* 8 */misEventos,
+				/* 9 */modificarEvento, /* 10 */perfil, /* 11 */mainPage, /* 12 */recuperarContrasena,
+				/* 13 */recuperarContrasenaV2, /* 14 */registro, /* 15 */unirseEvento, /* 16 */valoracion,
+				/* 17 */verEvento, /* 18 */ AdministradorEventos, /* 19 */ AdministradorUsuarios };
 
 		miControlador.setMiModelo(miModelo);
 		miModelo.setPantallas(pantallas);
-		miModelo.setCambiarContrasena(cambiarContrasena);
-		miModelo.setCrearEvento(crearEvento);
-		miModelo.setCrearPerfil(crearPerfil);
-		miModelo.setEditarPerfil(editarPerfil);
-		miModelo.setFAQs(FAQs);
-		miModelo.setForo(foro);
-		miModelo.setLogin(login);
-		miModelo.setMisEventos(misEventos);
-		miModelo.setModificarEvento(modificarEvento);
-		miModelo.setPerfil(perfil);
-		miModelo.setRecuperarContrasena(recuperarContrasena);
-		miModelo.setRecuperarContrasenaV2(recuperarContrasenaV2);
-		miModelo.setRegistro(registro);
-		miModelo.setUnirseEvento(unirseEvento);
-		miModelo.setValoracion(valoracion);
-		miModelo.setVerEvento(verEvento);
-		miModelo.setMainPage(mainPage);
-		miModelo.setHistorial(historial);
-		miModelo.setAdministrarEventos(AdminitradorEventos);
-		miModelo.setAdminsistrarUsuarios(AdministradorUsuarios);
-
-		miModelo.setCambiarContrasena(cambiarContrasena);
-		miModelo.setCrearEvento(crearEvento);
-		miModelo.setCrearPerfil(crearPerfil);
-		miModelo.setEditarPerfil(editarPerfil);
-		miModelo.setFAQs(FAQs);
-		miModelo.setForo(foro);
-		miModelo.setLogin(login);
-		miModelo.setMisEventos(misEventos);
-		miModelo.setModificarEvento(modificarEvento);
-		miModelo.setPerfil(perfil);
-		miModelo.setRecuperarContrasena(recuperarContrasena);
-		miModelo.setRecuperarContrasenaV2(recuperarContrasenaV2);
-		miModelo.setRegistro(registro);
-		miModelo.setUnirseEvento(unirseEvento);
-		miModelo.setValoracion(valoracion);
-		miModelo.setVerEvento(verEvento);
-		miModelo.setMainPage(mainPage);
-		miModelo.setHistorial(historial);
-
+		miControlador.setPantallas(pantallas);
+		
 		cambiarContrasena.setMiControlador(miControlador);
 		crearEvento.setMiControlador(miControlador);
 		crearPerfil.setMiControlador(miControlador);
@@ -100,7 +64,7 @@ public class Main {
 		verEvento.setMiControlador(miControlador);
 		mainPage.setMiControlador(miControlador);
 		AdministradorUsuarios.setMiControlador(miControlador);
-		AdminitradorEventos.setMiControlador(miControlador);
+		AdministradorEventos.setMiControlador(miControlador);
 
 		cambiarContrasena.setMiModelo(miModelo);
 		crearEvento.setMiModelo(miModelo);
@@ -119,7 +83,7 @@ public class Main {
 		valoracion.setMiModelo(miModelo);
 		verEvento.setMiModelo(miModelo);
 		mainPage.setMiModelo(miModelo);
-		AdminitradorEventos.setMiModelo(miModelo);
+		AdministradorEventos.setMiModelo(miModelo);
 		AdministradorUsuarios.setMiModelo(miModelo);
 		miControlador.setPantallas(pantallas);
 

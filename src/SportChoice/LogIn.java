@@ -17,6 +17,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -24,7 +25,8 @@ import javax.swing.SwingConstants;
 public class LogIn extends JFrame {
 	private Controlador miControlador;
 	private Modelo miModelo;
-	private JTextField txtMail, txtPwd;
+	private JTextField txtMail;
+	private JPasswordField txtPwd;
 	private JPanel panel;
 	private JSeparator separator;
 	private JButton btnRecuperarContrasena, btnIniciarSesion;
@@ -111,7 +113,8 @@ public class LogIn extends JFrame {
 		lblnoTienesCuenta.setBounds(10, 376, 205, 26);
 		panel.add(lblnoTienesCuenta);
 
-		txtPwd = new JTextField();
+		txtPwd = new JPasswordField();
+		txtPwd.setEchoChar(' ');
 		txtPwd.setForeground(Color.GRAY);
 		String mensajeTextField = "Contraseña";
 		txtPwd.setText("Contrase\u00F1a");
@@ -137,14 +140,14 @@ public class LogIn extends JFrame {
 		txtPwd.addFocusListener(new FocusListener() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				if (txtPwd.getText().equals(mensajeTextField))
+				if (String.valueOf(txtPwd.getPassword()).equals(mensajeTextField))
 					txtPwd.setText("");
 				txtPwd.setForeground(Color.BLACK);
 			}
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				if (txtPwd.getText().equals("")) {
+				if (String.valueOf(txtPwd.getPassword()).equals("")) {
 					txtPwd.setText(mensajeTextField);
 					txtPwd.setForeground(Color.GRAY);
 				}
@@ -178,10 +181,7 @@ public class LogIn extends JFrame {
 		lblErrorLogIn.setVisible(false);
 		btnIniciarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (miControlador.login(txtMail.getText(), txtPwd.getText()))
-					lblErrorLogIn.setVisible(false);
-				else
-					lblErrorLogIn.setVisible(true);
+				miControlador.login();
 			}
 		});
 		btnRecuperarContrasena.addActionListener(new ActionListener() {
@@ -211,7 +211,7 @@ public class LogIn extends JFrame {
 	}
 
 	public String getPwd() {
-		return String.valueOf(txtPwd.getText());
+		return String.valueOf(txtPwd.getPassword());
 	}
 
 	public void update(String rol) {
@@ -220,10 +220,14 @@ public class LogIn extends JFrame {
 		if (resultado.equals("Correcto")) {
 			if (rol.equals("admin")) {
 				miControlador.actualizar(7, 18);
-			} else
+				lblErrorLogIn.setVisible(false);
+			} else {
 				miControlador.actualizar(7, 11);
+				lblErrorLogIn.setVisible(false);
+			}
 		} else if (resultado.equals("Incorrecto")) {
 			// desplegable de error
+			lblErrorLogIn.setVisible(true);
 		} else {
 			System.exit(0);
 		}

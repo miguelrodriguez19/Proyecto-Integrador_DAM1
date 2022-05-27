@@ -9,27 +9,7 @@ import java.sql.*;
 
 import javax.swing.JFrame;
 
-// NUESTRO
 public class Modelo {
-	private CambiarContrasena cambiarContrasena;
-	private ConfCrearPerfil crearPerfil;
-	private crearEvento crearEvento;
-	private editarPerfil editarPerfil;
-	private FAQsWindow FAQs;
-	private Foro foro;
-	private HistorialWindow historial;
-	private LogIn loginPantalla = new LogIn();
-	private MainPage mainPage;
-	private MisEventos misEventos;
-	private ModificarEvento modificarEvento;
-	private Perfil perfil;
-	private RecuperarContrasena recuperarContrasena;
-	private ConfirmarMail recuperarContrasenaV2;
-	private Register registro;
-	private unirseEvento unirseEvento;
-	private Valoracion valoracion;
-	private verEvento verEvento;
-
 	private String bd = "ProyectoIntegrador";
 	private String usuariologin = "root";
 	private String pwd = "";
@@ -40,14 +20,7 @@ public class Modelo {
 	private String pwdBBDD;
 	private String resultado;
 	private int fallos;
-	private AdministradorEventos AdministrarEventos;
-	private AdministradorUsuarios AdminsistrarUsuarios;
-	private JFrame[] pantallas = { /* 0 */cambiarContrasena, /* 1 */crearPerfil, /* 2 */crearEvento,
-			/* 3 */editarPerfil, /* 4 */FAQs, /* 5 */foro, /* 6 */historial, /* 7 */loginPantalla, /* 8 */misEventos,
-			/* 9 */modificarEvento, /* 10 */perfil, /* 11 */mainPage, /* 12 */recuperarContrasena,
-			/* 13 */recuperarContrasenaV2, /* 14 */registro, /* 15 */unirseEvento, /* 16 */valoracion,
-			/* 17 */verEvento, AdministrarEventos, AdminsistrarUsuarios };
-	private LogIn login;
+	private JFrame[] pantallas;
 
 	public Modelo() {
 		try {
@@ -71,89 +44,9 @@ public class Modelo {
 		}
 	}
 
-	public void setCambiarContrasena(CambiarContrasena cambiarContrasena) {
-		this.cambiarContrasena = cambiarContrasena;
-	}
-
-
 	public void setPantallas(JFrame[] pantallas) {
-		for (int i = 0; i < pantallas.length; i++) {
-			this.pantallas[i] = pantallas[i];
-		}
+		this.pantallas = pantallas;
 	}
-
-	public void setRecuperarContrasenaV2(ConfirmarMail recuperarContrasenaV2) {
-		this.recuperarContrasenaV2 = recuperarContrasenaV2;
-	}
-
-	public void setMainPage(MainPage mainPage) {
-		this.mainPage = mainPage;
-	}
-
-	public void setCrearPerfil(ConfCrearPerfil crearPerfil) {
-		this.crearPerfil = crearPerfil;
-	}
-
-	public void setCrearEvento(crearEvento crearEvento) {
-		this.crearEvento = crearEvento;
-	}
-
-	public void setEditarPerfil(editarPerfil editarPerfil) {
-		this.editarPerfil = editarPerfil;
-	}
-
-	public void setFAQs(FAQsWindow fAQs) {
-		FAQs = fAQs;
-	}
-
-	public void setForo(Foro foro) {
-		this.foro = foro;
-	}
-
-	public void setHistorial(HistorialWindow historial) {
-		this.historial = historial;
-	}
-
-	public void setLogin(LogIn login) {
-		this.loginPantalla = login;
-	}
-
-	public void setMisEventos(MisEventos misEventos) {
-		this.misEventos = misEventos;
-	}
-
-	public void setModificarEvento(ModificarEvento modificarEvento) {
-		this.modificarEvento = modificarEvento;
-	}
-
-	public void setPerfil(Perfil perfil) {
-		this.perfil = perfil;
-	}
-
-	public void setRecuperarContrasena(RecuperarContrasena recuperarContrasena) {
-		this.recuperarContrasena = recuperarContrasena;
-	}
-
-	public void setRegistro(Register registro) {
-		this.registro = registro;
-	}
-
-	public void setUnirseEvento(unirseEvento unirseEvento) {
-		this.unirseEvento = unirseEvento;
-	}
-
-	public void setValoracion(Valoracion valoracion) {
-		this.valoracion = valoracion;
-	}
-
-	public void setVerEvento(verEvento verEvento) {
-		this.verEvento = verEvento;
-	}
-
-	public String getResultado() {
-		return this.resultado;
-	}
-
 
 	// Constructor que crea la conexi�n
 	public void Conexion() {
@@ -177,7 +70,7 @@ public class Modelo {
 		}
 	}
 
-	public boolean login(String usr, String pwd) {
+	public void login(String usr, String pwd) {
 		String rol;
 		this.usr = consulta("select * from users where usr=?", usr, "usr");
 		this.pwdBBDD = consulta("select * from users where usr=?", usr, "pwd");
@@ -194,12 +87,11 @@ public class Modelo {
 			} else
 				resultado = "Incorrecto";
 		}
-		loginPantalla.update(rol);
-		if (resultado.equals("Cerrar") || resultado.equals("Incorrecto"))
-			return false;
-		else
-			return true;
-		
+		((LogIn) pantallas[7]).update(rol);
+	}
+
+	public String getResultado() {
+		return this.resultado;
 	}
 
 	public String consulta(String query, String cod, String nombreColumna) {
@@ -208,25 +100,13 @@ public class Modelo {
 			PreparedStatement pstmt = conexion.prepareStatement(query);
 			pstmt.setString(1, cod);
 			ResultSet rset = pstmt.executeQuery();
-
-			while (rset.next()) {
+			if (rset.next())
 				ej = rset.getString(nombreColumna);
-				System.out.println("patata");
-				System.out.println(ej);
-			}
 			rset.close();
 			pstmt.close();
 		} catch (SQLException s) {
 			s.printStackTrace();
 		}
 		return ej;
-	}
-
-	public void setAdministrarEventos(AdministradorEventos AdministrarEventos) {
-		this.AdministrarEventos = AdministrarEventos;
-	}
-
-	public void setAdminsistrarUsuarios(AdministradorUsuarios AdminsistrarUsuarios) {
-		this.AdminsistrarUsuarios = AdminsistrarUsuarios;
 	}
 }
