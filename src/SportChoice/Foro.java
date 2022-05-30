@@ -79,16 +79,20 @@ public class Foro extends JFrame {
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		table.setRowHeight(50);
-		table.setModel(
-				new DefaultTableModel(new Object[][] { { "@Dogue_Drake", "Hola,yo llevo el balon", "18-05-2022" },
+		table.setModel(new DefaultTableModel(
+				new Object[][] { { "@Dogue_Drake", "Hola,yo llevo el balon", "18-05-2022ljohubdfkuhgshgdk" },
 						{ "@Juanito99", "Genial gracias!", "18-05-2022" },
 						{ "@Pedro_ppr", "El tema de las equipaciones?", "18-05-2022" },
-						{ "@Maria889", "Llevamos", null }, { null, null, null }, { null, null, null },
-						{ null, null, null }, }, new String[] { "Nombre", "Mensaje", "Fecha" }));
+						{ "@Maria889", "Llevamos camisetas azules y blancas", "18-05-2022" },
+						{ "@Maria889", "Llevamos camisetas azules y blancas", "18-05-2022" },
+						{ "@Maria889", "Llevamos camisetas azules y blancas", "18-05-2022" },
+						{ "@Maria889", "Llevamos camisetas azules y blancas", "18-05-2022" }, },
+				new String[] { "Nombre", "Mensaje", "Fecha" }));
 		table.getColumnModel().getColumn(0).setPreferredWidth(78);
 		table.getColumnModel().getColumn(0).setMinWidth(78);
 		table.getColumnModel().getColumn(1).setPreferredWidth(204);
 		table.getColumnModel().getColumn(1).setMinWidth(59);
+		table.getColumnModel().getColumn(2).setPreferredWidth(20);
 	}
 
 	public void setMiControlador(Controlador miControlador) {
