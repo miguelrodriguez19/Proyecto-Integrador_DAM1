@@ -212,7 +212,7 @@ public class MainPage extends JFrame {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent e) {
-				miModelo.cargarTabla2(miModelo);
+				miModelo.cargarTabla2();
 				table.setModel(miModelo.getTabla());
 			}
 		});
