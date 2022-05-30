@@ -1,13 +1,9 @@
 package SportChoice;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 import java.sql.*;
 
 import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
 
 // NUESTRO
 public class Modelo {
@@ -40,6 +36,9 @@ public class Modelo {
 	private String pwdBBDD;
 	private String resultado;
 	private int fallos;
+	
+	private String sqlTabla2="Select * from Eventos";
+	private DefaultTableModel miTabla;
 
 	public Modelo() {
 		try {
@@ -61,6 +60,7 @@ public class Modelo {
 			System.out.println("Error general");
 			e.printStackTrace();
 		}
+		cargarTabla2();
 	}
 
 	public void setCambiarContrasena(CambiarContrasena cambiarContrasena) {
@@ -177,6 +177,58 @@ public class Modelo {
 			s.printStackTrace();
 		}
 		return ej;
+	}
+	private void cargarTabla2() {
+		miTabla = new DefaultTableModel();
+		int numColumnas = getNumColumnas(sqlTabla2);
+		Object[] contenido = new Object[numColumnas];
+		PreparedStatement pstmt;
+		try {
+			pstmt = conexion.prepareStatement(sqlTabla2);
+			ResultSet rset = pstmt.executeQuery();
+			ResultSetMetaData rsmd = rset.getMetaData();
+			for (int i = 0; i < numColumnas; i++) {
+				miTabla.addColumn(rsmd.getColumnName(i+1));
+			}
+			while (rset.next()) {
+				for (int col = 1; col <= numColumnas; col++) {
+					contenido[col - 1] = rset.getString(col);
+				}
+				miTabla.addRow(contenido);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	private int getNumColumnas(String sql) {
+		int num = 0;
+		try {
+			PreparedStatement pstmt = conexion.prepareStatement(sql);
+			ResultSet rset = pstmt.executeQuery();
+			ResultSetMetaData rsmd = rset.getMetaData();
+			num = rsmd.getColumnCount();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return num;
+	}
+
+	private int getNumFilas(String sql) {
+		int numFilas = 0;
+		try {
+			PreparedStatement pstmt = conexion.prepareStatement(sql);
+			ResultSet rset = pstmt.executeQuery();
+			while (rset.next())
+				numFilas++;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return numFilas;
+	}
+	public DefaultTableModel getTabla() {
+		return miTabla;
 	}
 
 }

@@ -151,7 +151,7 @@ public class LogIn extends JFrame {
 		btnAccederInvitado.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAccederInvitado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(9,11);
+				miControlador.actualizar(7,11);
 			}
 		});
 		btnAccederInvitado.setSelected(true);
