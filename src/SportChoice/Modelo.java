@@ -111,7 +111,6 @@ public class Modelo {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 	}
 
 	private int getNumColumnas(String sql) {
