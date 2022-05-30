@@ -1,13 +1,10 @@
 package SportChoice;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 import java.sql.*;
 
 import javax.swing.JFrame;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class Modelo {
 	private String bd = "ProyectoIntegrador";
@@ -21,8 +18,10 @@ public class Modelo {
 	private String resultado;
 	private int fallos;
 	private JFrame[] pantallas;
-	private String sqlTabla1 = "Select * from countrylanguage";
-	private String sqlTabla2 = "Select * from city";
+	private String usuarioConectado;
+
+	private String eventosRecientes = "select eventos.usr, fecha_evento, nombre_evento from eventos natural join participa_evento order by fecha_creacion asc;";
+	private DefaultTableModel miTabla;
 
 	public Modelo() {
 		try {
@@ -31,7 +30,7 @@ public class Modelo {
 			stmt = conexion.createStatement();
 
 			if (conexion != null) {
-				// System.out.println("Conexión a la BBDD: " + url + " <-- ok!! -->");
+//				 System.out.println("Conexión a la BBDD: " + url + " <-- ok!! -->");
 				// conn.close();
 			}
 		} catch (ClassNotFoundException cnfe) {
@@ -71,7 +70,7 @@ public class Modelo {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void login(String usr, String pwd) {
 		String rol;
 		this.usr = consulta("select * from users where usr=?", usr, "usr");
@@ -92,6 +91,94 @@ public class Modelo {
 		((LogIn) pantallas[7]).update(rol);
 	}
 
+	public DefaultTableModel cargarTabla(String option) {
+		String query = cargarQuery(option);
+		miTabla = new DefaultTableModel();
+		int numColumnas = getNumColumnas(query, option);
+		Object[] contenido = new Object[numColumnas];
+		PreparedStatement pstmt;
+		try {
+			pstmt = conexion.prepareStatement(query);
+			if (option.equals("misEventos")) {
+				pstmt.setString(1, usuarioConectado);
+			}
+			ResultSet rset = pstmt.executeQuery();
+			ResultSetMetaData rsmd = rset.getMetaData();
+			for (int i = 0; i < numColumnas; i++) {
+				miTabla.addColumn(rsmd.getColumnName(i + 1));
+			}
+			while (rset.next()) {
+				for (int col = 1; col <= numColumnas; col++) {
+					contenido[col - 1] = rset.getString(col);
+				}
+				miTabla.addRow(contenido);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return miTabla;
+
+	}
+
+	private String cargarQuery(String option) {
+		String query = "";
+		switch (option) {
+		case "eventosRecientes":
+			query = "select eventos.usr, fecha_evento, nombre_evento from eventos natural join participa_evento order by fecha_creacion asc;";
+			break;
+		case "misEventos":
+			query = "select eventos.usr, fecha_evento, nombre_evento from eventos natural join participa_evento where participa_evento.cod_user = ? && fecha_evento > current_date();";
+			break;
+		case "eventosAdministrador": // Aun no funciona
+			query = "select eventos.usr, fecha_evento, nombre_evento from eventos natural join participa_evento order by fecha_creacion asc;";
+			break;
+		case "usuariosAdministrador": // Aun no funciona
+			query = "select eventos.usr, fecha_evento, nombre_evento from eventos natural join participa_evento order by fecha_creacion asc;";
+			break;
+		case "foro": // Aun no funciona
+			query = "select eventos.usr, fecha_evento, nombre_evento from eventos natural join participa_evento order by fecha_creacion asc;";
+			break;
+		default:
+			System.out.println("error no existe query para tabla");
+			break;
+		}
+		return query;
+	}
+
+	private int getNumColumnas(String sql, String option) {
+		int num = 0;
+		
+		try {
+			PreparedStatement pstmt = conexion.prepareStatement(sql);
+			if (option.equals("misEventos")) { // || option.equals("foro") CREO QUE HACE FALTA ESTO
+				pstmt.setString(1, usuarioConectado); // EVENTO SELECCIONADO CREATE UN ATRIBUTO PARA GUARDAR SU CODIGO_EVENTO
+			}
+			ResultSet rset = pstmt.executeQuery();
+			ResultSetMetaData rsmd = rset.getMetaData();
+			num = rsmd.getColumnCount();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return num;
+	}
+
+	private int getNumFilas(String sql) {
+		int numFilas = 0;
+		try {
+			PreparedStatement pstmt = conexion.prepareStatement(sql);
+			ResultSet rset = pstmt.executeQuery();
+			while (rset.next())
+				numFilas++;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return numFilas;
+	}
+
+	public DefaultTableModel getTabla() {
+		return miTabla;
+	}
+
 	public String getResultado() {
 		return this.resultado;
 	}
@@ -110,5 +197,13 @@ public class Modelo {
 			s.printStackTrace();
 		}
 		return ej;
+	}
+
+	public String getUsuarioConectado() {
+		return usuarioConectado;
+	}
+
+	public void setUsuarioConectado(String usuarioConectado) {
+		this.usuarioConectado = usuarioConectado;
 	}
 }

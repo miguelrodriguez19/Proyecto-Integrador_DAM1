@@ -9,6 +9,8 @@ import java.awt.Dimension;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 
 public class MisEventos extends JFrame{
@@ -23,6 +25,7 @@ public class MisEventos extends JFrame{
 	private JScrollPane scrollPaneEventos;
 	private JTable table;
 	private JButton btnLogo;
+	private String usuarioConectado;
 
 	public static void MisEventos() {
 		MisEventos mainPage = new MisEventos();
@@ -189,28 +192,15 @@ public class MisEventos extends JFrame{
 		table.setPreferredScrollableViewportSize(new Dimension(400, 400));
 		table.setIntercellSpacing(new Dimension(5, 1));
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_NEXT_COLUMN);
-		table.setModel(new DefaultTableModel(new Object[][] {
-				{ " @IgnacioPerez", "Futbol", "20/02/2022", "5/12", "dnadnsioasudsausduasud" },
-				{ " @LuisGonzalez", "Baloncesto", "2/03/2022", "12/12",
-						"Pachanguita baloncesto en el polideeportivo de Moralzarzal a las 9 am" },
-				{ " @MiguelRod", "Padel", "29/02/2022", "3/6",
-						"Partido en polideportivo de Villalba a las 12:00 de la ma\u00F1ana, espero que nos divirtamos : )" },
-				{ " @IgnaciPerez", "Futbol", "20/02/2022", "10/22", "dnadnsioasudsausduasud" }, },
-				new String[] { "Creador", "Deporte", "Fecha", "Participantes", "Nombre Evento" }) {
-			boolean[] columnEditables = new boolean[] { false, false, false, false, false };
-
-			public boolean isCellEditable(int row, int column) {
-				return columnEditables[column];
-			}
-		});
-		table.getColumnModel().getColumn(0).setResizable(false);
-		table.getColumnModel().getColumn(1).setResizable(false);
-		table.getColumnModel().getColumn(2).setResizable(false);
-		table.getColumnModel().getColumn(3).setResizable(false);
-		table.getColumnModel().getColumn(4).setPreferredWidth(220);
-		for (int i = 0; i < 3; i++) {
-			table.getColumnModel().getColumn(i).setMinWidth(110);
-		}
+		
+//		table.getColumnModel().getColumn(0).setResizable(false);
+//		table.getColumnModel().getColumn(1).setResizable(false);
+//		table.getColumnModel().getColumn(2).setResizable(false);
+//		table.getColumnModel().getColumn(3).setResizable(false);
+//		table.getColumnModel().getColumn(4).setPreferredWidth(220);
+//		for (int i = 0; i < 3; i++) {
+//			table.getColumnModel().getColumn(i).setMinWidth(110);
+//		}
 		table.setRowHeight(65);
 		table.setBounds(96, 58, 809, 285);
 
@@ -232,6 +222,14 @@ public class MisEventos extends JFrame{
 		btnUnirseEvento.setBackground(new Color(53, 187, 95));
 		btnUnirseEvento.setBounds(735, 300, 89, 23);
 		panelPaginaPrincipal.add(btnUnirseEvento);
+		
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent e) {
+				miModelo.cargarTabla("misEventos");
+				table.setModel(miModelo.getTabla());
+			}
+		});
 	}
 
 	

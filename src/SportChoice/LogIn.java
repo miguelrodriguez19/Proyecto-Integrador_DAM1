@@ -29,7 +29,7 @@ public class LogIn extends JFrame {
 	private JPasswordField txtPwd;
 	private JPanel panel;
 	private JSeparator separator;
-	private JLabel lblContraseñaPlaceHolder, lblnoTienesCuenta, lblErrorLogIn, lblNewLabel_1,lblNewLabel;
+	private JLabel lblContrasenaPlaceHolder, lblnoTienesCuenta, lblErrorLogIn, lblNewLabel_1,lblNewLabel;
 	private JButton btnRegistro, btnIniciarSesion, btnRecuperarContrasena, btnAccederInvitado;
 
 	public static void LogIn() {
@@ -64,13 +64,13 @@ public class LogIn extends JFrame {
 		txtMail.setText("Usuario");
 		txtMail.setColumns(10);
 
-		lblNewLabel_1 = new JLabel("Iniciar Sesi\u00F3n\r\n");
+		lblNewLabel_1 = new JLabel("Iniciar Sesion");
 		lblNewLabel_1.setBounds(28, 0, 275, 98);
 		panel.add(lblNewLabel_1);
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1.setFont(new Font("Trebuchet MS", Font.PLAIN, 46));
 
-		btnRecuperarContrasena = new JButton("Recuperar Contrase\u00F1a\r\n");
+		btnRecuperarContrasena = new JButton("Recuperar Contrasena");
 		btnRecuperarContrasena.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnRecuperarContrasena.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRecuperarContrasena.setBounds(28, 323, 275, 21);
@@ -79,7 +79,7 @@ public class LogIn extends JFrame {
 		btnRecuperarContrasena.setForeground(new Color(255, 255, 255));
 		btnRecuperarContrasena.setBackground(new Color(57, 62, 70));
 
-		btnIniciarSesion = new JButton("Iniciar Sesi\u00F3n\r\n\r\n");
+		btnIniciarSesion = new JButton("Iniciar Sesion");
 		btnIniciarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIniciarSesion.setBorder(null);
 		btnIniciarSesion.setForeground(Color.WHITE);
@@ -111,11 +111,11 @@ public class LogIn extends JFrame {
 		lblnoTienesCuenta.setBounds(10, 376, 205, 26);
 		panel.add(lblnoTienesCuenta);
 		
-		lblContraseñaPlaceHolder = new JLabel("Contraseña");
-		lblContraseñaPlaceHolder.setBounds(28, 163, 275, 49);
-		panel.add(lblContraseñaPlaceHolder);
-		lblContraseñaPlaceHolder.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		lblContraseñaPlaceHolder.setForeground(Color.GRAY);
+		lblContrasenaPlaceHolder = new JLabel("Contraseña");
+		lblContrasenaPlaceHolder.setBounds(28, 163, 275, 49);
+		panel.add(lblContrasenaPlaceHolder);
+		lblContrasenaPlaceHolder.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		lblContrasenaPlaceHolder.setForeground(Color.GRAY);
 
 		txtPwd = new JPasswordField("");
 		txtPwd.setForeground(Color.GRAY);
@@ -142,14 +142,14 @@ public class LogIn extends JFrame {
 			@Override
 			public void focusGained(FocusEvent e) {
 				if (String.valueOf(txtPwd.getPassword()).equals(""))
-					lblContraseñaPlaceHolder.setVisible(false);
+					lblContrasenaPlaceHolder.setVisible(false);
 				txtPwd.setForeground(Color.BLACK);
 			}
 
 			@Override
 			public void focusLost(FocusEvent e) {
 				if (String.valueOf(txtPwd.getPassword()).equals("")) {
-					lblContraseñaPlaceHolder.setVisible(true);
+					lblContrasenaPlaceHolder.setVisible(true);
 				}
 			}
 		});
@@ -162,7 +162,7 @@ public class LogIn extends JFrame {
 		btnAccederInvitado.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAccederInvitado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(7, 11);
+				miControlador.actualizar(7,11);
 			}
 		});
 		btnAccederInvitado.setSelected(true);
@@ -170,12 +170,12 @@ public class LogIn extends JFrame {
 		btnAccederInvitado.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnAccederInvitado.setBorder(null);
 		btnAccederInvitado.setBackground((Color) null);
-		btnAccederInvitado.setBounds(84, 292, 168, 21);
+		btnAccederInvitado.setBounds(81, 301, 168, 21);
 		panel.add(btnAccederInvitado);
 
 		lblErrorLogIn = new JLabel("Usuario o contraseña incorrectos");
 		lblErrorLogIn.setForeground(Color.RED);
-		lblErrorLogIn.setBounds(69, 280, 205, 13);
+		lblErrorLogIn.setBounds(87, 282, 168, 13);
 		panel.add(lblErrorLogIn);
 		lblErrorLogIn.setVisible(false);
 		btnIniciarSesion.addActionListener(new ActionListener() {

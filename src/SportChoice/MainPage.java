@@ -6,22 +6,28 @@ import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 
-public class MainPage extends JFrame{
+public class MainPage extends JFrame {
 	private Controlador miControlador;
 	private Modelo miModelo;
 	private JTextField txtLocalidad;
-	private JButton btnFAQs, btnPerfil, btnCrearEventos, btnAplicarFiltros, btnEventosRecientes, btnMisEventos, btnUnirseEvento, btnLogo;
+	private JButton btnFAQs, btnPerfil, btnCrearEventos, btnAplicarFiltros, btnEventosRecientes, btnMisEventos,
+			btnUnirseEvento, btnLogo;
 	private JLabel lblFiltros;
 	private JPanel panelHeader, panelPaginaPrincipal;
 	private JComboBox comboBoxDeportes, comboBoxDia, comboBoxMes;
 	private JScrollPane scrollPaneEventos;
 	private JTable table;
+	
+
 	public static void MainPage() {
 		MainPage window = new MainPage();
 		window.setVisible(true);
 	}
+
 	public MainPage() {
 		setResizable(false);
 		Container contenedor = getContentPane();
@@ -35,7 +41,7 @@ public class MainPage extends JFrame{
 		panelHeader.setBounds(0, 0, 834, 100);
 		getContentPane().add(panelHeader);
 		panelHeader.setLayout(null);
-		
+
 		JButton btnFotoPerfil = new JButton("");
 		btnFotoPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFotoPerfil.setIcon(new ImageIcon(MainPage.class.getResource("/Imagenes/appppp-modified.png")));
@@ -124,7 +130,8 @@ public class MainPage extends JFrame{
 		comboBoxDia.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		comboBoxDia.setBackground(Color.WHITE);
 		comboBoxDia.setModel(new DefaultComboBoxModel(new String[] { "Dia", "1", "2", "3", "4", "5", "6", "7", "8", "9",
-				"10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+				"10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26",
+				"27", "28", "29", "30", "31" }));
 		comboBoxDia.setBounds(29, 110, 59, 22);
 		panelPaginaPrincipal.add(comboBoxDia);
 
@@ -176,35 +183,10 @@ public class MainPage extends JFrame{
 		table.setToolTipText("");
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_NEXT_COLUMN);
 		table.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{" @PedroJuarez", "Futbol", "12/02/2022", "6/9", "triangular en Laude "
-						+ "Fontenebro, 28411"},
-				{" @JuanPerez", "Futbol", "15/02/2022", "10/12", "rey de la pista "
-						+ "4vs4 futsal"},
-				{" @JuanPerez", "Tenis", "17/02/2022", "1/4", "Partido de tenis 2vs2"},
-				{" @IgnacioPerez", "Futbol", "20/02/2022", "5/12", "Partido entre amigos"},
-				{" @LuisGonzalez", "Baloncesto", "2/03/2022", "12/12", "Pachanguita baloncesto,"
-						+ " poli Moralzarzal"},
-				{" @IgnacioPerez", "Futbol", "20/02/2022", "18/22", "dnadnsioasudsausduasud"},
-				{" @MiguelRod", "Padel", "29/02/2022", "3/6", "Partido en  Villalba a las 12:00)"},
-				{" @IgnacioPerez", "Futbol", "20/02/2022", "10/22", "dnadnsioasudsausduasud"},
-			},
-			new String[] {
-				"Creador", "Deporte", "Fecha", "Participantes", "Nombre Evento"
-			}
-		) {
-			boolean[] columnEditables = new boolean[] {
-				false, false, false, false, false
-			};
-			public boolean isCellEditable(int row, int column) {
-				return columnEditables[column];
-			}
-		});
-		table.getColumnModel().getColumn(4).setPreferredWidth(220);
-		for (int i = 0; i < 3; i++) {
-			table.getColumnModel().getColumn(i).setMinWidth(110);
-		}
+//		table.getColumnModel().getColumn(4).setPreferredWidth(220);
+//		for (int i = 0; i < 3; i++) {
+//			table.getColumnModel().getColumn(i).setMinWidth(110);
+//		}
 		table.setRowHeight(65);
 		table.setBounds(96, 58, 809, 285);
 
@@ -226,12 +208,21 @@ public class MainPage extends JFrame{
 		btnUnirseEvento.setBackground(new Color(53, 187, 95));
 		btnUnirseEvento.setBounds(735, 300, 89, 23);
 		panelPaginaPrincipal.add(btnUnirseEvento);
+//		scrollPane.setViewportView(miTabla);
+
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent e) {
+				miModelo.cargarTabla("eventosRecientes");
+				table.setModel(miModelo.getTabla());
+			}
+		});
 	}
-	
+
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}
-	
+
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
 	}
