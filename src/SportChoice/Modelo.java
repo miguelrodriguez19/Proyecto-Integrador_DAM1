@@ -21,6 +21,8 @@ public class Modelo {
 	private String resultado;
 	private int fallos;
 	private JFrame[] pantallas;
+	private String sqlTabla1 = "Select * from countrylanguage";
+	private String sqlTabla2 = "Select * from city";
 
 	public Modelo() {
 		try {
@@ -69,7 +71,7 @@ public class Modelo {
 			e.printStackTrace();
 		}
 	}
-
+	
 	public void login(String usr, String pwd) {
 		String rol;
 		this.usr = consulta("select * from users where usr=?", usr, "usr");
