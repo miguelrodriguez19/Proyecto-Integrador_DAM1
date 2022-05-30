@@ -14,6 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 
 public class AdministradorEventos extends JFrame {
@@ -89,25 +91,8 @@ public class AdministradorEventos extends JFrame {
 		table = new JTable();
 		table.setRowHeight(55);
 		scrollPane.setViewportView(table);
-		table.setModel(new DefaultTableModel(
-				new Object[][] {
-						{ " @PedroJuarez", "Futbol", "12/02/2022", "6/9",
-								"triangular en Laude " + "Fontenebro, 28411" },
-						{ " @JuanPerez", "Futbol", "15/02/2022", "10/12", "rey de la pista " + "4vs4 futsal" },
-						{ " @JuanPerez", "Tenis", "17/02/2022", "1/4", "Partido de tenis 2vs2" },
-						{ " @IgnacioPerez", "Futbol", "20/02/2022", "5/12", "Partido entre amigos" },
-						{ " @LuisGonzalez", "Baloncesto", "2/03/2022", "12/12",
-								"Pachanguita baloncesto," + " poli Moralzarzal" },
-						{ " @IgnacioPerez", "Futbol", "20/02/2022", "18/22", "dnadnsioasudsausduasud" },
-						{ " @MiguelRod", "Padel", "29/02/2022", "3/6", "Partido en  Villalba a las 12:00)" },
-						{ " @IgnacioPerez", "Futbol", "20/02/2022", "10/22", "dnadnsioasudsausduasud" }, },
-				new String[] { "Creador", "Deporte", "Fecha", "Participantes", "Nombre Evento" }) {
-			boolean[] columnEditables = new boolean[] { false, false, false, false, false };
-
-			public boolean isCellEditable(int row, int column) {
-				return columnEditables[column];
-			}
-		});
+		
+		
 		btnBorrar = new JButton("Borrar");
 		btnBorrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnBorrar.setEnabled(false);
@@ -139,6 +124,14 @@ public class AdministradorEventos extends JFrame {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent e) {
+				miModelo.cargarTabla("eventosAdministrador");
+				table.setModel(miModelo.getTabla());
+			}
+		});
 
 	}
 

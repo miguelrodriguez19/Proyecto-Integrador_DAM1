@@ -130,10 +130,10 @@ public class Modelo {
 			query = "select eventos.usr, fecha_evento, nombre_evento from eventos natural join participa_evento where participa_evento.cod_user = ? && fecha_evento > current_date();";
 			break;
 		case "eventosAdministrador": // Aun no funciona
-			query = "select eventos.usr, fecha_evento, nombre_evento from eventos natural join participa_evento order by fecha_creacion asc;";
+			query = "select usr, fecha_evento, nombre_evento, tipo_dep, count(*) as participantes from eventos natural join participa_evento group by cod_evento order by fecha_evento desc;";
 			break;
 		case "usuariosAdministrador": // Aun no funciona
-			query = "select eventos.usr, fecha_evento, nombre_evento from eventos natural join participa_evento order by fecha_creacion asc;";
+			query = "select usr, nombre, apellido, email, fecha_nac from users where rol = 'user';";
 			break;
 		case "foro": // Aun no funciona
 			query = "select eventos.usr, fecha_evento, nombre_evento from eventos natural join participa_evento order by fecha_creacion asc;";

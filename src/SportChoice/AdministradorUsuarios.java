@@ -14,6 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 
 public class AdministradorUsuarios extends JFrame {
@@ -90,25 +92,9 @@ public class AdministradorUsuarios extends JFrame {
 		table = new JTable();
 		table.setRowHeight(55);
 		scrollPane.setViewportView(table);
-		table.setModel(new DefaultTableModel(
-				new Object[][] { { " @PedroJuarez", "Pedro", "Juarez", "PedroJuarez@gmail.com", "0" },
-						{ " @PacoPerez", "Paco", "Perez", "PacoPerez@gmail.com", "30" },
-						{ " @JuanPerez", "Juan", "Perez", "JuanPerez@gmail.com", "1" },
-						{ " @GuillermoBayejo", "Guillermo", "Bayejo", "AnimeLover@gmail.com", "0" },
-						{ " @LuisGonzalez", "Luis", "Gonzalez", "LuisGonzalez@gmail.com", "2" },
-						{ " @Recesvinto Perez", "Recesvinto ", "Perez", "RecesvintoPerez@gmail.com", "12" },
-						{ " @MiguelRod", "Miguel", "Rodriguez", "MiguelRod@gmail.com", "8" },
-						{ " @IgnacioPerez", "Ignacio", "Perez", "IgnacioPerez@gmail.com", "0" }, },
-				new String[] { "Usuario", "Nombre", "Apellidos", "Mail", "Reportes" }) {
-			boolean[] columnEditables = new boolean[] { false, false, false, true, false };
+		
 
-			public boolean isCellEditable(int row, int column) {
-				return columnEditables[column];
-			}
-		});
-		table.getColumnModel().getColumn(1).setPreferredWidth(55);
-		table.getColumnModel().getColumn(3).setPreferredWidth(143);
-		table.getColumnModel().getColumn(4).setPreferredWidth(39);
+		
 		btnNewButton = new JButton("Banear");
 		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton.setEnabled(false);
@@ -140,6 +126,14 @@ public class AdministradorUsuarios extends JFrame {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent e) {
+				miModelo.cargarTabla("usuariosAdministrador");
+				table.setModel(miModelo.getTabla());
+			}
+		});
 	}
 
 	public void setMiControlador(Controlador miControlador) {
