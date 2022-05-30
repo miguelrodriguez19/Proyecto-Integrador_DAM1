@@ -72,6 +72,7 @@ public class editarPerfil  extends JFrame {
 		header.add(btnNewButton_3);
 		
 		btnLogo = new JButton("");
+		btnLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(3, 11);
