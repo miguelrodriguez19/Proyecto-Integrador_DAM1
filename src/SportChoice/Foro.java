@@ -9,6 +9,8 @@ import javax.swing.*;
 import java.awt.SystemColor;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.ActionEvent;
 import javax.swing.table.DefaultTableModel;
 
@@ -63,10 +65,27 @@ public class Foro extends JFrame {
 		panel_1.add(lblNewLabel_5);
 
 		txtEscribeAqui = new JTextField();
-		txtEscribeAqui.setText("Escribe aqui\r\n");
+		String mensajeChat = "Escribe aqui";
+		txtEscribeAqui.setText(mensajeChat);
 		txtEscribeAqui.setBounds(20, 360, 591, 57);
 		getContentPane().add(txtEscribeAqui);
 		txtEscribeAqui.setColumns(10);
+		txtEscribeAqui.addFocusListener(new FocusListener() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (txtEscribeAqui.getText().equals(mensajeChat))
+					txtEscribeAqui.setText("");
+				txtEscribeAqui.setForeground(Color.BLACK);
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if (txtEscribeAqui.getText().equals("")) {
+					txtEscribeAqui.setText(mensajeChat);
+					txtEscribeAqui.setForeground(Color.GRAY);
+				}
+			}
+		});
 
 		JButton btnNewButton = new JButton("Enviar\r\n");
 		btnNewButton.setBounds(616, 360, 110, 57);
