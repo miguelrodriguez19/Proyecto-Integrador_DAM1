@@ -18,10 +18,11 @@ public class Modelo {
 	private String resultado;
 	private int fallos;
 	private JFrame[] pantallas;
+	private String usuarioConectado;
 
-	private String eventosRecientes="select eventos.usr, fecha_evento, nombre_evento from eventos natural join participa_evento order by fecha_creacion asc;" ;
-    private DefaultTableModel miTabla;
-	
+	private String eventosRecientes = "select eventos.usr, fecha_evento, nombre_evento from eventos natural join participa_evento order by fecha_creacion asc;";
+	private DefaultTableModel miTabla;
+
 	public Modelo() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -90,13 +91,17 @@ public class Modelo {
 		((LogIn) pantallas[7]).update(rol);
 	}
 
-	private void cargarTabla(DefaultTableModel miTabla) {
+	public DefaultTableModel cargarTabla(String option) {
+		String query = cargarQuery(option);
 		miTabla = new DefaultTableModel();
-		int numColumnas = getNumColumnas(eventosRecientes);
+		int numColumnas = getNumColumnas(query, option);
 		Object[] contenido = new Object[numColumnas];
 		PreparedStatement pstmt;
 		try {
-			pstmt = conexion.prepareStatement(eventosRecientes);
+			pstmt = conexion.prepareStatement(query);
+			if (option.equals("misEventos")) {
+				pstmt.setString(1, usuarioConectado);
+			}
 			ResultSet rset = pstmt.executeQuery();
 			ResultSetMetaData rsmd = rset.getMetaData();
 			for (int i = 0; i < numColumnas; i++) {
@@ -111,12 +116,43 @@ public class Modelo {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return miTabla;
+
 	}
 
-	private int getNumColumnas(String sql) {
+	private String cargarQuery(String option) {
+		String query = "";
+		switch (option) {
+		case "eventosRecientes":
+			query = "select eventos.usr, fecha_evento, nombre_evento from eventos natural join participa_evento order by fecha_creacion asc;";
+			break;
+		case "misEventos":
+			query = "select eventos.usr, fecha_evento, nombre_evento from eventos natural join participa_evento where participa_evento.cod_user = ? && fecha_evento > current_date();";
+			break;
+		case "eventosAdministrador": // Aun no funciona
+			query = "select eventos.usr, fecha_evento, nombre_evento from eventos natural join participa_evento order by fecha_creacion asc;";
+			break;
+		case "usuariosAdministrador": // Aun no funciona
+			query = "select eventos.usr, fecha_evento, nombre_evento from eventos natural join participa_evento order by fecha_creacion asc;";
+			break;
+		case "foro": // Aun no funciona
+			query = "select eventos.usr, fecha_evento, nombre_evento from eventos natural join participa_evento order by fecha_creacion asc;";
+			break;
+		default:
+			System.out.println("error no existe query para tabla");
+			break;
+		}
+		return query;
+	}
+
+	private int getNumColumnas(String sql, String option) {
 		int num = 0;
+		
 		try {
 			PreparedStatement pstmt = conexion.prepareStatement(sql);
+			if (option.equals("misEventos")) { // || option.equals("foro") CREO QUE HACE FALTA ESTO
+				pstmt.setString(1, usuarioConectado); // EVENTO SELECCIONADO CREATE UN ATRIBUTO PARA GUARDAR SU CODIGO_EVENTO
+			}
 			ResultSet rset = pstmt.executeQuery();
 			ResultSetMetaData rsmd = rset.getMetaData();
 			num = rsmd.getColumnCount();
@@ -161,5 +197,13 @@ public class Modelo {
 			s.printStackTrace();
 		}
 		return ej;
+	}
+
+	public String getUsuarioConectado() {
+		return usuarioConectado;
+	}
+
+	public void setUsuarioConectado(String usuarioConectado) {
+		this.usuarioConectado = usuarioConectado;
 	}
 }

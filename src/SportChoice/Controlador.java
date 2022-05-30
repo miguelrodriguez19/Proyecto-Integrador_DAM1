@@ -28,7 +28,7 @@ public class Controlador {
 	public void login() {
 		String usr = ((LogIn)pantallas[7]).getUsr();
 		String pwd = ((LogIn)pantallas[7]).getPwd();
-		System.out.println(pwd);
+		miModelo.setUsuarioConectado(usr);
 		miModelo.login(usr, pwd);
 	}
 }

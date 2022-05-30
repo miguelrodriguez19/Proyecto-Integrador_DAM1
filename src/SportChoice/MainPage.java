@@ -21,6 +21,7 @@ public class MainPage extends JFrame {
 	private JComboBox comboBoxDeportes, comboBoxDia, comboBoxMes;
 	private JScrollPane scrollPaneEventos;
 	private JTable table;
+	
 
 	public static void MainPage() {
 		MainPage window = new MainPage();
@@ -212,7 +213,7 @@ public class MainPage extends JFrame {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent e) {
-				miModelo.cargarTabla2();
+				miModelo.cargarTabla("eventosRecientes");
 				table.setModel(miModelo.getTabla());
 			}
 		});
