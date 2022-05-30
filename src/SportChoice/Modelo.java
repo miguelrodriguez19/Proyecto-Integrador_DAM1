@@ -37,7 +37,7 @@ public class Modelo {
 	private String resultado;
 	private int fallos;
 	
-	private String sqlTabla2="Select * from Eventos";
+	private String eventosRecientes="Select * from Eventos";
 	private DefaultTableModel miTabla;
 
 	public Modelo() {
@@ -60,7 +60,7 @@ public class Modelo {
 			System.out.println("Error general");
 			e.printStackTrace();
 		}
-		cargarTabla2();
+//		cargarTabla2();
 	}
 
 	public void setCambiarContrasena(CambiarContrasena cambiarContrasena) {
@@ -178,13 +178,13 @@ public class Modelo {
 		}
 		return ej;
 	}
-	private void cargarTabla2() {
+	public void cargarTabla2(String query) {
 		miTabla = new DefaultTableModel();
-		int numColumnas = getNumColumnas(sqlTabla2);
+		int numColumnas = getNumColumnas(query);
 		Object[] contenido = new Object[numColumnas];
 		PreparedStatement pstmt;
 		try {
-			pstmt = conexion.prepareStatement(sqlTabla2);
+			pstmt = conexion.prepareStatement(query);
 			ResultSet rset = pstmt.executeQuery();
 			ResultSetMetaData rsmd = rset.getMetaData();
 			for (int i = 0; i < numColumnas; i++) {
