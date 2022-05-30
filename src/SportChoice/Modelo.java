@@ -1,13 +1,10 @@
 package SportChoice;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 import java.sql.*;
 
 import javax.swing.JFrame;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class Modelo {
 	private String bd = "ProyectoIntegrador";
@@ -21,9 +18,10 @@ public class Modelo {
 	private String resultado;
 	private int fallos;
 	private JFrame[] pantallas;
-	private String sqlTabla1 = "Select * from countrylanguage";
-	private String sqlTabla2 = "Select * from city";
 
+	private String eventosRecientes="select eventos.usr, fecha_evento, nombre_evento from eventos natural join participa_evento order by fecha_creacion asc;" ;
+    private DefaultTableModel miTabla;
+	
 	public Modelo() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -31,7 +29,7 @@ public class Modelo {
 			stmt = conexion.createStatement();
 
 			if (conexion != null) {
-				// System.out.println("Conexión a la BBDD: " + url + " <-- ok!! -->");
+//				 System.out.println("Conexión a la BBDD: " + url + " <-- ok!! -->");
 				// conn.close();
 			}
 		} catch (ClassNotFoundException cnfe) {
@@ -71,7 +69,7 @@ public class Modelo {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void login(String usr, String pwd) {
 		String rol;
 		this.usr = consulta("select * from users where usr=?", usr, "usr");
@@ -90,6 +88,60 @@ public class Modelo {
 				resultado = "Incorrecto";
 		}
 		((LogIn) pantallas[7]).update(rol);
+	}
+
+	private void cargarTabla(DefaultTableModel miTabla) {
+		miTabla = new DefaultTableModel();
+		int numColumnas = getNumColumnas(eventosRecientes);
+		Object[] contenido = new Object[numColumnas];
+		PreparedStatement pstmt;
+		try {
+			pstmt = conexion.prepareStatement(eventosRecientes);
+			ResultSet rset = pstmt.executeQuery();
+			ResultSetMetaData rsmd = rset.getMetaData();
+			for (int i = 0; i < numColumnas; i++) {
+				miTabla.addColumn(rsmd.getColumnName(i + 1));
+			}
+			while (rset.next()) {
+				for (int col = 1; col <= numColumnas; col++) {
+					contenido[col - 1] = rset.getString(col);
+				}
+				miTabla.addRow(contenido);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	private int getNumColumnas(String sql) {
+		int num = 0;
+		try {
+			PreparedStatement pstmt = conexion.prepareStatement(sql);
+			ResultSet rset = pstmt.executeQuery();
+			ResultSetMetaData rsmd = rset.getMetaData();
+			num = rsmd.getColumnCount();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return num;
+	}
+
+	private int getNumFilas(String sql) {
+		int numFilas = 0;
+		try {
+			PreparedStatement pstmt = conexion.prepareStatement(sql);
+			ResultSet rset = pstmt.executeQuery();
+			while (rset.next())
+				numFilas++;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return numFilas;
+	}
+
+	public DefaultTableModel getTabla() {
+		return miTabla;
 	}
 
 	public String getResultado() {
