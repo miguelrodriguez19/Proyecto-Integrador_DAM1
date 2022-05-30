@@ -6,9 +6,10 @@ import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.font.TextAttribute;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -16,6 +17,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -23,11 +25,12 @@ import javax.swing.SwingConstants;
 public class LogIn extends JFrame {
 	private Controlador miControlador;
 	private Modelo miModelo;
-	private JTextField txtMail, textPwd;
+	private JTextField txtMail;
+	private JPasswordField txtPwd;
 	private JPanel panel;
 	private JSeparator separator;
-	private JButton btnRecuperarContrasena, btnIniciarSesion;
-	private JLabel lblErrorLogIn;
+	private JLabel lblContraseñaPlaceHolder, lblnoTienesCuenta, lblErrorLogIn, lblNewLabel_1,lblNewLabel;
+	private JButton btnRegistro, btnIniciarSesion, btnRecuperarContrasena, btnAccederInvitado;
 
 	public static void LogIn() {
 		LogIn window = new LogIn();
@@ -41,8 +44,6 @@ public class LogIn extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Sport Choice - Inicio de sesion");
 		container.setLayout(null);
-
-		ButtonGroup group = new ButtonGroup();
 
 		panel = new JPanel();
 		panel.setBackground(new Color(57, 62, 70));
@@ -59,15 +60,15 @@ public class LogIn extends JFrame {
 		txtMail.setForeground(Color.GRAY);
 		txtMail.setBounds(28, 95, 275, 48);
 		panel.add(txtMail);
-		String mensajeTxtMail = "Email o Usuario";
-		txtMail.setText(mensajeTxtMail);
+		String mensajeTxtMail = "Usuario";
+		txtMail.setText("Usuario");
 		txtMail.setColumns(10);
 
-		JLabel lblNewLabel = new JLabel("Iniciar Sesi\u00F3n\r\n");
-		lblNewLabel.setBounds(28, 0, 275, 98);
-		panel.add(lblNewLabel);
-		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 46));
+		lblNewLabel_1 = new JLabel("Iniciar Sesi\u00F3n\r\n");
+		lblNewLabel_1.setBounds(28, 0, 275, 98);
+		panel.add(lblNewLabel_1);
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1.setFont(new Font("Trebuchet MS", Font.PLAIN, 46));
 
 		btnRecuperarContrasena = new JButton("Recuperar Contrase\u00F1a\r\n");
 		btnRecuperarContrasena.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -87,11 +88,11 @@ public class LogIn extends JFrame {
 		btnIniciarSesion.setBounds(28, 235, 275, 42);
 		panel.add(btnIniciarSesion);
 
-		JButton btnRegistro = new JButton("R\u0332e\u0332g\u0332i\u0332s\u0332t\u0332r\u0332o\u0332");
+		btnRegistro = new JButton("R\u0332e\u0332g\u0332i\u0332s\u0332t\u0332r\u0332o\u0332");
 		btnRegistro.setSelected(true);
 		btnRegistro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				 miControlador.actualizar(7, 14);	
+				miControlador.actualizar(7, 14);
 			}
 		});
 		btnRegistro.setBorder(null);
@@ -102,56 +103,66 @@ public class LogIn extends JFrame {
 		btnRegistro.setBounds(181, 371, 88, 26);
 		panel.add(btnRegistro);
 
-		JLabel lblnoTienesCuenta = new JLabel("\u00BFNo tienes cuenta?\r\n");
+		lblnoTienesCuenta = new JLabel("\u00BFNo tienes cuenta?\r\n");
 		lblnoTienesCuenta.setHorizontalAlignment(SwingConstants.CENTER);
 		lblnoTienesCuenta.setVerticalAlignment(SwingConstants.TOP);
 		lblnoTienesCuenta.setForeground(Color.WHITE);
 		lblnoTienesCuenta.setFont(new Font("Trebuchet MS", Font.PLAIN, 16));
 		lblnoTienesCuenta.setBounds(10, 376, 205, 26);
 		panel.add(lblnoTienesCuenta);
+		
+		lblContraseñaPlaceHolder = new JLabel("Contraseña");
+		lblContraseñaPlaceHolder.setBounds(28, 163, 275, 49);
+		panel.add(lblContraseñaPlaceHolder);
+		lblContraseñaPlaceHolder.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		lblContraseñaPlaceHolder.setForeground(Color.GRAY);
 
-		textPwd = new JTextField();
-		textPwd.setForeground(Color.GRAY);
-		String mensajeTextField = "Contraseña";
-		textPwd.setText("Contrase\u00F1a");
-		textPwd.setColumns(10);
-		textPwd.setBounds(28, 164, 275, 48);
-		panel.add(textPwd);
-		txtMail.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) {
-				if (txtMail.getText().equals(mensajeTxtMail)) {
+		txtPwd = new JPasswordField("");
+		txtPwd.setForeground(Color.GRAY);
+		txtPwd.setColumns(10);
+		txtPwd.setBounds(28, 164, 275, 48);
+		panel.add(txtPwd);
+		txtMail.addFocusListener(new FocusListener() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (txtMail.getText().equals(mensajeTxtMail))
 					txtMail.setText("");
-					txtMail.setForeground(Color.BLACK);
-				}
-				if (textPwd.getText().equals("")) {
-					textPwd.setText(mensajeTextField);
-					textPwd.setForeground(Color.GRAY);
-				}
+				txtMail.setForeground(Color.BLACK);
 			}
-		});
-		textPwd.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) {
-				if (textPwd.getText().equals(mensajeTextField)) {
-					textPwd.setText("");
-					textPwd.setForeground(Color.BLACK);
-				}
+
+			@Override
+			public void focusLost(FocusEvent e) {
 				if (txtMail.getText().equals("")) {
 					txtMail.setText(mensajeTxtMail);
 					txtMail.setForeground(Color.GRAY);
 				}
 			}
 		});
-		panel.add(textPwd);
+		txtPwd.addFocusListener(new FocusListener() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (String.valueOf(txtPwd.getPassword()).equals(""))
+					lblContraseñaPlaceHolder.setVisible(false);
+				txtPwd.setForeground(Color.BLACK);
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if (String.valueOf(txtPwd.getPassword()).equals("")) {
+					lblContraseñaPlaceHolder.setVisible(true);
+				}
+			}
+		});
+		panel.add(txtPwd);
 		txtMail.setText(mensajeTxtMail);
-		textPwd.setText(mensajeTextField);
 		txtMail.setForeground(Color.GRAY);
-		textPwd.setForeground(Color.GRAY);
-		
-		JButton btnAccederInvitado = new JButton("Acceder como invitado");
+		txtPwd.setForeground(Color.GRAY);
+
+		btnAccederInvitado = new JButton("Acceder como invitado");
 		btnAccederInvitado.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAccederInvitado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(9,11);
+				miControlador.actualizar(7, 11);
 			}
 		});
 		btnAccederInvitado.setSelected(true);
@@ -161,19 +172,20 @@ public class LogIn extends JFrame {
 		btnAccederInvitado.setBackground((Color) null);
 		btnAccederInvitado.setBounds(84, 292, 168, 21);
 		panel.add(btnAccederInvitado);
-		
+
 		lblErrorLogIn = new JLabel("Usuario o contraseña incorrectos");
 		lblErrorLogIn.setForeground(Color.RED);
-		lblErrorLogIn.setBounds(90, 222, 162, 13);
+		lblErrorLogIn.setBounds(69, 280, 205, 13);
 		panel.add(lblErrorLogIn);
+		lblErrorLogIn.setVisible(false);
 		btnIniciarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				 miControlador.actualizar(7, 11);
+				miControlador.login();
 			}
 		});
 		btnRecuperarContrasena.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				 miControlador.actualizar(7, 13);
+				miControlador.actualizar(7, 13);
 			}
 		});
 
@@ -191,5 +203,32 @@ public class LogIn extends JFrame {
 
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
+	}
+
+	public String getUsr() {
+		return txtMail.getText();
+	}
+
+	public String getPwd() {
+		return String.valueOf(txtPwd.getPassword());
+	}
+
+	public void update(String rol) {
+		System.out.println("Entrando en update.");
+		String resultado = miModelo.getResultado();
+		if (resultado.equals("Correcto")) {
+			if (rol.equals("admin")) {
+				miControlador.actualizar(7, 18);
+				lblErrorLogIn.setVisible(false);
+			} else {
+				miControlador.actualizar(7, 11);
+				lblErrorLogIn.setVisible(false);
+			}
+		} else if (resultado.equals("Incorrecto")) {
+			// desplegable de error
+			lblErrorLogIn.setVisible(true);
+		} else {
+			System.exit(0);
+		}
 	}
 }

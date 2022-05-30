@@ -234,7 +234,7 @@ public class crearEvento extends JFrame{
 		btnAtras.setBorder(null);
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(17, 11);
+				miControlador.actualizar(2, 11);
 			}
 		});
 		btnAtras.setBackground(null);

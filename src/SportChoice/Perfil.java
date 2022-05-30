@@ -70,6 +70,7 @@ public class Perfil extends JFrame {
 		btnLogo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(10, 11);
+				esconderPuntitos();
 			}
 		});
 		header.add(btnLogo);
@@ -171,6 +172,7 @@ public class Perfil extends JFrame {
 		btnEditarPerfil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(10, 3);
+				esconderPuntitos();
 			}
 		});
 
@@ -186,6 +188,7 @@ public class Perfil extends JFrame {
 		btnHistorial.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(10, 6);
+				esconderPuntitos();
 			}
 		});
 
@@ -201,6 +204,7 @@ public class Perfil extends JFrame {
 		btnLogOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(10, 7);
+				esconderPuntitos();
 			}
 		});
 
@@ -212,7 +216,7 @@ public class Perfil extends JFrame {
 		btnFAQs.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnFAQs.setBounds(697, 247, 123, 33);
 		getContentPane().add(btnFAQs);
-		
+
 		lblPerfil_1 = new JLabel("Perfil");
 		lblPerfil_1.setForeground(Color.WHITE);
 		lblPerfil_1.setFont(new Font("Tahoma", Font.PLAIN, 28));
@@ -222,16 +226,14 @@ public class Perfil extends JFrame {
 		btnFAQs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(10, 4);
+				esconderPuntitos();
 			}
 		});
 
 		btnPuntitos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (btnHistorial.isVisible() && btnEditarPerfil.isVisible() && btnLogOut.isVisible()) {
-					btnHistorial.setVisible(false);
-					btnEditarPerfil.setVisible(false);
-					btnFAQs.setVisible(false);
-					btnLogOut.setVisible(false);
+					esconderPuntitos();
 				} else {
 					btnHistorial.setVisible(true);
 					btnEditarPerfil.setVisible(true);
@@ -241,6 +243,13 @@ public class Perfil extends JFrame {
 
 			}
 		});
+	}
+
+	private void esconderPuntitos() {
+		btnHistorial.setVisible(false);
+		btnEditarPerfil.setVisible(false);
+		btnFAQs.setVisible(false);
+		btnLogOut.setVisible(false);
 	}
 
 	public void setMiControlador(Controlador miControlador) {

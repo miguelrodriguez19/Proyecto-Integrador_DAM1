@@ -32,15 +32,19 @@ public class Main {
 		unirseEvento unirseEvento = new unirseEvento();
 		Valoracion valoracion = new Valoracion();
 		verEvento verEvento = new verEvento();
+		AdministradorEventos AdministradorEventos = new AdministradorEventos();
+		AdministradorUsuarios AdministradorUsuarios = new AdministradorUsuarios();
 
-		JFrame[] pantallas = { cambiarContrasena, crearPerfil, crearEvento, editarPerfil, FAQs, foro, historial, login, misEventos,
-				modificarEvento, perfil, mainPage, recuperarContrasena, recuperarContrasenaV2, registro, unirseEvento,
-				valoracion, verEvento };
+		JFrame[] pantallas = { /* 0 */cambiarContrasena, /* 1 */crearPerfil, /* 2 */crearEvento,
+				/* 3 */editarPerfil, /* 4 */FAQs, /* 5 */foro, /* 6 */historial, /* 7 */login, /* 8 */misEventos,
+				/* 9 */modificarEvento, /* 10 */perfil, /* 11 */mainPage, /* 12 */recuperarContrasena,
+				/* 13 */recuperarContrasenaV2, /* 14 */registro, /* 15 */unirseEvento, /* 16 */valoracion,
+				/* 17 */verEvento, /* 18 */ AdministradorEventos, /* 19 */ AdministradorUsuarios };
 
 		miControlador.setMiModelo(miModelo);
-
 		miModelo.setPantallas(pantallas);
-
+		miControlador.setPantallas(pantallas);
+		
 		cambiarContrasena.setMiControlador(miControlador);
 		crearEvento.setMiControlador(miControlador);
 		crearPerfil.setMiControlador(miControlador);
@@ -59,6 +63,8 @@ public class Main {
 		historial.setMiControlador(miControlador);
 		verEvento.setMiControlador(miControlador);
 		mainPage.setMiControlador(miControlador);
+		AdministradorUsuarios.setMiControlador(miControlador);
+		AdministradorEventos.setMiControlador(miControlador);
 
 		cambiarContrasena.setMiModelo(miModelo);
 		crearEvento.setMiModelo(miModelo);
@@ -77,8 +83,10 @@ public class Main {
 		valoracion.setMiModelo(miModelo);
 		verEvento.setMiModelo(miModelo);
 		mainPage.setMiModelo(miModelo);
+		AdministradorEventos.setMiModelo(miModelo);
+		AdministradorUsuarios.setMiModelo(miModelo);
 		miControlador.setPantallas(pantallas);
-		
+
 		historial.setMiModelo(miModelo);
 		login.setVisible(true);
 	}
