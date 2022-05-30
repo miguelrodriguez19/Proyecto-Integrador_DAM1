@@ -13,12 +13,12 @@ public class editarPerfil  extends JFrame {
 	private Controlador miControlador;
 	private Modelo miModelo;
 	private JPanel header;
-	private JLabel lblNewLabel, lblNewLabel_3, lblNewLabel_4, lblNewLabel_5, lblNewLabel_6, lblNewLabel_7,
-			lblNewLabel_8, lblNewLabel_11, lblNewLabel_13, lblNewLabel_14, lblNewLabel_1, lblPerfil;
-	private JButton btnEliminar, btnGuardar, btnNewButton_3;
-	private JComboBox comboBox_1;
+	private JLabel lblFotoPerfil, lblIconoUbicacion, lblIconoGenero, lblIconoCalendario, lblIconoBaloncesto, lblIconoMeGusta,
+			lblIconoDescripcion, lblEdad, lblMeGustas, lblDescripcion, lblIconoPerfil, lblPerfil;
+	private JButton btnEliminar, btnGuardar, btnCambiarContrasena;
+	private JComboBox comboBoxGenero;
 	private JTextArea txtrModificarDescripcion;
-	private JTextField txtNuevaLocalidad, txtNuevoNombreDe, txtMoralzarzalMadrid;
+	private JTextField txtNuevoNombre, txtNuevoNombreUsuario, txtLocalidad;
 	private JButton btnLogo;
 
 	public static void editarPerfil() {
@@ -44,34 +44,35 @@ public class editarPerfil  extends JFrame {
 		getContentPane().add(header);
 		header.setLayout(null);
 
-		lblNewLabel = new JLabel("");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setIcon(new ImageIcon(editarPerfil.class.getResource("/Imagenes/image-modified-modified.png")));
-		lblNewLabel.setBounds(736, 0, 101, 100);
-		header.add(lblNewLabel);
+		lblFotoPerfil = new JLabel("");
+		lblFotoPerfil.setHorizontalAlignment(SwingConstants.CENTER);
+		lblFotoPerfil.setIcon(new ImageIcon(editarPerfil.class.getResource("/Imagenes/image-modified-modified.png")));
+		lblFotoPerfil.setBounds(736, 0, 101, 100);
+		header.add(lblFotoPerfil);
 
-		txtNuevoNombreDe = new JTextField();
-		txtNuevoNombreDe.setForeground(Color.LIGHT_GRAY);
-		txtNuevoNombreDe.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txtNuevoNombreDe.setText("@Joselin");
-		txtNuevoNombreDe.setBounds(569, 27, 157, 23);
-		header.add(txtNuevoNombreDe);
-		txtNuevoNombreDe.setColumns(10);
+		txtNuevoNombreUsuario = new JTextField();
+		txtNuevoNombreUsuario.setForeground(Color.LIGHT_GRAY);
+		txtNuevoNombreUsuario.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txtNuevoNombreUsuario.setText("@Joselin");
+		txtNuevoNombreUsuario.setBounds(569, 27, 157, 23);
+		header.add(txtNuevoNombreUsuario);
+		txtNuevoNombreUsuario.setColumns(10);
 
-		btnNewButton_3 = new JButton("Cambiar contrasena");
-		btnNewButton_3.addActionListener(new ActionListener() {
+		btnCambiarContrasena = new JButton("Cambiar contrasena");
+		btnCambiarContrasena.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(10, 0);
 			}
 		});
-		btnNewButton_3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNewButton_3.setBackground(null);
-		btnNewButton_3.setBorder(null);
-		btnNewButton_3.setForeground(Color.WHITE);
-		btnNewButton_3.setBounds(569, 61, 157, 19);
-		header.add(btnNewButton_3);
+		btnCambiarContrasena.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnCambiarContrasena.setBackground(null);
+		btnCambiarContrasena.setBorder(null);
+		btnCambiarContrasena.setForeground(Color.WHITE);
+		btnCambiarContrasena.setBounds(569, 61, 157, 19);
+		header.add(btnCambiarContrasena);
 		
 		btnLogo = new JButton("");
+		btnLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(3, 11);
@@ -83,59 +84,59 @@ public class editarPerfil  extends JFrame {
 		btnLogo.setBounds(30, 15, 114, 68);
 		header.add(btnLogo);
 
-		lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setIcon(
+		lblIconoUbicacion = new JLabel("");
+		lblIconoUbicacion.setIcon(
 				new ImageIcon(editarPerfil.class.getResource("/Imagenes/marker-free-icon-font (1) (1) (1) (1).png")));
-		lblNewLabel_3.setBounds(513, 153, 33, 33);
-		getContentPane().add(lblNewLabel_3);
+		lblIconoUbicacion.setBounds(513, 153, 33, 33);
+		getContentPane().add(lblIconoUbicacion);
 
-		lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4
+		lblIconoGenero = new JLabel("");
+		lblIconoGenero
 				.setIcon(new ImageIcon(editarPerfil.class.getResource("/Imagenes/venus-mars-free-icon-font (1).png")));
-		lblNewLabel_4.setBounds(320, 197, 33, 33);
-		getContentPane().add(lblNewLabel_4);
+		lblIconoGenero.setBounds(320, 197, 33, 33);
+		getContentPane().add(lblIconoGenero);
 
-		lblNewLabel_5 = new JLabel("");
-		lblNewLabel_5
+		lblIconoCalendario = new JLabel("");
+		lblIconoCalendario
 				.setIcon(new ImageIcon(editarPerfil.class.getResource("/Imagenes/calendar-free-icon-font (1).png")));
-		lblNewLabel_5.setBounds(104, 196, 33, 33);
-		getContentPane().add(lblNewLabel_5);
+		lblIconoCalendario.setBounds(104, 196, 33, 33);
+		getContentPane().add(lblIconoCalendario);
 
-		lblNewLabel_6 = new JLabel("");
-		lblNewLabel_6
+		lblIconoBaloncesto = new JLabel("");
+		lblIconoBaloncesto
 				.setIcon(new ImageIcon(editarPerfil.class.getResource("/Imagenes/basketball-free-icon-font (1).png")));
-		lblNewLabel_6.setBounds(320, 154, 33, 33);
-		getContentPane().add(lblNewLabel_6);
+		lblIconoBaloncesto.setBounds(320, 154, 33, 33);
+		getContentPane().add(lblIconoBaloncesto);
 
-		lblNewLabel_7 = new JLabel("");
-		lblNewLabel_7
+		lblIconoMeGusta = new JLabel("");
+		lblIconoMeGusta
 				.setIcon(new ImageIcon(editarPerfil.class.getResource("/Imagenes/thumbs-up-free-icon-font (1).png")));
-		lblNewLabel_7.setBounds(513, 197, 33, 33);
-		getContentPane().add(lblNewLabel_7);
+		lblIconoMeGusta.setBounds(513, 197, 33, 33);
+		getContentPane().add(lblIconoMeGusta);
 
-		lblNewLabel_8 = new JLabel("");
-		lblNewLabel_8
+		lblIconoDescripcion = new JLabel("");
+		lblIconoDescripcion
 				.setIcon(new ImageIcon(editarPerfil.class.getResource("/Imagenes/document-free-icon-font (1).png")));
-		lblNewLabel_8.setBounds(104, 233, 33, 33);
-		getContentPane().add(lblNewLabel_8);
+		lblIconoDescripcion.setBounds(104, 233, 33, 33);
+		getContentPane().add(lblIconoDescripcion);
 
-		lblNewLabel_11 = new JLabel("19 a\u00F1os");
-		lblNewLabel_11.setForeground(Color.WHITE);
-		lblNewLabel_11.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblNewLabel_11.setBounds(143, 197, 145, 33);
-		getContentPane().add(lblNewLabel_11);
+		lblEdad = new JLabel("19 a\u00F1os");
+		lblEdad.setForeground(Color.WHITE);
+		lblEdad.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblEdad.setBounds(143, 197, 145, 33);
+		getContentPane().add(lblEdad);
 
-		lblNewLabel_13 = new JLabel("125");
-		lblNewLabel_13.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblNewLabel_13.setForeground(Color.WHITE);
-		lblNewLabel_13.setBounds(550, 197, 46, 33);
-		getContentPane().add(lblNewLabel_13);
+		lblMeGustas = new JLabel("125");
+		lblMeGustas.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblMeGustas.setForeground(Color.WHITE);
+		lblMeGustas.setBounds(550, 197, 46, 33);
+		getContentPane().add(lblMeGustas);
 
-		lblNewLabel_14 = new JLabel("Descripci\u00F3n:");
-		lblNewLabel_14.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblNewLabel_14.setForeground(Color.WHITE);
-		lblNewLabel_14.setBounds(136, 233, 145, 33);
-		getContentPane().add(lblNewLabel_14);
+		lblDescripcion = new JLabel("Descripci\u00F3n:");
+		lblDescripcion.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblDescripcion.setForeground(Color.WHITE);
+		lblDescripcion.setBounds(136, 233, 145, 33);
+		getContentPane().add(lblDescripcion);
 
 		btnGuardar = new JButton("Guardar");
 		btnGuardar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -151,13 +152,13 @@ public class editarPerfil  extends JFrame {
 			}
 		});
 
-		txtNuevaLocalidad = new JTextField();
-		txtNuevaLocalidad.setForeground(Color.LIGHT_GRAY);
-		txtNuevaLocalidad.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txtNuevaLocalidad.setText("Jose Hernandez");
-		txtNuevaLocalidad.setBounds(143, 159, 145, 24);
-		getContentPane().add(txtNuevaLocalidad);
-		txtNuevaLocalidad.setColumns(10);
+		txtNuevoNombre = new JTextField();
+		txtNuevoNombre.setForeground(Color.LIGHT_GRAY);
+		txtNuevoNombre.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txtNuevoNombre.setText("Jose Hernandez");
+		txtNuevoNombre.setBounds(143, 159, 145, 24);
+		getContentPane().add(txtNuevoNombre);
+		txtNuevoNombre.setColumns(10);
 
 		txtrModificarDescripcion = new JTextArea();
 		txtrModificarDescripcion.setForeground(Color.LIGHT_GRAY);
@@ -166,28 +167,28 @@ public class editarPerfil  extends JFrame {
 		txtrModificarDescripcion.setBounds(104, 266, 623, 105);
 		getContentPane().add(txtrModificarDescripcion);
 
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] { "Deporte Favorito" }));
-		comboBox.setBounds(363, 159, 114, 24);
-		getContentPane().add(comboBox);
+		JComboBox comboBoxDeporte = new JComboBox();
+		comboBoxDeporte.setModel(new DefaultComboBoxModel(new String[] { "Deporte Favorito" }));
+		comboBoxDeporte.setBounds(363, 159, 114, 24);
+		getContentPane().add(comboBoxDeporte);
 
-		lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setIcon(new ImageIcon(editarPerfil.class.getResource("/Imagenes/icons8-usuario-30.png")));
-		lblNewLabel_1.setBounds(100, 154, 33, 33);
-		getContentPane().add(lblNewLabel_1);
+		lblIconoPerfil = new JLabel("New label");
+		lblIconoPerfil.setIcon(new ImageIcon(editarPerfil.class.getResource("/Imagenes/icons8-usuario-30.png")));
+		lblIconoPerfil.setBounds(100, 154, 33, 33);
+		getContentPane().add(lblIconoPerfil);
 
-		comboBox_1 = new JComboBox();
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] { "No especificar", "Hombre ", "Mujer", "Otro" }));
-		comboBox_1.setBounds(363, 206, 114, 24);
-		getContentPane().add(comboBox_1);
+		comboBoxGenero = new JComboBox();
+		comboBoxGenero.setModel(new DefaultComboBoxModel(new String[] { "No especificar", "Hombre ", "Mujer", "Otro" }));
+		comboBoxGenero.setBounds(363, 206, 114, 24);
+		getContentPane().add(comboBoxGenero);
 
-		txtMoralzarzalMadrid = new JTextField();
-		txtMoralzarzalMadrid.setText("Moralzarzal, Madrid 28411");
-		txtMoralzarzalMadrid.setForeground(Color.LIGHT_GRAY);
-		txtMoralzarzalMadrid.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txtMoralzarzalMadrid.setColumns(10);
-		txtMoralzarzalMadrid.setBounds(550, 161, 177, 24);
-		getContentPane().add(txtMoralzarzalMadrid);
+		txtLocalidad = new JTextField();
+		txtLocalidad.setText("Moralzarzal, Madrid 28411");
+		txtLocalidad.setForeground(Color.LIGHT_GRAY);
+		txtLocalidad.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txtLocalidad.setColumns(10);
+		txtLocalidad.setBounds(550, 161, 177, 24);
+		getContentPane().add(txtLocalidad);
 
 		lblPerfil = new JLabel("Editar perfil");
 		lblPerfil.setForeground(Color.WHITE);

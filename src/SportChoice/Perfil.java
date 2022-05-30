@@ -187,6 +187,7 @@ public class Perfil extends JFrame {
 		btnHistorial.setVisible(false);
 		btnHistorial.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(10, 6);
 				esconderPuntitos();
 			}
 		});
