@@ -142,7 +142,8 @@ public class Modelo {
 			query = "";
 			break;
 		default:
-			System.out.println("error no existe query para tabla");
+			System.out.print("Error Switch: ");
+			System.err.println("no existe query para tabla.");
 			break;
 		}
 		return query;
@@ -154,8 +155,9 @@ public class Modelo {
 		try {
 			PreparedStatement pstmt = conexion.prepareStatement(sql);
 			if (option.equals("misEventos")) { // || option.equals("foro") CREO QUE HACE FALTA ESTO
-				pstmt.setString(1, usuarioConectado); // EVENTO SELECCIONADO CREATE UN ATRIBUTO PARA GUARDAR SU CODIGO_EVENTO
+				pstmt.setString(1, usuarioConectado); // EVENTO SELECCIONADO CREATE UN ATRIBUTO PARA GUARDAR SU COD_EVENTO
 			}
+
 			ResultSet rset = pstmt.executeQuery();
 			ResultSetMetaData rsmd = rset.getMetaData();
 			num = rsmd.getColumnCount();
