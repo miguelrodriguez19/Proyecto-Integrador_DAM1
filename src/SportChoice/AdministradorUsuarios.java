@@ -21,7 +21,6 @@ import java.awt.event.ActionEvent;
 public class AdministradorUsuarios extends JFrame {
 
 	private JFrame frame;
-	private JTable table;
 	private Controlador miControlador;
 	private Modelo miModelo;
 	private JButton btnEventos;
@@ -29,6 +28,7 @@ public class AdministradorUsuarios extends JFrame {
 	private JLabel lblNewLabel;
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -85,13 +85,10 @@ public class AdministradorUsuarios extends JFrame {
 		JScrollPane scrollPaneEventos = new JScrollPane();
 		scrollPaneEventos.setBounds(174, 78, 507, 340);
 		panel.add(scrollPaneEventos);
-
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPaneEventos.setViewportView(scrollPane);
-
+		
 		table = new JTable();
 		table.setRowHeight(55);
-		scrollPane.setViewportView(table);
+		scrollPaneEventos.setViewportView(table);
 		
 
 		
