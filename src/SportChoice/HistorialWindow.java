@@ -6,6 +6,8 @@ import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 
 import javax.swing.*;
@@ -44,29 +46,7 @@ public class HistorialWindow extends JFrame {
 
 		table = new JTable();
 		table.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		table.setModel(new DefaultTableModel(new Object[][] {
-//				{"Creador", "Fecha", "Participantes", "Resultado", "Descripcion"},
-				{ "@PedroJuarez", "12/02/2022", "14", "10 | 2     Victoria", "Partido F�tbol Villalba" },
-				{ "@BenitoPerez", "17/02/2022", "4", "6 | 3     Victoria", "Tenis Polideportivo Moralzarzal" },
-				{ "@JuanAlvarez", "22/02/2022", "14", "82 | 78     Victoria", "Baloncesto Polideportivo Moralzarzal" },
-				{ "@BenitoPerez", "28/02/2022", "2", "3 | 3     Empate", "Tenis Polideportivo Moralzarzal" },
-				{ "@PedroJuarez", "03/03/2022", "22", "3 | 5     Derrota", "Partido F�tbol Villalba" },
-				{ "@JuanAlvarez", "12/03/2022", "17", "2 | 5     Derrota", "Partido F�tbol" },
-				{ "@PedroJuarez", "12/02/2022", "14", "2 | 5     Derrota", "Partido F�tbol Polideportivo Villalba" },
-				{ "@BenitoPerez", "12/02/2022", "8", "5 | 2     Victoria", "Tenis Polideportivo Moralzarzal" },
-				{ "@PedroJuarez", "12/02/2022", "10", "10 | 2     Victoria", "Partido F�tbol 7" },
-				{ "@PedroJuarez", "12/02/2022", "12", "10 | 2     Victoria", "Partido F�tbol 7" },
-				{ "@JuanAlvarez", "15/03/2022", "5", "3 | 2     Victoria", "Padel Polideportivo Moralzarzal" },
-				{ "@BenitoPerez", "23/03/2022", "15", "44 | 32     Victoria", "Baloncesto Polideportivo Villalba" },
-				{ null, null, null, null } },
-				new String[] { "Creador", "Fecha", "Participantes", "Resultado", "Nombre" }) {
-			//
-			boolean[] columnEditables = new boolean[] { true, true, true, true };
-
-//			public boolean isCellEditable(int row, int column) {
-//			//return columnEditables[column];
-//			}
-	});
+		
 		table.getColumnModel().getColumn(4).setPreferredWidth(720);
 		table.setRowHeight(60);
 		table.setBounds(96, 58, 709, 285);
@@ -170,6 +150,14 @@ public class HistorialWindow extends JFrame {
 		btnFAQs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(6, 4);
+			}
+		});
+		
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent e) {
+				miModelo.cargarTabla("historialWindow");
+				table.setModel(miModelo.getTabla());
 			}
 		});
 	}

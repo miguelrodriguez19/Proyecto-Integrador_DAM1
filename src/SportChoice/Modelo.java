@@ -136,7 +136,10 @@ public class Modelo {
 			query = "select usr, nombre, apellido, email, fecha_nac from users where rol = 'user';";
 			break;
 		case "foro": // Aun no funciona
-			query = "select eventos.usr, fecha_evento, nombre_evento from eventos natural join participa_evento order by fecha_creacion asc;";
+			query = "";
+			break;
+		case "historialWindow": // Aun no funciona
+			query = "";
 			break;
 		default:
 			System.out.println("error no existe query para tabla");
