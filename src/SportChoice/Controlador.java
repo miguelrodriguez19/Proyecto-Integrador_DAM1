@@ -7,7 +7,6 @@ import javax.swing.JFrame;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Controlador {
-
 	private Modelo miModelo;
 	private datosConexion misDatos = new datosConexion();
 	private JFrame[] pantallas;
