@@ -44,6 +44,7 @@ public class datosConexion extends JFrame {
 		btnFlecha = new JButton("");
 		btnFlecha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(20, 7);
 			}
 		});
 		btnFlecha.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
