@@ -29,8 +29,9 @@ public class LogIn extends JFrame {
 	private JPasswordField txtPwd;
 	private JPanel panel;
 	private JSeparator separator;
-	private JLabel lblContraseñaPlaceHolder, lblnoTienesCuenta, lblErrorLogIn, lblNewLabel_1,lblNewLabel;
+	private JLabel lblContraseñaPlaceHolder, lblnoTienesCuenta, lblErrorLogIn, lblTituloIniciarSesion,lblNewLabel;
 	private JButton btnRegistro, btnIniciarSesion, btnRecuperarContrasena, btnAccederInvitado;
+	private JButton btnAjustesConexion;
 
 	public static void LogIn() {
 		LogIn window = new LogIn();
@@ -64,11 +65,11 @@ public class LogIn extends JFrame {
 		txtMail.setText("Usuario");
 		txtMail.setColumns(10);
 
-		lblNewLabel_1 = new JLabel("Iniciar Sesi\u00F3n\r\n");
-		lblNewLabel_1.setBounds(28, 0, 275, 98);
-		panel.add(lblNewLabel_1);
-		lblNewLabel_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1.setFont(new Font("Trebuchet MS", Font.PLAIN, 46));
+		lblTituloIniciarSesion = new JLabel("Iniciar Sesi\u00F3n\r\n");
+		lblTituloIniciarSesion.setBounds(28, 10, 275, 98);
+		panel.add(lblTituloIniciarSesion);
+		lblTituloIniciarSesion.setForeground(new Color(255, 255, 255));
+		lblTituloIniciarSesion.setFont(new Font("Trebuchet MS", Font.PLAIN, 46));
 
 		btnRecuperarContrasena = new JButton("Recuperar Contrase\u00F1a\r\n");
 		btnRecuperarContrasena.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -177,6 +178,21 @@ public class LogIn extends JFrame {
 		lblErrorLogIn.setForeground(Color.RED);
 		lblErrorLogIn.setBounds(69, 280, 205, 13);
 		panel.add(lblErrorLogIn);
+		
+		btnAjustesConexion = new JButton("");
+		btnAjustesConexion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnAjustesConexion.setIcon(new ImageIcon(LogIn.class.getResource("/Imagenes/configuraciones.png")));
+		btnAjustesConexion.setBackground(null);
+		btnAjustesConexion.setBorder(null);
+		btnAjustesConexion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnAjustesConexion.setForeground(Color.WHITE);
+		btnAjustesConexion.setBounds(50, 10, 85, 21);
+		panel.add(btnAjustesConexion);
+		btnAjustesConexion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(7, 20);
+			}
+		});
 		lblErrorLogIn.setVisible(false);
 		btnIniciarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

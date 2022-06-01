@@ -13,6 +13,7 @@ public class Main {
 	public static void main(String[] args) {
 		Controlador miControlador = new Controlador();
 		Modelo miModelo = new Modelo();
+		miModelo.leerFichero();
 
 		CambiarContrasena cambiarContrasena = new CambiarContrasena();
 		ConfCrearPerfil crearPerfil = new ConfCrearPerfil();
@@ -34,18 +35,20 @@ public class Main {
 		verEvento verEvento = new verEvento();
 		AdministradorEventos AdministradorEventos = new AdministradorEventos();
 		AdministradorUsuarios AdministradorUsuarios = new AdministradorUsuarios();
+		datosConexion datosConexionPantalla = new datosConexion();
 
 		JFrame[] pantallas = { /* 0 */cambiarContrasena, /* 1 */crearPerfil, /* 2 */crearEvento,
 				/* 3 */editarPerfil, /* 4 */FAQs, /* 5 */foro, /* 6 */historial, /* 7 */login, /* 8 */misEventos,
 				/* 9 */modificarEvento, /* 10 */perfil, /* 11 */mainPage, /* 12 */recuperarContrasena,
 				/* 13 */recuperarContrasenaV2, /* 14 */registro, /* 15 */unirseEvento, /* 16 */valoracion,
-				/* 17 */verEvento, /* 18 */ AdministradorEventos, /* 19 */ AdministradorUsuarios };
+				/* 17 */verEvento, /* 18 */ AdministradorEventos, /* 19 */ AdministradorUsuarios, /* 20 */ datosConexionPantalla };
 
 		miControlador.setMiModelo(miModelo);
 		miModelo.setPantallas(pantallas);
 		miControlador.setPantallas(pantallas);
 		
 		cambiarContrasena.setMiControlador(miControlador);
+		datosConexionPantalla.setMiControlador(miControlador);
 		crearEvento.setMiControlador(miControlador);
 		crearPerfil.setMiControlador(miControlador);
 		editarPerfil.setMiControlador(miControlador);
@@ -68,6 +71,7 @@ public class Main {
 
 		cambiarContrasena.setMiModelo(miModelo);
 		crearEvento.setMiModelo(miModelo);
+		datosConexionPantalla.setMiModelo(miModelo);
 		crearPerfil.setMiModelo(miModelo);
 		editarPerfil.setMiModelo(miModelo);
 		FAQs.setMiModelo(miModelo);

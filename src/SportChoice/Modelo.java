@@ -1,13 +1,22 @@
 package SportChoice;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import java.sql.*;
+import java.util.Properties;
 
 import javax.swing.JFrame;
+import javax.swing.JTextField;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Modelo {
 	private String bd = "ProyectoIntegrador";
@@ -23,11 +32,33 @@ public class Modelo {
 	private JFrame[] pantallas;
 	private String sqlTabla1 = "Select * from countrylanguage";
 	private String sqlTabla2 = "Select * from city";
+	private JTextField txtUsuario, txtPassword, txtURL;
+
+	private Properties datosConexion;
+	private datosConexion datosConexionPantalla = new datosConexion();
+	private File miFichero;
+	private InputStream entrada;
+	private OutputStream salida;
+	private String respuesta;
+	private final String FILE = "conexionBDPI.ini";
 
 	public Modelo() {
+		datosConexion = new Properties();
+		try {
+			miFichero = new File(FILE);
+			if (miFichero.exists()) {
+				entrada = new FileInputStream(miFichero);
+				datosConexion.load(entrada);
+			} else {
+				System.err.println("Fichero no encontrado");
+				System.exit(1);
+			}
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conexion = DriverManager.getConnection(url, usuariologin, pwd);
+			conexion = DriverManager.getConnection(datosConexion.getProperty("URL"), datosConexion.getProperty("Usr"), datosConexion.getProperty("Pwd"));
 			stmt = conexion.createStatement();
 
 			if (conexion != null) {
@@ -71,7 +102,7 @@ public class Modelo {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void login(String usr, String pwd) {
 		String rol;
 		this.usr = consulta("select * from users where usr=?", usr, "usr");
@@ -110,5 +141,55 @@ public class Modelo {
 			s.printStackTrace();
 		}
 		return ej;
+	}
+
+	public void leerFichero() {
+		File rutaProyecto = new File(FILE);
+		FileNameExtensionFilter filtro = new FileNameExtensionFilter("*.java", "java");
+//		txtUsuario.setText(getName());
+//		txtPassword.setText(getName());
+//		txtURL.setText(getName());
+	}
+
+	public void guardar(String billete, String premio) {
+		try {
+			datosConexion.setProperty(billete, premio);
+			salida = new FileOutputStream(miFichero);
+			datosConexion.store(salida, "Ultima operacion: Guardado");
+			respuesta = "Guardado";
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+//		miVista.actualizar();
+	}
+
+	public void borrar(String billete) {
+		if (!datosConexion.containsKey(billete)) {
+			respuesta = "No Encontrado";
+		} else {
+			datosConexion.replace(billete, billete);
+			try {
+				salida = new FileOutputStream(miFichero);
+				datosConexion.store(salida, "Ultima operacion: Borrado");
+				respuesta = "Borrado";
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		datosConexionPantalla.actualizar();
+	}
+
+	public void comprobar(String billete) {
+		String premio = datosConexion.getProperty(billete);
+		if (premio == null) {
+			respuesta = "No Encontrado";
+		} else {
+			respuesta = premio;
+		}
+		datosConexionPantalla.actualizar();
+	}
+
+	public String getRespuesta() {
+		return respuesta;
 	}
 }
