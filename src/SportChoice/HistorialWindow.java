@@ -47,7 +47,6 @@ public class HistorialWindow extends JFrame {
 		table = new JTable();
 		table.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		
-		table.getColumnModel().getColumn(4).setPreferredWidth(720);
 		table.setRowHeight(60);
 		table.setBounds(96, 58, 709, 285);
 

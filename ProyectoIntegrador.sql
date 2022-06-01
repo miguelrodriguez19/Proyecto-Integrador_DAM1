@@ -68,6 +68,7 @@ foreign key (cod_user) references users(usr) on delete cascade on update cascade
 )engine = innodb;
 
 -- users 
+insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol) values ('dglmn', 'Luis', 'Vallejo', 'mejorApp@SportChoice.com', 'dglmn', '2020-11-25', '', '', 0, 6969, 'user');
 insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol) values ('adminAlvar', 'Alvaro', 'Rodriguez', 'admin-suport@SportChoice.com', 'admin123', '2020-11-25', '', '', 0, 666, 'admin');
 insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol) values ('wsurgen0', 'Willdon', 'Surgen', 'wsurgen0@mit.edu', 'fJiZh3jwm', '2021-11-25', 'evolve B2B platforms', 'Baloncesto', 667, 5777, 'user');
 insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol) values ('bmonroe1', 'Britney', 'Monroe', 'bmonroe1@scribd.com', '0cgNCr', '2021-07-17', 'innovate transparent portals', 'Baloncesto', 680, 5124, 'user');
@@ -100,16 +101,18 @@ insert into foro (cod_foro) values (8478);
 insert into Eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion, cod_foro) values ('e12353', '2021-08-26', '2022-01-31', 'Tenis', 'Synchronised needs-based budgetary management', 'slanglois0', 'wsurgen0', 'Publico', '66 Kedzie Court', 1394);
 insert into Eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion, cod_foro) values ('e17063', '2022-04-18', '2021-10-21', 'Tenis', 'Programmable composite concept', 'oroose1', 'bmonroe1', 'Publico', '14 Pennsylvania Hill', 5613);
 insert into Eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion, cod_foro) values ('e16048', '2021-08-03', '2021-07-30', 'Futbol', 'Virtual heuristic product', 'kmarkushkin2', 'iruxton2', 'Publico', '7 West Road', 9000);
-insert into Eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion, cod_foro) values ('e18979', '2021-05-23', '2021-08-30', 'Baloncesto', 'Re-engineered tangible leverage', 'acrossland3', 'mdixcee3', 'Publico', '14035 Weeping Birch Terrace', 8384);
-insert into Eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion, cod_foro) values ('e14244', '2021-08-15', '2021-06-20', 'Tenis', 'Polarised zero tolerance array', 'omolan4', 'dtattersall5', 'Publico', '4 Quincy Junction', 4571);
-insert into Eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion, cod_foro) values ('e10111', '2022-01-16', '2022-04-17', 'Tenis', 'Enterprise-wide tertiary approach', 'rmcgennis5', 'askase6', 'Publico', '640 Algoma Circle', 5289);
+insert into Eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion, cod_foro) values ('e18979', '2021-05-23', '2022-08-30', 'Baloncesto', 'Re-engineered tangible leverage', 'acrossland3', 'mdixcee3', 'Publico', '14035 Weeping Birch Terrace', 8384);
+insert into Eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion, cod_foro) values ('e14244', '2021-08-15', '2023-06-20', 'Tenis', 'Polarised zero tolerance array', 'omolan4', 'dtattersall5', 'Publico', '4 Quincy Junction', 4571);
+insert into Eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion, cod_foro) values ('e10111', '2022-01-16', '2023-04-17', 'Tenis', 'Enterprise-wide tertiary approach', 'rmcgennis5', 'askase6', 'Publico', '640 Algoma Circle', 5289);
 insert into Eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion, cod_foro) values ('e11586', '2021-08-24', '2021-09-29', 'Tenis', 'Team-oriented optimal knowledge user', 'cmartins6', 'pcattenach7', 'Privado', '322 East Terrace', 4264);
-insert into Eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion, cod_foro) values ('e18274', '2022-03-11', '2022-01-05', 'Tenis', 'Reverse-engineered background complexity', 'ogillum7', 'sscanlon8', 'Publico', '59 Pennsylvania Center', 5298);
+insert into Eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion, cod_foro) values ('e18274', '2022-03-11', '2022-12-05', 'Futbol', 'Reverse-engineered background complexity', 'ogillum7', 'sscanlon8', 'Publico', '59 Pennsylvania Center', 5298);
 insert into Eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion, cod_foro) values ('e16237', '2022-02-19', '2021-11-14', 'Tenis', 'Enhanced context-sensitive Graphic Interface', 'nwolters8', 'mstudholme9', 'Publico', '4780 Petterle Trail', 6206);
-insert into Eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion, cod_foro) values ('e18851', '2022-03-06', '2022-03-18', 'Tenis', 'Fully-configurable dedicated functionalities', 'wstoade9', 'cwingfielda', 'Privado', '2539 Bartelt Court', 3922);
-insert into Eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion, cod_foro) values ('e12606', '2021-08-28', '2022-01-04', 'Tenis', 'Cloned systemic ability', 'cpethybridgea', 'lpiccardb', 'Privado', '74258 Sutherland Hill', 4964);
-insert into Eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion, cod_foro) values ('e17627', '2021-08-01', '2022-01-07', 'Tenis', 'Right-sized optimizing synergy', 'wputtergillb', 'telcox4', 'Publico', '8 4th Place', 8478);
-
+insert into Eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion, cod_foro) values ('e18851', '2022-03-06', '2022-09-18', 'Futbol', 'Fully-configurable dedicated functionalities', 'wstoade9', 'cwingfielda', 'Privado', '2539 Bartelt Court', 3922);
+insert into Eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion, cod_foro) values ('e12606', '2021-08-28', '2022-08-30', 'Tenis', 'Cloned systemic ability', 'cpethybridgea', 'lpiccardb', 'Privado', '74258 Sutherland Hill', 4964);
+insert into Eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion, cod_foro) values ('e12607', '2021-08-01', '2022-09-07', 'Tenis', 'Right-sized optimizing synergy', 'wputtergillb', 'telcox4', 'Publico', '8 4th Place', null);
+insert into Eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion, cod_foro) values ('e12699', '2021-08-01', '2022-11-17', 'Baloncesto', 'Cloned dedicated functionalities', 'wputtergillb', 'dglmn', 'Publico', '74258 Sutherland Place', null);
+insert into Eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion, cod_foro) values ('e17627', '2021-08-01', '2022-7-17', 'Baloncesto', 'Team-oriented optimal knowledge Interface', 'wputtergillb', 'dglmn', 'Publico', '74258 Sutherland Place', null);
+ 
 -- participa_evento
 insert into participa_evento (cod_user, Cod_Evento) values ('wsurgen0', 'e12353');
 insert into participa_evento (cod_user, Cod_Evento) values ('bmonroe1', 'e17063');
@@ -123,6 +126,11 @@ insert into participa_evento (cod_user, Cod_Evento) values ('mstudholme9', 'e162
 insert into participa_evento (cod_user, Cod_Evento) values ('cwingfielda', 'e18851');
 insert into participa_evento (cod_user, Cod_Evento) values ('lpiccardb', 'e12606');
 insert into participa_evento (cod_user, Cod_Evento) values ('telcox4', 'e17627');
+insert into participa_evento (cod_user, Cod_Evento) values ('lpiccardb', 'e17627');
+insert into participa_evento (cod_user, Cod_Evento) values ('cwingfielda', 'e17627');
+insert into participa_evento (cod_user, Cod_Evento) values ('dglmn', 'e17627');
+insert into participa_evento (cod_user, Cod_Evento) values ('dglmn', 'e12699');
+insert into participa_evento (cod_user, Cod_Evento) values ('dglmn', 'e12607');
 
 -- valoracion
 insert into valoracion_users (cod_user, cod_companero, cod_evento) values ('wsurgen0', 'lpiccardb', 'e12353');
@@ -152,33 +160,45 @@ insert into mensaje_foro (cod_mensaje, cod_foro, cod_user, mensaje, fecha) value
 insert into mensaje_foro (cod_mensaje, cod_foro, cod_user, mensaje, fecha) values ('m1511', 4964, 'lpiccardb', 'Reactive zero administration time-frame', '2021-06-09');
 insert into mensaje_foro (cod_mensaje, cod_foro, cod_user, mensaje, fecha) values ('m2025', 8478, 'telcox4', 'Adaptive 24 hour orchestration', '2021-08-08');
 
-/* QUERYS POR PANTALLA
+
+/* -- QUERYS POR PANTALLA
+-- Eventos Administrador 
+select cod_evento as 'Evento actual', nombre_evento as 'Nombre evento', usr as Creador, fecha_evento as Fecha, tipo_dep as Deporte, (select count(*) as participantes from participa_evento where cod_evento = 'Evento actual' group by cod_evento) as participantes from eventos natural join participa_evento group by cod_evento order by fecha_evento desc;
+
+-- Usuarios Administrador
+select usr  as 'Usuario', nombre as 'Nombre', apellido  as 'Apellido', email  as 'E-mail', fecha_nac as 'Fecha nacimiento' from users where rol = 'user';
+
 -- Inicio Sesion
 select email, usr, pwd from users where (usr = 'usuario-conectado' || email = 'usuario-conectado@example.com') && pwd = 'password';
+
 -- Registro & Confirmar Perfil
 insert into users (usr, nombre, apellido, email, pwd, Fecha_nac) values ('usuario-conectado', 'Willdon', 'Surgen', 'usuario-conectado@example.com', 'password', '2021-11-25');
+
 -- Confirma tu email
 select email from users where email = 'usuario-conectado@example.com';
+
 -- Recuperar pwd 
 select cod_recuperacion from users where email = 'usuario-conectado@example.com';
 UPDATE users SET pwd = 'nuevaPassword';
+
 -- Perfil 
 select nombre, usr, localizacion, sexo, deporteFav, fecha_nac, valoraciones, descripcion from registrados where usr = 'usuario-conectado'; 
+
 -- Editar perfil 
 	-- Si se ha cambiado la foto de perfil aplicariamos esta query: 
 	Update users set nombre = 'usuario', apellido = 'apellidos', deporteFav = 'Futbol', localizacion = 'Madrid', sexo = 'Hombre', descripccion = 'Nueva descripccion...', FotoPerfil =  LOAD_FILE('data.png') where usr = 'usuario-conectado';
 	-- Si no se ha cambiado la foto aplicariamos esta otra:
 	Update users set nombre = 'usuario', apellido = 'apellidos', deporteFav = 'Futbol', localizacion = 'Madrid', sexo = 'Hombre', descripccion = 'Nueva descripccion...' where usr = 'usuario-conectado';
+
 -- Cambiar pwd
 select pwd from users where usr = 'usuario-conectado';
 update users set pwd = 'passwordCambiada' where usr = 'usuario-conectado';
+
 -- Historial
 select eventos.nom_creador, fecha_evento, nombre_evento from eventos natural join participa_evento
 where participa_evento.cod_user = 'usuario-conectado' && fecha_evento < current_date();
-
 	-- para cada evento hay que hacer recuento de participantes
 select count(*) from participa_evento where nom_evento = 'eventoEjemplo';
-
 
 -- Valoraciones 
 	-- Solo contemplanos una unica valoracion positiva
@@ -187,16 +207,14 @@ insert into valoracion_users values ('usuario-conectado', 'otro usuario',  'even
 update registrados set valoraciones = valoraciones + 1 where cod_user ='otro usuario'; 
 
 -- Main Page 
-select eventos.nom_creador, fecha_evento, nombre_evento from eventos natural join participa_evento
-order by fecha_creacion asc;
-	-- para cada evento hay que hacer recuento de participantes
-select count(*) from participa_evento where nom_evento = 'eventoEjemplo';
+select cod_evento as Evento, eventos.usr as Creador, fecha_evento as Fecha, nombre_evento 'Nombre evento',
+(select count(*) from participa_evento natural join eventos where cod_evento = Evento group by cod_evento) as Participantes 
+from eventos natural join participa_evento group by cod_evento order by fecha_evento desc;
 
 -- Mis eventos 
-select eventos.nom_creador, fecha_evento, nombre_evento from eventos natural join participa_evento
-where participa_evento.cod_user = 'usuario-conectado' && fecha_evento > current_date();
-	-- para cada evento hay que hacer recuento de participantes
-select count(*) from participa_evento where nom_evento = 'eventoEjemplo';
+select cod_evento as Evento, eventos.usr as Creador, fecha_evento as Fecha, nombre_evento as 'Nombre evento', 
+(select count(*) from participa_evento natural join eventos where cod_evento = Evento group by cod_evento) as participantes 
+from eventos natural join participa_evento where participa_evento.cod_user = 'dglmn' && fecha_evento > current_date() group by cod_evento;
 
 -- Crear evento
 insert into Eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, nom_creador, privacidad, Localizacion, cod_foro) 

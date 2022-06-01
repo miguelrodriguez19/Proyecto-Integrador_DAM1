@@ -79,6 +79,7 @@ public class Modelo {
 		System.out.println("Atributos: " + this.usr + " - " + this.pwdBBDD);
 		rol = consulta("select * from users where usr=?", usr, "rol");
 		if (this.usr.equals(usr) && this.pwdBBDD.equals(pwd)) {
+			setUsuarioConectado(usr);
 			resultado = "Correcto";
 			fallos = 0;
 		} else {
@@ -124,16 +125,22 @@ public class Modelo {
 		String query = "";
 		switch (option) {
 		case "eventosRecientes":
-			query = "select eventos.usr, fecha_evento, nombre_evento from eventos natural join participa_evento order by fecha_creacion asc;";
+			query = "select cod_evento as Evento, eventos.usr as Creador, fecha_evento as Fecha, nombre_evento 'Nombre evento', "
+					+ "(select count(*) from participa_evento natural join eventos where cod_evento = Evento group by cod_evento) as Participantes "
+					+ "from eventos natural join participa_evento group by cod_evento order by fecha_evento desc;";
 			break;
 		case "misEventos":
-			query = "select eventos.usr, fecha_evento, nombre_evento from eventos natural join participa_evento where participa_evento.cod_user = ? && fecha_evento > current_date();";
+			query = "select cod_evento as Evento, eventos.usr as Creador, fecha_evento as Fecha, nombre_evento as 'Nombre evento', "
+					+ "(select count(*) from participa_evento natural join eventos where cod_evento = Evento group by cod_evento) as participantes "
+					+ "from eventos natural join participa_evento where participa_evento.cod_user = ? && fecha_evento > current_date() group by cod_evento;";
 			break;
 		case "eventosAdministrador":
-			query = "select cod_evento as eventoActual, nombre_evento, usr as creador, fecha_evento, tipo_dep, (select count(*) as participantes from participa_evento where cod_evento = eventoActual group by cod_evento) as participantes from eventos natural join participa_evento group by cod_evento order by fecha_evento desc;";
+			query = "select cod_evento as 'Evento actual', nombre_evento as 'Nombre evento', usr as Creador, fecha_evento as Fecha, tipo_dep as Deporte, "
+					+ "(select count(*) as participantes from participa_evento where cod_evento = eventoActual group by cod_evento) as participantes "
+					+ "from eventos natural join participa_evento group by cod_evento order by fecha_evento desc;";
 			break;
 		case "usuariosAdministrador":
-			query = "select usr, nombre, apellido, email, fecha_nac from users where rol = 'user';";
+			query = "select usr  as 'Usuario', nombre as 'Nombre', apellido  as 'Apellido', email  as 'E-mail', fecha_nac as 'Fecha nacimiento' from users where rol = 'user';";
 			break;
 		case "foro": // Aun no funciona
 			query = "";
