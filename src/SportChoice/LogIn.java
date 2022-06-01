@@ -65,11 +65,6 @@ public class LogIn extends JFrame {
 		txtMail.setText("Usuario");
 		txtMail.setColumns(10);
 
-		lblTituloIniciarSesion = new JLabel("Iniciar Sesion");
-		lblTituloIniciarSesion.setBounds(28, 0, 275, 98);
-		panel.add(lblTituloIniciarSesion);
-		lblTituloIniciarSesion.setForeground(new Color(255, 255, 255));
-		lblTituloIniciarSesion.setFont(new Font("Trebuchet MS", Font.PLAIN, 46));
 		lblTituloIniciarSesion = new JLabel("Iniciar Sesi\u00F3n\r\n");
 		lblTituloIniciarSesion.setBounds(28, 10, 275, 98);
 		panel.add(lblTituloIniciarSesion);
