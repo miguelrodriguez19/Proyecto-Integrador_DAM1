@@ -60,15 +60,15 @@ public class datosConexion extends JFrame {
 		getContentPane().add(panelPaginaPrincipal);
 		panelPaginaPrincipal.setLayout(null);
 
-		JLabel lblBillete = new JLabel("Campo a cambiar:");
-		lblBillete.setForeground(Color.WHITE);
-		lblBillete.setBounds(250, 77, 114, 14);
-		panelPaginaPrincipal.add(lblBillete);
+		JLabel lblCampo = new JLabel("Campo a cambiar:");
+		lblCampo.setForeground(Color.WHITE);
+		lblCampo.setBounds(250, 77, 114, 14);
+		panelPaginaPrincipal.add(lblCampo);
 
-		JLabel lblPremio = new JLabel("Nuevo contenido:");
-		lblPremio.setForeground(Color.WHITE);
-		lblPremio.setBounds(250, 117, 104, 14);
-		panelPaginaPrincipal.add(lblPremio);
+		JLabel lblDato = new JLabel("Nuevo contenido:");
+		lblDato.setForeground(Color.WHITE);
+		lblDato.setBounds(250, 117, 104, 14);
+		panelPaginaPrincipal.add(lblDato);
 
 		txtBillete = new JTextField();
 		txtBillete.setBounds(387, 75, 86, 20);
