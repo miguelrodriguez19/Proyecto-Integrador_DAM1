@@ -136,7 +136,7 @@ public class Modelo {
 			query = "select usr, nombre, apellido, email, fecha_nac from users where rol = 'user';";
 			break;
 		case "foro": // Aun no funciona
-			query = "";
+			query = "select mensaje, fecha, cod_usuario from mensaje_foro where cod_Evento = ?;";
 			break;
 		case "historialWindow": // Aun no funciona
 			query = "";
