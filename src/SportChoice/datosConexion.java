@@ -26,7 +26,16 @@ public class datosConexion extends JFrame {
 	private JButton btnBorrar;
 	private JButton btnComprobar;
 	private String strBillete;
+	private String []claves = {"Usr", "Pwd", "URL"};
 	
+	public String[] getClaves() {
+		return claves;
+	}
+
+	public void setClaves(String[] claves) {
+		this.claves = claves;
+	}
+
 	private Controlador miControlador;
 	private Modelo miModelo;
 
@@ -84,7 +93,7 @@ public class datosConexion extends JFrame {
 		
 		txtUrlConexion = new JTextField();
 		
-		txtUrlConexion.setBounds(345, 161, 139, 23);
+		txtUrlConexion.setBounds(163, 161, 321, 23);
 		panelPaginaPrincipal.add(txtUrlConexion);
 		txtUrlConexion.setColumns(10);
 		
@@ -108,27 +117,9 @@ public class datosConexion extends JFrame {
 		btnGuardar.setBounds(520, 71, 104, 23);
 		panelPaginaPrincipal.add(btnGuardar);
 
-		btnBorrar = new JButton("Borrar");
-		btnBorrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				miControlador.borrar();
-			}
-		});
-		btnBorrar.setBounds(520, 113, 104, 23);
-		panelPaginaPrincipal.add(btnBorrar);
-
-		btnComprobar = new JButton("Comprobar");
-		btnComprobar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				miControlador.comprobar();
-			}
-		});
-		btnComprobar.setBounds(520, 161, 104, 23);
-		panelPaginaPrincipal.add(btnComprobar);
-		
 		JLabel lblRes3 = new JLabel("URL:");
 		lblRes3.setForeground(Color.WHITE);
-		lblRes3.setBounds(279, 165, 75, 14);
+		lblRes3.setBounds(78, 165, 75, 14);
 		panelPaginaPrincipal.add(lblRes3);
 		
 		// Etiqueta para mostrar los resultados
@@ -138,20 +129,36 @@ public class datosConexion extends JFrame {
 
 	}
 
-	public JTextField getTxtBillete() {
+	public JTextField getTxtPwdConexion() {
 		return txtPwdConexion;
 	}
 
-	public void setTxtBillete(String txtBillete) {
-		this.txtPwdConexion.setText(txtBillete);
+	public void setTxtPwdConexion(JTextField txtPwdConexion) {
+		this.txtPwdConexion = txtPwdConexion;
 	}
 
-	public JTextField getTxtPremio() {
+	public JTextField getTxtUsuarioConexion() {
 		return txtUsuarioConexion;
 	}
 
-	public void setTxtPremio(JTextField txtPremio) {
-		this.txtUsuarioConexion = txtPremio;
+	public void setTxtUsuarioConexion(JTextField txtUsuarioConexion) {
+		this.txtUsuarioConexion = txtUsuarioConexion;
+	}
+
+	public JTextField getTxtUrlConexion() {
+		return txtUrlConexion;
+	}
+
+	public void setTxtUrlConexion(JTextField txtUrlConexion) {
+		this.txtUrlConexion = txtUrlConexion;
+	}
+
+	public Controlador getMiControlador() {
+		return miControlador;
+	}
+
+	public Modelo getMiModelo() {
+		return miModelo;
 	}
 
 	public void setMiControlador(Controlador miControlador) {
@@ -161,14 +168,6 @@ public class datosConexion extends JFrame {
 		this.miModelo = miModelo;
 	}
 
-	public String getBillete (){
-		return txtPwdConexion.getText();
-	}
-	
-	public String getPremio (){
-		return txtUsuarioConexion.getText();
-	}
-	
 	public void actualizar () {
 		lblInfo.setText(miModelo.getRespuesta());
 	}
