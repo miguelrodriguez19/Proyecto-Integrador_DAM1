@@ -23,7 +23,7 @@ public class Controlador {
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
 	}
-
+	
 	public void setPantallas(JFrame[] pantallas) {
 		this.pantallas = pantallas;
 	}

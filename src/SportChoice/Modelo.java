@@ -47,6 +47,12 @@ public class Modelo {
 	private OutputStream salida;
 	private String respuesta;
 	private final String FILE = "conexionBDPI.ini";
+	
+
+
+	public Properties getDatosConexion() {
+		return datosConexion;
+	}
 
 	public Modelo() {
 		datosConexion = new Properties();
