@@ -181,7 +181,7 @@ public class Modelo {
 			query = "select usr  as 'Usuario', nombre as 'Nombre', apellido  as 'Apellido', email  as 'E-mail', fecha_nac as 'Fecha nacimiento' from users where rol = 'user';";
 			break;
 		case "foro": // Aun no funciona
-			query = "";
+			query = "select mensaje, fecha, cod_usuario from mensaje_foro where cod_Evento = ?;";
 			break;
 		case "historialWindow": // Aun no funciona
 			query = "";
