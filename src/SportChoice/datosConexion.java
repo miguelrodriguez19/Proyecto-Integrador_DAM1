@@ -73,29 +73,29 @@ public class datosConexion extends JFrame {
 
 		JLabel lblCampo = new JLabel("Contraseña:");
 		lblCampo.setForeground(Color.WHITE);
-		lblCampo.setBounds(250, 77, 114, 14);
+		lblCampo.setBounds(250, 117, 114, 14);
 		panelPaginaPrincipal.add(lblCampo);
 
 		JLabel lblDato = new JLabel("Usuario:");
 		lblDato.setForeground(Color.WHITE);
-		lblDato.setBounds(250, 117, 104, 14);
+		lblDato.setBounds(244, 77, 92, 14);
 		panelPaginaPrincipal.add(lblDato);
 		
 		
 		txtUrlConexion = new JTextField();
 		
-		txtUrlConexion.setBounds(387, 163, 86, 20);
+		txtUrlConexion.setBounds(345, 161, 139, 23);
 		panelPaginaPrincipal.add(txtUrlConexion);
 		txtUrlConexion.setColumns(10);
 		
 		txtPwdConexion = new JTextField();
 		
-		txtPwdConexion.setBounds(387, 75, 86, 20);
+		txtPwdConexion.setBounds(346, 115, 138, 21);
 		panelPaginaPrincipal.add(txtPwdConexion);
 		txtPwdConexion.setColumns(10);
 
 		txtUsuarioConexion = new JTextField();
-		txtUsuarioConexion.setBounds(387, 115, 86, 20);
+		txtUsuarioConexion.setBounds(346, 75, 138, 20);
 		panelPaginaPrincipal.add(txtUsuarioConexion);
 		txtUsuarioConexion.setColumns(10);
 
