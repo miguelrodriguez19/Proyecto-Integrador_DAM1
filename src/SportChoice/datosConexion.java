@@ -73,6 +73,17 @@ public class datosConexion extends JFrame {
 		btnFlecha.setIcon(new ImageIcon(datosConexion.class.getResource("/Imagenes/arrow.png")));
 		btnFlecha.setBounds(30, 15, 114, 68);
 		panelHeader.add(btnFlecha);
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon(datosConexion.class.getResource("/Imagenes/logoSportChoice.png")));
+		btnNewButton.setBounds(669, 10, 124, 73);
+		btnNewButton.setBackground(null);
+		btnNewButton.setBorder(null);
+		panelHeader.add(btnNewButton);
 
 		panelPaginaPrincipal = new JPanel();
 		panelPaginaPrincipal.setBackground(new Color(34, 40, 49));
@@ -82,7 +93,7 @@ public class datosConexion extends JFrame {
 
 		JLabel lblCampo = new JLabel("Contraseña:");
 		lblCampo.setForeground(Color.WHITE);
-		lblCampo.setBounds(250, 117, 114, 14);
+		lblCampo.setBounds(222, 118, 114, 14);
 		panelPaginaPrincipal.add(lblCampo);
 
 		JLabel lblDato = new JLabel("Usuario:");
@@ -114,7 +125,7 @@ public class datosConexion extends JFrame {
 				miControlador.guardar();
 			}
 		});
-		btnGuardar.setBounds(520, 71, 104, 23);
+		btnGuardar.setBounds(518, 73, 104, 23);
 		panelPaginaPrincipal.add(btnGuardar);
 
 		JLabel lblRes3 = new JLabel("URL:");
@@ -171,5 +182,4 @@ public class datosConexion extends JFrame {
 	public void actualizar () {
 		lblInfo.setText(miModelo.getRespuesta());
 	}
-	
 }
