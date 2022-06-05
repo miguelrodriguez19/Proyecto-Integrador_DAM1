@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.awt.event.ActionEvent;
 
 public class Main {
-
 	public static void main(String[] args) {
 		Controlador miControlador = new Controlador();
 		Modelo miModelo = new Modelo();

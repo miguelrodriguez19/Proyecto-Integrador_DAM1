@@ -23,8 +23,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Modelo {
 	private String bd = "ProyectoIntegrador";
-	private String usuariologin = "root";
-	private String pwd = "";
 	private String url = "jdbc:mysql://localhost/" + bd;
 	private Connection conexion;
 	private Statement stmt;
@@ -48,6 +46,10 @@ public class Modelo {
 	private String respuesta;
 	private final String FILE = "conexionBDPI.ini";
 
+	public Properties getDatosConexion() {
+		return datosConexion;
+	}
+
 	public Modelo() {
 		datosConexion = new Properties();
 		try {
@@ -64,7 +66,8 @@ public class Modelo {
 		}
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conexion = DriverManager.getConnection(datosConexion.getProperty("URL"), datosConexion.getProperty("Usr"), datosConexion.getProperty("Pwd"));
+			conexion = DriverManager.getConnection(datosConexion.getProperty("URL"), datosConexion.getProperty("Usr"),
+					datosConexion.getProperty("Pwd"));
 			stmt = conexion.createStatement();
 
 			if (conexion != null) {
@@ -91,7 +94,8 @@ public class Modelo {
 	public void Conexion() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conexion = DriverManager.getConnection(url, usuariologin, pwd);
+			conexion = DriverManager.getConnection(datosConexion.getProperty("URL"), datosConexion.getProperty("Usr"),
+					datosConexion.getProperty("Pwd"));
 			stmt = conexion.createStatement();
 			if (conexion != null) {
 				System.out.println("Conexi�n a la bd" + url + ".... ok !!");
@@ -196,11 +200,12 @@ public class Modelo {
 
 	private int getNumColumnas(String sql, String option) {
 		int num = 0;
-		
+
 		try {
 			PreparedStatement pstmt = conexion.prepareStatement(sql);
 			if (option.equals("misEventos")) { // || option.equals("foro") CREO QUE HACE FALTA ESTO
-				pstmt.setString(1, usuarioConectado); // EVENTO SELECCIONADO CREATE UN ATRIBUTO PARA GUARDAR SU COD_EVENTO
+				pstmt.setString(1, usuarioConectado); // EVENTO SELECCIONADO CREATE UN ATRIBUTO PARA GUARDAR SU
+														// COD_EVENTO
 			}
 
 			ResultSet rset = pstmt.executeQuery();
@@ -256,6 +261,7 @@ public class Modelo {
 	public void setUsuarioConectado(String usuarioConectado) {
 		this.usuarioConectado = usuarioConectado;
 	}
+
 	public void leerFichero() {
 		File rutaProyecto = new File(FILE);
 		FileNameExtensionFilter filtro = new FileNameExtensionFilter("*.java", "java");
@@ -264,42 +270,20 @@ public class Modelo {
 //		txtURL.setText(getName());
 	}
 
-	public void guardar(String billete, String premio) {
+	public void guardar(String[] datos, String[] claves) {
 		try {
-			datosConexion.setProperty(billete, premio);
-			salida = new FileOutputStream(miFichero);
-			datosConexion.store(salida, "Ultima operacion: Guardado");
-			respuesta = "Guardado";
+			for (int i = 0; i < claves.length; i++) {
+				datosConexion.setProperty(claves[i], datos[i]);
+				salida = new FileOutputStream(miFichero);
+				datosConexion.store(salida, "Ultima operacion: Guardado");
+				respuesta = "Guardado";
+			}
+//			leerFichero();
+//			Conexion();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-//		miVista.actualizar();
-	}
-
-	public void borrar(String billete) {
-		if (!datosConexion.containsKey(billete)) {
-			respuesta = "No Encontrado";
-		} else {
-			datosConexion.replace(billete, billete);
-			try {
-				salida = new FileOutputStream(miFichero);
-				datosConexion.store(salida, "Ultima operacion: Borrado");
-				respuesta = "Borrado";
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		datosConexionPantalla.actualizar();
-	}
-
-	public void comprobar(String billete) {
-		String premio = datosConexion.getProperty(billete);
-		if (premio == null) {
-			respuesta = "No Encontrado";
-		} else {
-			respuesta = premio;
-		}
-		datosConexionPantalla.actualizar();
+//		datosConexionPantalla.actualizar();
 	}
 
 	public String getRespuesta() {
