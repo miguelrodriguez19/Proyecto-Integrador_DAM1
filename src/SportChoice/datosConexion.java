@@ -142,6 +142,10 @@ public class datosConexion extends JFrame {
 		btnDefault.setBackground(new Color(156, 163, 219));
 		btnDefault.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				txtUsuarioConexion.setText("root\r\n");
+				txtPwdConexion.setText("");
+				txtUrlConexion.setText("jdbc:mysql://localhost/ProyectoIntegrador");
+
 			}
 		});
 		btnDefault.setForeground(Color.WHITE);
