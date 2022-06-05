@@ -186,7 +186,7 @@ public class LogIn extends JFrame {
 		btnAjustesConexion.setBorder(null);
 		btnAjustesConexion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAjustesConexion.setForeground(Color.WHITE);
-		btnAjustesConexion.setBounds(50, 10, 85, 21);
+		btnAjustesConexion.setBounds(246, 391, 85, 42);
 		panel.add(btnAjustesConexion);
 		btnAjustesConexion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
