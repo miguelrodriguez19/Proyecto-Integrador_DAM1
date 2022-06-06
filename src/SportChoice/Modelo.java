@@ -52,26 +52,6 @@ public class Modelo {
 
 	public Modelo() {
 		datosConexion = new Properties();
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			conexion = DriverManager.getConnection(datosConexion.getProperty("URL"), datosConexion.getProperty("Usr"),
-					datosConexion.getProperty("Pwd"));
-			stmt = conexion.createStatement();
-
-			if (conexion != null) {
-//				 System.out.println("Conexión a la BBDD: " + url + " <-- ok!! -->");
-				// conn.close();
-			}
-		} catch (ClassNotFoundException cnfe) {
-			System.out.println("Driver JDBC no encontrado");
-			cnfe.printStackTrace();
-		} catch (SQLException sqle) {
-			System.out.println("Error al conectarse a la BBDD");
-			sqle.printStackTrace();
-		} catch (Exception e) {
-			System.out.println("Error general");
-			e.printStackTrace();
-		}
 	}
 
 	public void conectarFicheroBBDD() {
@@ -86,6 +66,21 @@ public class Modelo {
 			}
 		} catch (IOException ex) {
 			ex.printStackTrace();
+		}
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conexion = DriverManager.getConnection(datosConexion.getProperty("URL"), datosConexion.getProperty("Usr"),
+					datosConexion.getProperty("Pwd"));
+			stmt = conexion.createStatement();
+		} catch (ClassNotFoundException cnfe) {
+			System.out.println("Driver JDBC no encontrado");
+			cnfe.printStackTrace();
+		} catch (SQLException sqle) {
+			System.out.println("Error al conectarse a la BBDD");
+			sqle.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Error general");
+			e.printStackTrace();
 		}
 	}
 
@@ -200,7 +195,7 @@ public class Modelo {
 		}
 		return query;
 	}
-	
+
 	private int getNumColumnas(String sql, String option) {
 		int num = 0;
 
