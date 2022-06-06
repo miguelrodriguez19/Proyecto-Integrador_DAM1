@@ -52,9 +52,6 @@ public class Modelo {
 
 	public Modelo() {
 		datosConexion = new Properties();
-	}
-
-	public void conectarFicheroBBDD() {
 		try {
 			miFichero = new File(FILE);
 			if (miFichero.exists()) {
@@ -67,6 +64,10 @@ public class Modelo {
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		}
+		
+	}
+
+	public void conectarFicheroBBDD() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conexion = DriverManager.getConnection(datosConexion.getProperty("URL"), datosConexion.getProperty("Usr"),
@@ -90,25 +91,25 @@ public class Modelo {
 
 	// Constructor que crea la conexi�n
 	public void Conexion() {
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			conexion = DriverManager.getConnection(datosConexion.getProperty("URL"), datosConexion.getProperty("Usr"),
-					datosConexion.getProperty("Pwd"));
-			stmt = conexion.createStatement();
-			if (conexion != null) {
-				System.out.println("Conexi�n a la bd" + url + ".... ok !!");
-				// conn.close();
-			}
-		} catch (ClassNotFoundException cnfe) {
-			System.out.println("Driver JDBC no encontrado");
-			cnfe.printStackTrace();
-		} catch (SQLException sqle) {
-			System.out.println("Error al conectarse a la BBDD");
-			sqle.printStackTrace();
-		} catch (Exception e) {
-			System.out.println("Error general");
-			e.printStackTrace();
-		}
+//		try {
+//			Class.forName("com.mysql.cj.jdbc.Driver");
+//			conexion = DriverManager.getConnection(datosConexion.getProperty("URL"), datosConexion.getProperty("Usr"),
+//					datosConexion.getProperty("Pwd"));
+//			stmt = conexion.createStatement();
+//			if (conexion != null) {
+//				System.out.println("Conexi�n a la bd" + url + ".... ok !!");
+//				// conn.close();
+//			}
+//		} catch (ClassNotFoundException cnfe) {
+//			System.out.println("Driver JDBC no encontrado");
+//			cnfe.printStackTrace();
+//		} catch (SQLException sqle) {
+//			System.out.println("Error al conectarse a la BBDD");
+//			sqle.printStackTrace();
+//		} catch (Exception e) {
+//			System.out.println("Error general");
+//			e.printStackTrace();
+//		}
 	}
 
 	public void login(String usr, String pwd) {
