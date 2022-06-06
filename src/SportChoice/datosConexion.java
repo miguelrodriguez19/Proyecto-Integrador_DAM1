@@ -111,7 +111,7 @@ public class datosConexion extends JFrame {
 
 		JLabel lblRes3 = new JLabel("URL de la Base de Datos:");
 		lblRes3.setForeground(Color.WHITE);
-		lblRes3.setBounds(24, 188, 138, 14);
+		lblRes3.setBounds(24, 188, 230, 14);
 		panelPaginaPrincipal.add(lblRes3);
 
 		// Etiqueta para mostrar los resultados
