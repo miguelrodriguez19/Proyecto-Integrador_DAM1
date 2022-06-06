@@ -97,8 +97,8 @@ public class datosConexion extends JFrame {
 		panelPaginaPrincipal.add(txtUsuarioConexion);
 		txtUsuarioConexion.setColumns(10);
 
-		btnGuardar = new JButton("Guardar");
-		btnGuardar.setForeground(Color.WHITE);
+		btnGuardar = new JButton("GUARDAR");
+		btnGuardar.setForeground(Color.BLACK);
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				miControlador.guardar();
@@ -120,7 +120,7 @@ public class datosConexion extends JFrame {
 		panelPaginaPrincipal.add(lblInfo);
 
 		btnFlecha = new JButton("");
-		btnFlecha.setBounds(24, 1, 55, 68);
+		btnFlecha.setBounds(24, 7, 55, 68);
 		panelPaginaPrincipal.add(btnFlecha);
 		btnFlecha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -138,7 +138,7 @@ public class datosConexion extends JFrame {
 		lblNewLabel.setBounds(86, 21, 504, 36);
 		panelPaginaPrincipal.add(lblNewLabel);
 
-		btnDefault = new JButton("Datos Por Defecto\r\n");
+		btnDefault = new JButton("DATOS POR DEFECTO");
 		btnDefault.setBackground(new Color(156, 163, 219));
 		btnDefault.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -148,7 +148,7 @@ public class datosConexion extends JFrame {
 
 			}
 		});
-		btnDefault.setForeground(Color.WHITE);
+		btnDefault.setForeground(Color.BLACK);
 		btnDefault.setBounds(24, 283, 159, 34);
 		btnDefault.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panelPaginaPrincipal.add(btnDefault);
