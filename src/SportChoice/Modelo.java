@@ -32,6 +32,7 @@ public class Modelo {
 	private int fallos;
 	private JFrame[] pantallas;
 	private String usuarioConectado;
+	private String eventoSeleccionado;
 	private String eventosRecientes = "select eventos.usr, fecha_evento, nombre_evento from eventos natural join participa_evento order by fecha_creacion asc;";
 	private DefaultTableModel miTabla;
 	private String sqlTabla1 = "Select * from countrylanguage";
@@ -64,7 +65,7 @@ public class Modelo {
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		}
-		
+
 	}
 
 	public void conectarFicheroBBDD() {
@@ -87,29 +88,6 @@ public class Modelo {
 
 	public void setPantallas(JFrame[] pantallas) {
 		this.pantallas = pantallas;
-	}
-
-	// Constructor que crea la conexi�n
-	public void Conexion() {
-//		try {
-//			Class.forName("com.mysql.cj.jdbc.Driver");
-//			conexion = DriverManager.getConnection(datosConexion.getProperty("URL"), datosConexion.getProperty("Usr"),
-//					datosConexion.getProperty("Pwd"));
-//			stmt = conexion.createStatement();
-//			if (conexion != null) {
-//				System.out.println("Conexi�n a la bd" + url + ".... ok !!");
-//				// conn.close();
-//			}
-//		} catch (ClassNotFoundException cnfe) {
-//			System.out.println("Driver JDBC no encontrado");
-//			cnfe.printStackTrace();
-//		} catch (SQLException sqle) {
-//			System.out.println("Error al conectarse a la BBDD");
-//			sqle.printStackTrace();
-//		} catch (Exception e) {
-//			System.out.println("Error general");
-//			e.printStackTrace();
-//		}
 	}
 
 	public void login(String usr, String pwd) {
@@ -141,8 +119,11 @@ public class Modelo {
 		PreparedStatement pstmt;
 		try {
 			pstmt = conexion.prepareStatement(query);
-			if (option.equals("misEventos")) {
-				pstmt.setString(1, usuarioConectado);
+			if (option.equals("misEventos") || option.equals("historialWindow") || option.equals("foro")) {
+				if (option.equals("misEventos") || option.equals("historialWindow"))
+					pstmt.setString(1, usuarioConectado);
+				if (option.equals("foro"))
+					pstmt.setString(1, eventoSeleccionado);
 			}
 			ResultSet rset = pstmt.executeQuery();
 			ResultSetMetaData rsmd = rset.getMetaData();
@@ -183,11 +164,13 @@ public class Modelo {
 		case "usuariosAdministrador":
 			query = "select usr  as 'Usuario', nombre as 'Nombre', apellido  as 'Apellido', email  as 'E-mail', fecha_nac as 'Fecha nacimiento' from users where rol = 'user';";
 			break;
-		case "foro": // Aun no funciona
-			query = "select mensaje, fecha, cod_user from mensaje_foro where cod_Evento = ? order by ;";
+		case "foro":
+			query = "select cod_user as Usuario, mensaje, fecha from mensaje_foro natural join eventos where cod_Evento = ? order by fecha desc;";
 			break;
-		case "historialWindow": // Aun no funciona
-			query = "";
+		case "historialWindow":
+			query = "select cod_evento as Evento, eventos.usr as Creador, fecha_evento as Fecha, nombre_evento as 'Nombre evento', "
+					+ "(select count(*) from participa_evento natural join eventos where cod_evento = Evento group by cod_evento) as participantes "
+					+ "from eventos natural join participa_evento where participa_evento.cod_user = ? && fecha_evento < current_date() group by cod_evento;";
 			break;
 		default:
 			System.out.print("Error Switch: ");
@@ -202,9 +185,11 @@ public class Modelo {
 
 		try {
 			PreparedStatement pstmt = conexion.prepareStatement(sql);
-			if (option.equals("misEventos")) { // || option.equals("foro") CREO QUE HACE FALTA ESTO
-				pstmt.setString(1, usuarioConectado); // EVENTO SELECCIONADO CREATE UN ATRIBUTO PARA GUARDAR SU
-														// COD_EVENTO
+			if (option.equals("misEventos") || option.equals("historialWindow") || option.equals("foro")) {
+				if (option.equals("misEventos") || option.equals("historialWindow"))
+					pstmt.setString(1, usuarioConectado);
+				if (option.equals("foro"))
+					pstmt.setString(1, eventoSeleccionado);
 			}
 
 			ResultSet rset = pstmt.executeQuery();
@@ -264,9 +249,6 @@ public class Modelo {
 	public void leerFichero() {
 		File rutaProyecto = new File(FILE);
 		FileNameExtensionFilter filtro = new FileNameExtensionFilter("*.java", "java");
-//		txtUsuario.setText(getName());
-//		txtPassword.setText(getName());
-//		txtURL.setText(getName());
 	}
 
 	public void guardar(String[] datos, String[] claves) {
@@ -277,12 +259,9 @@ public class Modelo {
 				datosConexion.store(salida, "Ultima operacion: Guardado");
 				respuesta = "Guardado";
 			}
-//			leerFichero();
-//			Conexion();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-//		datosConexionPantalla.actualizar();
 	}
 
 	public String getRespuesta() {
