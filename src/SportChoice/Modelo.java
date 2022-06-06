@@ -53,18 +53,6 @@ public class Modelo {
 	public Modelo() {
 		datosConexion = new Properties();
 		try {
-			miFichero = new File(FILE);
-			if (miFichero.exists()) {
-				entrada = new FileInputStream(miFichero);
-				datosConexion.load(entrada);
-			} else {
-				System.err.println("Fichero no encontrado");
-				System.exit(1);
-			}
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		}
-		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conexion = DriverManager.getConnection(datosConexion.getProperty("URL"), datosConexion.getProperty("Usr"),
 					datosConexion.getProperty("Pwd"));
@@ -83,6 +71,21 @@ public class Modelo {
 		} catch (Exception e) {
 			System.out.println("Error general");
 			e.printStackTrace();
+		}
+	}
+
+	public void conectarFicheroBBDD() {
+		try {
+			miFichero = new File(FILE);
+			if (miFichero.exists()) {
+				entrada = new FileInputStream(miFichero);
+				datosConexion.load(entrada);
+			} else {
+				System.err.println("Fichero no encontrado");
+				System.exit(1);
+			}
+		} catch (IOException ex) {
+			ex.printStackTrace();
 		}
 	}
 
@@ -185,7 +188,7 @@ public class Modelo {
 			query = "select usr  as 'Usuario', nombre as 'Nombre', apellido  as 'Apellido', email  as 'E-mail', fecha_nac as 'Fecha nacimiento' from users where rol = 'user';";
 			break;
 		case "foro": // Aun no funciona
-			query = "select mensaje, fecha, cod_usuario from mensaje_foro where cod_Evento = ?;";
+			query = "select mensaje, fecha, cod_user from mensaje_foro where cod_Evento = ? order by ;";
 			break;
 		case "historialWindow": // Aun no funciona
 			query = "";
@@ -197,7 +200,7 @@ public class Modelo {
 		}
 		return query;
 	}
-
+	
 	private int getNumColumnas(String sql, String option) {
 		int num = 0;
 
