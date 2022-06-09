@@ -162,7 +162,7 @@ public class Modelo {
 					+ "from eventos natural join participa_evento where participa_evento.cod_user = ? && fecha_evento > current_date() group by cod_evento;";
 			break;
 		case "eventosAdministrador":
-			query = "select cod_evento as 'Evento actual', nombre_evento as 'Nombre evento', usr as Creador, fecha_evento as Fecha, tipo_dep as Deporte, "
+			query = "select cod_evento as eventoActual, nombre_evento as 'Nombre evento', usr as Creador, fecha_evento as Fecha, tipo_dep as Deporte, "
 					+ "(select count(*) as participantes from participa_evento where cod_evento = eventoActual group by cod_evento) as participantes "
 					+ "from eventos natural join participa_evento group by cod_evento order by fecha_evento desc;";
 			break;
@@ -310,4 +310,5 @@ public class Modelo {
 	public String getRespuesta() {
 		return respuesta;
 	}
+	
 }
