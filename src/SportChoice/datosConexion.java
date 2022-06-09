@@ -63,30 +63,6 @@ public class datosConexion extends JFrame {
 		panelHeader.setBounds(0, 0, 834, 100);
 		getContentPane().add(panelHeader);
 		panelHeader.setLayout(null);
-		
-		btnFlecha = new JButton("");
-		btnFlecha.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(20, 7);
-			}
-		});
-		btnFlecha.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnFlecha.setBorder(null);
-		btnFlecha.setBackground(null);
-		btnFlecha.setIcon(new ImageIcon(datosConexion.class.getResource("/Imagenes/arrow.png")));
-		btnFlecha.setBounds(30, 15, 114, 68);
-		panelHeader.add(btnFlecha);
-		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton.setIcon(new ImageIcon(datosConexion.class.getResource("/Imagenes/logoSportChoice.png")));
-		btnNewButton.setBounds(669, 10, 124, 73);
-		btnNewButton.setBackground(null);
-		btnNewButton.setBorder(null);
-		panelHeader.add(btnNewButton);
 
 		panelPaginaPrincipal = new JPanel();
 		panelPaginaPrincipal.setBackground(new Color(34, 40, 49));

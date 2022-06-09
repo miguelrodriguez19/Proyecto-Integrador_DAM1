@@ -29,9 +29,6 @@ public class AdministradorUsuarios extends JFrame {
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
 	private JTable table;
-	private JButton btnSubirArchivo;
-	private JButton btnBajarArchivo;
-	private String rutaFichero = "tablaUsuariosAdmin.dat";
 
 	/**
 	 * Launch the application.
@@ -121,34 +118,6 @@ public class AdministradorUsuarios extends JFrame {
 		btnNewButton_1.setBackground(new Color(156, 163, 219));
 		btnNewButton_1.setBounds(701, 28, 109, 30);
 		panel.add(btnNewButton_1);
-		
-		btnBajarArchivo = new JButton("");
-//		btnBajarArchivo.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				miModelo.cargar(rutaFichero);
-//			}
-//		});
-		btnBajarArchivo.setIcon(new ImageIcon(AdministradorUsuarios.class.getResource("/Imagenes/folder-download-free-icon-font (1).png.png")));
-		btnBajarArchivo.setBounds(701, 355, 85, 21);
-		btnBajarArchivo.setBackground(null);
-		panel.add(btnBajarArchivo);
-		btnBajarArchivo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				table = (JTable) miModelo.cargarObjeto(rutaFichero);
-				System.out.println("pat");
-			}
-		});
-		
-		btnSubirArchivo = new JButton("");
-		btnSubirArchivo.setIcon(new ImageIcon(AdministradorUsuarios.class.getResource("/Imagenes/folder-upload-free-icon-font (1).png")));
-		btnSubirArchivo.setBounds(701, 324, 85, 21);
-		btnSubirArchivo.setBackground(null);
-		panel.add(btnSubirArchivo);
-		btnSubirArchivo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				miModelo.guardarObjeto(rutaFichero, table);
-			}
-		});
 
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);

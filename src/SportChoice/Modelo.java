@@ -1,33 +1,25 @@
 package SportChoice;
 
+import java.sql.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Properties;
 
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.table.DefaultTableModel;
-
-import com.mysql.cj.xdevapi.Table;
 
 public class Modelo {
 	private String bd = "ProyectoIntegrador";
@@ -165,7 +157,7 @@ public class Modelo {
 					+ "from eventos natural join participa_evento where participa_evento.cod_user = ? && fecha_evento > current_date() group by cod_evento;";
 			break;
 		case "eventosAdministrador":
-			query = "select cod_evento as eventoActual, nombre_evento as 'Nombre evento', usr as Creador, fecha_evento as Fecha, tipo_dep as Deporte, "
+			query = "select cod_evento as 'Evento actual', nombre_evento as 'Nombre evento', usr as Creador, fecha_evento as Fecha, tipo_dep as Deporte, "
 					+ "(select count(*) as participantes from participa_evento where cod_evento = eventoActual group by cod_evento) as participantes "
 					+ "from eventos natural join participa_evento group by cod_evento order by fecha_evento desc;";
 			break;
@@ -272,44 +264,7 @@ public class Modelo {
 		}
 	}
 
-	public void guardarObjeto(String rutaFichero, JTable table) {
-		File fichero = new File(rutaFichero);
-		try {
-			FileOutputStream fos = new FileOutputStream(fichero);
-			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			oos.writeObject(table);
-			fos.close();
-			oos.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (NumberFormatException e) {
-			e.printStackTrace();
-		}
-//			catch (ParseException e) {
-//				e.printStackTrace();
-//			}
-	}
-
-	public Object cargarObjeto(String rutaFichero) {
-		Object miTabla = null;
-		try {
-			File fichero = new File(rutaFichero);
-			FileInputStream fis = new FileInputStream(fichero);
-			ObjectInputStream ois = new ObjectInputStream(fis);
-			miTabla = ois.readObject();
-			System.out.println(miTabla + "\nPatata");
-//				DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-//				String dia = formatter.format(miUsuario.getFechaNacimiento());
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return miTabla;
-	}
-
 	public String getRespuesta() {
 		return respuesta;
 	}
-
 }
