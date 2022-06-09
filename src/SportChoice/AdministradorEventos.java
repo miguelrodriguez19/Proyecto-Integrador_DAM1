@@ -29,7 +29,7 @@ public class AdministradorEventos extends JFrame {
 	private JButton btnBorrar;
 	private JLabel lblNewLabel;
 	private JTable table;
-	private String rutaFicheroTabla = "tablaEventosAdmin.dat";
+	private String rutaFichero = "tablaEventosAdmin.dat";
 	private JButton btnBajarArchivo;
 	private JButton btnSubirArchivos;
 
@@ -129,10 +129,17 @@ public class AdministradorEventos extends JFrame {
 		btnBajarArchivo.setBounds(701, 355, 85, 21);
 		btnBajarArchivo.setBackground(null);
 		panel.add(btnBajarArchivo);
+		btnBajarArchivo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				table = (JTable) miModelo.cargarObjeto(rutaFichero);
+				System.out.println("pat");
+			}
+		});
 		
 		btnSubirArchivos = new JButton("");
 		btnSubirArchivos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miModelo.guardarObjeto(rutaFichero, table);
 			}
 		});
 		btnSubirArchivos.setIcon(new ImageIcon(AdministradorEventos.class.getResource("/Imagenes/folder-upload-free-icon-font (1).png")));

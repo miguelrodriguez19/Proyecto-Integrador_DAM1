@@ -22,9 +22,12 @@ import java.util.Properties;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+
+import com.mysql.cj.xdevapi.Table;
 
 public class Modelo {
 	private String bd = "ProyectoIntegrador";
@@ -269,46 +272,44 @@ public class Modelo {
 		}
 	}
 
-	private void guardarObjeto(String rutaFichero, DefaultTableModel tabla) {
+	public void guardarObjeto(String rutaFichero, JTable table) {
 		File fichero = new File(rutaFichero);
-			try {
-				FileOutputStream fos = new FileOutputStream(fichero);
-				ObjectOutputStream oos = new ObjectOutputStream(fos);
-				oos.writeObject(tabla);
-				fos.close();
-				oos.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			} catch (NumberFormatException e) {
-				e.printStackTrace();
-			}
+		try {
+			FileOutputStream fos = new FileOutputStream(fichero);
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(table);
+			fos.close();
+			oos.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		}
 //			catch (ParseException e) {
 //				e.printStackTrace();
 //			}
-		}
+	}
 
-//	private void cargarObjeto(String rutaFichero, DefaultTableModel tabla) {
-//			try {
-//				File fichero = new File(rutaFichero);
-//				FileInputStream fis = new FileInputStream(fichero);
-//				ObjectInputStream ois = new ObjectInputStream(fis);
-//				Usuario miUsuario = (Usuario) ois.readObject();
-//				txtNombre.setText(miUsuario.getNombre());
-//				txtApellido.setText(miUsuario.getApellido());
+	public Object cargarObjeto(String rutaFichero) {
+		Object miTabla = null;
+		try {
+			File fichero = new File(rutaFichero);
+			FileInputStream fis = new FileInputStream(fichero);
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			miTabla = ois.readObject();
+			System.out.println(miTabla + "\nPatata");
 //				DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 //				String dia = formatter.format(miUsuario.getFechaNacimiento());
-//				txtFNacimiento.setText(dia);
-//				txtPuntos.setText(String.valueOf(miUsuario.getPuntos()));
-//			} catch (ClassNotFoundException e) {
-//				e.printStackTrace();
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//		}
-//	}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return miTabla;
+	}
 
 	public String getRespuesta() {
 		return respuesta;
 	}
-	
+
 }
