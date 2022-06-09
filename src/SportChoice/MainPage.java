@@ -81,6 +81,10 @@ public class MainPage extends JFrame {
 			}
 		});
 		btnLogo = new JButton("");
+		btnLogo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogo.setBorder(null);
 		btnLogo.setBackground(null);

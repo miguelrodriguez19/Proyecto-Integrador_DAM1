@@ -118,6 +118,15 @@ public class AdministradorUsuarios extends JFrame {
 		btnNewButton_1.setBackground(new Color(156, 163, 219));
 		btnNewButton_1.setBounds(701, 28, 109, 30);
 		panel.add(btnNewButton_1);
+		
+		JButton btnBajarArchivo = new JButton("");
+		btnBajarArchivo.setBounds(701, 355, 85, 21);
+		panel.add(btnBajarArchivo);
+		
+		JButton btnSubirArchivo = new JButton("");
+		btnSubirArchivo.setIcon(new ImageIcon(AdministradorUsuarios.class.getResource("/Imagenes/archivo.png")));
+		btnSubirArchivo.setBounds(701, 324, 85, 21);
+		panel.add(btnSubirArchivo);
 
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
