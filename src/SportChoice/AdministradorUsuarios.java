@@ -120,12 +120,19 @@ public class AdministradorUsuarios extends JFrame {
 		panel.add(btnNewButton_1);
 		
 		JButton btnBajarArchivo = new JButton("");
+		btnBajarArchivo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnBajarArchivo.setIcon(new ImageIcon(AdministradorUsuarios.class.getResource("/Imagenes/folder-download-free-icon-font (1).png.png")));
 		btnBajarArchivo.setBounds(701, 355, 85, 21);
+		btnBajarArchivo.setBackground(null);
 		panel.add(btnBajarArchivo);
 		
 		JButton btnSubirArchivo = new JButton("");
-		btnSubirArchivo.setIcon(new ImageIcon(AdministradorUsuarios.class.getResource("/Imagenes/archivo.png")));
+		btnSubirArchivo.setIcon(new ImageIcon(AdministradorUsuarios.class.getResource("/Imagenes/folder-upload-free-icon-font (1).png")));
 		btnSubirArchivo.setBounds(701, 324, 85, 21);
+		btnSubirArchivo.setBackground(null);
 		panel.add(btnSubirArchivo);
 
 		frame = new JFrame();
