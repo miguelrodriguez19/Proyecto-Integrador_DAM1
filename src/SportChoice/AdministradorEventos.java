@@ -132,7 +132,6 @@ public class AdministradorEventos extends JFrame {
 		btnBajarArchivo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				table = (JTable) miModelo.cargarObjeto(rutaFichero);
-				System.out.println("pat");
 			}
 		});
 		
