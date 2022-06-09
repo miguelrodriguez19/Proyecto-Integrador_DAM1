@@ -101,13 +101,13 @@ public class Foro extends JFrame {
 		scrollPane.setViewportView(table);
 		table.setRowHeight(50);
 		
-		addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowActivated(WindowEvent e) {
-				miModelo.cargarTabla("foro");
-				table.setModel(miModelo.getTabla());
-			}
-		});
+//		addWindowListener(new WindowAdapter() {
+//			@Override
+//			public void windowActivated(WindowEvent e) {
+//				miModelo.cargarTabla("foro");
+//				table.setModel(miModelo.getTabla());
+//			}
+//		});
 	}
 
 	public void setMiControlador(Controlador miControlador) {
