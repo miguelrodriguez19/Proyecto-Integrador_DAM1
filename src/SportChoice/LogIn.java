@@ -196,6 +196,7 @@ public class LogIn extends JFrame {
 		lblErrorLogIn.setVisible(false);
 		btnIniciarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miModelo.conectarFicheroBBDD();
 				miControlador.login();
 			}
 		});
