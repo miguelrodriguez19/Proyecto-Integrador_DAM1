@@ -6,6 +6,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,8 +15,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Properties;
 
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -266,5 +272,52 @@ public class Modelo {
 
 	public String getRespuesta() {
 		return respuesta;
+	}
+	
+	private void guardarObjeto() {
+		File rutaProyecto = new File(System.getProperty("user.dir"));
+		JFileChooser fc = new JFileChooser(rutaProyecto);
+		int seleccion = fc.showSaveDialog(contentPane);
+		if (seleccion == JFileChooser.APPROVE_OPTION) {
+			File fichero = fc.getSelectedFile();
+			try {
+				FileOutputStream fos = new FileOutputStream(fichero);
+				ObjectOutputStream oos = new ObjectOutputStream(fos);
+				Usuario miUsuario  = new Usuario (txtNombre.getText(),txtApellido.getText(), new SimpleDateFormat("dd/MM/yyyy").parse(txtFNacimiento.getText()),Integer.parseInt(txtPuntos.getText()));
+				oos.writeObject(miUsuario);
+				fos.close();
+				oos.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	private void cargarObjeto() {
+		File rutaProyecto = new File(System.getProperty("user.dir"));
+		JFileChooser fc = new JFileChooser(rutaProyecto);
+		int seleccion = fc.showOpenDialog(contentPane);
+		if (seleccion == JFileChooser.APPROVE_OPTION) {
+			try {
+				File fichero = fc.getSelectedFile();
+				FileInputStream fis = new FileInputStream(fichero);
+				ObjectInputStream ois = new ObjectInputStream(fis);
+				Usuario miUsuario  = (Usuario) ois.readObject();
+				txtNombre.setText(miUsuario.getNombre());
+				txtApellido.setText(miUsuario.getApellido());
+				DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+		        String dia = formatter.format(miUsuario.getFechaNacimiento());
+				txtFNacimiento.setText(dia);
+				txtPuntos.setText(String.valueOf(miUsuario.getPuntos()));
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }
