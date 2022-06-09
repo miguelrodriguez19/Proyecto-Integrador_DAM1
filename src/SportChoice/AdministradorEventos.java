@@ -29,6 +29,7 @@ public class AdministradorEventos extends JFrame {
 	private JButton btnBorrar;
 	private JLabel lblNewLabel;
 	private JTable table;
+	private String rutaFicheroTabla = "tablaEventosAdmin.dat";
 
 	/**
 	 * Launch the application.

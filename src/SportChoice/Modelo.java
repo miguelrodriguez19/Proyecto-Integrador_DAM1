@@ -1,25 +1,30 @@
 package SportChoice;
 
-import java.sql.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Properties;
 
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
 
 public class Modelo {
 	private String bd = "ProyectoIntegrador";
@@ -285,6 +290,44 @@ public class Modelo {
 		}
 //		datosConexionPantalla.actualizar();
 	}
+
+	private void guardarObjeto(String rutaFichero, DefaultTableModel tabla) {
+		File fichero = new File(rutaFichero);
+			try {
+				FileOutputStream fos = new FileOutputStream(fichero);
+				ObjectOutputStream oos = new ObjectOutputStream(fos);
+				oos.writeObject(tabla);
+				fos.close();
+				oos.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			}
+//			catch (ParseException e) {
+//				e.printStackTrace();
+//			}
+		}
+
+//	private void cargarObjeto(String rutaFichero, DefaultTableModel tabla) {
+//			try {
+//				File fichero = new File(rutaFichero);
+//				FileInputStream fis = new FileInputStream(fichero);
+//				ObjectInputStream ois = new ObjectInputStream(fis);
+//				Usuario miUsuario = (Usuario) ois.readObject();
+//				txtNombre.setText(miUsuario.getNombre());
+//				txtApellido.setText(miUsuario.getApellido());
+//				DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+//				String dia = formatter.format(miUsuario.getFechaNacimiento());
+//				txtFNacimiento.setText(dia);
+//				txtPuntos.setText(String.valueOf(miUsuario.getPuntos()));
+//			} catch (ClassNotFoundException e) {
+//				e.printStackTrace();
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//	}
 
 	public String getRespuesta() {
 		return respuesta;
