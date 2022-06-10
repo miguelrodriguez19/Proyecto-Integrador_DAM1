@@ -13,6 +13,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -125,24 +127,24 @@ public class AdministradorEventos extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnBajarArchivo.setIcon(new ImageIcon(AdministradorEventos.class.getResource("/Imagenes/folder-download-free-icon-font (1).png.png")));
+//		btnBajarArchivo.setIcon(new ImageIcon(AdministradorEventos.class.getResource("/Imagenes/folder-download-free-icon-font (1).png.png")));
 		btnBajarArchivo.setBounds(701, 355, 85, 21);
 		btnBajarArchivo.setBackground(null);
 		panel.add(btnBajarArchivo);
 		btnBajarArchivo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				table = (JTable) miModelo.cargarObjeto(rutaFichero);
-				System.out.println("pat");
+				table.setModel((TableModel) miModelo.cargarObjeto(rutaFichero));
+				System.out.println("Settear tabla desde fichero");
 			}
 		});
 		
 		btnSubirArchivos = new JButton("");
 		btnSubirArchivos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miModelo.guardarObjeto(rutaFichero, table);
+				miModelo.guardarObjeto(rutaFichero, table.getModel());
 			}
 		});
-		btnSubirArchivos.setIcon(new ImageIcon(AdministradorEventos.class.getResource("/Imagenes/folder-upload-free-icon-font (1).png")));
+//		btnSubirArchivos.setIcon(new ImageIcon(AdministradorEventos.class.getResource("/Imagenes/folder-upload-free-icon-font (1).png")));
 		btnSubirArchivos.setBounds(701, 324, 85, 21);
 		btnSubirArchivos.setBackground(null);
 		panel.add(btnSubirArchivos);

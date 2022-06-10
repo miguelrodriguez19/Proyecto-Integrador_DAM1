@@ -128,7 +128,7 @@ public class AdministradorUsuarios extends JFrame {
 //				miModelo.cargar(rutaFichero);
 //			}
 //		});
-		btnBajarArchivo.setIcon(new ImageIcon(AdministradorUsuarios.class.getResource("/Imagenes/folder-download-free-icon-font (1).png.png")));
+//		btnBajarArchivo.setIcon(new ImageIcon(AdministradorUsuarios.class.getResource("/Imagenes/folder-download-free-icon-font (1).png.png")));
 		btnBajarArchivo.setBounds(701, 355, 85, 21);
 		btnBajarArchivo.setBackground(null);
 		panel.add(btnBajarArchivo);
@@ -140,13 +140,13 @@ public class AdministradorUsuarios extends JFrame {
 		});
 		
 		btnSubirArchivo = new JButton("");
-		btnSubirArchivo.setIcon(new ImageIcon(AdministradorUsuarios.class.getResource("/Imagenes/folder-upload-free-icon-font (1).png")));
+//		btnSubirArchivo.setIcon(new ImageIcon(AdministradorUsuarios.class.getResource("/Imagenes/folder-upload-free-icon-font (1).png")));
 		btnSubirArchivo.setBounds(701, 324, 85, 21);
 		btnSubirArchivo.setBackground(null);
 		panel.add(btnSubirArchivo);
 		btnSubirArchivo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miModelo.guardarObjeto(rutaFichero, table);
+				miModelo.guardarObjeto(rutaFichero, table.getModel());
 			}
 		});
 

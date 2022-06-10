@@ -26,6 +26,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 import com.mysql.cj.xdevapi.Table;
 
@@ -272,12 +273,12 @@ public class Modelo {
 		}
 	}
 
-	public void guardarObjeto(String rutaFichero, JTable table) {
+	public void guardarObjeto(String rutaFichero, TableModel tableModel) {
 		File fichero = new File(rutaFichero);
 		try {
 			FileOutputStream fos = new FileOutputStream(fichero);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			oos.writeObject(table);
+			oos.writeObject(tableModel);
 			fos.close();
 			oos.close();
 		} catch (IOException e) {
@@ -285,9 +286,6 @@ public class Modelo {
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}
-//			catch (ParseException e) {
-//				e.printStackTrace();
-//			}
 	}
 
 	public Object cargarObjeto(String rutaFichero) {
