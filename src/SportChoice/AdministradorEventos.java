@@ -127,8 +127,9 @@ public class AdministradorEventos extends JFrame {
 		btnlogOut.setBounds(701, 28, 112, 30);
 		panel.add(btnlogOut);
 
-		btnBajarArchivo = new JButton("GUARDAR");
-		btnBajarArchivo.setIcon(new ImageIcon(AdministradorEventos.class.getResource("/Imagenes/upload-file-svgrepo-com (1).png")));
+		btnBajarArchivo = new JButton("UPLOAD");
+		btnBajarArchivo.setIcon(
+				new ImageIcon(AdministradorEventos.class.getResource("/Imagenes/upload-file-svgrepo-com (1).png")));
 		btnBajarArchivo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -139,13 +140,14 @@ public class AdministradorEventos extends JFrame {
 		panel.add(btnBajarArchivo);
 		btnBajarArchivo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				table.setModel(miModelo.cargarObjeto(scrollPaneEventos));
+				miModelo.cargarObjeto(scrollPaneEventos);
 				System.out.println("Settear tabla desde fichero");
 			}
 		});
 
 		btnSubirArchivos = new JButton("SAVE");
-		btnSubirArchivos.setIcon(new ImageIcon(AdministradorEventos.class.getResource("/Imagenes/download-file-svgrepo-com (1).png")));
+		btnSubirArchivos.setIcon(
+				new ImageIcon(AdministradorEventos.class.getResource("/Imagenes/download-file-svgrepo-com (1).png")));
 		btnSubirArchivos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miModelo.guardarObjeto(table);
@@ -178,27 +180,32 @@ public class AdministradorEventos extends JFrame {
 		this.miModelo = miModelo;
 	}
 
-	public void cargarObjeto() {
-		File rutaProyecto = new File(System.getProperty("user.dir"));
-		JFileChooser fc = new JFileChooser(rutaProyecto);
-		int seleccion = fc.showOpenDialog(getTable());
-		DefaultTableModel modelAux = null;
-		if (seleccion == JFileChooser.APPROVE_OPTION) {
-			try {
-				File fichero = fc.getSelectedFile();
-				FileInputStream fis = new FileInputStream(fichero);
-				ObjectInputStream ois = new ObjectInputStream(fis);
-				RecuperarTablas tablaObject = (RecuperarTablas) ois.readObject();
-				modelAux = tablaObject.getModeloTabla();
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-	}
+//	public void cargarObjeto() {
+//		File rutaProyecto = new File(System.getProperty("user.dir"));
+//		JFileChooser fc = new JFileChooser(rutaProyecto);
+//		int seleccion = fc.showOpenDialog(getTable());
+//		DefaultTableModel modelAux = null;
+//		if (seleccion == JFileChooser.APPROVE_OPTION) {
+//			try {
+//				File fichero = fc.getSelectedFile();
+//				FileInputStream fis = new FileInputStream(fichero);
+//				ObjectInputStream ois = new ObjectInputStream(fis);
+//				RecuperarTablas tablaObject = (RecuperarTablas) ois.readObject();
+//				modelAux = tablaObject.getModeloTabla();
+//				table.setModel(modelAux);
+//			} catch (ClassNotFoundException e) {
+//				e.printStackTrace();
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//	}
 
 	public JTable getTable() {
 		return table;
+	}
+
+	public void setTable(JTable defaultTableModel) {
+		this.table = defaultTableModel;
 	}
 }

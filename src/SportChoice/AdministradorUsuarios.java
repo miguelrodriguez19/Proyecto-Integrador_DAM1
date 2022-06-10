@@ -173,4 +173,12 @@ public class AdministradorUsuarios extends JFrame {
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
 	}
+
+	public JTable getTable() {
+		return table;
+	}
+
+	public void setTable(JTable table) {
+		this.table = table;
+	}
 }
