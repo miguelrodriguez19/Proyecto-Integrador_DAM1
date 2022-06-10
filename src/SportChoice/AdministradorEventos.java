@@ -24,6 +24,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.awt.event.ActionEvent;
+import java.awt.Dimension;
 
 public class AdministradorEventos extends JFrame {
 
@@ -127,12 +128,13 @@ public class AdministradorEventos extends JFrame {
 		panel.add(btnlogOut);
 
 		btnBajarArchivo = new JButton("GUARDAR");
+		btnBajarArchivo.setIcon(new ImageIcon(AdministradorEventos.class.getResource("/Imagenes/upload-file-svgrepo-com (1).png")));
 		btnBajarArchivo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-//		btnBajarArchivo.setIcon(new ImageIcon(AdministradorEventos.class.getResource("/Imagenes/folder-download-free-icon-font (1).png.png")));
-		btnBajarArchivo.setBounds(701, 355, 85, 21);
+
+		btnBajarArchivo.setBounds(701, 312, 112, 64);
 		btnBajarArchivo.setBackground(null);
 		panel.add(btnBajarArchivo);
 		btnBajarArchivo.addActionListener(new ActionListener() {
@@ -143,13 +145,13 @@ public class AdministradorEventos extends JFrame {
 		});
 
 		btnSubirArchivos = new JButton("SAVE");
+		btnSubirArchivos.setIcon(new ImageIcon(AdministradorEventos.class.getResource("/Imagenes/download-file-svgrepo-com (1).png")));
 		btnSubirArchivos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miModelo.guardarObjeto(table);
 			}
 		});
-//		btnSubirArchivos.setIcon(new ImageIcon(AdministradorEventos.class.getResource("/Imagenes/folder-upload-free-icon-font (1).png")));
-		btnSubirArchivos.setBounds(701, 324, 85, 21);
+		btnSubirArchivos.setBounds(701, 251, 112, 54);
 		btnSubirArchivos.setBackground(null);
 		panel.add(btnSubirArchivos);
 
