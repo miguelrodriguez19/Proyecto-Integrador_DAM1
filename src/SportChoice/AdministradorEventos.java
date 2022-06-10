@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JScrollPane;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -18,6 +19,10 @@ import javax.swing.table.TableModel;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.awt.event.ActionEvent;
 
 public class AdministradorEventos extends JFrame {
@@ -89,12 +94,11 @@ public class AdministradorEventos extends JFrame {
 		scrollPaneEventos = new JScrollPane();
 		scrollPaneEventos.setBounds(174, 78, 507, 340);
 		panel.add(scrollPaneEventos);
-		
+
 		table = new JTable();
 		table.setRowHeight(55);
 		scrollPaneEventos.setViewportView(table);
-		
-		
+
 		btnBorrar = new JButton("Borrar");
 		btnBorrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnBorrar.setEnabled(false);
@@ -121,8 +125,8 @@ public class AdministradorEventos extends JFrame {
 		btnlogOut.setBackground(new Color(156, 163, 219));
 		btnlogOut.setBounds(701, 28, 112, 30);
 		panel.add(btnlogOut);
-		
-		btnBajarArchivo = new JButton("");
+
+		btnBajarArchivo = new JButton("GUARDAR");
 		btnBajarArchivo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -137,8 +141,8 @@ public class AdministradorEventos extends JFrame {
 				System.out.println("Settear tabla desde fichero");
 			}
 		});
-		
-		btnSubirArchivos = new JButton("");
+
+		btnSubirArchivos = new JButton("SAVE");
 		btnSubirArchivos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miModelo.guardarObjeto(table);
@@ -153,7 +157,7 @@ public class AdministradorEventos extends JFrame {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent e) {
@@ -170,5 +174,29 @@ public class AdministradorEventos extends JFrame {
 
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
+	}
+
+	public void cargarObjeto() {
+		File rutaProyecto = new File(System.getProperty("user.dir"));
+		JFileChooser fc = new JFileChooser(rutaProyecto);
+		int seleccion = fc.showOpenDialog(getTable());
+		DefaultTableModel modelAux = null;
+		if (seleccion == JFileChooser.APPROVE_OPTION) {
+			try {
+				File fichero = fc.getSelectedFile();
+				FileInputStream fis = new FileInputStream(fichero);
+				ObjectInputStream ois = new ObjectInputStream(fis);
+				RecuperarTablas tablaObject = (RecuperarTablas) ois.readObject();
+				modelAux = tablaObject.getModeloTabla();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public JTable getTable() {
+		return table;
 	}
 }
