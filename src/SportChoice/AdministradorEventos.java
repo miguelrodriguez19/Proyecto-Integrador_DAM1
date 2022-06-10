@@ -31,9 +31,9 @@ public class AdministradorEventos extends JFrame {
 	private JButton btnBorrar;
 	private JLabel lblNewLabel;
 	private JTable table;
-	private String rutaFichero = "tablaEventosAdmin.dat";
 	private JButton btnBajarArchivo;
 	private JButton btnSubirArchivos;
+	private JScrollPane scrollPaneEventos;
 
 	/**
 	 * Launch the application.
@@ -86,7 +86,7 @@ public class AdministradorEventos extends JFrame {
 		btnUsuarios.setBounds(420, 28, 261, 40);
 		panel.add(btnUsuarios);
 
-		JScrollPane scrollPaneEventos = new JScrollPane();
+		scrollPaneEventos = new JScrollPane();
 		scrollPaneEventos.setBounds(174, 78, 507, 340);
 		panel.add(scrollPaneEventos);
 		
@@ -133,7 +133,7 @@ public class AdministradorEventos extends JFrame {
 		panel.add(btnBajarArchivo);
 		btnBajarArchivo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				table.setModel((TableModel) miModelo.cargarObjeto(rutaFichero));
+				table.setModel(miModelo.cargarObjeto(scrollPaneEventos));
 				System.out.println("Settear tabla desde fichero");
 			}
 		});
@@ -141,7 +141,7 @@ public class AdministradorEventos extends JFrame {
 		btnSubirArchivos = new JButton("");
 		btnSubirArchivos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miModelo.guardarObjeto(rutaFichero, table.getModel());
+				miModelo.guardarObjeto(table);
 			}
 		});
 //		btnSubirArchivos.setIcon(new ImageIcon(AdministradorEventos.class.getResource("/Imagenes/folder-upload-free-icon-font (1).png")));
