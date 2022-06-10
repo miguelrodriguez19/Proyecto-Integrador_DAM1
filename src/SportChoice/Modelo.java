@@ -295,26 +295,31 @@ public class Modelo {
 		}
 	}
 
-	public TableModel cargarObjeto(JScrollPane scrollPaneTabe) {
-		File rutaProyecto = new File(System.getProperty("user.dir"));
-		JFileChooser fc = new JFileChooser(rutaProyecto);
-		int seleccion = fc.showOpenDialog(scrollPaneTabe);
-		DefaultTableModel modelAux = null;
-		if (seleccion == JFileChooser.APPROVE_OPTION) {
-			try {
-				File fichero = fc.getSelectedFile();
-				FileInputStream fis = new FileInputStream(fichero);
-				ObjectInputStream ois = new ObjectInputStream(fis);
-				RecuperarTablas tablaObject  = (RecuperarTablas) ois.readObject();
-				modelAux = tablaObject.getModeloTabla();
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		return modelAux;
-	}
+//	public TableModel cargarObjeto(JScrollPane scrollPaneTabe) {
+//		File rutaProyecto = new File(System.getProperty("user.dir"));
+//		JFileChooser fc = new JFileChooser(rutaProyecto);
+//		int seleccion = fc.showOpenDialog(scrollPaneTabe);
+//		DefaultTableModel modelAux = null;
+//		if (seleccion == JFileChooser.APPROVE_OPTION) {
+//			try {
+//				File fichero = fc.getSelectedFile();
+//				FileInputStream fis = new FileInputStream(fichero);
+//				ObjectInputStream ois = new ObjectInputStream(fis);
+//				RecuperarTablas tablaObject  = (RecuperarTablas) ois.readObject();
+//				modelAux = tablaObject.getModeloTabla();
+//			} catch (ClassNotFoundException e) {
+//				e.printStackTrace();
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//		return modelAux;
+//	}
+	
+	
+	
+	
+	
 
 	public String getRespuesta() {
 		return respuesta;

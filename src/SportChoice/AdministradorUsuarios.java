@@ -31,7 +31,7 @@ public class AdministradorUsuarios extends JFrame {
 	private JTable table;
 	private JButton btnSubirArchivo;
 	private JButton btnBajarArchivo;
-	private String rutaFichero = "tablaUsuariosAdmin.dat";
+
 
 	/**
 	 * Launch the application.
@@ -88,13 +88,11 @@ public class AdministradorUsuarios extends JFrame {
 		JScrollPane scrollPaneEventos = new JScrollPane();
 		scrollPaneEventos.setBounds(174, 78, 507, 340);
 		panel.add(scrollPaneEventos);
-		
+
 		table = new JTable();
 		table.setRowHeight(55);
 		scrollPaneEventos.setViewportView(table);
-		
 
-		
 		btnNewButton = new JButton("Banear");
 		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton.setEnabled(false);
@@ -121,8 +119,8 @@ public class AdministradorUsuarios extends JFrame {
 		btnNewButton_1.setBackground(new Color(156, 163, 219));
 		btnNewButton_1.setBounds(701, 28, 109, 30);
 		panel.add(btnNewButton_1);
-		
-		btnBajarArchivo = new JButton("");
+
+		btnBajarArchivo = new JButton("UPLOAD");
 //		btnBajarArchivo.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
 //				miModelo.cargar(rutaFichero);
@@ -134,19 +132,19 @@ public class AdministradorUsuarios extends JFrame {
 		panel.add(btnBajarArchivo);
 		btnBajarArchivo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				table = (JTable) miModelo.cargarObjeto(rutaFichero);
+				table = (JTable) miModelo.cargarObjeto(scrollPaneEventos);
 				System.out.println("pat");
 			}
 		});
-		
-		btnSubirArchivo = new JButton("");
+
+		btnSubirArchivo = new JButton("SAVE");
 //		btnSubirArchivo.setIcon(new ImageIcon(AdministradorUsuarios.class.getResource("/Imagenes/folder-upload-free-icon-font (1).png")));
 		btnSubirArchivo.setBounds(701, 324, 85, 21);
 		btnSubirArchivo.setBackground(null);
 		panel.add(btnSubirArchivo);
 		btnSubirArchivo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miModelo.guardarObjeto(rutaFichero, table.getModel());
+				miModelo.guardarObjeto(table);
 			}
 		});
 
@@ -154,7 +152,7 @@ public class AdministradorUsuarios extends JFrame {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent e) {
