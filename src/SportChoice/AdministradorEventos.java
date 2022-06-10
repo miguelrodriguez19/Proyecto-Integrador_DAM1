@@ -8,15 +8,23 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JScrollPane;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.awt.event.ActionEvent;
+import java.awt.Dimension;
 
 public class AdministradorEventos extends JFrame {
 
@@ -29,9 +37,9 @@ public class AdministradorEventos extends JFrame {
 	private JButton btnBorrar;
 	private JLabel lblNewLabel;
 	private JTable table;
-	private String rutaFichero = "tablaEventosAdmin.dat";
 	private JButton btnBajarArchivo;
 	private JButton btnSubirArchivos;
+	private JScrollPane scrollPaneEventos;
 
 	/**
 	 * Launch the application.
@@ -84,15 +92,14 @@ public class AdministradorEventos extends JFrame {
 		btnUsuarios.setBounds(420, 28, 261, 40);
 		panel.add(btnUsuarios);
 
-		JScrollPane scrollPaneEventos = new JScrollPane();
+		scrollPaneEventos = new JScrollPane();
 		scrollPaneEventos.setBounds(174, 78, 507, 340);
 		panel.add(scrollPaneEventos);
-		
+
 		table = new JTable();
 		table.setRowHeight(55);
 		scrollPaneEventos.setViewportView(table);
-		
-		
+
 		btnBorrar = new JButton("Borrar");
 		btnBorrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnBorrar.setEnabled(false);
@@ -119,31 +126,32 @@ public class AdministradorEventos extends JFrame {
 		btnlogOut.setBackground(new Color(156, 163, 219));
 		btnlogOut.setBounds(701, 28, 112, 30);
 		panel.add(btnlogOut);
-		
-		btnBajarArchivo = new JButton("");
+
+		btnBajarArchivo = new JButton("GUARDAR");
+		btnBajarArchivo.setIcon(new ImageIcon(AdministradorEventos.class.getResource("/Imagenes/upload-file-svgrepo-com (1).png")));
 		btnBajarArchivo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		//btnBajarArchivo.setIcon(new ImageIcon(AdministradorEventos.class.getResource("/Imagenes/folder-download-free-icon-font (1).png.png")));
-		btnBajarArchivo.setBounds(701, 355, 85, 21);
+
+		btnBajarArchivo.setBounds(701, 312, 112, 64);
 		btnBajarArchivo.setBackground(null);
 		panel.add(btnBajarArchivo);
 		btnBajarArchivo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				table = (JTable) miModelo.cargarObjeto(rutaFichero);
-				System.out.println("pat");
+				table.setModel(miModelo.cargarObjeto(scrollPaneEventos));
+				System.out.println("Settear tabla desde fichero");
 			}
 		});
-		
-		btnSubirArchivos = new JButton("");
+
+		btnSubirArchivos = new JButton("SAVE");
+		btnSubirArchivos.setIcon(new ImageIcon(AdministradorEventos.class.getResource("/Imagenes/download-file-svgrepo-com (1).png")));
 		btnSubirArchivos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miModelo.guardarObjeto(rutaFichero, table);
+				miModelo.guardarObjeto(table);
 			}
 		});
-		//btnSubirArchivos.setIcon(new ImageIcon(AdministradorEventos.class.getResource("/Imagenes/folder-upload-free-icon-font (1).png")));
-		btnSubirArchivos.setBounds(701, 324, 85, 21);
+		btnSubirArchivos.setBounds(701, 251, 112, 54);
 		btnSubirArchivos.setBackground(null);
 		panel.add(btnSubirArchivos);
 
@@ -151,7 +159,7 @@ public class AdministradorEventos extends JFrame {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent e) {
@@ -168,5 +176,29 @@ public class AdministradorEventos extends JFrame {
 
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
+	}
+
+	public void cargarObjeto() {
+		File rutaProyecto = new File(System.getProperty("user.dir"));
+		JFileChooser fc = new JFileChooser(rutaProyecto);
+		int seleccion = fc.showOpenDialog(getTable());
+		DefaultTableModel modelAux = null;
+		if (seleccion == JFileChooser.APPROVE_OPTION) {
+			try {
+				File fichero = fc.getSelectedFile();
+				FileInputStream fis = new FileInputStream(fichero);
+				ObjectInputStream ois = new ObjectInputStream(fis);
+				RecuperarTablas tablaObject = (RecuperarTablas) ois.readObject();
+				modelAux = tablaObject.getModeloTabla();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public JTable getTable() {
+		return table;
 	}
 }

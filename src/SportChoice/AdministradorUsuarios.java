@@ -30,8 +30,9 @@ public class AdministradorUsuarios extends JFrame {
 	private JButton btnNewButton_1;
 	private JTable table;
 	private JButton btnSubirArchivo;
+	private JButton btnSubirArchivo_1;
 	private JButton btnBajarArchivo;
-	private String rutaFichero = "tablaUsuariosAdmin.dat";
+
 
 	/**
 	 * Launch the application.
@@ -88,13 +89,11 @@ public class AdministradorUsuarios extends JFrame {
 		JScrollPane scrollPaneEventos = new JScrollPane();
 		scrollPaneEventos.setBounds(174, 78, 507, 340);
 		panel.add(scrollPaneEventos);
-		
+
 		table = new JTable();
 		table.setRowHeight(55);
 		scrollPaneEventos.setViewportView(table);
-		
 
-		
 		btnNewButton = new JButton("Banear");
 		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton.setEnabled(false);
@@ -121,32 +120,35 @@ public class AdministradorUsuarios extends JFrame {
 		btnNewButton_1.setBackground(new Color(156, 163, 219));
 		btnNewButton_1.setBounds(701, 28, 109, 30);
 		panel.add(btnNewButton_1);
-		
-		btnBajarArchivo = new JButton("");
+
+		btnBajarArchivo = new JButton("UPLOAD");
+		btnBajarArchivo.setIcon(new ImageIcon(AdministradorUsuarios.class.getResource("/Imagenes/upload-file-svgrepo-com (1).png")));
 //		btnBajarArchivo.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
 //				miModelo.cargar(rutaFichero);
 //			}
 //		});
-		//btnBajarArchivo.setIcon(new ImageIcon(AdministradorUsuarios.class.getResource("/Imagenes/folder-download-free-icon-font (1).png.png")));
-		btnBajarArchivo.setBounds(701, 355, 85, 21);
+
+		btnBajarArchivo.setBounds(701, 312, 112, 64);
 		btnBajarArchivo.setBackground(null);
 		panel.add(btnBajarArchivo);
 		btnBajarArchivo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				table = (JTable) miModelo.cargarObjeto(rutaFichero);
+				table = (JTable) miModelo.cargarObjeto(scrollPaneEventos);
 				System.out.println("pat");
 			}
 		});
+
 		
 		btnSubirArchivo = new JButton("");
-		//btnSubirArchivo.setIcon(new ImageIcon(AdministradorUsuarios.class.getResource("/Imagenes/folder-upload-free-icon-font (1).png")));
-		btnSubirArchivo.setBounds(701, 324, 85, 21);
-		btnSubirArchivo.setBackground(null);
-		panel.add(btnSubirArchivo);
-		btnSubirArchivo.addActionListener(new ActionListener() {
+		btnSubirArchivo_1 = new JButton("SAVE");
+		btnSubirArchivo_1.setIcon(new ImageIcon(AdministradorUsuarios.class.getResource("/Imagenes/download-file-svgrepo-com (1).png")));
+		btnSubirArchivo_1.setBounds(701, 251, 112, 54);
+		btnSubirArchivo_1.setBackground(null);
+		panel.add(btnSubirArchivo_1);
+		btnSubirArchivo_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miModelo.guardarObjeto(rutaFichero, table);
+				miModelo.guardarObjeto(table);
 			}
 		});
 
@@ -154,7 +156,7 @@ public class AdministradorUsuarios extends JFrame {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent e) {

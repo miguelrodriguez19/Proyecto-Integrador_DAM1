@@ -22,10 +22,12 @@ import java.util.Properties;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 import com.mysql.cj.xdevapi.Table;
 
@@ -272,44 +274,54 @@ public class Modelo {
 		}
 	}
 
-	public void guardarObjeto(String rutaFichero, JTable table) {
-		File fichero = new File(rutaFichero);
-		try {
-			FileOutputStream fos = new FileOutputStream(fichero);
-			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			oos.writeObject(table);
-			fos.close();
-			oos.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (NumberFormatException e) {
-			e.printStackTrace();
+	public void guardarObjeto(JTable tabla) {
+		File rutaProyecto = new File(System.getProperty("user.dir"));
+		JFileChooser fc = new JFileChooser(rutaProyecto);
+		int seleccion = fc.showSaveDialog(tabla);
+		if (seleccion == JFileChooser.APPROVE_OPTION) {
+			File fichero = fc.getSelectedFile();
+			try {
+				FileOutputStream fos = new FileOutputStream(fichero);
+				ObjectOutputStream oos = new ObjectOutputStream(fos);
+				RecuperarTablas tablaObject  = new RecuperarTablas((DefaultTableModel) tabla.getModel());
+				oos.writeObject(tablaObject);
+				fos.close();
+				oos.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			} 
 		}
-//			catch (ParseException e) {
-//				e.printStackTrace();
-//			}
 	}
 
-	public Object cargarObjeto(String rutaFichero) {
-		Object miTabla = null;
-		try {
-			File fichero = new File(rutaFichero);
-			FileInputStream fis = new FileInputStream(fichero);
-			ObjectInputStream ois = new ObjectInputStream(fis);
-			miTabla = ois.readObject();
-			System.out.println(miTabla + "\nPatata");
-//				DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-//				String dia = formatter.format(miUsuario.getFechaNacimiento());
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return miTabla;
-	}
+//	public TableModel cargarObjeto(JScrollPane scrollPaneTabe) {
+//		File rutaProyecto = new File(System.getProperty("user.dir"));
+//		JFileChooser fc = new JFileChooser(rutaProyecto);
+//		int seleccion = fc.showOpenDialog(scrollPaneTabe);
+//		DefaultTableModel modelAux = null;
+//		if (seleccion == JFileChooser.APPROVE_OPTION) {
+//			try {
+//				File fichero = fc.getSelectedFile();
+//				FileInputStream fis = new FileInputStream(fichero);
+//				ObjectInputStream ois = new ObjectInputStream(fis);
+//				RecuperarTablas tablaObject  = (RecuperarTablas) ois.readObject();
+//				modelAux = tablaObject.getModeloTabla();
+//			} catch (ClassNotFoundException e) {
+//				e.printStackTrace();
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//		return modelAux;
+//	}
+	
+	
+	
+	
+	
 
 	public String getRespuesta() {
 		return respuesta;
 	}
-
 }

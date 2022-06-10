@@ -40,4 +40,12 @@ public class Controlador {
 				((datosConexion) pantallas[20]).getTxtUrlConexion().getText() };
 		miModelo.guardar(datos, ((datosConexion) pantallas[20]).getClaves());
 	}
+
+	public boolean validarForm(String txtNombre, String txtApellidos, String txtEmail, String txtContrasena, int comboBox_Dia, int comboBox_Mes, int comboBox_Ano) {
+		if (txtNombre != "" && txtApellidos != "" && txtEmail != "" && txtContrasena != "" && comboBox_Dia != 0 && comboBox_Mes != 0 && comboBox_Ano != 0) {
+			System.out.println("validar form TRUE");
+			return true;
+		}
+		return false;
+	}
 }
