@@ -75,7 +75,9 @@ public class Modelo {
 		}
 
 	}
-
+	/**
+	 * 
+	 */
 	public void conectarFicheroBBDD() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -304,6 +306,8 @@ public class Modelo {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Error general");
 		}
 		return miTabla;
 	}

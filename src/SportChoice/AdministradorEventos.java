@@ -121,11 +121,7 @@ public class AdministradorEventos extends JFrame {
 		panel.add(btnlogOut);
 		
 		btnBajarArchivo = new JButton("");
-		btnBajarArchivo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnBajarArchivo.setIcon(new ImageIcon(AdministradorEventos.class.getResource("/Imagenes/folder-download-free-icon-font (1).png.png")));
+//		btnBajarArchivo.setIcon(new ImageIcon(AdministradorEventos.class.getResource("/Imagenes/folder-download-free-icon-font (1).png.png")));
 		btnBajarArchivo.setBounds(701, 355, 85, 21);
 		btnBajarArchivo.setBackground(null);
 		panel.add(btnBajarArchivo);
@@ -141,7 +137,7 @@ public class AdministradorEventos extends JFrame {
 				miModelo.guardarObjeto(rutaFichero, table);
 			}
 		});
-		btnSubirArchivos.setIcon(new ImageIcon(AdministradorEventos.class.getResource("/Imagenes/folder-upload-free-icon-font (1).png")));
+//		btnSubirArchivos.setIcon(new ImageIcon(AdministradorEventos.class.getResource("/Imagenes/folder-upload-free-icon-font (1).png")));
 		btnSubirArchivos.setBounds(701, 324, 85, 21);
 		btnSubirArchivos.setBackground(null);
 		panel.add(btnSubirArchivos);

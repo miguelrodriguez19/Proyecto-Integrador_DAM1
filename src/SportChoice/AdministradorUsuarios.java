@@ -13,6 +13,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -121,26 +123,26 @@ public class AdministradorUsuarios extends JFrame {
 		btnNewButton_1.setBackground(new Color(156, 163, 219));
 		btnNewButton_1.setBounds(701, 28, 109, 30);
 		panel.add(btnNewButton_1);
-		
+//		
 		btnBajarArchivo = new JButton("");
-//		btnBajarArchivo.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				miModelo.cargar(rutaFichero);
-//			}
-//		});
-		btnBajarArchivo.setIcon(new ImageIcon(AdministradorUsuarios.class.getResource("/Imagenes/folder-download-free-icon-font (1).png.png")));
+		btnBajarArchivo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miModelo.cargarObjeto(rutaFichero);
+			}
+		});
+//		btnBajarArchivo.setIcon(new ImageIcon(AdministradorUsuarios.class.getResource("/Imagenes/folder-download-free-icon-font (1).png.png")));
 		btnBajarArchivo.setBounds(701, 355, 85, 21);
 		btnBajarArchivo.setBackground(null);
 		panel.add(btnBajarArchivo);
 		btnBajarArchivo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				table = (JTable) miModelo.cargarObjeto(rutaFichero);
+				table.setModel((TableModel) miModelo.cargarObjeto(rutaFichero));
 				System.out.println("pat");
 			}
 		});
 		
 		btnSubirArchivo = new JButton("");
-		btnSubirArchivo.setIcon(new ImageIcon(AdministradorUsuarios.class.getResource("/Imagenes/folder-upload-free-icon-font (1).png")));
+//		btnSubirArchivo.setIcon(new ImageIcon(AdministradorUsuarios.class.getResource("/Imagenes/folder-upload-free-icon-font (1).png")));
 		btnSubirArchivo.setBounds(701, 324, 85, 21);
 		btnSubirArchivo.setBackground(null);
 		panel.add(btnSubirArchivo);
