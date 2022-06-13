@@ -15,19 +15,14 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.util.HashMap;
 import java.util.Properties;
 
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
-
-import com.mysql.cj.xdevapi.Table;
 
 public class Modelo {
 	private String bd = "ProyectoIntegrador";
@@ -53,6 +48,10 @@ public class Modelo {
 	private InputStream entrada;
 	private OutputStream salida;
 	private String respuesta;
+	private HashMap<String, String> datosUsuario; /*
+													 * usr, nombre, apellido, email, pwd, Fecha_nac, FotoPerfil,
+													 * descripcion, DeporteFav, valoraciones, cod_recuperacion, rol
+													 */
 	private final String FILE = "conexionBDPI.ini";
 
 	public Properties getDatosConexion() {
@@ -75,6 +74,7 @@ public class Modelo {
 		}
 
 	}
+
 	/**
 	 * 
 	 */
@@ -111,6 +111,7 @@ public class Modelo {
 			setUsuarioConectado(usr);
 			resultado = "Correcto";
 			fallos = 0;
+			cargarDatosUsuario();
 		} else {
 			fallos++;
 			if (fallos == 3) {
@@ -188,6 +189,30 @@ public class Modelo {
 			break;
 		}
 		return query;
+	}
+
+	private void cargarDatosUsuario() {
+		String query = "select usr, nombre, apellido, email, pwd, Fecha_nac, FotoPerfil, descripcion, DeporteFav, valoraciones, cod_recuperacion, rol from users where usr = ?";
+		datosUsuario = new HashMap<>();
+		PreparedStatement pstmt;
+		try {
+			pstmt = conexion.prepareStatement(query);
+			pstmt.setString(1, usuarioConectado);
+			ResultSet rset = pstmt.executeQuery();
+			ResultSetMetaData rsmd = rset.getMetaData();
+			int columnas = rsmd.getColumnCount();
+			if (rset.next())
+				for (int j = 1; j <= columnas; j++) {
+//					System.out.println("Clave: " + rsmd.getColumnName(j) + "\tValor: " + rset.getString(j));
+					datosUsuario.put(rsmd.getColumnName(j), rset.getString(j));
+				}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public HashMap<String, String> getDatosUsuario() {
+		return datosUsuario;
 	}
 
 	private int getNumColumnas(String sql, String option) {
@@ -299,7 +324,7 @@ public class Modelo {
 			FileInputStream fis = new FileInputStream(fichero);
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			miTabla = ois.readObject();
-			System.out.println(miTabla + "\nPatata");
+			System.out.println(miTabla);
 //				DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 //				String dia = formatter.format(miUsuario.getFechaNacimiento());
 		} catch (ClassNotFoundException e) {
