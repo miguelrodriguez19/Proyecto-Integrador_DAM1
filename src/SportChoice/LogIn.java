@@ -32,6 +32,7 @@ public class LogIn extends JFrame {
 	private JLabel lblContrasenaPlaceHolder, lblnoTienesCuenta, lblErrorLogIn, lblTituloIniciarSesion,lblNewLabel;
 	private JButton btnRegistro, btnIniciarSesion, btnRecuperarContrasena, btnAccederInvitado;
 	private JButton btnAjustesConexion;
+	private String usrConectado;
 
 	public static void LogIn() {
 		LogIn window = new LogIn();
@@ -163,6 +164,7 @@ public class LogIn extends JFrame {
 		btnAccederInvitado.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAccederInvitado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miModelo.conectarFicheroBBDD();
 				miControlador.actualizar(7,11);
 			}
 		});

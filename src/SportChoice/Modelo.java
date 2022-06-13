@@ -41,7 +41,7 @@ public class Modelo {
 	private String resultado;
 	private int fallos;
 	private JFrame[] pantallas;
-	private String usuarioConectado;
+	private String usuarioConectado = "invitado";
 	private String eventoSeleccionado;
 	private String eventosRecientes = "select eventos.usr, fecha_evento, nombre_evento from eventos natural join participa_evento order by fecha_creacion asc;";
 	private DefaultTableModel miTabla;
