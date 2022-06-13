@@ -19,7 +19,9 @@ import java.util.HashMap;
 import java.util.Properties;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
@@ -339,6 +341,27 @@ public class Modelo {
 
 	public String getRespuesta() {
 		return respuesta;
+	}
+
+	public void guardarCambiosPerfil(String[] datosCambiosPerfil) {
+		// Usuario, Nombre, Descripcion, Me gustas
+		String query = "update users set usr = ?, nombre = ?, descripcion = ?,  valoraciones = ?, DeporteFav = ?, genero = ? where usr = ?";
+		PreparedStatement pstmt;
+		try {
+			pstmt = conexion.prepareStatement(query);
+			pstmt.setString(1, datosCambiosPerfil[0]);
+			pstmt.setString(2, datosCambiosPerfil[1]);
+			pstmt.setString(3, datosCambiosPerfil[2]);
+			pstmt.setString(4, datosCambiosPerfil[3]);
+			pstmt.setString(5, datosCambiosPerfil[4]);
+			pstmt.setString(6, datosCambiosPerfil[5]);
+			pstmt.setString(6, usuarioConectado);
+			pstmt.executeUpdate();
+			usuarioConectado = datosCambiosPerfil[0];
+			cargarDatosUsuario();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

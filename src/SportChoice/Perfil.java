@@ -260,6 +260,7 @@ public class Perfil extends JFrame {
 				txtDescripcion.setText(miModelo.getDatosUsuario().get("descripcion"));
 				lblLikes.setText(miModelo.getDatosUsuario().get("valoraciones"));
 				lblDeporte.setText(miModelo.getDatosUsuario().get("DeporteFav"));
+				lblEdad.setText(miModelo.getDatosUsuario().get("fecha_nac"));
 //				lblFotoPerfil.setText(miModelo.getDatosUsuario().get("FotoPerfil"));
 			}
 		});

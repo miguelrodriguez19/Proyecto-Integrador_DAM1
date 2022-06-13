@@ -40,4 +40,14 @@ public class Controlador {
 				((datosConexion) pantallas[20]).getTxtUrlConexion().getText() };
 		miModelo.guardar(datos, ((datosConexion) pantallas[20]).getClaves());
 	}
+
+	public void guardarCambiosPerfil() {
+		String[] datosCambiosPerfil = { ((editarPerfil) pantallas[3]).getTxtNuevoNombreUsuario().getText(),
+				((editarPerfil) pantallas[3]).getTxtNuevoNombre().getText(),
+				((editarPerfil) pantallas[3]).getTxtModificarDescripcion().getText(),
+				((editarPerfil) pantallas[3]).getLblMeGustas().getText(),
+				(String) ((editarPerfil) pantallas[3]).getComboBoxDeporte().getSelectedItem(),
+				(String) ((editarPerfil) pantallas[3]).getComboBoxGenero().getSelectedItem() };
+		miModelo.guardarCambiosPerfil(datosCambiosPerfil);
+	}
 }
