@@ -212,12 +212,6 @@ public class editarPerfil extends JFrame {
 				lblMeGustas.setText(miModelo.getDatosUsuario().get("valoraciones"));
 				lblEdad.setText(miModelo.getDatosUsuario().get("fecha_nac"));
 				lblEdad.setText(miModelo.getDatosUsuario().get("Fecha_nac"));
-				if (miModelo.getDatosUsuario().get("genero") != null)
-					comboBoxGenero.setModel(new DefaultComboBoxModel(new String[] {
-							miModelo.getDatosUsuario().get("genero"), "No especificar", "Hombre ", "Mujer", "Otro" }));
-				if (miModelo.getDatosUsuario().get("DeporteFav") != null)
-					comboBoxDeporte.setModel(new DefaultComboBoxModel(new String[] {
-							miModelo.getDatosUsuario().get("DeporteFav"), "Baloncesto", "Tenis", "Padel", "Fútbol" }));
 ////				lblFotoPerfil.setText(miModelo.getDatosUsuario().get("FotoPerfil"));
 			}
 		});
