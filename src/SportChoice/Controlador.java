@@ -36,26 +36,30 @@ public class Controlador {
 		miModelo.guardar(datos, ((datosConexion) pantallas[20]).getClaves());
 	}
 
-	public boolean validarForm(String txtNombre, String txtApellidos, String txtEmail, String txtContrasena, int comboBox_Dia, int comboBox_Mes, int comboBox_Ano) {
-		if (txtNombre != "" && txtApellidos != "" && txtEmail != "" && txtContrasena != "" && comboBox_Dia != 0 && comboBox_Mes != 0 && comboBox_Ano != 0) {
+	public boolean validarForm(String txtNombre, String txtApellidos, String txtEmail, String txtContrasena,
+			int comboBox_Dia, int comboBox_Mes, int comboBox_Ano) {
+		if (txtNombre != "" && txtApellidos != "" && txtEmail != "" && txtContrasena != "" && comboBox_Dia != 0
+				&& comboBox_Mes != 0 && comboBox_Ano != 0) {
 			System.out.println("validar form TRUE");
 			return true;
 		}
 		return false;
 	}
-	
+
 	public void guardarCambiosPerfil() {
+		String[] nombreApellido = ((editarPerfil) pantallas[3]).getTxtNuevoNombre().getText().split(" ");
 		String[] datosCambiosPerfil = { ((editarPerfil) pantallas[3]).getTxtNuevoNombreUsuario().getText(),
-				((editarPerfil) pantallas[3]).getTxtNuevoNombre().getText(),
+				nombreApellido[0], nombreApellido[1],
 				((editarPerfil) pantallas[3]).getTxtModificarDescripcion().getText(),
 				((editarPerfil) pantallas[3]).getLblMeGustas().getText(),
-				(String) ((editarPerfil) pantallas[3]).getComboBoxDeporte().getSelectedItem(),
-				(String) ((editarPerfil) pantallas[3]).getComboBoxGenero().getSelectedItem() };
+				((editarPerfil) pantallas[3]).getComboBoxDeporte(), ((editarPerfil) pantallas[3]).getComboBoxGenero() };
 		miModelo.guardarCambiosPerfil(datosCambiosPerfil);
 	}
 
 	public void cambioContrasena() {
-		miModelo.cambioContrasena(((CambiarContrasena) pantallas[0]).getTxtContrasenaActual(), ((CambiarContrasena) pantallas[0]).getTxtNuevaContrasena(), ((CambiarContrasena) pantallas[0]).getTxtConfirmarNuevaContrasena());
-		
+		miModelo.cambioContrasena(((CambiarContrasena) pantallas[0]).getTxtContrasenaActual(),
+				((CambiarContrasena) pantallas[0]).getTxtNuevaContrasena(),
+				((CambiarContrasena) pantallas[0]).getTxtConfirmarNuevaContrasena());
+
 	}
 }

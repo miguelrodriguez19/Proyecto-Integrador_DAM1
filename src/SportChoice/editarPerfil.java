@@ -11,7 +11,7 @@ import java.awt.event.WindowEvent;
 
 import javax.swing.*;
 
-public class editarPerfil  extends JFrame {
+public class editarPerfil extends JFrame {
 	private Controlador miControlador;
 	private Modelo miModelo;
 	private JPanel header;
@@ -73,7 +73,7 @@ public class editarPerfil  extends JFrame {
 		btnCambiarContrasena.setForeground(Color.WHITE);
 		btnCambiarContrasena.setBounds(569, 61, 157, 19);
 		header.add(btnCambiarContrasena);
-		
+
 		btnLogo = new JButton("");
 		btnLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogo.addActionListener(new ActionListener() {
@@ -166,7 +166,8 @@ public class editarPerfil  extends JFrame {
 		getContentPane().add(txtModificarDescripcion);
 
 		comboBoxDeporte = new JComboBox();
-		comboBoxDeporte.setModel(new DefaultComboBoxModel(new String[] { "Deporte Favorito" }));
+		comboBoxDeporte.setModel(new DefaultComboBoxModel(
+				new String[] { "Deporte Favorito", "Baloncesto", "Tenis", "Padel", "Fútbol" }));
 		comboBoxDeporte.setBounds(363, 159, 114, 24);
 		getContentPane().add(comboBoxDeporte);
 
@@ -176,7 +177,8 @@ public class editarPerfil  extends JFrame {
 		getContentPane().add(lblIconoPerfil);
 
 		comboBoxGenero = new JComboBox();
-		comboBoxGenero.setModel(new DefaultComboBoxModel(new String[] { "No especificar", "Hombre ", "Mujer", "Otro" }));
+		comboBoxGenero
+				.setModel(new DefaultComboBoxModel(new String[] { "No especificar", "Hombre ", "Mujer", "Otro" }));
 		comboBoxGenero.setBounds(363, 206, 114, 24);
 		getContentPane().add(comboBoxGenero);
 
@@ -199,28 +201,35 @@ public class editarPerfil  extends JFrame {
 				miControlador.actualizar(3, 10);
 			}
 		});
-		
+
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent e) {
-				txtNuevoNombreUsuario.setText("@" + miModelo.getDatosUsuario().get("usr"));
-				txtNuevoNombre.setText(miModelo.getDatosUsuario().get("nombre") + " " + miModelo.getDatosUsuario().get("apellido"));
+				txtNuevoNombreUsuario.setText(miModelo.getDatosUsuario().get("usr"));
+				txtNuevoNombre.setText(
+						miModelo.getDatosUsuario().get("nombre") + " " + miModelo.getDatosUsuario().get("apellido"));
 				txtModificarDescripcion.setText(miModelo.getDatosUsuario().get("descripcion"));
 				lblMeGustas.setText(miModelo.getDatosUsuario().get("valoraciones"));
 				lblEdad.setText(miModelo.getDatosUsuario().get("fecha_nac"));
-//				lblDeporte.setText(miModelo.getDatosUsuario().get("DeporteFav"));
+				lblEdad.setText(miModelo.getDatosUsuario().get("Fecha_nac"));
+				if (miModelo.getDatosUsuario().get("genero") != null)
+					comboBoxGenero.setModel(new DefaultComboBoxModel(new String[] {
+							miModelo.getDatosUsuario().get("genero"), "No especificar", "Hombre ", "Mujer", "Otro" }));
+				if (miModelo.getDatosUsuario().get("DeporteFav") != null)
+					comboBoxDeporte.setModel(new DefaultComboBoxModel(new String[] {
+							miModelo.getDatosUsuario().get("DeporteFav"), "Baloncesto", "Tenis", "Padel", "Fútbol" }));
 ////				lblFotoPerfil.setText(miModelo.getDatosUsuario().get("FotoPerfil"));
 			}
 		});
-		
+
 	}
 
-	public JComboBox getComboBoxDeporte() {
-		return comboBoxDeporte;
+	public String getComboBoxDeporte() {
+		return comboBoxDeporte.getSelectedItem().toString();
 	}
 
-	public JComboBox getComboBoxGenero() {
-		return comboBoxGenero;
+	public String getComboBoxGenero() {
+		return comboBoxGenero.getSelectedItem().toString();
 	}
 
 	public JLabel getLblMeGustas() {
@@ -242,7 +251,7 @@ public class editarPerfil  extends JFrame {
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}
-	
+
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
 	}
