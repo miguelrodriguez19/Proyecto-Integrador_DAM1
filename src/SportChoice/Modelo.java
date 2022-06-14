@@ -269,6 +269,25 @@ public class Modelo {
 //		txtPassword.setText(getName());
 //		txtURL.setText(getName());
 	}
+	public void Registrarse(String name, String apellido, String password, String mail, String fecha, String usr) {
+		String query="INSERT into users (usr,nombre,apellido,email,pwd,Fecha_nac,rol)values(?,?,?,?,?,?,?)";
+		PreparedStatement pstmt;
+		try {
+			Conexion();
+			pstmt=conexion.prepareStatement(query);
+			pstmt.setString(1, usr);
+			pstmt.setString(2, name);
+			pstmt.setString(3, apellido);
+			pstmt.setString(4, mail);
+			pstmt.setString(5, password);
+			pstmt.setString(6, fecha);
+			pstmt.setString(7, "user");
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			
+		}
+	}
 
 	public void guardar(String[] datos, String[] claves) {
 		try {

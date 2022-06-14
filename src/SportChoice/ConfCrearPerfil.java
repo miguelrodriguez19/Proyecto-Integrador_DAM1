@@ -46,6 +46,7 @@ public class ConfCrearPerfil extends JFrame {
 		btnOK.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(1, 7);
+				miControlador.datosRegistro();
 				// System.out.println(txtNombre.getText());
 //				comboBox.addItem(txtNombre.getText());
 //				System.out.println(chckbxNewCheckBox.isSelected());
@@ -120,6 +121,14 @@ public class ConfCrearPerfil extends JFrame {
 		getContentPane().add(lblNewLabel_1);
 		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnOK.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+	}
+
+	public String getTxtUsername() {
+		return txtUsername.getText();
+	}
+
+	public void setTxtUsername(JTextField txtUsername) {
+		this.txtUsername = txtUsername;
 	}
 
 	public void setMiControlador(Controlador miControlador) {

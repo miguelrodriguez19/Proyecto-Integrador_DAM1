@@ -18,6 +18,9 @@ public class Register extends JFrame {
 	private JPanel panel;
 	private JTextField txtNombre, txtApellidos, txtMail, txtContrasea, txtRepiteContrasea;
 	private JButton btnSiguiente, btnIniciarSesion;
+	private JComboBox comboBox;
+	private JComboBox comboBox_1;
+	private JComboBox comboBox_1_1;
 
 	public static void Register() {
 		Register window = new Register();
@@ -53,7 +56,7 @@ public class Register extends JFrame {
 		btnSiguiente.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnSiguiente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				 miControlador.actualizar(14, 1);
+				miControlador.actualizar(14, 1);
 				// System.out.println(txtNombre.getText());
 //				comboBox.addItem(txtNombre.getText());
 //				System.out.println(chckbxNewCheckBox.isSelected());
@@ -100,7 +103,7 @@ public class Register extends JFrame {
 		txtContrasea.setBounds(520, 178, 275, 30);
 		getContentPane().add(txtContrasea);
 
-		JComboBox comboBox = new JComboBox();
+		comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] { "DIA", "1", "2", "3", "4", "5", "6", "7", "8", "9",
 				"10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26",
 				"27", "28", "29", "30", "31" }));
@@ -108,14 +111,14 @@ public class Register extends JFrame {
 		comboBox.setBounds(520, 281, 74, 30);
 		getContentPane().add(comboBox);
 
-		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1 = new JComboBox();
 		comboBox_1.setBorder(null);
 		comboBox_1.setModel(new DefaultComboBoxModel(
 				new String[] { "MES", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
 		comboBox_1.setBounds(600, 281, 74, 30);
 		getContentPane().add(comboBox_1);
 
-		JComboBox comboBox_1_1 = new JComboBox();
+		comboBox_1_1 = new JComboBox();
 		comboBox_1_1.setBorder(null);
 		comboBox_1_1.setModel(new DefaultComboBoxModel(new String[] { "A\u00D1O", "2022", "2021", "2020", "2019",
 				"2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006",
@@ -133,7 +136,7 @@ public class Register extends JFrame {
 		btnIniciarSesion.setBackground(new Color(57, 62, 70));
 		btnIniciarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				 miControlador.actualizar(14, 7);
+				miControlador.actualizar(14, 7);
 			}
 		});
 		btnIniciarSesion.setBounds(520, 397, 275, 21);
@@ -155,6 +158,51 @@ public class Register extends JFrame {
 
 	}
 
+	public String getTxtNombre() {
+		return txtNombre.getText();
+	}
+
+	public void setTxtNombre(JTextField txtNombre) {
+		this.txtNombre = txtNombre;
+	}
+
+	public String getTxtApellidos() {
+		return txtApellidos.getText();
+	}
+
+	public void setTxtApellidos(JTextField txtApellidos) {
+		this.txtApellidos = txtApellidos;
+	}
+
+	public String getTxtMail() {
+		return txtMail.getText();
+	}
+
+	public void setTxtMail(JTextField txtMail) {
+		this.txtMail = txtMail;
+	}
+
+	public String getTxtContrasea() {
+		return txtContrasea.getText();
+	}
+
+	public void setTxtContrasea(JTextField txtContrasea) {
+		this.txtContrasea = txtContrasea;
+	}
+
+	public String getDia() {
+		String variable = (String) comboBox.getSelectedItem();
+		return variable;
+	}
+	public String getMes() {
+		String variable = (String) comboBox_1.getSelectedItem();
+		return variable;
+	}
+	public String getAño() {
+		String variable = (String) comboBox_1_1.getSelectedItem();
+		return variable;
+	}
+
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}
@@ -162,4 +210,5 @@ public class Register extends JFrame {
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
 	}
+
 }
