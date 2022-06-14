@@ -29,9 +29,10 @@ public class LogIn extends JFrame {
 	private JPasswordField txtPwd;
 	private JPanel panel;
 	private JSeparator separator;
-	private JLabel lblContrasenaPlaceHolder, lblnoTienesCuenta, lblErrorLogIn, lblTituloIniciarSesion,lblNewLabel;
+	private JLabel lblContrasenaPlaceHolder, lblnoTienesCuenta, lblErrorLogIn, lblTituloIniciarSesion, lblNewLabel;
 	private JButton btnRegistro, btnIniciarSesion, btnRecuperarContrasena, btnAccederInvitado;
 	private JButton btnAjustesConexion;
+	private String mensajeTxtMail;
 
 	public static void LogIn() {
 		LogIn window = new LogIn();
@@ -61,7 +62,7 @@ public class LogIn extends JFrame {
 		txtMail.setForeground(Color.GRAY);
 		txtMail.setBounds(28, 95, 275, 48);
 		panel.add(txtMail);
-		String mensajeTxtMail = "Usuario";
+		mensajeTxtMail = "Usuario";
 		txtMail.setText("Usuario");
 		txtMail.setColumns(10);
 
@@ -111,9 +112,9 @@ public class LogIn extends JFrame {
 		lblnoTienesCuenta.setFont(new Font("Trebuchet MS", Font.PLAIN, 16));
 		lblnoTienesCuenta.setBounds(10, 376, 205, 26);
 		panel.add(lblnoTienesCuenta);
-		
+
 		lblContrasenaPlaceHolder = new JLabel("Contraseña");
-		lblContrasenaPlaceHolder.setBounds(28, 163, 275, 49);
+		lblContrasenaPlaceHolder.setBounds(28, 164, 275, 48);
 		panel.add(lblContrasenaPlaceHolder);
 		lblContrasenaPlaceHolder.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		lblContrasenaPlaceHolder.setForeground(Color.GRAY);
@@ -163,7 +164,7 @@ public class LogIn extends JFrame {
 		btnAccederInvitado.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAccederInvitado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(7,11);
+				miControlador.actualizar(7, 11);
 			}
 		});
 		btnAccederInvitado.setSelected(true);
@@ -178,7 +179,7 @@ public class LogIn extends JFrame {
 		lblErrorLogIn.setForeground(Color.RED);
 		lblErrorLogIn.setBounds(87, 282, 168, 13);
 		panel.add(lblErrorLogIn);
-		
+
 		btnAjustesConexion = new JButton("");
 		btnAjustesConexion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAjustesConexion.setIcon(new ImageIcon(LogIn.class.getResource("/Imagenes/configuraciones.png")));
@@ -245,11 +246,19 @@ public class LogIn extends JFrame {
 				txtMail.setText("");
 				txtPwd.setText("");
 			}
+			vaciarCamposYMostrarPlaceHolders();
 		} else if (resultado.equals("Incorrecto")) {
 			// desplegable de error
 			lblErrorLogIn.setVisible(true);
 		} else {
 			System.exit(0);
 		}
+	}
+
+	public void vaciarCamposYMostrarPlaceHolders() {
+		lblContrasenaPlaceHolder.setVisible(true);
+		txtPwd.setText("");
+		txtMail.setText(mensajeTxtMail);
+		txtMail.setForeground(Color.GRAY);
 	}
 }

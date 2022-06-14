@@ -358,10 +358,48 @@ public class Modelo {
 			pstmt.setString(6, usuarioConectado);
 			pstmt.executeUpdate();
 			usuarioConectado = datosCambiosPerfil[0];
+			pstmt.close();
 			cargarDatosUsuario();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void cambioContrasena(String supuestaContrasenaActual, String nuevaContrasena,
+			String nuevaContrasenaActual) {
+		if (nuevaContrasena.equals(nuevaContrasenaActual)) {
+			String query = "select pwd from users where usr = ?";
+			String contrasenaActual = "";
+			PreparedStatement pstmt;
+			try {
+				pstmt = conexion.prepareStatement(query);
+				pstmt.setString(1, usuarioConectado);
+				ResultSet rset = pstmt.executeQuery();
+				if (rset.next())
+					contrasenaActual = rset.getString("pwd");
+				rset.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			if (contrasenaActual.equals(supuestaContrasenaActual)) {
+				String update = "update users set pwd = ? where usr = ?";
+				try {
+					pstmt = conexion.prepareStatement(update);
+					pstmt.setString(1, nuevaContrasena);
+					pstmt.setString(2, usuarioConectado);
+					pstmt.executeUpdate();
+					pstmt.close();
+					((CambiarContrasena) pantallas[0]).cambioContrasenaExitoso();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			} else { // No coincide la contraseña actual dada y la guardada en base de datos
+				((CambiarContrasena) pantallas[0]).errorContrasenaIncorrecta();
+			}
+		} else { // No coinciden las dos contraseñas nuevas introducidas
+			((CambiarContrasena) pantallas[0]).errorContrasenasDistintas();
+		}
+
 	}
 
 }

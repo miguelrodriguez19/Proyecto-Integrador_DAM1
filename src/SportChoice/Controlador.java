@@ -45,4 +45,9 @@ public class Controlador {
 				(String) ((editarPerfil) pantallas[3]).getComboBoxGenero().getSelectedItem() };
 		miModelo.guardarCambiosPerfil(datosCambiosPerfil);
 	}
+
+	public void cambioContrasena() {
+		miModelo.cambioContrasena(((CambiarContrasena) pantallas[0]).getTxtContrasenaActual(), ((CambiarContrasena) pantallas[0]).getTxtNuevaContrasena(), ((CambiarContrasena) pantallas[0]).getTxtConfirmarNuevaContrasena());
+		
+	}
 }
