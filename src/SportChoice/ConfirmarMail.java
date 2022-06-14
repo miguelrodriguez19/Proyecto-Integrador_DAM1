@@ -35,9 +35,10 @@ public class ConfirmarMail extends JFrame{
 		setTitle("Sport Choice - Confirmar e-mail");
 		container.setLayout(null);
 
-		btnOK = new JButton("Confirmar ");
+		btnOK = new JButton("CONFIRMAR");
 		btnOK.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnOK.setForeground(Color.WHITE);
+		btnOK.setBorder(null);
 		btnOK.setBackground(new Color(53, 187, 95));
 		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnOK.addActionListener(new ActionListener() {
@@ -54,13 +55,13 @@ public class ConfirmarMail extends JFrame{
 
 		ButtonGroup group = new ButtonGroup();
 
-		JLabel lblNewLabel = new JLabel("Confirma");
+		JLabel lblNewLabel = new JLabel("CONFIRMA");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 36));
 		lblNewLabel.setBounds(562, -19, 308, 98);
 		getContentPane().add(lblNewLabel);
 
-		lblContrasea = new JLabel("tu Mail\r\n");
+		lblContrasea = new JLabel("TU MAIL");
 		lblContrasea.setForeground(Color.WHITE);
 		lblContrasea.setFont(new Font("Trebuchet MS", Font.PLAIN, 36));
 		lblContrasea.setBounds(582, 24, 308, 98);

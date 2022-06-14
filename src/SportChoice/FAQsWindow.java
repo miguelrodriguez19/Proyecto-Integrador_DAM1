@@ -43,7 +43,8 @@ public class FAQsWindow extends JFrame {
 		panelHeader.setLayout(null);
 
 
-		btnPerfil = new JButton("Perfil");
+		btnPerfil = new JButton("PERFIL");
+		btnPerfil.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnPerfil.setBorder(null);
 		btnPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPerfil.setForeground(Color.WHITE);
@@ -56,7 +57,8 @@ public class FAQsWindow extends JFrame {
 				miControlador.actualizar(4, 10);
 			}
 		});
-		btnFAQs = new JButton("FAQs");
+		btnFAQs = new JButton("FAQS");
+		btnFAQs.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnFAQs.setBorder(null);
 		btnFAQs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFAQs.setForeground(Color.WHITE);
@@ -101,7 +103,7 @@ public class FAQsWindow extends JFrame {
 		getContentPane().add(panelMain);
 		panelMain.setLayout(null);
 
-		lblFAQsTitle = new JLabel("Preguntas Frecuentes", SwingConstants.CENTER);
+		lblFAQsTitle = new JLabel("PREGUNTAS FRECUENTES", SwingConstants.CENTER);
 		lblFAQsTitle.setForeground(new Color(255, 255, 255));
 		lblFAQsTitle.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblFAQsTitle.setBounds(157, 10, 524, 55);

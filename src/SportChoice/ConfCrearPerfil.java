@@ -38,9 +38,10 @@ public class ConfCrearPerfil extends JFrame {
 		setTitle("Sport Choice - Configurar perfil");
 		container.setLayout(null);
 
-		btnOK = new JButton("Crear Cuenta");
+		btnOK = new JButton("CREAR CUENTA");
 		btnOK.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnOK.setForeground(Color.WHITE);
+		btnOK.setBorder(null);
 		btnOK.setBackground(new Color(156, 163, 219));
 		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnOK.addActionListener(new ActionListener() {
@@ -57,10 +58,10 @@ public class ConfCrearPerfil extends JFrame {
 
 		ButtonGroup group = new ButtonGroup();
 
-		lblContrasea = new JLabel("Perfil\r\n");
+		lblContrasea = new JLabel("PERFIL");
 		lblContrasea.setForeground(Color.WHITE);
 		lblContrasea.setFont(new Font("Trebuchet MS", Font.PLAIN, 36));
-		lblContrasea.setBounds(604, 10, 308, 98);
+		lblContrasea.setBounds(604, 30, 308, 79);
 		getContentPane().add(lblContrasea);
 
 		txtUsername = new JTextField();
@@ -93,7 +94,7 @@ public class ConfCrearPerfil extends JFrame {
 		btnNewButton.setBounds(494, 10, 58, 52);
 		getContentPane().add(btnNewButton);
 
-		lblNewLabel_2 = new JLabel("imagen por defecto\r\n");
+		lblNewLabel_2 = new JLabel("IMAGEN POR DEFECTO");
 		lblNewLabel_2.setForeground(Color.WHITE);
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblNewLabel_2.setBounds(578, 231, 218, 21);
@@ -105,7 +106,7 @@ public class ConfCrearPerfil extends JFrame {
 		panel.setBounds(477, 0, 359, 443);
 		getContentPane().add(panel);
 
-		JLabel lblNewLabel = new JLabel("Configurar\r\n");
+		JLabel lblNewLabel = new JLabel("CONFIGURAR");
 		panel.add(lblNewLabel);
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 36));

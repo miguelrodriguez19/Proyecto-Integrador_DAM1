@@ -61,7 +61,8 @@ public class editarPerfil  extends JFrame {
 		header.add(txtNuevoNombreUsuario);
 		txtNuevoNombreUsuario.setColumns(10);
 
-		btnCambiarContrasena = new JButton("Cambiar contrasena");
+		btnCambiarContrasena = new JButton("CAMBIAR CONTRASE\u00D1A");
+		btnCambiarContrasena.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnCambiarContrasena.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(3, 0);
@@ -117,7 +118,7 @@ public class editarPerfil  extends JFrame {
 		lblIconoDescripcion.setBounds(104, 233, 33, 33);
 		getContentPane().add(lblIconoDescripcion);
 
-		lblEdad = new JLabel("19 a\u00F1os");
+		lblEdad = new JLabel("19 A\u00D1OS");
 		lblEdad.setForeground(Color.WHITE);
 		lblEdad.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblEdad.setBounds(143, 197, 145, 33);
@@ -129,13 +130,13 @@ public class editarPerfil  extends JFrame {
 		lblMeGustas.setBounds(550, 197, 46, 33);
 		getContentPane().add(lblMeGustas);
 
-		lblDescripcion = new JLabel("Descripci\u00F3n:");
+		lblDescripcion = new JLabel("DESCRIPCION:");
 		lblDescripcion.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblDescripcion.setForeground(Color.WHITE);
-		lblDescripcion.setBounds(136, 233, 145, 33);
+		lblDescripcion.setBounds(147, 233, 145, 33);
 		getContentPane().add(lblDescripcion);
 
-		btnGuardar = new JButton("Guardar");
+		btnGuardar = new JButton("GUARDAR");
 		btnGuardar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnGuardar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnGuardar.setForeground(Color.WHITE);
@@ -166,8 +167,8 @@ public class editarPerfil  extends JFrame {
 		getContentPane().add(txtModificarDescripcion);
 
 		comboBoxDeporte = new JComboBox();
-		comboBoxDeporte.setModel(new DefaultComboBoxModel(new String[] { "Deporte Favorito" }));
-		comboBoxDeporte.setBounds(363, 159, 114, 24);
+		comboBoxDeporte.setModel(new DefaultComboBoxModel(new String[] {"DEPORTE FAVORITO"}));
+		comboBoxDeporte.setBounds(363, 159, 130, 24);
 		getContentPane().add(comboBoxDeporte);
 
 		lblIconoPerfil = new JLabel("New label");
@@ -176,17 +177,17 @@ public class editarPerfil  extends JFrame {
 		getContentPane().add(lblIconoPerfil);
 
 		comboBoxGenero = new JComboBox();
-		comboBoxGenero.setModel(new DefaultComboBoxModel(new String[] { "No especificar", "Hombre ", "Mujer", "Otro" }));
-		comboBoxGenero.setBounds(363, 206, 114, 24);
+		comboBoxGenero.setModel(new DefaultComboBoxModel(new String[] {"NO ESPECIFICAR", "HOMBRE", "MUJER", "OTRO"}));
+		comboBoxGenero.setBounds(363, 206, 130, 24);
 		getContentPane().add(comboBoxGenero);
 
-		lblPerfil = new JLabel("Editar perfil");
+		lblPerfil = new JLabel("EDITAR PERFIL");
 		lblPerfil.setForeground(Color.WHITE);
 		lblPerfil.setFont(new Font("Tahoma", Font.PLAIN, 28));
 		lblPerfil.setBounds(40, 115, 248, 33);
 		getContentPane().add(lblPerfil);
 
-		btnEliminar = new JButton("Cancelar");
+		btnEliminar = new JButton("CANCELAR");
 		btnEliminar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEliminar.setForeground(Color.WHITE);
 		btnEliminar.setFont(new Font("Tahoma", Font.PLAIN, 14));

@@ -44,7 +44,7 @@ public class ModificarEvento extends JFrame{
 		setTitle("Sport Choice - Modificar evento");
 		getContentPane().setLayout(null);
 
-		lblNombreEvento = new JLabel("Nombre:");
+		lblNombreEvento = new JLabel("NOMBRE");
 		lblNombreEvento.setForeground(Color.WHITE);
 		lblNombreEvento.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNombreEvento.setBounds(40, 143, 94, 23);
@@ -57,7 +57,7 @@ public class ModificarEvento extends JFrame{
 		txtPartidoFutbol.setBounds(110, 144, 214, 25);
 		getContentPane().add(txtPartidoFutbol);
 
-		lblDeporteFutbol = new JLabel("Deporte:");
+		lblDeporteFutbol = new JLabel("DEPORTE");
 		lblDeporteFutbol.setForeground(Color.WHITE);
 		lblDeporteFutbol.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblDeporteFutbol.setBounds(40, 178, 101, 23);
@@ -68,7 +68,7 @@ public class ModificarEvento extends JFrame{
 		comboBox.setBounds(162, 179, 162, 21);
 		getContentPane().add(comboBox);
 
-		lblHora = new JLabel("Hora:");
+		lblHora = new JLabel("HORA");
 		lblHora.setForeground(Color.WHITE);
 		lblHora.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblHora.setBounds(40, 212, 101, 23);
@@ -91,10 +91,10 @@ public class ModificarEvento extends JFrame{
 		spinner_1.setBounds(264, 213, 60, 21);
 		getContentPane().add(spinner_1);
 
-		lblParticipantes = new JLabel("Participantes:");
+		lblParticipantes = new JLabel("PARTICIPANTES");
 		lblParticipantes.setForeground(Color.WHITE);
 		lblParticipantes.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblParticipantes.setBounds(40, 248, 101, 23);
+		lblParticipantes.setBounds(40, 248, 112, 23);
 		getContentPane().add(lblParticipantes);
 
 		spinner_2 = new JSpinner();
@@ -103,35 +103,35 @@ public class ModificarEvento extends JFrame{
 		spinner_2.setBounds(162, 250, 162, 21);
 		getContentPane().add(spinner_2);
 
-		lblTipoEvento = new JLabel("Visibilidad:");
+		lblTipoEvento = new JLabel("VISIBILIDAD");
 		lblTipoEvento.setForeground(Color.WHITE);
 		lblTipoEvento.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblTipoEvento.setBounds(40, 283, 94, 23);
 		getContentPane().add(lblTipoEvento);
 
-		lblFechaEvento = new JLabel("Fecha:");
+		lblFechaEvento = new JLabel("FECHA");
 		lblFechaEvento.setForeground(Color.WHITE);
 		lblFechaEvento.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblFechaEvento.setBounds(42, 312, 94, 23);
 		getContentPane().add(lblFechaEvento);
 
-		rdbtnPublico = new JRadioButton("P\u00FAblico");
+		rdbtnPublico = new JRadioButton("PUBLICO");
 		rdbtnPublico.setSelected(true);
 		rdbtnPublico.setForeground(Color.WHITE);
 		rdbtnPublico.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		rdbtnPublico.setBackground((Color) null);
-		rdbtnPublico.setBounds(162, 287, 72, 21);
+		rdbtnPublico.setBounds(162, 287, 88, 21);
 		getContentPane().add(rdbtnPublico);
 
-		rdbtnPrivado = new JRadioButton("Privado");
+		rdbtnPrivado = new JRadioButton("PRIVADO");
 		rdbtnPrivado.setEnabled(false);
 		rdbtnPrivado.setForeground(Color.WHITE);
 		rdbtnPrivado.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		rdbtnPrivado.setBackground((Color) null);
-		rdbtnPrivado.setBounds(252, 287, 72, 21);
+		rdbtnPrivado.setBounds(252, 287, 88, 21);
 		getContentPane().add(rdbtnPrivado);
 
-		lblDescripcin = new JLabel("Descripci\u00F3n:");
+		lblDescripcin = new JLabel("DESCRIPCION");
 		lblDescripcin.setForeground(Color.WHITE);
 		lblDescripcin.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblDescripcin.setBounds(387, 199, 101, 23);
@@ -144,13 +144,13 @@ public class ModificarEvento extends JFrame{
 		txtCCruzDe.setBounds(387, 155, 426, 25);
 		getContentPane().add(txtCCruzDe);
 
-		lblLocalizacin = new JLabel("Localizaci\u00F3n:");
+		lblLocalizacin = new JLabel("LOCALIZACION");
 		lblLocalizacin.setForeground(Color.WHITE);
 		lblLocalizacin.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblLocalizacin.setBounds(387, 133, 94, 23);
+		lblLocalizacin.setBounds(387, 133, 113, 23);
 		getContentPane().add(lblLocalizacin);
 
-		btnCrear = new JButton("Confirmar");
+		btnCrear = new JButton("CONFIRMAR");
 		btnCrear.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -158,19 +158,19 @@ public class ModificarEvento extends JFrame{
 			}
 		});
 		btnCrear.setForeground(Color.WHITE);
-		btnCrear.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnCrear.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnCrear.setBorder(null);
 		btnCrear.setBackground(new Color(53, 187, 95));
 		btnCrear.setBounds(700, 372, 113, 40);
 		getContentPane().add(btnCrear);
 
-		lblCrearEvento = new JLabel("Modificar Evento");
+		lblCrearEvento = new JLabel("MODIFICAR EVENTO");
 		lblCrearEvento.setForeground(Color.WHITE);
 		lblCrearEvento.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblCrearEvento.setBounds(76, 110, 248, 23);
+		lblCrearEvento.setBounds(76, 110, 287, 23);
 		getContentPane().add(lblCrearEvento);
 
-		btnEliminar = new JButton("Cancelar");
+		btnEliminar = new JButton("CANCELAR");
 		btnEliminar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -178,7 +178,7 @@ public class ModificarEvento extends JFrame{
 			}
 		});
 		btnEliminar.setForeground(Color.WHITE);
-		btnEliminar.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnEliminar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnEliminar.setBorder(null);
 		btnEliminar.setBackground(new Color(204, 0, 0));
 		btnEliminar.setBounds(387, 372, 113, 40);
@@ -210,7 +210,8 @@ public class ModificarEvento extends JFrame{
 		btnLogo.setBounds(718, 0, 99, 100);
 		panelHeader.add(btnLogo);
 
-		btnPerfil_1 = new JButton("Perfil");
+		btnPerfil_1 = new JButton("PERFIL");
+		btnPerfil_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnPerfil_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPerfil_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -224,7 +225,8 @@ public class ModificarEvento extends JFrame{
 		btnPerfil_1.setBounds(644, 43, 64, 23);
 		panelHeader.add(btnPerfil_1);
 
-		btnFAQs = new JButton("FAQs");
+		btnFAQs = new JButton("FAQS");
+		btnFAQs.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnFAQs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFAQs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

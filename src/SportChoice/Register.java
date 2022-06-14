@@ -56,18 +56,18 @@ public class Register extends JFrame {
 		lblTienesCuenta.setBounds(82, 388, 101, 21);
 		panel.add(lblTienesCuenta);
 
-		JLabel lblNewLabel = new JLabel("Registro");
+		JLabel lblNewLabel = new JLabel("REGISTRO");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(36, 0, 276, 88);
 		panel.add(lblNewLabel);
 		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 63));
+		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 60));
 
 		txtApellidos = new JTextField();
 		txtApellidos.setMargin(new Insets(2, 5, 2, 5));
-		txtApellidos.setBounds(132, 97, 180, 30);
+		txtApellidos.setBounds(132, 99, 180, 30);
 		panel.add(txtApellidos);
-		txtApellidos.setText("Apellidos");
+		txtApellidos.setText("APELLIDOS");
 		txtApellidos.setColumns(10);
 
 		txtNombre = new JTextField();
@@ -76,7 +76,7 @@ public class Register extends JFrame {
 		txtNombre.setBounds(36, 99, 85, 30);
 		panel.add(txtNombre);
 		txtNombre.setName("");
-		txtNombre.setText("Nombre");
+		txtNombre.setText("NOMBRE");
 		txtNombre.setColumns(10);
 
 		txtEmail = new JTextField();
@@ -84,7 +84,7 @@ public class Register extends JFrame {
 		txtEmail.setAlignmentX(Component.LEFT_ALIGNMENT);
 		txtEmail.setBounds(37, 138, 275, 30);
 		panel.add(txtEmail);
-		txtEmail.setText("E-mail");
+		txtEmail.setText("E-MAIL");
 		txtEmail.setColumns(10);
 
 		txtContrasena = new JPasswordField();
@@ -101,8 +101,8 @@ public class Register extends JFrame {
 		txtRepiteContrasena.setText("Repite Contraseña");
 		txtRepiteContrasena.setColumns(10);
 
-		lblNewLabel_1 = new JLabel("Fecha de Nacimiento:");
-		lblNewLabel_1.setBounds(36, 259, 154, 13);
+		lblNewLabel_1 = new JLabel("FECHA DE NACIMIENTO");
+		lblNewLabel_1.setBounds(36, 259, 172, 13);
 		panel.add(lblNewLabel_1);
 		lblNewLabel_1.setForeground(Color.WHITE);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -138,7 +138,7 @@ public class Register extends JFrame {
 				"1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966",
 				"1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957" }));
 
-		btnSiguiente = new JButton("Siguiente");
+		btnSiguiente = new JButton("SIGUIENTE");
 		btnSiguiente.setBounds(37, 324, 275, 53);
 		panel.add(btnSiguiente);
 		btnSiguiente.setBorder(null);

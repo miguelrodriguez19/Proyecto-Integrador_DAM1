@@ -43,7 +43,7 @@ public class Foro extends JFrame {
 		panel_1 = new JPanel();
 		panel_1.setBorder(null);
 		panel_1.setBackground(new Color(0, 0, 128));
-		panel_1.setBounds(20, 10, 706, 50);
+		panel_1.setBounds(15, 10, 706, 50);
 		getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 
@@ -69,7 +69,7 @@ public class Foro extends JFrame {
 		txtEscribeAqui = new JTextField();
 		String mensajeChat = "Escribe aqui";
 		txtEscribeAqui.setText(mensajeChat);
-		txtEscribeAqui.setBounds(20, 360, 591, 57);
+		txtEscribeAqui.setBounds(15, 360, 591, 57);
 		getContentPane().add(txtEscribeAqui);
 		txtEscribeAqui.setColumns(10);
 		txtEscribeAqui.addFocusListener(new FocusListener() {
@@ -89,12 +89,16 @@ public class Foro extends JFrame {
 			}
 		});
 
-		JButton btnNewButton = new JButton("Enviar\r\n");
-		btnNewButton.setBounds(616, 360, 110, 57);
+		JButton btnNewButton = new JButton("ENVIAR");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setBounds(611, 360, 110, 57);
+		btnNewButton.setBackground(new Color(156, 163, 219));
+		btnNewButton.setBorder(null);
 		getContentPane().add(btnNewButton);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(20, 66, 706, 271);
+		scrollPane.setBounds(15, 69, 706, 271);
 		getContentPane().add(scrollPane);
 
 		table = new JTable();

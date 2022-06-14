@@ -38,13 +38,13 @@ public class crearEvento extends JFrame{
 		setTitle("Sport Choice - Crear evento");
 		contenedor.setLayout(null);
 
-		btnCrear = new JButton("Crear");
+		btnCrear = new JButton("CREAR");
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(2, 17);
 			}
 		});
-		btnCrear.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnCrear.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnCrear.setBorder(null);
 		btnCrear.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCrear.setBackground(new Color(53, 187, 95));
@@ -58,41 +58,41 @@ public class crearEvento extends JFrame{
 		getContentPane().add(txtLocalizacion);
 		txtLocalizacion.setColumns(10);
 
-		lblTipoEvento = new JLabel("Visibilidad:");
+		lblTipoEvento = new JLabel("VISIBILIDAD");
 		lblTipoEvento.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblTipoEvento.setForeground(Color.WHITE);
 		lblTipoEvento.setBounds(40, 283, 94, 23);
 		getContentPane().add(lblTipoEvento);
 
-		rdbtnPublico = new JRadioButton("P\u00FAblico");
+		rdbtnPublico = new JRadioButton("PUBLICO");
 		rdbtnPublico.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		rdbtnPublico.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnPublico.setSelected(true);
 		rdbtnPublico.setForeground(Color.WHITE);
-		rdbtnPublico.setBounds(156, 288, 72, 21);
+		rdbtnPublico.setBounds(156, 288, 94, 21);
 		rdbtnPublico.setBackground(null);
 		getContentPane().add(rdbtnPublico);
 
-		rdbtnPrivado = new JRadioButton("Privado");
+		rdbtnPrivado = new JRadioButton("PRIVADO");
 		rdbtnPrivado.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		rdbtnPrivado.setForeground(Color.WHITE);
-		rdbtnPrivado.setBounds(252, 288, 72, 21);
+		rdbtnPrivado.setBounds(252, 288, 101, 21);
 		rdbtnPrivado.setBackground(null);
 		getContentPane().add(rdbtnPrivado);
 
-		lblFechaEvento = new JLabel("Fecha:");
+		lblFechaEvento = new JLabel("FECHA");
 		lblFechaEvento.setForeground(Color.WHITE);
 		lblFechaEvento.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblFechaEvento.setBounds(40, 315, 94, 23);
+		lblFechaEvento.setBounds(40, 312, 94, 23);
 		getContentPane().add(lblFechaEvento);
 
-		JLabel lblLocalizacin = new JLabel("Localizaci\u00F3n:");
+		JLabel lblLocalizacin = new JLabel("LOCALIZACION");
 		lblLocalizacin.setForeground(Color.WHITE);
 		lblLocalizacin.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblLocalizacin.setBounds(387, 135, 94, 23);
+		lblLocalizacin.setBounds(387, 135, 113, 23);
 		getContentPane().add(lblLocalizacin);
 
-		lblNombreEvento = new JLabel("Nombre:");
+		lblNombreEvento = new JLabel("NOMBRE");
 		lblNombreEvento.setForeground(Color.WHITE);
 		lblNombreEvento.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNombreEvento.setBounds(40, 156, 94, 23);
@@ -102,10 +102,10 @@ public class crearEvento extends JFrame{
 		txtPartidoFutbol.setForeground(Color.GRAY);
 		txtPartidoFutbol.setText("\r\n");
 		txtPartidoFutbol.setColumns(10);
-		txtPartidoFutbol.setBounds(135, 157, 189, 25);
+		txtPartidoFutbol.setBounds(156, 157, 197, 25);
 		getContentPane().add(txtPartidoFutbol);
 
-		lblDeporteFutbol = new JLabel("Deporte:");
+		lblDeporteFutbol = new JLabel("DEPORTE");
 		lblDeporteFutbol.setForeground(Color.WHITE);
 		lblDeporteFutbol.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblDeporteFutbol.setBounds(40, 189, 101, 23);
@@ -113,21 +113,21 @@ public class crearEvento extends JFrame{
 
 		comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] { "FUTBOL", "BALONCESTO", "TENIS" }));
-		comboBox.setBounds(156, 192, 168, 21);
+		comboBox.setBounds(156, 192, 197, 21);
 		getContentPane().add(comboBox);
 
-		lblParticipantes = new JLabel("Participantes:");
+		lblParticipantes = new JLabel("PARTICIPANTES");
 		lblParticipantes.setForeground(Color.WHITE);
 		lblParticipantes.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblParticipantes.setBounds(40, 254, 101, 23);
+		lblParticipantes.setBounds(40, 254, 130, 23);
 		getContentPane().add(lblParticipantes);
 
 		spinner = new JSpinner();
 		spinner.setModel(new SpinnerNumberModel(2, 2, 100, 1));
-		spinner.setBounds(156, 253, 168, 21);
+		spinner.setBounds(156, 253, 197, 21);
 		getContentPane().add(spinner);
 
-		lblHora = new JLabel("Hora:");
+		lblHora = new JLabel("HORA");
 		lblHora.setForeground(Color.WHITE);
 		lblHora.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblHora.setBounds(40, 222, 101, 23);
@@ -142,25 +142,25 @@ public class crearEvento extends JFrame{
 		lblHora_1.setAlignmentX(Component.CENTER_ALIGNMENT);
 		lblHora_1.setForeground(Color.WHITE);
 		lblHora_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblHora_1.setBounds(240, 223, 17, 23);
+		lblHora_1.setBounds(255, 223, 17, 23);
 		getContentPane().add(lblHora_1);
 
 		spinner_2 = new JSpinner();
 		spinner_2.setModel(new SpinnerNumberModel(0, 0, 60, 1));
-		spinner_2.setBounds(264, 222, 60, 21);
+		spinner_2.setBounds(293, 223, 60, 21);
 		getContentPane().add(spinner_2);
 
-		lblDescripcin = new JLabel("Descripci\u00F3n:");
+		lblDescripcin = new JLabel("DESCRIPCION");
 		lblDescripcin.setForeground(Color.WHITE);
 		lblDescripcin.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblDescripcin.setBounds(387, 193, 101, 23);
+		lblDescripcin.setBounds(387, 196, 101, 23);
 		getContentPane().add(lblDescripcin);
 
-		lblCrearEvento = new JLabel("Crear Evento");
+		lblCrearEvento = new JLabel("CREAR EVENTO");
 		lblCrearEvento.setIcon(null);
 		lblCrearEvento.setForeground(Color.WHITE);
 		lblCrearEvento.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblCrearEvento.setBounds(90, 108, 189, 23);
+		lblCrearEvento.setBounds(90, 108, 234, 23);
 		getContentPane().add(lblCrearEvento);
 
 		txtpnOrganizamosUnPartido = new JTextPane();
@@ -189,7 +189,8 @@ public class crearEvento extends JFrame{
 			}
 		});
 
-		btnPerfil = new JButton("Perfil");
+		btnPerfil = new JButton("PERFIL");
+		btnPerfil.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnPerfil.setToolTipText("");
 		btnPerfil.setForeground(Color.WHITE);
 		btnPerfil.setBorder(null);
@@ -203,7 +204,8 @@ public class crearEvento extends JFrame{
 			}
 		});
 
-		btnFAQs = new JButton("FAQs");
+		btnFAQs = new JButton("FAQS");
+		btnFAQs.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnFAQs.setForeground(Color.WHITE);
 		btnFAQs.setBorder(null);
 		btnFAQs.setBackground((Color) null);
@@ -245,7 +247,7 @@ public class crearEvento extends JFrame{
 
 		
 		JCalendar calendar = new JCalendar();
-		calendar.setBounds(156, 315, 168, 111);
+		calendar.setBounds(156, 315, 197, 111);
 		getContentPane().add(calendar);
 
 	}

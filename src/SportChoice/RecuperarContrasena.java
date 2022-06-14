@@ -32,9 +32,10 @@ public class RecuperarContrasena extends JFrame{
 		setTitle("Sport Choice - Recuperar contrasena");
 		container.setLayout(null);
 
-		btnOK = new JButton("Cambiar Contrase\u00F1a");
+		btnOK = new JButton("CAMBIAR CONTRASE\u00D1A");
 		btnOK.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnOK.setForeground(Color.WHITE);
+		btnOK.setBorder(null);
 		btnOK.setBackground(new Color(53, 187, 95));
 		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnOK.addActionListener(new ActionListener() {
@@ -46,18 +47,18 @@ public class RecuperarContrasena extends JFrame{
 //				System.out.println("La Contrase�a es " + String.valueOf(passwordField.getPassword()));
 			}
 		});
-		btnOK.setBounds(527, 366, 239, 42);
+		btnOK.setBounds(527, 366, 253, 42);
 		container.add(btnOK);
 
 		ButtonGroup group = new ButtonGroup();
 
-		JLabel lblNewLabel = new JLabel("Recuperar\r\n");
+		JLabel lblNewLabel = new JLabel("RECUPERAR");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("Trebuchet MS", Font.PLAIN, 36));
 		lblNewLabel.setBounds(562, -26, 308, 98);
 		getContentPane().add(lblNewLabel);
 
-		lblContrasea = new JLabel("Contrase\u00F1a");
+		lblContrasea = new JLabel("CONTRASE\u00D1A");
 		lblContrasea.setForeground(Color.WHITE);
 		lblContrasea.setFont(new Font("Trebuchet MS", Font.PLAIN, 36));
 		lblContrasea.setBounds(562, 21, 308, 98);
@@ -67,7 +68,7 @@ public class RecuperarContrasena extends JFrame{
 		txtAntiguaContrasena.setForeground(Color.GRAY);
 		txtAntiguaContrasena.setBackground(Color.WHITE);
 		txtAntiguaContrasena.setText("Codigo De Recuperacion\r\n");
-		txtAntiguaContrasena.setBounds(527, 180, 239, 42);
+		txtAntiguaContrasena.setBounds(527, 180, 253, 42);
 		getContentPane().add(txtAntiguaContrasena);
 		txtAntiguaContrasena.setColumns(10);
 
@@ -75,14 +76,14 @@ public class RecuperarContrasena extends JFrame{
 		txtNuevaContrasena.setForeground(Color.GRAY);
 		txtNuevaContrasena.setText("Nueva Contrase\u00F1a1");
 		txtNuevaContrasena.setColumns(10);
-		txtNuevaContrasena.setBounds(527, 249, 239, 42);
+		txtNuevaContrasena.setBounds(527, 249, 253, 42);
 		getContentPane().add(txtNuevaContrasena);
 
 		txtNuevaContrasena_1 = new JTextField();
 		txtNuevaContrasena_1.setForeground(Color.GRAY);
 		txtNuevaContrasena_1.setText("Nueva Contrase\u00F1a2\r\n");
 		txtNuevaContrasena_1.setColumns(10);
-		txtNuevaContrasena_1.setBounds(527, 299, 239, 42);
+		txtNuevaContrasena_1.setBounds(527, 299, 253, 42);
 		getContentPane().add(txtNuevaContrasena_1);
 
 		JButton btnNewButton = new JButton("");
@@ -97,7 +98,7 @@ public class RecuperarContrasena extends JFrame{
 		btnNewButton.setBounds(482, 10, 58, 33);
 		getContentPane().add(btnNewButton);
 
-		lblNewLabel_1 = new JLabel("Revise su Mail le habr\u00E1, llegado\r\n");
+		lblNewLabel_1 = new JLabel("Revise su Mail, le habr\u00E1 llegado\r\n");
 		lblNewLabel_1.setForeground(Color.WHITE);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblNewLabel_1.setBounds(527, 117, 266, 21);
