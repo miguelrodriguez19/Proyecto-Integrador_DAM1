@@ -60,6 +60,10 @@ public class Controlador {
 			miModelo.unirseEvento(eventoSeleccionado);
 		}else
 			actualizar(11, 7);
+}
+
+	public void cambioContrasena() {
+		miModelo.cambioContrasena(((CambiarContrasena) pantallas[0]).getTxtContrasenaActual(), ((CambiarContrasena) pantallas[0]).getTxtNuevaContrasena(), ((CambiarContrasena) pantallas[0]).getTxtConfirmarNuevaContrasena());
 		
 	}
 }
