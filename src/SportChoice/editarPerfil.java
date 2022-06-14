@@ -64,7 +64,7 @@ public class editarPerfil  extends JFrame {
 		btnCambiarContrasena = new JButton("Cambiar contrasena");
 		btnCambiarContrasena.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(10, 0);
+				miControlador.actualizar(3, 0);
 			}
 		});
 		btnCambiarContrasena.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
