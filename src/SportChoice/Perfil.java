@@ -22,6 +22,7 @@ public class Perfil extends JFrame {
 	private JButton btnLogo, btnEditarPerfil, btnHistorial, btnPuntitos, btnLogOut, btnFAQs;
 	private JLabel lblPerfil_1;
 	private String usuario = "";
+	private JLabel lblUsuarioArroba;
 
 	public static void Perfil() {
 		Perfil window = new Perfil();
@@ -77,6 +78,12 @@ public class Perfil extends JFrame {
 			}
 		});
 		header.add(btnLogo);
+		
+		lblUsuarioArroba = new JLabel("@");
+		lblUsuarioArroba.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblUsuarioArroba.setForeground(new Color(255, 255, 255));
+		lblUsuarioArroba.setBounds(594, 28, 17, 28);
+		header.add(lblUsuarioArroba);
 
 		lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setIcon(
@@ -122,7 +129,7 @@ public class Perfil extends JFrame {
 		lblSexo.setBounds(89, 190, 145, 33);
 		getContentPane().add(lblSexo);
 
-		lblEdad = new JLabel("19 A\u00D1OS");
+		lblEdad = new JLabel("19 anos");
 		lblEdad.setForeground(Color.WHITE);
 		lblEdad.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblEdad.setBounds(299, 147, 145, 33);
@@ -255,12 +262,14 @@ public class Perfil extends JFrame {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent e) {
-				lblUsername.setText("@" + miModelo.getDatosUsuario().get("usr"));
+				lblUsername.setText(miModelo.getDatosUsuario().get("usr"));
 				lblNombre.setText(miModelo.getDatosUsuario().get("nombre") + " " + miModelo.getDatosUsuario().get("apellido"));
 				txtDescripcion.setText(miModelo.getDatosUsuario().get("descripcion"));
 				lblLikes.setText(miModelo.getDatosUsuario().get("valoraciones"));
 				lblDeporte.setText(miModelo.getDatosUsuario().get("DeporteFav"));
 				lblEdad.setText(miModelo.getDatosUsuario().get("Fecha_nac"));
+				lblSexo.setText(miModelo.getDatosUsuario().get("genero"));
+				lblUbicacion.setText(miModelo.getDatosUsuario().get("localidad"));
 //				lblFotoPerfil.setText(miModelo.getDatosUsuario().get("FotoPerfil"));
 			}
 		});

@@ -215,10 +215,23 @@ public class Modelo {
 			ResultSet rset = pstmt.executeQuery();
 			ResultSetMetaData rsmd = rset.getMetaData();
 			int columnas = rsmd.getColumnCount();
+			String datoResultado = "";
 			if (rset.next())
 				for (int j = 1; j <= columnas; j++) {
 //					System.out.println("Clave: " + rsmd.getColumnName(j) + "\tValor: " + rset.getString(j));
-					datosUsuario.put(rsmd.getColumnName(j), rset.getString(j));
+					if (rsmd.getColumnName(j).equals("nombre") || rsmd.getColumnName(j).equals("apellido")
+							|| rsmd.getColumnName(j).equals("localidad") || rsmd.getColumnName(j).equals("genero")) {
+						if (rset.getString(j) != null)
+							if (rset.getString(j).length() >= 2)
+								datoResultado = rset.getString(j).substring(0, 1).toUpperCase()
+										+ rset.getString(j).substring(1);
+							else
+								datoResultado = rset.getString(j).toUpperCase();
+					} else {
+						datoResultado = rset.getString(j);
+					}
+						
+					datosUsuario.put(rsmd.getColumnName(j), datoResultado);
 				}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -376,7 +389,7 @@ public class Modelo {
 
 	public void guardarCambiosPerfil(String[] datosCambiosPerfil) {
 		// Usuario, Nombre, Descripcion, Me gustas
-		String query = "update users set usr = ?, nombre = ?, descripcion = ?,  valoraciones = ?, DeporteFav = ?, localidad = ?, genero = ? where usr = ?";
+		String query = "update users set usr = ?, nombre = ?, apellido = ?, descripcion = ?,  valoraciones = ?, DeporteFav = ?, genero = ? where usr = ?";
 		PreparedStatement pstmt;
 		try {
 			pstmt = conexion.prepareStatement(query);

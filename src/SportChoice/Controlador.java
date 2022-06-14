@@ -46,12 +46,12 @@ public class Controlador {
 	}
 
 	public void guardarCambiosPerfil() {
+		String[] nombreApellido = ((editarPerfil) pantallas[3]).getTxtNuevoNombre().getText().split(" ");
 		String[] datosCambiosPerfil = { ((editarPerfil) pantallas[3]).getTxtNuevoNombreUsuario().getText(),
-				((editarPerfil) pantallas[3]).getTxtNuevoNombre().getText(),
+				nombreApellido[0], nombreApellido[1],
 				((editarPerfil) pantallas[3]).getTxtModificarDescripcion().getText(),
 				((editarPerfil) pantallas[3]).getLblMeGustas().getText(),
-				(String) ((editarPerfil) pantallas[3]).getComboBoxDeporte().getSelectedItem(),
-				(String) ((editarPerfil) pantallas[3]).getComboBoxGenero().getSelectedItem() };
+				((editarPerfil) pantallas[3]).getComboBoxDeporte(), ((editarPerfil) pantallas[3]).getComboBoxGenero() };
 		miModelo.guardarCambiosPerfil(datosCambiosPerfil);
 	}
 
@@ -64,7 +64,9 @@ public class Controlador {
 }
 
 	public void cambioContrasena() {
-		miModelo.cambioContrasena(((CambiarContrasena) pantallas[0]).getTxtContrasenaActual(), ((CambiarContrasena) pantallas[0]).getTxtNuevaContrasena(), ((CambiarContrasena) pantallas[0]).getTxtConfirmarNuevaContrasena());
-		
+		miModelo.cambioContrasena(((CambiarContrasena) pantallas[0]).getTxtContrasenaActual(),
+				((CambiarContrasena) pantallas[0]).getTxtNuevaContrasena(),
+				((CambiarContrasena) pantallas[0]).getTxtConfirmarNuevaContrasena());
+
 	}
 }
