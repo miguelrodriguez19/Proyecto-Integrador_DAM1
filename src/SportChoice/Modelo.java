@@ -270,8 +270,10 @@ public class Modelo {
 //		txtURL.setText(getName());
 	}
 	public void Registrarse(String name, String apellido, String password, String mail, String fecha, String usr) {
-		String query="INSERT into users (usr,nombre,apellido,email,pwd,Fecha_nac,rol)values(?,?,?,?,?,?,?)";
+		String query="INSERT into users (usr,nombre,apellido,email,pwd,Fecha_nac,cod_recuperacion,rol)values(?,?,?,?,?,?,?,?)";
 		PreparedStatement pstmt;
+		int codrec= (int) Math.floor(Math.random()*9999);
+		String numCadena=  Integer.toString(codrec);
 		try {
 			Conexion();
 			pstmt=conexion.prepareStatement(query);
@@ -281,7 +283,8 @@ public class Modelo {
 			pstmt.setString(4, mail);
 			pstmt.setString(5, password);
 			pstmt.setString(6, fecha);
-			pstmt.setString(7, "user");
+			pstmt.setString(7,numCadena);
+			pstmt.setString(8, "user");
 			pstmt.executeUpdate();
 			
 		} catch (Exception e) {
