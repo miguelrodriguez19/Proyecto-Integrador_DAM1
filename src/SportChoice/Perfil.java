@@ -122,7 +122,7 @@ public class Perfil extends JFrame {
 		lblSexo.setBounds(89, 190, 145, 33);
 		getContentPane().add(lblSexo);
 
-		lblEdad = new JLabel("19 a\u00F1os");
+		lblEdad = new JLabel("19 años");
 		lblEdad.setForeground(Color.WHITE);
 		lblEdad.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblEdad.setBounds(299, 147, 145, 33);
@@ -261,6 +261,8 @@ public class Perfil extends JFrame {
 				lblLikes.setText(miModelo.getDatosUsuario().get("valoraciones"));
 				lblDeporte.setText(miModelo.getDatosUsuario().get("DeporteFav"));
 				lblEdad.setText(miModelo.getDatosUsuario().get("Fecha_nac"));
+				lblSexo.setText(miModelo.getDatosUsuario().get("genero"));
+				lblUbicacion.setText(miModelo.getDatosUsuario().get("localidad"));
 //				lblFotoPerfil.setText(miModelo.getDatosUsuario().get("FotoPerfil"));
 			}
 		});

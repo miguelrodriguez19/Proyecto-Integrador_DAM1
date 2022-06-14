@@ -35,9 +35,9 @@ public class Modelo {
 	private OutputStream salida;
 	private String respuesta;
 	private HashMap<String, String> datosUsuario; /*
-													 * usr, nombre, apellido, email, pwd, Fecha_nac, 
-													 * FotoPerfil, descripcion, DeporteFav, valoraciones,
-													 * cod_recuperacion, rol, localidad, genero
+													 * usr, nombre, apellido, email, pwd, Fecha_nac, FotoPerfil,
+													 * descripcion, DeporteFav, valoraciones, cod_recuperacion, rol,
+													 * localidad, genero
 													 */
 	private final String FILE = "conexionBDPI.ini";
 
@@ -89,8 +89,10 @@ public class Modelo {
 	public void setPantallas(JFrame[] pantallas) {
 		this.pantallas = pantallas;
 	}
+
 	/**
 	 * Log In verification
+	 * 
 	 * @param usr
 	 * @param pwd
 	 */
@@ -115,8 +117,10 @@ public class Modelo {
 		}
 		((LogIn) pantallas[7]).update(rol);
 	}
+
 	/**
-	 * Cargar tabla 
+	 * Cargar tabla
+	 * 
 	 * @param option
 	 * @return
 	 */
@@ -151,8 +155,10 @@ public class Modelo {
 		return miTabla;
 
 	}
+
 	/**
 	 * Cargar query para <b>@cargarTabla<b>
+	 * 
 	 * @param option
 	 * @return
 	 */
@@ -192,9 +198,9 @@ public class Modelo {
 		}
 		return query;
 	}
+
 	/**
-	 * cargarDatosUsuario
-	 * Refresca los datos HashMap
+	 * cargarDatosUsuario Refresca los datos HashMap
 	 */
 	private void cargarDatosUsuario() {
 		String query = "select usr, nombre, apellido, email, pwd, Fecha_nac, FotoPerfil, descripcion, DeporteFav, valoraciones, cod_recuperacion, rol, localidad, genero from users where usr = ?";
@@ -206,10 +212,17 @@ public class Modelo {
 			ResultSet rset = pstmt.executeQuery();
 			ResultSetMetaData rsmd = rset.getMetaData();
 			int columnas = rsmd.getColumnCount();
+			String datoResultado = "";
 			if (rset.next())
 				for (int j = 1; j <= columnas; j++) {
 //					System.out.println("Clave: " + rsmd.getColumnName(j) + "\tValor: " + rset.getString(j));
-					datosUsuario.put(rsmd.getColumnName(j), rset.getString(j));
+					if (rset.getString(j) != null)
+						if (rset.getString(j).length() >= 2)
+							datoResultado = rset.getString(j).substring(0, 1).toUpperCase()
+									+ rset.getString(j).substring(1);
+						else
+							datoResultado = rset.getString(j).toUpperCase();
+					datosUsuario.put(rsmd.getColumnName(j), datoResultado);
 				}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -219,12 +232,14 @@ public class Modelo {
 	public HashMap<String, String> getDatosUsuario() {
 		return datosUsuario;
 	}
- /**
-  * Devuelve el numero de columnas que tiene la tabla en BBDD
-  * @param sql
-  * @param option
-  * @return int
-  */
+
+	/**
+	 * Devuelve el numero de columnas que tiene la tabla en BBDD
+	 * 
+	 * @param sql
+	 * @param option
+	 * @return int
+	 */
 	private int getNumColumnas(String sql, String option) {
 		int num = 0;
 
@@ -245,12 +260,14 @@ public class Modelo {
 		}
 		return num;
 	}
-	 /**
-	  * Devuelve el numero de filas que tiene la tabla en BBDD
-	  * @param sql
-	  * @param option
-	  * @return int
-	  */
+
+	/**
+	 * Devuelve el numero de filas que tiene la tabla en BBDD
+	 * 
+	 * @param sql
+	 * @param option
+	 * @return int
+	 */
 	private int getNumFilas(String sql) {
 		int numFilas = 0;
 		try {
@@ -345,7 +362,7 @@ public class Modelo {
 				File fichero = fc.getSelectedFile();
 				FileInputStream fis = new FileInputStream(fichero);
 				ObjectInputStream ois = new ObjectInputStream(fis);
-				RecuperarTablas tablaObject  = (RecuperarTablas) ois.readObject();
+				RecuperarTablas tablaObject = (RecuperarTablas) ois.readObject();
 				modelAux = tablaObject.getModeloTabla();
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
@@ -356,25 +373,21 @@ public class Modelo {
 		return modelAux;
 	}
 
-
 	public String getRespuesta() {
 		return respuesta;
 	}
 
 	public void guardarCambiosPerfil(String[] datosCambiosPerfil) {
 		// Usuario, Nombre, Descripcion, Me gustas
-		String query = "update users set usr = ?, nombre = ?, descripcion = ?,  valoraciones = ?, DeporteFav = ?, localidad = ?, genero = ? where usr = ?"; 
-		/*usr varchar(20),
-		nombre varchar (30),
-		apellido varchar (20),
-		descripcion varchar (200),
-		DeporteFav varchar(30),
-		localidad varchar(50),
-		genero varchar(20),*/
+		String query = "update users set usr = ?, nombre = ?, descripcion = ?,  valoraciones = ?, DeporteFav = ?, localidad = ?, genero = ? where usr = ?";
 		/*
-		 * usr, nombre, apellido, email, pwd, Fecha_nac, 
-		 * FotoPerfil, descripcion, DeporteFav, valoraciones,
-		 * cod_recuperacion, rol, localidad, genero
+		 * usr varchar(20), nombre varchar (30), apellido varchar (20), descripcion
+		 * varchar (200), DeporteFav varchar(30), localidad varchar(50), genero
+		 * varchar(20),
+		 */
+		/*
+		 * usr, nombre, apellido, email, pwd, Fecha_nac, FotoPerfil, descripcion,
+		 * DeporteFav, valoraciones, cod_recuperacion, rol, localidad, genero
 		 */
 		PreparedStatement pstmt;
 		try {
