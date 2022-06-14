@@ -239,9 +239,13 @@ public class LogIn extends JFrame {
 			if (rol.equals("admin")) {
 				miControlador.actualizar(7, 18);
 				lblErrorLogIn.setVisible(false);
+				txtMail.setText("");
+				txtPwd.setText("");
 			} else {
 				miControlador.actualizar(7, 11);
 				lblErrorLogIn.setVisible(false);
+				txtMail.setText("");
+				txtPwd.setText("");
 			}
 		} else if (resultado.equals("Incorrecto")) {
 			// desplegable de error

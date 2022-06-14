@@ -6,6 +6,8 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.*;
 
@@ -14,11 +16,12 @@ public class Perfil extends JFrame {
 	private Modelo miModelo;
 	private JPanel header;
 	private JLabel lblUsername, lblNombre, lblFotoPerfil, lblNewLabel_3, lblNewLabel_4, lblNewLabel_5, lblNewLabel_6,
-			lblNewLabel_7, lblNewLabel_8, lblNewLabel_9, lblNewLabel_10, lblNewLabel_11, lblNewLabel_12, lblNewLabel_13,
-			lblNewLabel_14;
-	private JTextArea txtrFdsfsd;
+			lblNewLabel_7, lblNewLabel_8, lblUbicacion, lblSexo, lblEdad, lblDeporte, lblLikes,
+			lblDescripcion;
+	private JTextArea txtDescripcion;
 	private JButton btnLogo, btnEditarPerfil, btnHistorial, btnPuntitos, btnLogOut, btnFAQs;
 	private JLabel lblPerfil_1;
+	private String usuario = "";
 
 	public static void Perfil() {
 		Perfil window = new Perfil();
@@ -42,8 +45,8 @@ public class Perfil extends JFrame {
 		header.setBounds(0, 0, 837, 100);
 		getContentPane().add(header);
 		header.setLayout(null);
-
-		lblUsername = new JLabel("@DogueDrake");
+		
+		lblUsername = new JLabel("Invitado");
 		lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblUsername.setForeground(new Color(255, 255, 255));
 		lblUsername.setBounds(618, 28, 123, 28);
@@ -106,51 +109,52 @@ public class Perfil extends JFrame {
 		lblNewLabel_8.setBounds(55, 233, 33, 33);
 		getContentPane().add(lblNewLabel_8);
 
-		lblNewLabel_9 = new JLabel("Espa\u00F1a, Madid");
-		lblNewLabel_9.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblNewLabel_9.setForeground(Color.WHITE);
-		lblNewLabel_9.setBackground(null);
-		lblNewLabel_9.setBounds(89, 147, 145, 33);
-		getContentPane().add(lblNewLabel_9);
+		lblUbicacion = new JLabel("Espa\u00F1a, Madid");
+		lblUbicacion.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblUbicacion.setForeground(Color.WHITE);
+		lblUbicacion.setBackground(null);
+		lblUbicacion.setBounds(89, 147, 145, 33);
+		getContentPane().add(lblUbicacion);
 
-		lblNewLabel_10 = new JLabel("Hombre");
-		lblNewLabel_10.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblNewLabel_10.setForeground(Color.WHITE);
-		lblNewLabel_10.setBounds(89, 190, 145, 33);
-		getContentPane().add(lblNewLabel_10);
+		lblSexo = new JLabel("Hombre");
+		lblSexo.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblSexo.setForeground(Color.WHITE);
+		lblSexo.setBounds(89, 190, 145, 33);
+		getContentPane().add(lblSexo);
 
-		lblNewLabel_11 = new JLabel("19 a\u00F1os");
-		lblNewLabel_11.setForeground(Color.WHITE);
-		lblNewLabel_11.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblNewLabel_11.setBounds(299, 147, 145, 33);
-		getContentPane().add(lblNewLabel_11);
+		lblEdad = new JLabel("19 a\u00F1os");
+		lblEdad.setForeground(Color.WHITE);
+		lblEdad.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblEdad.setBounds(299, 147, 145, 33);
+		getContentPane().add(lblEdad);
 
-		lblNewLabel_12 = new JLabel("Baloncesto");
-		lblNewLabel_12.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblNewLabel_12.setForeground(Color.WHITE);
-		lblNewLabel_12.setBounds(299, 190, 145, 33);
-		getContentPane().add(lblNewLabel_12);
+		lblDeporte = new JLabel("Baloncesto");
+		lblDeporte.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblDeporte.setForeground(Color.WHITE);
+		lblDeporte.setBounds(299, 190, 145, 33);
+		getContentPane().add(lblDeporte);
 
-		lblNewLabel_13 = new JLabel("125");
-		lblNewLabel_13.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblNewLabel_13.setForeground(Color.WHITE);
-		lblNewLabel_13.setBounds(497, 147, 145, 33);
-		getContentPane().add(lblNewLabel_13);
+		lblLikes = new JLabel("125");
+		lblLikes.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblLikes.setForeground(Color.WHITE);
+		lblLikes.setBounds(497, 147, 145, 33);
+		getContentPane().add(lblLikes);
 
-		lblNewLabel_14 = new JLabel("Descripcion");
-		lblNewLabel_14.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblNewLabel_14.setForeground(Color.WHITE);
-		lblNewLabel_14.setBounds(89, 233, 145, 33);
-		getContentPane().add(lblNewLabel_14);
+		lblDescripcion = new JLabel("Descripcion");
+		lblDescripcion.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblDescripcion.setForeground(Color.WHITE);
+		lblDescripcion.setBounds(89, 233, 145, 33);
+		getContentPane().add(lblDescripcion);
 
-		txtrFdsfsd = new JTextArea();
-		txtrFdsfsd.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txtrFdsfsd.setForeground(Color.WHITE);
-		txtrFdsfsd.setText(
+		txtDescripcion = new JTextArea();
+		txtDescripcion.setEditable(false);
+		txtDescripcion.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txtDescripcion.setForeground(Color.WHITE);
+		txtDescripcion.setText(
 				"Soy una persona un tanto egocentrica, me gusta la perfeccion en todos los ambitos posibles.En\r\ncuanto a los deprotes me considero un jugador con una deportividad ejemplar, no destaco\r\nen ningun deporte sinembargo, tento en baloncesto como en padel considero que estoy por\r\nencima de la media.\r\nMe uno a esta app para encontrar compa\u00F1eros con los que poder jugar partidos y porque \r\nno entablar alguna que otra amistad.");
-		txtrFdsfsd.setBackground(new Color(34, 40, 49));
-		txtrFdsfsd.setBounds(55, 276, 593, 113);
-		getContentPane().add(txtrFdsfsd);
+		txtDescripcion.setBackground(new Color(34, 40, 49));
+		txtDescripcion.setBounds(55, 276, 593, 113);
+		getContentPane().add(txtDescripcion);
 
 		btnPuntitos = new JButton("");
 		btnPuntitos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -243,6 +247,25 @@ public class Perfil extends JFrame {
 
 			}
 		});
+		
+		 /*
+		 * usr, nombre, apellido, email, pwd, Fecha_nac, FotoPerfil,
+		 * descripcion, DeporteFav, valoraciones, cod_recuperacion, rol
+		 */
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent e) {
+				lblUsername.setText("@" + miModelo.getDatosUsuario().get("usr"));
+				lblNombre.setText(miModelo.getDatosUsuario().get("nombre") + " " + miModelo.getDatosUsuario().get("apellido"));
+				txtDescripcion.setText(miModelo.getDatosUsuario().get("descripcion"));
+				lblLikes.setText(miModelo.getDatosUsuario().get("valoraciones"));
+				lblDeporte.setText(miModelo.getDatosUsuario().get("DeporteFav"));
+				lblEdad.setText(miModelo.getDatosUsuario().get("Fecha_nac"));
+//				lblFotoPerfil.setText(miModelo.getDatosUsuario().get("FotoPerfil"));
+			}
+		});
+		
+		
 	}
 
 	private void esconderPuntitos() {

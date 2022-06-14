@@ -6,6 +6,8 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.*;
 
@@ -13,13 +15,14 @@ public class editarPerfil  extends JFrame {
 	private Controlador miControlador;
 	private Modelo miModelo;
 	private JPanel header;
-	private JLabel lblFotoPerfil, lblIconoUbicacion, lblIconoGenero, lblIconoCalendario, lblIconoBaloncesto, lblIconoMeGusta,
+	private JLabel lblFotoPerfil, lblIconoGenero, lblIconoCalendario, lblIconoBaloncesto, lblIconoMeGusta,
 			lblIconoDescripcion, lblEdad, lblMeGustas, lblDescripcion, lblIconoPerfil, lblPerfil;
 	private JButton btnEliminar, btnGuardar, btnCambiarContrasena;
 	private JComboBox comboBoxGenero;
-	private JTextArea txtrModificarDescripcion;
-	private JTextField txtNuevoNombre, txtNuevoNombreUsuario, txtLocalidad;
+	private JTextArea txtModificarDescripcion;
+	private JTextField txtNuevoNombre, txtNuevoNombreUsuario;
 	private JButton btnLogo;
+	private JComboBox comboBoxDeporte;
 
 	public static void editarPerfil() {
 		editarPerfil window = new editarPerfil();
@@ -61,7 +64,7 @@ public class editarPerfil  extends JFrame {
 		btnCambiarContrasena = new JButton("Cambiar contrasena");
 		btnCambiarContrasena.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(10, 0);
+				miControlador.actualizar(3, 0);
 			}
 		});
 		btnCambiarContrasena.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -83,12 +86,6 @@ public class editarPerfil  extends JFrame {
 		btnLogo.setBackground((Color) null);
 		btnLogo.setBounds(30, 15, 114, 68);
 		header.add(btnLogo);
-
-		lblIconoUbicacion = new JLabel("");
-		lblIconoUbicacion.setIcon(
-				new ImageIcon(editarPerfil.class.getResource("/Imagenes/marker-free-icon-font (1) (1) (1) (1).png")));
-		lblIconoUbicacion.setBounds(513, 153, 33, 33);
-		getContentPane().add(lblIconoUbicacion);
 
 		lblIconoGenero = new JLabel("");
 		lblIconoGenero
@@ -148,6 +145,7 @@ public class editarPerfil  extends JFrame {
 		getContentPane().add(btnGuardar);
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miControlador.guardarCambiosPerfil();
 				miControlador.actualizar(3, 10);
 			}
 		});
@@ -160,14 +158,14 @@ public class editarPerfil  extends JFrame {
 		getContentPane().add(txtNuevoNombre);
 		txtNuevoNombre.setColumns(10);
 
-		txtrModificarDescripcion = new JTextArea();
-		txtrModificarDescripcion.setForeground(Color.LIGHT_GRAY);
-		txtrModificarDescripcion.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txtrModificarDescripcion.setText("Modificar descripcion...");
-		txtrModificarDescripcion.setBounds(104, 266, 623, 105);
-		getContentPane().add(txtrModificarDescripcion);
+		txtModificarDescripcion = new JTextArea();
+		txtModificarDescripcion.setForeground(Color.LIGHT_GRAY);
+		txtModificarDescripcion.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txtModificarDescripcion.setText("Modificar descripcion...");
+		txtModificarDescripcion.setBounds(104, 266, 623, 105);
+		getContentPane().add(txtModificarDescripcion);
 
-		JComboBox comboBoxDeporte = new JComboBox();
+		comboBoxDeporte = new JComboBox();
 		comboBoxDeporte.setModel(new DefaultComboBoxModel(new String[] { "Deporte Favorito" }));
 		comboBoxDeporte.setBounds(363, 159, 114, 24);
 		getContentPane().add(comboBoxDeporte);
@@ -181,14 +179,6 @@ public class editarPerfil  extends JFrame {
 		comboBoxGenero.setModel(new DefaultComboBoxModel(new String[] { "No especificar", "Hombre ", "Mujer", "Otro" }));
 		comboBoxGenero.setBounds(363, 206, 114, 24);
 		getContentPane().add(comboBoxGenero);
-
-		txtLocalidad = new JTextField();
-		txtLocalidad.setText("Moralzarzal, Madrid 28411");
-		txtLocalidad.setForeground(Color.LIGHT_GRAY);
-		txtLocalidad.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txtLocalidad.setColumns(10);
-		txtLocalidad.setBounds(550, 161, 177, 24);
-		getContentPane().add(txtLocalidad);
 
 		lblPerfil = new JLabel("Editar perfil");
 		lblPerfil.setForeground(Color.WHITE);
@@ -209,9 +199,46 @@ public class editarPerfil  extends JFrame {
 				miControlador.actualizar(3, 10);
 			}
 		});
+		
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent e) {
+				txtNuevoNombreUsuario.setText("@" + miModelo.getDatosUsuario().get("usr"));
+				txtNuevoNombre.setText(miModelo.getDatosUsuario().get("nombre") + " " + miModelo.getDatosUsuario().get("apellido"));
+				txtModificarDescripcion.setText(miModelo.getDatosUsuario().get("descripcion"));
+				lblMeGustas.setText(miModelo.getDatosUsuario().get("valoraciones"));
+				lblEdad.setText(miModelo.getDatosUsuario().get("fecha_nac"));
+//				lblDeporte.setText(miModelo.getDatosUsuario().get("DeporteFav"));
+////				lblFotoPerfil.setText(miModelo.getDatosUsuario().get("FotoPerfil"));
+			}
+		});
+		
 	}
 
-	
+	public JComboBox getComboBoxDeporte() {
+		return comboBoxDeporte;
+	}
+
+	public JComboBox getComboBoxGenero() {
+		return comboBoxGenero;
+	}
+
+	public JLabel getLblMeGustas() {
+		return lblMeGustas;
+	}
+
+	public JTextArea getTxtModificarDescripcion() {
+		return txtModificarDescripcion;
+	}
+
+	public JTextField getTxtNuevoNombre() {
+		return txtNuevoNombre;
+	}
+
+	public JTextField getTxtNuevoNombreUsuario() {
+		return txtNuevoNombreUsuario;
+	}
+
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}
