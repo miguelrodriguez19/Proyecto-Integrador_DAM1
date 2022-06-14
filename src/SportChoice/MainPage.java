@@ -23,7 +23,7 @@ public class MainPage extends JFrame {
 	private JComboBox comboBoxDeportes, comboBoxDia, comboBoxMes;
 	private JScrollPane scrollPaneEventos;
 	private JTable table;
-	private String eventoSeleccionado;
+	private static String eventoSeleccionado;
 	
 
 	public static void MainPage() {
@@ -184,7 +184,6 @@ public class MainPage extends JFrame {
 		btnUnirseEvento.setEnabled(false);
 		btnUnirseEvento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.unirseEvento(eventoSeleccionado);
 				miControlador.actualizar(11, 15);
 			}
 		});
@@ -204,7 +203,6 @@ public class MainPage extends JFrame {
 			public void mouseReleased(MouseEvent e) {
 				eventoSeleccionado = table.getValueAt(table.getSelectedRow(), table.getSelectedColumn()).toString();
 				btnUnirseEvento.setEnabled(true);
-				System.out.println(eventoSeleccionado);
 			}
 		});
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -235,5 +233,9 @@ public class MainPage extends JFrame {
 
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
+	}
+
+	public static String getEventoSeleccionado() {
+			return eventoSeleccionado;
 	}
 }

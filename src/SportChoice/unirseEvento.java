@@ -43,7 +43,7 @@ public class unirseEvento extends JFrame {
 		btnUnirse = new JButton("UNIRSE");
 		btnUnirse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(15, 17);
+				miControlador.unirseEvento(MainPage.getEventoSeleccionado());
 			}
 		});
 		btnUnirse.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

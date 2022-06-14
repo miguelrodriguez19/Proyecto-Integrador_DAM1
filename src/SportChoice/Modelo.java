@@ -132,8 +132,10 @@ public class Modelo {
 		PreparedStatement pstmt;
 		try {
 			pstmt = conexion.prepareStatement(query);
-			if (option.equals("misEventos") || option.equals("historialWindow") || option.equals("foro")) {
-				if (option.equals("misEventos") || option.equals("historialWindow"))
+			if (option.equals("misEventos") || option.equals("eventosRecientes") || option.equals("historialWindow")
+					|| option.equals("foro")) {
+				if (option.equals("misEventos") || option.equals("eventosRecientes")
+						|| option.equals("historialWindow"))
 					pstmt.setString(1, usuarioConectado);
 				if (option.equals("foro"))
 					pstmt.setString(1, eventoSeleccionado);
@@ -168,7 +170,8 @@ public class Modelo {
 		case "eventosRecientes":
 			query = "select cod_evento as Evento, eventos.usr as Creador, fecha_evento as Fecha, nombre_evento 'Nombre evento', "
 					+ "(select count(*) from participa_evento natural join eventos where cod_evento = Evento group by cod_evento) as Participantes "
-					+ "from eventos natural join participa_evento group by cod_evento order by fecha_evento desc;";
+					+ "from eventos natural join participa_evento where cod_Evento not in (select cod_Evento from participa_evento where cod_user = ?) "
+					+ "group by cod_evento order by fecha_evento desc;";
 			break;
 		case "misEventos":
 			query = "select cod_evento as Evento, eventos.usr as Creador, fecha_evento as Fecha, nombre_evento as 'Nombre evento', "
@@ -238,8 +241,9 @@ public class Modelo {
 
 		try {
 			PreparedStatement pstmt = conexion.prepareStatement(sql);
-			if (option.equals("misEventos") || option.equals("historialWindow") || option.equals("foro")) {
-				if (option.equals("misEventos") || option.equals("historialWindow"))
+			if (option.equals("misEventos") || option.equals("eventosRecientes") || option.equals("historialWindow") || option.equals("foro")) {
+				if (option.equals("misEventos") || option.equals("eventosRecientes") || option.equals("eventosRecientes")
+						|| option.equals("historialWindow"))
 					pstmt.setString(1, usuarioConectado);
 				if (option.equals("foro"))
 					pstmt.setString(1, eventoSeleccionado);
@@ -310,7 +314,7 @@ public class Modelo {
 		File rutaProyecto = new File(FILE);
 		FileNameExtensionFilter filtro = new FileNameExtensionFilter("*.java", "java");
 	}
-	
+
 	public void guardar(String[] datos, String[] claves) {
 		try {
 			for (int i = 0; i < claves.length; i++) {
@@ -392,10 +396,12 @@ public class Modelo {
 			e.printStackTrace();
 		}
 	}
+
 	/**
-	 * Unirse a evento
-	 * Ejecuta un prepareStatement con una query de tipo insert en la tabla participa_evento(cod_usr, cod_evento)
-	 * Necesita saber quien es el usuario conectado
+	 * Unirse a evento Ejecuta un prepareStatement con una query de tipo insert en
+	 * la tabla participa_evento(cod_usr, cod_evento) Necesita saber quien es el
+	 * usuario conectado
+	 * 
 	 * @param eventoSeleccionado
 	 */
 	public void unirseEvento(String eventoSeleccionado) {
