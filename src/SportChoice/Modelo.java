@@ -1,30 +1,14 @@
 package SportChoice;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.OutputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.io.*;
+import java.sql.*;
 import java.util.HashMap;
 import java.util.Properties;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTable;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 public class Modelo {
 	private String bd = "ProyectoIntegrador";
@@ -36,7 +20,7 @@ public class Modelo {
 	private String resultado;
 	private int fallos;
 	private JFrame[] pantallas;
-	private String usuarioConectado;
+	private String usuarioConectado = "invitado";
 	private String eventoSeleccionado;
 	private String eventosRecientes = "select eventos.usr, fecha_evento, nombre_evento from eventos natural join participa_evento order by fecha_creacion asc;";
 	private DefaultTableModel miTabla;
@@ -51,8 +35,9 @@ public class Modelo {
 	private OutputStream salida;
 	private String respuesta;
 	private HashMap<String, String> datosUsuario; /*
-													 * usr, nombre, apellido, email, pwd, Fecha_nac, FotoPerfil,
-													 * descripcion, DeporteFav, valoraciones, cod_recuperacion, rol
+													 * usr, nombre, apellido, email, pwd, Fecha_nac, 
+													 * FotoPerfil, descripcion, DeporteFav, valoraciones,
+													 * cod_recuperacion, rol, localidad, genero
 													 */
 	private final String FILE = "conexionBDPI.ini";
 
@@ -60,6 +45,9 @@ public class Modelo {
 		return datosConexion;
 	}
 
+	/**
+	 * Constructor de modelo
+	 */
 	public Modelo() {
 		datosConexion = new Properties();
 		try {
@@ -78,7 +66,7 @@ public class Modelo {
 	}
 
 	/**
-	 * 
+	 * Conexion con la BBDD
 	 */
 	public void conectarFicheroBBDD() {
 		try {
@@ -101,7 +89,11 @@ public class Modelo {
 	public void setPantallas(JFrame[] pantallas) {
 		this.pantallas = pantallas;
 	}
-
+	/**
+	 * Log In verification
+	 * @param usr
+	 * @param pwd
+	 */
 	public void login(String usr, String pwd) {
 		String rol;
 		this.usr = consulta("select * from users where usr=?", usr, "usr");
@@ -123,7 +115,11 @@ public class Modelo {
 		}
 		((LogIn) pantallas[7]).update(rol);
 	}
-
+	/**
+	 * Cargar tabla 
+	 * @param option
+	 * @return
+	 */
 	public DefaultTableModel cargarTabla(String option) {
 		String query = cargarQuery(option);
 		miTabla = new DefaultTableModel();
@@ -155,7 +151,11 @@ public class Modelo {
 		return miTabla;
 
 	}
-
+	/**
+	 * Cargar query para <b>@cargarTabla<b>
+	 * @param option
+	 * @return
+	 */
 	private String cargarQuery(String option) {
 		String query = "";
 		switch (option) {
@@ -192,9 +192,12 @@ public class Modelo {
 		}
 		return query;
 	}
-
+	/**
+	 * cargarDatosUsuario
+	 * Refresca los datos HashMap
+	 */
 	private void cargarDatosUsuario() {
-		String query = "select usr, nombre, apellido, email, pwd, Fecha_nac, FotoPerfil, descripcion, DeporteFav, valoraciones, cod_recuperacion, rol from users where usr = ?";
+		String query = "select usr, nombre, apellido, email, pwd, Fecha_nac, FotoPerfil, descripcion, DeporteFav, valoraciones, cod_recuperacion, rol, localidad, genero from users where usr = ?";
 		datosUsuario = new HashMap<>();
 		PreparedStatement pstmt;
 		try {
@@ -216,7 +219,12 @@ public class Modelo {
 	public HashMap<String, String> getDatosUsuario() {
 		return datosUsuario;
 	}
-
+ /**
+  * Devuelve el numero de columnas que tiene la tabla en BBDD
+  * @param sql
+  * @param option
+  * @return int
+  */
 	private int getNumColumnas(String sql, String option) {
 		int num = 0;
 
@@ -237,7 +245,12 @@ public class Modelo {
 		}
 		return num;
 	}
-
+	 /**
+	  * Devuelve el numero de filas que tiene la tabla en BBDD
+	  * @param sql
+	  * @param option
+	  * @return int
+	  */
 	private int getNumFilas(String sql) {
 		int numFilas = 0;
 		try {
@@ -301,43 +314,48 @@ public class Modelo {
 		}
 	}
 
-	public void guardarObjeto(String rutaFichero, JTable table) {
-		File fichero = new File(rutaFichero);
-		try {
-			FileOutputStream fos = new FileOutputStream(fichero);
-			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			oos.writeObject(table);
-			fos.close();
-			oos.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (NumberFormatException e) {
-			e.printStackTrace();
+	public void guardarObjeto(JTable tabla) {
+		File rutaProyecto = new File(System.getProperty("user.dir"));
+		JFileChooser fc = new JFileChooser(rutaProyecto);
+		int seleccion = fc.showSaveDialog(tabla);
+		if (seleccion == JFileChooser.APPROVE_OPTION) {
+			File fichero = fc.getSelectedFile();
+			try {
+				FileOutputStream fos = new FileOutputStream(fichero);
+				ObjectOutputStream oos = new ObjectOutputStream(fos);
+				RecuperarTablas tablaObject = new RecuperarTablas((DefaultTableModel) tabla.getModel());
+				oos.writeObject(tablaObject);
+				fos.close();
+				oos.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			}
 		}
-//			catch (ParseException e) {
-//				e.printStackTrace();
-//			}
 	}
 
-	public Object cargarObjeto(String rutaFichero) {
-		Object miTabla = null;
-		try {
-			File fichero = new File(rutaFichero);
-			FileInputStream fis = new FileInputStream(fichero);
-			ObjectInputStream ois = new ObjectInputStream(fis);
-			miTabla = ois.readObject();
-			System.out.println(miTabla);
-//				DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-//				String dia = formatter.format(miUsuario.getFechaNacimiento());
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			System.out.println("Error general");
+	public TableModel cargarObjeto(JScrollPane scrollPaneTabe) {
+		File rutaProyecto = new File(System.getProperty("user.dir"));
+		JFileChooser fc = new JFileChooser(rutaProyecto);
+		int seleccion = fc.showOpenDialog(scrollPaneTabe);
+		DefaultTableModel modelAux = null;
+		if (seleccion == JFileChooser.APPROVE_OPTION) {
+			try {
+				File fichero = fc.getSelectedFile();
+				FileInputStream fis = new FileInputStream(fichero);
+				ObjectInputStream ois = new ObjectInputStream(fis);
+				RecuperarTablas tablaObject  = (RecuperarTablas) ois.readObject();
+				modelAux = tablaObject.getModeloTabla();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
-		return miTabla;
+		return modelAux;
 	}
+
 
 	public String getRespuesta() {
 		return respuesta;
@@ -345,7 +363,19 @@ public class Modelo {
 
 	public void guardarCambiosPerfil(String[] datosCambiosPerfil) {
 		// Usuario, Nombre, Descripcion, Me gustas
-		String query = "update users set usr = ?, nombre = ?, descripcion = ?,  valoraciones = ?, DeporteFav = ?, genero = ? where usr = ?";
+		String query = "update users set usr = ?, nombre = ?, descripcion = ?,  valoraciones = ?, DeporteFav = ?, localidad = ?, genero = ? where usr = ?"; 
+		/*usr varchar(20),
+		nombre varchar (30),
+		apellido varchar (20),
+		descripcion varchar (200),
+		DeporteFav varchar(30),
+		localidad varchar(50),
+		genero varchar(20),*/
+		/*
+		 * usr, nombre, apellido, email, pwd, Fecha_nac, 
+		 * FotoPerfil, descripcion, DeporteFav, valoraciones,
+		 * cod_recuperacion, rol, localidad, genero
+		 */
 		PreparedStatement pstmt;
 		try {
 			pstmt = conexion.prepareStatement(query);
@@ -355,7 +385,8 @@ public class Modelo {
 			pstmt.setString(4, datosCambiosPerfil[3]);
 			pstmt.setString(5, datosCambiosPerfil[4]);
 			pstmt.setString(6, datosCambiosPerfil[5]);
-			pstmt.setString(6, usuarioConectado);
+			pstmt.setString(7, datosCambiosPerfil[6]);
+			pstmt.setString(8, usuarioConectado);
 			pstmt.executeUpdate();
 			usuarioConectado = datosCambiosPerfil[0];
 			pstmt.close();

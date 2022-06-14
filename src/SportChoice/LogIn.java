@@ -33,6 +33,7 @@ public class LogIn extends JFrame {
 	private JButton btnRegistro, btnIniciarSesion, btnRecuperarContrasena, btnAccederInvitado;
 	private JButton btnAjustesConexion;
 	private String mensajeTxtMail;
+	private String usrConectado;
 
 	public static void LogIn() {
 		LogIn window = new LogIn();
@@ -165,6 +166,8 @@ public class LogIn extends JFrame {
 		btnAccederInvitado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(7, 11);
+				miModelo.conectarFicheroBBDD();
+				miControlador.actualizar(7,11);
 			}
 		});
 		btnAccederInvitado.setSelected(true);
