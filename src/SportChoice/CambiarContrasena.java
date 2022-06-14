@@ -51,14 +51,14 @@ public class CambiarContrasena extends JFrame {
 				miControlador.actualizar(0, 3);
 			}
 		});
-		btnAtras.setBounds(0, 11, 57, 33);
+		btnAtras.setBounds(10, 25, 57, 33);
 		panel.add(btnAtras);
 		btnAtras.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAtras.setBorderPainted(false);
 		btnAtras.setBackground(new Color(57, 62, 70));
 		btnAtras.setIcon(new ImageIcon(CambiarContrasena.class.getResource("/Imagenes/arrow.png")));
 
-		btnIniciarSesion = new JButton("Iniciar Sesión\r\n\r\n");
+		btnIniciarSesion = new JButton("INICIAR SESION");
 		btnIniciarSesion.setForeground(Color.WHITE);
 		btnIniciarSesion.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnIniciarSesion.setBorder(null);
@@ -73,7 +73,7 @@ public class CambiarContrasena extends JFrame {
 			}
 		});
 
-		lblCambiarContrasena = new JLabel("\r\nContrasena");
+		lblCambiarContrasena = new JLabel("CONTRASE\u00D1A");
 		lblCambiarContrasena.setVerticalAlignment(SwingConstants.TOP);
 		lblCambiarContrasena.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblCambiarContrasena.setHorizontalAlignment(SwingConstants.CENTER);
@@ -122,7 +122,7 @@ public class CambiarContrasena extends JFrame {
 		txtConfirmarNuevaContrasena.setBounds(55, 274, 256, 42);
 		panel.add(txtConfirmarNuevaContrasena);
 
-		lblCambiar = new JLabel("Cambiar\r\n");
+		lblCambiar = new JLabel("CAMBIAR");
 		lblCambiar.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblCambiar.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCambiar.setHorizontalTextPosition(SwingConstants.CENTER);

@@ -67,8 +67,8 @@ public class LogIn extends JFrame {
 		txtMail.setText("Usuario");
 		txtMail.setColumns(10);
 
-		lblTituloIniciarSesion = new JLabel("Iniciar Sesi\u00F3n\r\n");
-		lblTituloIniciarSesion.setBounds(28, 10, 275, 98);
+		lblTituloIniciarSesion = new JLabel("INICIAR SESION");
+		lblTituloIniciarSesion.setBounds(10, 10, 311, 98);
 		panel.add(lblTituloIniciarSesion);
 		lblTituloIniciarSesion.setForeground(new Color(255, 255, 255));
 		lblTituloIniciarSesion.setFont(new Font("Trebuchet MS", Font.PLAIN, 46));
@@ -82,7 +82,7 @@ public class LogIn extends JFrame {
 		btnRecuperarContrasena.setForeground(new Color(255, 255, 255));
 		btnRecuperarContrasena.setBackground(new Color(57, 62, 70));
 
-		btnIniciarSesion = new JButton("Iniciar Sesion");
+		btnIniciarSesion = new JButton("INICIAR SESION");
 		btnIniciarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIniciarSesion.setBorder(null);
 		btnIniciarSesion.setForeground(Color.WHITE);
@@ -161,7 +161,7 @@ public class LogIn extends JFrame {
 		txtMail.setForeground(Color.GRAY);
 		txtPwd.setForeground(Color.GRAY);
 
-		btnAccederInvitado = new JButton("Acceder como invitado");
+		btnAccederInvitado = new JButton("ACCEDER COMO INVITADO");
 		btnAccederInvitado.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAccederInvitado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -175,7 +175,7 @@ public class LogIn extends JFrame {
 		btnAccederInvitado.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnAccederInvitado.setBorder(null);
 		btnAccederInvitado.setBackground((Color) null);
-		btnAccederInvitado.setBounds(81, 301, 168, 21);
+		btnAccederInvitado.setBounds(64, 302, 193, 21);
 		panel.add(btnAccederInvitado);
 
 		lblErrorLogIn = new JLabel("Usuario o contraseña incorrectos");

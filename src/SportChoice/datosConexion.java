@@ -71,47 +71,52 @@ public class datosConexion extends JFrame {
 		panelPaginaPrincipal.setLayout(null);
 
 		JLabel lblCampo = new JLabel("Contraseña:");
+		lblCampo.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblCampo.setForeground(Color.WHITE);
-		lblCampo.setBounds(24, 133, 114, 14);
+		lblCampo.setBounds(86, 143, 114, 14);
 		panelPaginaPrincipal.add(lblCampo);
 
 		JLabel lblDato = new JLabel("Usuario:");
+		lblDato.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblDato.setForeground(Color.WHITE);
-		lblDato.setBounds(24, 79, 92, 14);
+		lblDato.setBounds(86, 79, 125, 14);
 		panelPaginaPrincipal.add(lblDato);
 
 		txtUrlConexion = new JTextField();
 
-		txtUrlConexion.setBounds(23, 212, 321, 23);
+		txtUrlConexion.setBounds(86, 233, 321, 32);
 		panelPaginaPrincipal.add(txtUrlConexion);
 		txtUrlConexion.setColumns(10);
 
 		txtPwdConexion = new JTextField();
 
-		txtPwdConexion.setBounds(24, 157, 184, 21);
+		txtPwdConexion.setBounds(86, 167, 321, 32);
 		panelPaginaPrincipal.add(txtPwdConexion);
 		txtPwdConexion.setColumns(10);
 
 		txtUsuarioConexion = new JTextField();
-		txtUsuarioConexion.setBounds(24, 103, 184, 20);
+		txtUsuarioConexion.setBounds(86, 103, 321, 32);
 		panelPaginaPrincipal.add(txtUsuarioConexion);
 		txtUsuarioConexion.setColumns(10);
 
 		btnGuardar = new JButton("GUARDAR");
-		btnGuardar.setForeground(Color.BLACK);
+		btnGuardar.setForeground(Color.WHITE);
+		btnGuardar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnGuardar.setBorder(null);
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				miControlador.guardar();
 			}
 		});
-		btnGuardar.setBounds(690, 283, 114, 32);
+		btnGuardar.setBounds(684, 228, 114, 40);
 		btnGuardar.setBackground(new Color(53, 187, 95));
 		btnGuardar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panelPaginaPrincipal.add(btnGuardar);
 
 		JLabel lblRes3 = new JLabel("URL de la Base de Datos:");
+		lblRes3.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblRes3.setForeground(Color.WHITE);
-		lblRes3.setBounds(24, 188, 230, 14);
+		lblRes3.setBounds(86, 209, 230, 14);
 		panelPaginaPrincipal.add(lblRes3);
 
 		// Etiqueta para mostrar los resultados
@@ -140,6 +145,8 @@ public class datosConexion extends JFrame {
 
 		btnDefault = new JButton("DATOS POR DEFECTO");
 		btnDefault.setBackground(new Color(156, 163, 219));
+		btnDefault.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnDefault.setBorder(null);
 		btnDefault.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				txtUsuarioConexion.setText("root\r\n");
@@ -148,10 +155,12 @@ public class datosConexion extends JFrame {
 
 			}
 		});
-		btnDefault.setForeground(Color.BLACK);
-		btnDefault.setBounds(24, 283, 159, 34);
+		btnDefault.setForeground(Color.WHITE);
+		btnDefault.setBounds(486, 228, 159, 40);
 		btnDefault.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panelPaginaPrincipal.add(btnDefault);
+		
+		
 
 	}
 

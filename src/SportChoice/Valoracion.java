@@ -55,7 +55,8 @@ public class Valoracion extends JFrame {
 
 		contenedor.setLayout(null);
 
-		btnValoran = new JButton("Guardar");
+		btnValoran = new JButton("GUARDAR");
+		btnValoran.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnValoran.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(16, 6);
@@ -201,7 +202,8 @@ public class Valoracion extends JFrame {
 		btnFotoPerfil.setBounds(718, 0, 99, 100);
 		panelHeader.add(btnFotoPerfil);
 
-		btnPerfil_1 = new JButton("Perfil");
+		btnPerfil_1 = new JButton("PERFIL");
+		btnPerfil_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnPerfil_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPerfil_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -215,7 +217,8 @@ public class Valoracion extends JFrame {
 		btnPerfil_1.setBounds(644, 43, 64, 23);
 		panelHeader.add(btnPerfil_1);
 
-		btnFAQs = new JButton("FAQs");
+		btnFAQs = new JButton("FAQS");
+		btnFAQs.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnFAQs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFAQs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -254,10 +257,10 @@ public class Valoracion extends JFrame {
 		btnAtras.setBounds(10, 111, 56, 39);
 		getContentPane().add(btnAtras);
 
-		lblTitulo = new JLabel("Valora a tus compañeros");
+		lblTitulo = new JLabel("VALORA A TUS COMPA\u00D1EROS");
 		lblTitulo.setForeground(Color.WHITE);
 		lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblTitulo.setBounds(71, 118, 385, 23);
+		lblTitulo.setBounds(71, 118, 423, 23);
 		getContentPane().add(lblTitulo);
 
 	}
