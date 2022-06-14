@@ -21,6 +21,7 @@ public class CambiarContrasena extends JFrame {
 	private JSeparator separator;
 	private JButton btnAtras;
 	private JButton btnIniciarSesion;
+	String mensajeTxtContrasenaActual, mensajeTxtNuevaContrasena, mensajeTxtConfirmarNuevaContrasena;
 
 	public static void CambiarContrasena() {
 		CambiarContrasena window = new CambiarContrasena();
@@ -82,9 +83,9 @@ public class CambiarContrasena extends JFrame {
 		lblCambiarContrasena.setBounds(55, 68, 256, 55);
 		panel.add(lblCambiarContrasena);
 		
-		String mensajeTxtContrasenaActual = "Contrasena actual";
+		mensajeTxtContrasenaActual = "Contrasena actual";
 		txtContrasenaActual = new JTextField();
-		txtContrasenaActual.setText("Contrasena actual");
+		txtContrasenaActual.setText(mensajeTxtContrasenaActual);
 		txtContrasenaActual.setForeground(Color.GRAY);
 		txtContrasenaActual.setColumns(10);
 		txtContrasenaActual.setBackground(Color.WHITE);
@@ -136,8 +137,8 @@ public class CambiarContrasena extends JFrame {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				if (txtContrasenaActual.getText().equals("Contraseña actual")) {
-//					txtContrasenaActual.setText(mensajeTxtMail);
+				if (txtContrasenaActual.getText().equals(mensajeTxtContrasenaActual)) {
+					txtContrasenaActual.setText(mensajeTxtContrasenaActual);
 					txtContrasenaActual.setForeground(Color.GRAY);
 				}
 			}
