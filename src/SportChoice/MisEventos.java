@@ -12,6 +12,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class MisEventos extends JFrame{
 	private Controlador miControlador;
@@ -186,31 +188,8 @@ public class MisEventos extends JFrame{
 		btnMisEventos.setBounds(514, 0, 310, 40);
 		panelPaginaPrincipal.add(btnMisEventos);
 
-		table = new JTable();
-		table.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		table.setPreferredScrollableViewportSize(new Dimension(400, 400));
-		table.setIntercellSpacing(new Dimension(5, 1));
-		table.setAutoResizeMode(JTable.AUTO_RESIZE_NEXT_COLUMN);
-		
-//		table.getColumnModel().getColumn(0).setResizable(false);
-//		table.getColumnModel().getColumn(1).setResizable(false);
-//		table.getColumnModel().getColumn(2).setResizable(false);
-//		table.getColumnModel().getColumn(3).setResizable(false);
-//		table.getColumnModel().getColumn(4).setPreferredWidth(220);
-//		for (int i = 0; i < 3; i++) {
-//			table.getColumnModel().getColumn(i).setMinWidth(110);
-//		}
-		table.setRowHeight(65);
-		table.setBounds(96, 58, 809, 285);
-
-		scrollPaneEventos = new JScrollPane();
-		scrollPaneEventos.setAutoscrolls(true);
-		scrollPaneEventos.setBounds(202, 51, 622, 238);
-		panelPaginaPrincipal.add(scrollPaneEventos);
-		scrollPaneEventos.setViewportView(table);
-
 		btnUnirseEvento = new JButton("Ver Evento");
+		btnUnirseEvento.setEnabled(false);
 		btnUnirseEvento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(8, 17);
@@ -222,6 +201,27 @@ public class MisEventos extends JFrame{
 		btnUnirseEvento.setBackground(new Color(53, 187, 95));
 		btnUnirseEvento.setBounds(735, 300, 89, 23);
 		panelPaginaPrincipal.add(btnUnirseEvento);
+		
+		table = new JTable();
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				
+			}
+		});
+		table.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		table.setPreferredScrollableViewportSize(new Dimension(400, 400));
+		table.setIntercellSpacing(new Dimension(5, 1));
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_NEXT_COLUMN);
+		table.setRowHeight(65);
+		table.setBounds(96, 58, 809, 285);
+
+		scrollPaneEventos = new JScrollPane();
+		scrollPaneEventos.setAutoscrolls(true);
+		scrollPaneEventos.setBounds(202, 51, 622, 238);
+		panelPaginaPrincipal.add(scrollPaneEventos);
+		scrollPaneEventos.setViewportView(table);
 		
 		addWindowListener(new WindowAdapter() {
 			@Override

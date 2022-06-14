@@ -35,9 +35,9 @@ public class Modelo {
 	private OutputStream salida;
 	private String respuesta;
 	private HashMap<String, String> datosUsuario; /*
-													 * usr, nombre, apellido, email, pwd, Fecha_nac, 
-													 * FotoPerfil, descripcion, DeporteFav, valoraciones,
-													 * cod_recuperacion, rol, localidad, genero
+													 * usr, nombre, apellido, email, pwd, Fecha_nac, FotoPerfil,
+													 * descripcion, DeporteFav, valoraciones, cod_recuperacion, rol,
+													 * localidad, genero
 													 */
 	private final String FILE = "conexionBDPI.ini";
 
@@ -89,8 +89,10 @@ public class Modelo {
 	public void setPantallas(JFrame[] pantallas) {
 		this.pantallas = pantallas;
 	}
+
 	/**
 	 * Log In verification
+	 * 
 	 * @param usr
 	 * @param pwd
 	 */
@@ -115,8 +117,10 @@ public class Modelo {
 		}
 		((LogIn) pantallas[7]).update(rol);
 	}
+
 	/**
-	 * Cargar tabla 
+	 * Cargar tabla
+	 * 
 	 * @param option
 	 * @return
 	 */
@@ -151,8 +155,10 @@ public class Modelo {
 		return miTabla;
 
 	}
+
 	/**
 	 * Cargar query para <b>@cargarTabla<b>
+	 * 
 	 * @param option
 	 * @return
 	 */
@@ -192,9 +198,9 @@ public class Modelo {
 		}
 		return query;
 	}
+
 	/**
-	 * cargarDatosUsuario
-	 * Refresca los datos HashMap
+	 * cargarDatosUsuario Refresca los datos HashMap
 	 */
 	private void cargarDatosUsuario() {
 		String query = "select usr, nombre, apellido, email, pwd, Fecha_nac, FotoPerfil, descripcion, DeporteFav, valoraciones, cod_recuperacion, rol, localidad, genero from users where usr = ?";
@@ -219,12 +225,14 @@ public class Modelo {
 	public HashMap<String, String> getDatosUsuario() {
 		return datosUsuario;
 	}
- /**
-  * Devuelve el numero de columnas que tiene la tabla en BBDD
-  * @param sql
-  * @param option
-  * @return int
-  */
+
+	/**
+	 * Devuelve el numero de columnas que tiene la tabla en BBDD
+	 * 
+	 * @param sql
+	 * @param option
+	 * @return int
+	 */
 	private int getNumColumnas(String sql, String option) {
 		int num = 0;
 
@@ -245,12 +253,14 @@ public class Modelo {
 		}
 		return num;
 	}
-	 /**
-	  * Devuelve el numero de filas que tiene la tabla en BBDD
-	  * @param sql
-	  * @param option
-	  * @return int
-	  */
+
+	/**
+	 * Devuelve el numero de filas que tiene la tabla en BBDD
+	 * 
+	 * @param sql
+	 * @param option
+	 * @return int
+	 */
 	private int getNumFilas(String sql) {
 		int numFilas = 0;
 		try {
@@ -300,7 +310,7 @@ public class Modelo {
 		File rutaProyecto = new File(FILE);
 		FileNameExtensionFilter filtro = new FileNameExtensionFilter("*.java", "java");
 	}
-
+	
 	public void guardar(String[] datos, String[] claves) {
 		try {
 			for (int i = 0; i < claves.length; i++) {
@@ -345,7 +355,7 @@ public class Modelo {
 				File fichero = fc.getSelectedFile();
 				FileInputStream fis = new FileInputStream(fichero);
 				ObjectInputStream ois = new ObjectInputStream(fis);
-				RecuperarTablas tablaObject  = (RecuperarTablas) ois.readObject();
+				RecuperarTablas tablaObject = (RecuperarTablas) ois.readObject();
 				modelAux = tablaObject.getModeloTabla();
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
@@ -356,26 +366,13 @@ public class Modelo {
 		return modelAux;
 	}
 
-
 	public String getRespuesta() {
 		return respuesta;
 	}
 
 	public void guardarCambiosPerfil(String[] datosCambiosPerfil) {
 		// Usuario, Nombre, Descripcion, Me gustas
-		String query = "update users set usr = ?, nombre = ?, descripcion = ?,  valoraciones = ?, DeporteFav = ?, localidad = ?, genero = ? where usr = ?"; 
-		/*usr varchar(20),
-		nombre varchar (30),
-		apellido varchar (20),
-		descripcion varchar (200),
-		DeporteFav varchar(30),
-		localidad varchar(50),
-		genero varchar(20),*/
-		/*
-		 * usr, nombre, apellido, email, pwd, Fecha_nac, 
-		 * FotoPerfil, descripcion, DeporteFav, valoraciones,
-		 * cod_recuperacion, rol, localidad, genero
-		 */
+		String query = "update users set usr = ?, nombre = ?, descripcion = ?,  valoraciones = ?, DeporteFav = ?, localidad = ?, genero = ? where usr = ?";
 		PreparedStatement pstmt;
 		try {
 			pstmt = conexion.prepareStatement(query);
@@ -394,5 +391,22 @@ public class Modelo {
 			e.printStackTrace();
 		}
 	}
-
+	/**
+	 * Unirse a evento
+	 * Ejecuta un prepareStatement con una query de tipo insert en la tabla participa_evento(cod_usr, cod_evento)
+	 * Necesita saber quien es el usuario conectado
+	 * @param eventoSeleccionado
+	 */
+	public void unirseEvento(String eventoSeleccionado) {
+		String query = "insert into participa_evento (cod_user, Cod_Evento) values (?, ?);";
+		PreparedStatement pstmt;
+		try {
+			pstmt = conexion.prepareStatement(query);
+			pstmt.setString(1, usuarioConectado);
+			pstmt.setString(2, eventoSeleccionado);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

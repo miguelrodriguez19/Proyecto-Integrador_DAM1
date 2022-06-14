@@ -9,6 +9,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class MainPage extends JFrame {
 	private Controlador miControlador;
@@ -21,6 +23,7 @@ public class MainPage extends JFrame {
 	private JComboBox comboBoxDeportes, comboBoxDia, comboBoxMes;
 	private JScrollPane scrollPaneEventos;
 	private JTable table;
+	private String eventoSeleccionado;
 	
 
 	public static void MainPage() {
@@ -177,27 +180,11 @@ public class MainPage extends JFrame {
 			}
 		});
 
-		table = new JTable();
-		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		table.setSurrendersFocusOnKeystroke(true);
-		table.setToolTipText("");
-		table.setAutoResizeMode(JTable.AUTO_RESIZE_NEXT_COLUMN);
-		table.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-//		table.getColumnModel().getColumn(4).setPreferredWidth(220);
-//		for (int i = 0; i < 3; i++) {
-//			table.getColumnModel().getColumn(i).setMinWidth(110);
-//		}
-		table.setRowHeight(65);
-		table.setBounds(96, 58, 809, 285);
-
-		scrollPaneEventos = new JScrollPane();
-		scrollPaneEventos.setBounds(202, 51, 622, 238);
-		panelPaginaPrincipal.add(scrollPaneEventos);
-		scrollPaneEventos.setViewportView(table);
-
 		btnUnirseEvento = new JButton("Unirse ");
+		btnUnirseEvento.setEnabled(false);
 		btnUnirseEvento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miControlador.unirseEvento(eventoSeleccionado);
 				miControlador.actualizar(11, 15);
 			}
 		});
@@ -208,8 +195,31 @@ public class MainPage extends JFrame {
 		btnUnirseEvento.setBackground(new Color(53, 187, 95));
 		btnUnirseEvento.setBounds(735, 300, 89, 23);
 		panelPaginaPrincipal.add(btnUnirseEvento);
-//		scrollPane.setViewportView(miTabla);
 
+		table = new JTable();
+		table.setEditingColumn(0);
+		table.setEditingRow(0);
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				eventoSeleccionado = table.getValueAt(table.getSelectedRow(), table.getSelectedColumn()).toString();
+				btnUnirseEvento.setEnabled(true);
+				System.out.println(eventoSeleccionado);
+			}
+		});
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		table.setSurrendersFocusOnKeystroke(true);
+		table.setToolTipText("");
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_NEXT_COLUMN);
+		table.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		table.setRowHeight(65);
+		table.setBounds(96, 58, 809, 285);
+
+		scrollPaneEventos = new JScrollPane();
+		scrollPaneEventos.setBounds(202, 51, 622, 238);
+		panelPaginaPrincipal.add(scrollPaneEventos);
+		scrollPaneEventos.setViewportView(table);
+		
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent e) {
