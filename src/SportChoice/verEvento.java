@@ -281,6 +281,8 @@ public class verEvento extends JFrame {
 					btnEditar.setBackground(new Color(129, 136, 212));
 					btnEditar.setBounds(530, 378, 110, 35);
 					getContentPane().add(btnEditar);
+					
+					btnEditar.
 				}
 			}
 		});
