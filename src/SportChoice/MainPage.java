@@ -11,6 +11,9 @@ import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 public class MainPage extends JFrame {
 	private Controlador miControlador;
@@ -24,7 +27,6 @@ public class MainPage extends JFrame {
 	private JScrollPane scrollPaneEventos;
 	private JTable table;
 	private static String eventoSeleccionado;
-	
 
 	public static void MainPage() {
 		MainPage window = new MainPage();
@@ -58,7 +60,8 @@ public class MainPage extends JFrame {
 			}
 		});
 
-		btnPerfil = new JButton("Perfil");
+		btnPerfil = new JButton("PERFIL");
+		btnPerfil.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnPerfil.setBorder(null);
 		btnPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPerfil.setForeground(Color.WHITE);
@@ -71,7 +74,8 @@ public class MainPage extends JFrame {
 				miControlador.actualizar(11, 10);
 			}
 		});
-		btnFAQs = new JButton("FAQs");
+		btnFAQs = new JButton("FAQS");
+		btnFAQs.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnFAQs.setBorder(null);
 		btnFAQs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFAQs.setForeground(Color.WHITE);
@@ -97,7 +101,8 @@ public class MainPage extends JFrame {
 		getContentPane().add(panelPaginaPrincipal);
 		panelPaginaPrincipal.setLayout(null);
 
-		btnCrearEventos = new JButton("Crear Eventos");
+		btnCrearEventos = new JButton("CREAR EVENTOS");
+		btnCrearEventos.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnCrearEventos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(11, 2);
@@ -107,62 +112,80 @@ public class MainPage extends JFrame {
 		btnCrearEventos.setBorder(null);
 		btnCrearEventos.setForeground(Color.WHITE);
 		btnCrearEventos.setBackground(new Color(53, 187, 95));
-		btnCrearEventos.setBounds(29, 5, 148, 30);
+		btnCrearEventos.setBounds(30, 10, 148, 30);
 		panelPaginaPrincipal.add(btnCrearEventos);
 
-		lblFiltros = new JLabel("Buscar por filtros: ");
+		lblFiltros = new JLabel("BUSCAR POR FILTROS");
 		lblFiltros.setForeground(Color.WHITE);
-		lblFiltros.setBounds(29, 51, 148, 29);
+		lblFiltros.setBounds(30, 56, 148, 29);
 		panelPaginaPrincipal.add(lblFiltros);
 
 		comboBoxDeportes = new JComboBox();
 		comboBoxDeportes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		comboBoxDeportes
-				.setModel(new DefaultComboBoxModel(new String[] { "Deportes", "Futbol", "Baloncesto", "Tenis" }));
-		comboBoxDeportes.setBounds(29, 77, 148, 22);
+				.setModel(new DefaultComboBoxModel(new String[] { "DEPORTES", "FUTBOL", "BALONCESTO", "TENIS" }));
+		comboBoxDeportes.setBounds(30, 82, 148, 22);
 		panelPaginaPrincipal.add(comboBoxDeportes);
 
 		comboBoxMes = new JComboBox();
 		comboBoxMes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		comboBoxMes.setModel(new DefaultComboBoxModel(
-				new String[] { "Mes", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
-		comboBoxMes.setBounds(118, 110, 59, 22);
+				new String[] { "MES", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+		comboBoxMes.setBounds(119, 115, 59, 22);
 		panelPaginaPrincipal.add(comboBoxMes);
 
 		comboBoxDia = new JComboBox();
 		comboBoxDia.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		comboBoxDia.setBackground(Color.WHITE);
-		comboBoxDia.setModel(new DefaultComboBoxModel(new String[] { "Dia", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+		comboBoxDia.setModel(new DefaultComboBoxModel(new String[] { "DIA", "1", "2", "3", "4", "5", "6", "7", "8", "9",
 				"10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26",
 				"27", "28", "29", "30", "31" }));
-		comboBoxDia.setBounds(29, 110, 59, 22);
+		comboBoxDia.setBounds(30, 115, 59, 22);
 		panelPaginaPrincipal.add(comboBoxDia);
 
-		txtLocalidad = new JTextField();
-		txtLocalidad.setText("Localidad");
-		txtLocalidad.setBounds(29, 143, 148, 29);
+		txtLocalidad = new JTextField("LOCALIDAD");
+		txtLocalidad.addFocusListener(new FocusListener() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (txtLocalidad.getText().equals(mensajeTxtMail))
+					txtMail.setText("");
+				txtMail.setForeground(Color.BLACK);
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if (txtMail.getText().equals("")) {
+					txtMail.setText(mensajeTxtMail);
+					txtMail.setForeground(Color.GRAY);
+				}
+			}
+		});
+		txtLocalidad.setBounds(30, 148, 148, 29);
 		panelPaginaPrincipal.add(txtLocalidad);
 		txtLocalidad.setColumns(10);
 
-		btnAplicarFiltros = new JButton("Aplicar");
+		btnAplicarFiltros = new JButton("BUSCAR");
+		btnAplicarFiltros.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnAplicarFiltros.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAplicarFiltros.setForeground(Color.WHITE);
 		btnAplicarFiltros.setBorder(null);
 		btnAplicarFiltros.setBackground(new Color(129, 136, 212));
 
-		btnAplicarFiltros.setBounds(88, 183, 89, 23);
+		btnAplicarFiltros.setBounds(89, 188, 89, 23);
 		panelPaginaPrincipal.add(btnAplicarFiltros);
 
-		btnEventosRecientes = new JButton("Eventos Recientes");
+		btnEventosRecientes = new JButton("EVENTOS RECIENTES");
+		btnEventosRecientes.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnEventosRecientes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEventosRecientes.setSelected(true);
 		btnEventosRecientes.setForeground(Color.WHITE);
 		btnEventosRecientes.setBorder(null);
 		btnEventosRecientes.setBackground(new Color(129, 136, 212));
-		btnEventosRecientes.setBounds(202, 0, 310, 40);
+		btnEventosRecientes.setBounds(202, 10, 310, 40);
 		panelPaginaPrincipal.add(btnEventosRecientes);
 
-		btnMisEventos = new JButton("Mis Eventos");
+		btnMisEventos = new JButton("MIS EVENTOS");
+		btnMisEventos.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnMisEventos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(11, 8);
@@ -172,16 +195,16 @@ public class MainPage extends JFrame {
 		btnMisEventos.setForeground(Color.WHITE);
 		btnMisEventos.setBorder(null);
 		btnMisEventos.setBackground(new Color(156, 163, 219));
-		btnMisEventos.setBounds(514, 0, 310, 40);
+		btnMisEventos.setBounds(514, 10, 310, 40);
 		panelPaginaPrincipal.add(btnMisEventos);
 		btnMisEventos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(11, 8);
 			}
 		});
-
-		btnUnirseEvento = new JButton("Unirse ");
+		btnUnirseEvento = new JButton("VER DETALLES");
 		btnUnirseEvento.setEnabled(false);
+		btnUnirseEvento.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnUnirseEvento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(11, 15);
@@ -201,7 +224,8 @@ public class MainPage extends JFrame {
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				eventoSeleccionado = table.getValueAt(table.getSelectedRow(), table.getSelectedColumn()).toString();
+				eventoSeleccionado = table.getValueAt(table.getSelectedRow(), 0).toString();
+				System.out.println(eventoSeleccionado);
 				btnUnirseEvento.setEnabled(true);
 			}
 		});
@@ -217,7 +241,7 @@ public class MainPage extends JFrame {
 		scrollPaneEventos.setBounds(202, 51, 622, 238);
 		panelPaginaPrincipal.add(scrollPaneEventos);
 		scrollPaneEventos.setViewportView(table);
-		
+
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent e) {
@@ -236,6 +260,6 @@ public class MainPage extends JFrame {
 	}
 
 	public static String getEventoSeleccionado() {
-			return eventoSeleccionado;
+		return eventoSeleccionado;
 	}
 }
