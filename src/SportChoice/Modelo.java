@@ -33,6 +33,7 @@ public class Modelo {
 	private File miFichero;
 	private InputStream entrada;
 	private OutputStream salida;
+	private String DeporteFiltro;
 	private String respuesta;
 	private HashMap<String, String> datosUsuario; /*
 													 * usr, nombre, apellido, email, pwd, Fecha_nac, FotoPerfil,
@@ -310,7 +311,7 @@ public class Modelo {
 		File rutaProyecto = new File(FILE);
 		FileNameExtensionFilter filtro = new FileNameExtensionFilter("*.java", "java");
 	}
-	
+
 	public void guardar(String[] datos, String[] claves) {
 		try {
 			for (int i = 0; i < claves.length; i++) {
@@ -392,10 +393,12 @@ public class Modelo {
 			e.printStackTrace();
 		}
 	}
+
 	/**
-	 * Unirse a evento
-	 * Ejecuta un prepareStatement con una query de tipo insert en la tabla participa_evento(cod_usr, cod_evento)
-	 * Necesita saber quien es el usuario conectado
+	 * Unirse a evento Ejecuta un prepareStatement con una query de tipo insert en
+	 * la tabla participa_evento(cod_usr, cod_evento) Necesita saber quien es el
+	 * usuario conectado
+	 * 
 	 * @param eventoSeleccionado
 	 */
 	public void unirseEvento(String eventoSeleccionado) {
@@ -444,6 +447,71 @@ public class Modelo {
 			}
 		} else { // No coinciden las dos contraseñas nuevas introducidas
 			((CambiarContrasena) pantallas[0]).errorContrasenasDistintas();
+		}
+
+	}
+
+	public void selectitems(JTable table, JComboBox comboBoxDia, JComboBox comboBoxMes, JComboBox comboBoxDeportes,
+			JTextField txtLocalidad) {
+
+		String FiltroFecha = null;
+		String filtroDia = (String) comboBoxDia.getSelectedItem();
+		String filtroMes = (String) comboBoxMes.getSelectedItem();
+		DeporteFiltro = (String) txtLocalidad.getText();
+		String text = txtLocalidad.getText();
+		System.out.println(comboBoxDeportes.getSelectedItem());
+		System.out.println(txtLocalidad.getText());
+//		if (!filtroDia.equals("Dia") && !filtroMes.equals("Mes")) {
+//			int FiltroDiaInt = Integer.parseInt(filtroDia);
+//			int FiltroMesInt = Integer.parseInt(filtroMes);
+//			if (FiltroDiaInt < 10) {
+//				filtroDia = "0" + filtroDia;
+//			}
+//			if (FiltroMesInt < 10) {
+//				filtroMes = "0" + filtroMes;
+//			}
+//			FiltroFecha = "2022-" + filtroMes + "-" + filtroDia;
+//			System.out.println(FiltroFecha);
+//		}
+	}
+
+	private int getNumColumnas2(String sql, String var) {
+		int num = 0;
+		try {
+			PreparedStatement pstmt = conexion.prepareStatement(sql);
+			pstmt.setString(1, var);
+			ResultSet rset = pstmt.executeQuery();
+			ResultSetMetaData rsmd = rset.getMetaData();
+			num = rsmd.getColumnCount();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return num;
+	}
+
+	public void filtroevento(JTable table) {
+		DefaultTableModel tablaEven = new DefaultTableModel();
+		String queryfiltdep = "Select * from Eventos where Tipo_Dep =?";
+		int ncum = getNumColumnas2(queryfiltdep, DeporteFiltro);
+		Object[] contenido = new Object[ncum];
+		PreparedStatement pstmt;
+		try {
+			pstmt = conexion.prepareStatement(queryfiltdep);
+			pstmt.setString(1, DeporteFiltro);
+			ResultSet rset = pstmt.executeQuery();
+			ResultSetMetaData rsmd = rset.getMetaData();
+			for (int i = 0; i < ncum; i++) {
+				tablaEven.addColumn(rsmd.getColumnName(i + 1));
+			}
+			while (rset.next()) {
+				for (int col = 1; col <= ncum; col++) {
+					contenido[col - 1] = rset.getString(col);
+				}
+				tablaEven.addRow(contenido);
+				tablaEven.setRowCount(ncum);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 
 	}

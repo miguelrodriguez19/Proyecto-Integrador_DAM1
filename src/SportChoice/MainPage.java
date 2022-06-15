@@ -158,10 +158,10 @@ public class MainPage extends JFrame {
 		btnAplicarFiltros = new JButton("Aplicar");
 		btnAplicarFiltros.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				selectitems();
+				miModelo.selectitems(table, comboBoxDeportes, comboBoxDeportes, comboBoxDeportes, txtLocalidad);
+				miModelo.filtroevento(table);
 
 			}
-
 		});
 		btnAplicarFiltros.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAplicarFiltros.setForeground(Color.WHITE);
@@ -202,7 +202,7 @@ public class MainPage extends JFrame {
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		table.setSurrendersFocusOnKeystroke(true);
 		table.setToolTipText("");
-
+		table.setDefaultEditor(Object.class, null);
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_NEXT_COLUMN);
 		table.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 //		table.getColumnModel().getColumn(4).setPreferredWidth(220);
@@ -239,55 +239,6 @@ public class MainPage extends JFrame {
 				table.setModel(miModelo.getTabla());
 			}
 		});
-	}
-
-	private void selectitems() {
-		DefaultTableModel model = new DefaultTableModel();
-		model = (DefaultTableModel) table.getModel();
-		String FiltroFecha = null;
-		String filtroDia = (String) comboBoxDia.getSelectedItem();
-		String filtroMes = (String) comboBoxMes.getSelectedItem();
-		String filtroDeporte = (String) txtLocalidad.getText();
-		String text = txtLocalidad.getText();
-		System.out.println(comboBoxDeportes.getSelectedItem());
-		System.out.println(txtLocalidad.getText());
-//		if (!filtroDia.equals("Dia") && !filtroMes.equals("Mes")) {
-//			int FiltroDiaInt = Integer.parseInt(filtroDia);
-//			int FiltroMesInt = Integer.parseInt(filtroMes);
-//			if (FiltroDiaInt < 10) {
-//				filtroDia = "0" + filtroDia;
-//			}
-//			if (FiltroMesInt < 10) {
-//				filtroMes = "0" + filtroMes;
-//			}
-//			FiltroFecha = "2022-" + filtroMes + "-" + filtroDia;
-//			System.out.println(FiltroFecha);
-//		}
-
-//		TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(model);
-//		table.setRowSorter(sorter);
-//		add(new JScrollPane(table), BorderLayout.CENTER);
-//		sorter.setRowFilter(RowFilter.regexFilter(filtroLocalidad));
-		final TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(model);
-		table.setRowSorter(sorter);
-		add(new JScrollPane(table), BorderLayout.CENTER);
-		JPanel panel = new JPanel(new BorderLayout());
-		JLabel label = new JLabel("Filter");
-		JButton button = new JButton("Filter");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (text.length() == 0) {
-					sorter.setRowFilter(null);
-				} else {
-					try {
-						sorter.setRowFilter(RowFilter.regexFilter(text));
-					} catch (PatternSyntaxException pse) {
-						System.out.println("Bad regex pattern");
-					}
-				}
-			}
-		});
-
 	}
 
 	public void setMiControlador(Controlador miControlador) {
