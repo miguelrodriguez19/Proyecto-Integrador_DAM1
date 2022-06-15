@@ -5,12 +5,19 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+
+import com.mysql.cj.xdevapi.Table;
+
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.regex.PatternSyntaxException;
+import java.awt.event.ActionEvent;
 
 public class MainPage extends JFrame {
 	private Controlador miControlador;
@@ -23,8 +30,6 @@ public class MainPage extends JFrame {
 	private JComboBox comboBoxDeportes, comboBoxDia, comboBoxMes;
 	private JScrollPane scrollPaneEventos;
 	private JTable table;
-	private String eventoSeleccionado;
-	
 
 	public static void MainPage() {
 		MainPage window = new MainPage();
@@ -143,8 +148,21 @@ public class MainPage extends JFrame {
 		txtLocalidad.setBounds(29, 143, 148, 29);
 		panelPaginaPrincipal.add(txtLocalidad);
 		txtLocalidad.setColumns(10);
+		txtLocalidad.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtLocalidad.setText("");
+			}
+		});
 
 		btnAplicarFiltros = new JButton("Aplicar");
+		btnAplicarFiltros.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				selectitems();
+
+			}
+
+		});
 		btnAplicarFiltros.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAplicarFiltros.setForeground(Color.WHITE);
 		btnAplicarFiltros.setBorder(null);
@@ -180,11 +198,28 @@ public class MainPage extends JFrame {
 			}
 		});
 
+		table = new JTable();
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		table.setSurrendersFocusOnKeystroke(true);
+		table.setToolTipText("");
+
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_NEXT_COLUMN);
+		table.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+//		table.getColumnModel().getColumn(4).setPreferredWidth(220);
+//		for (int i = 0; i < 3; i++) {
+//			table.getColumnModel().getColumn(i).setMinWidth(110);
+//		}
+		table.setRowHeight(65);
+		table.setBounds(96, 58, 809, 285);
+
+		scrollPaneEventos = new JScrollPane();
+		scrollPaneEventos.setBounds(202, 51, 622, 238);
+		panelPaginaPrincipal.add(scrollPaneEventos);
+		scrollPaneEventos.setViewportView(table);
+
 		btnUnirseEvento = new JButton("Unirse ");
-		btnUnirseEvento.setEnabled(false);
 		btnUnirseEvento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.unirseEvento(eventoSeleccionado);
 				miControlador.actualizar(11, 15);
 			}
 		});
@@ -195,31 +230,8 @@ public class MainPage extends JFrame {
 		btnUnirseEvento.setBackground(new Color(53, 187, 95));
 		btnUnirseEvento.setBounds(735, 300, 89, 23);
 		panelPaginaPrincipal.add(btnUnirseEvento);
+//		scrollPane.setViewportView(miTabla);
 
-		table = new JTable();
-		table.setEditingColumn(0);
-		table.setEditingRow(0);
-		table.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				eventoSeleccionado = table.getValueAt(table.getSelectedRow(), table.getSelectedColumn()).toString();
-				btnUnirseEvento.setEnabled(true);
-				System.out.println(eventoSeleccionado);
-			}
-		});
-		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		table.setSurrendersFocusOnKeystroke(true);
-		table.setToolTipText("");
-		table.setAutoResizeMode(JTable.AUTO_RESIZE_NEXT_COLUMN);
-		table.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		table.setRowHeight(65);
-		table.setBounds(96, 58, 809, 285);
-
-		scrollPaneEventos = new JScrollPane();
-		scrollPaneEventos.setBounds(202, 51, 622, 238);
-		panelPaginaPrincipal.add(scrollPaneEventos);
-		scrollPaneEventos.setViewportView(table);
-		
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent e) {
@@ -227,6 +239,55 @@ public class MainPage extends JFrame {
 				table.setModel(miModelo.getTabla());
 			}
 		});
+	}
+
+	private void selectitems() {
+		DefaultTableModel model = new DefaultTableModel();
+		model = (DefaultTableModel) table.getModel();
+		String FiltroFecha = null;
+		String filtroDia = (String) comboBoxDia.getSelectedItem();
+		String filtroMes = (String) comboBoxMes.getSelectedItem();
+		String filtroDeporte = (String) txtLocalidad.getText();
+		String text = txtLocalidad.getText();
+		System.out.println(comboBoxDeportes.getSelectedItem());
+		System.out.println(txtLocalidad.getText());
+//		if (!filtroDia.equals("Dia") && !filtroMes.equals("Mes")) {
+//			int FiltroDiaInt = Integer.parseInt(filtroDia);
+//			int FiltroMesInt = Integer.parseInt(filtroMes);
+//			if (FiltroDiaInt < 10) {
+//				filtroDia = "0" + filtroDia;
+//			}
+//			if (FiltroMesInt < 10) {
+//				filtroMes = "0" + filtroMes;
+//			}
+//			FiltroFecha = "2022-" + filtroMes + "-" + filtroDia;
+//			System.out.println(FiltroFecha);
+//		}
+
+//		TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(model);
+//		table.setRowSorter(sorter);
+//		add(new JScrollPane(table), BorderLayout.CENTER);
+//		sorter.setRowFilter(RowFilter.regexFilter(filtroLocalidad));
+		final TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(model);
+		table.setRowSorter(sorter);
+		add(new JScrollPane(table), BorderLayout.CENTER);
+		JPanel panel = new JPanel(new BorderLayout());
+		JLabel label = new JLabel("Filter");
+		JButton button = new JButton("Filter");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (text.length() == 0) {
+					sorter.setRowFilter(null);
+				} else {
+					try {
+						sorter.setRowFilter(RowFilter.regexFilter(text));
+					} catch (PatternSyntaxException pse) {
+						System.out.println("Bad regex pattern");
+					}
+				}
+			}
+		});
+
 	}
 
 	public void setMiControlador(Controlador miControlador) {
