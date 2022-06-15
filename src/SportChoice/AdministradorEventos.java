@@ -17,6 +17,8 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
@@ -41,6 +43,7 @@ public class AdministradorEventos extends JFrame {
 	private JButton btnBajarArchivo;
 	private JButton btnSubirArchivos;
 	private JScrollPane scrollPaneEventos;
+	private String EventoSeleccionado;
 
 	/**
 	 * Launch the application.
@@ -102,9 +105,20 @@ public class AdministradorEventos extends JFrame {
 		table = new JTable();
 		table.setRowHeight(55);
 		scrollPaneEventos.setViewportView(table);
+		table.addFocusListener(new FocusAdapter() {
+			public void focusGained(FocusEvent e) {
+				EventoSeleccionado = table.getValueAt(table.getSelectedRow(), 0).toString();
+				btnBorrar.setEnabled(true);
+			}
+		});
 
 		btnBorrar = new JButton("BORRAR");
 		btnBorrar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnBorrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miModelo.BorrarEv(EventoSeleccionado);
+			}
+		});
 		btnBorrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnBorrar.setForeground(Color.WHITE);
 		btnBorrar.setBorder(null);

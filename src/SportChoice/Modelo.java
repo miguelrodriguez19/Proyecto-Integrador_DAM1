@@ -569,8 +569,8 @@ public class Modelo {
 	}
 
 	/**
-	 * CargarDatosEvento ejecuta un prepared statement con una query para sacar los
-	 * datos de la BBDD segun un evento previamente seleccionado
+	 * CargarDatosEvento ejecuta un prepared statement con una query
+	 * para sacar los datos de la BBDD segun un evento previamente seleccionado
 	 * 
 	 * @param eventoSeleccionado2
 	 * @return String []
@@ -629,6 +629,17 @@ public class Modelo {
 		}
 	}
 
+	/**
+	 * Metodo usado para recoger los datos seleccionados por el usuario desde la
+	 * clase MainPage, ademas cambia y tipo fecha la entrada de dia y mes
+	 * 
+	 * @param table
+	 * @param comboBoxDia
+	 * @param comboBoxMes
+	 * @param comboBoxDeportes
+	 * @param txtLocalidad
+	 */
+
 	public void selectitems(JTable table, JComboBox comboBoxDia, JComboBox comboBoxMes, JComboBox comboBoxDeportes,
 			JTextField txtLocalidad) {
 
@@ -654,6 +665,16 @@ public class Modelo {
 		}
 	}
 
+	/**
+	 * Metodo usado por el metodo "filtroevento", para sacar la cantidad de columnas
+	 * segun la query usada y que las tablas se muestren correctamente
+	 * 
+	 * @param sql
+	 * @param Deporte
+	 * @param Fecha
+	 * @param Local
+	 * @return
+	 */
 	private int getNumColumnas2(String sql, String Deporte, String Fecha, String Local) {
 		int num = 0;
 		try {
@@ -695,6 +716,14 @@ public class Modelo {
 		return num;
 	}
 
+	/**
+	 * Utilizando los datos introducidos por el metodo "selectitems", se hacen
+	 * querys para definir los filtros, segun el campo que este rellenado se realiza
+	 * una query diferente, luego se llama a la base de datos para obtener los datos
+	 * 
+	 * 
+	 * @return DefaultTableModel
+	 */
 	public DefaultTableModel filtroevento() {
 		DefaultTableModel tablaEven = new DefaultTableModel();
 		// Solo deporte
@@ -785,8 +814,11 @@ public class Modelo {
 		return tablaEven;
 
 	}
+
 	/**
-	 * Metodo que valida si el usuario conectado es el creador del evento ejecutando un prepared statement 
+	 * Metodo que valida si el usuario conectado es el creador del evento ejecutando
+	 * un prepared statement
+	 * 
 	 * @param eventoSeleccionado
 	 * @return
 	 */
@@ -809,4 +841,31 @@ public class Modelo {
 		return false;
 	}
 
+	public void Banear(String usuarioSeleccionado) {
+		System.out.println(usuarioSeleccionado);
+		String queryban = "Delete from users where usr=?;";
+		try {
+			PreparedStatement pstmt = conexion.prepareStatement(queryban);
+			pstmt.setString(1, usuarioSeleccionado);
+			pstmt.execute();
+			pstmt.close();
+			System.out.println("Ban realizado");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void BorrarEv(String EventoSeleccionado) {
+		System.out.println(EventoSeleccionado);
+		String queryban = "Delete from Eventos where Cod_Evento=?;";
+		try {
+			PreparedStatement pstmt = conexion.prepareStatement(queryban);
+			pstmt.setString(1, EventoSeleccionado);
+			pstmt.execute();
+			pstmt.close();
+			System.out.println("Borrado Realizado");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
