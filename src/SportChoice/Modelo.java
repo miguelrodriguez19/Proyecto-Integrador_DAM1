@@ -1,11 +1,30 @@
 package SportChoice;
 
-import java.io.*;
-import java.sql.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Properties;
 
-import javax.swing.*;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -256,7 +275,8 @@ public class Modelo {
 			PreparedStatement pstmt = conexion.prepareStatement(sql);
 			if (option.equals("misEventos") || option.equals("eventosRecientes") || option.equals("historialWindow")
 					|| option.equals("foro")) {
-				if (option.equals("misEventos") || option.equals("eventosRecientes") || option.equals("historialWindow"))
+				if (option.equals("misEventos") || option.equals("eventosRecientes")
+						|| option.equals("historialWindow"))
 					pstmt.setString(1, usuarioConectado);
 				if (option.equals("foro"))
 					pstmt.setString(1, eventoSeleccionado);
@@ -499,7 +519,8 @@ public class Modelo {
 	}
 
 	public String[] cargarDatosEvento(String eventoSeleccionado2) {
-		String datos[] = new String [8]; ;
+		String datos[] = new String[8];
+		;
 		String query = "select nombre_evento, fecha_evento, (select count(*) from participa_evento natural join eventos where cod_evento = ?) "
 				+ "as Participantes, tipo_dep, localizacion, privacidad, descripcion from eventos where cod_evento = ?";
 		PreparedStatement pstmt;
@@ -518,6 +539,29 @@ public class Modelo {
 			e.printStackTrace();
 		}
 		return datos;
+	}
+
+	public void crearEvento(String[] datosEvento) {
+		// TODO Auto-generated method stub
+		String insert = "insert into eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion, cod_foro) values (?, CURDATE(), ?, ?, ?, ?, ?, ?, ?)";
+		PreparedStatement pstmt;
+		try {
+			pstmt = conexion.prepareStatement(insert);
+//			Date date = new Date(Long.parseLong(datosEvento[5]));
+			String codigoEvento = "e" + (int) Math.floor(Math.random() * 9999);
+			pstmt.setString(1, codigoEvento); // Cod-evento
+			pstmt.setDate(2, Date.valueOf(datosEvento[5])); // fecha-evento
+			pstmt.setString(3, datosEvento[4]); // Tipo-Dep
+			pstmt.setString(4, datosEvento[0]); // Descripcion
+			pstmt.setString(5, datosEvento[2]); // nombre-evento
+			pstmt.setString(6, usuarioConectado); // usr
+			pstmt.setString(7, datosEvento[3]); // privacidad
+			pstmt.setString(8, datosEvento[1]); // Localizacion
+			pstmt.executeUpdate(insert);
+			pstmt.close();
+		}catch (Exception e) {
+			e.getStackTrace();
+		}
 	}
 
 }

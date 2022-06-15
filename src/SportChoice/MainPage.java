@@ -187,9 +187,22 @@ public class MainPage extends JFrame {
 				miControlador.actualizar(11, 8);
 			}
 		});
+
+		table = new JTable();
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		table.setSurrendersFocusOnKeystroke(true);
+		table.setToolTipText("");
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_NEXT_COLUMN);
+		table.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		table.setRowHeight(65);
+		table.setBounds(96, 58, 809, 285);
+		
+		scrollPaneEventos = new JScrollPane();
+		scrollPaneEventos.setBounds(202, 51, 622, 238);
+		panelPaginaPrincipal.add(scrollPaneEventos);
+		scrollPaneEventos.setViewportView(table);
+
 		btnUnirseEvento = new JButton("VER");
-		btnUnirseEvento.setEnabled(false);
-		btnUnirseEvento.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnUnirseEvento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(11, 15);
