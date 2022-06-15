@@ -1,5 +1,7 @@
 package SportChoice;
 
+import java.util.Calendar;
+
 import javax.swing.JFrame;
 
 public class Controlador {
@@ -61,5 +63,48 @@ public class Controlador {
 				((CambiarContrasena) pantallas[0]).getTxtNuevaContrasena(),
 				((CambiarContrasena) pantallas[0]).getTxtConfirmarNuevaContrasena());
 
+	}
+
+	public void crearEvento() { 
+		String[] fechaEventoArray = ((crearEvento) pantallas[2]).getCalendar().getDate().toString().split(" ");
+		String ano = fechaEventoArray[5];
+		String mes = fechaEventoArray[1];
+		if (mes.equals("Jun"))
+			mes = "06";
+		else if (mes.equals("Jan"))
+			mes = "01";
+		else if (mes.equals("Feb"))
+			mes = "02";
+		else if (mes.equals("Mar"))
+			mes = "03";
+		else if (mes.equals("Apr"))
+			mes = "04";
+		else if (mes.equals("Apr"))
+			mes = "05";
+		else if (mes.equals("Jul"))
+			mes = "07";
+		else if (mes.equals("Aug"))
+			mes = "08";
+		else if (mes.equals("Sep"))
+			mes = "09";
+		else if (mes.equals("Oct"))
+			mes = "10";
+		else if (mes.equals("Nov"))
+			mes = "11";
+		else 
+			mes = "12";
+		String dia = fechaEventoArray[2];
+		String fechaEvento = ano.concat("-" + mes + "-" + dia);
+		String privacidadEvento;
+		if (((crearEvento) pantallas[2]).getRdbtnPrivado().isSelected())
+			privacidadEvento = "Privado";
+		else
+			privacidadEvento = "Público";
+		String[] datosEvento = { ((crearEvento) pantallas[2]).getTxtpnOrganizamosUnPartido().toString(),
+				((crearEvento) pantallas[2]).getTxtLocalizacion().getText(),
+				((crearEvento) pantallas[2]).getTxtPartidoFutbol().getText(), privacidadEvento,
+				((crearEvento) pantallas[2]).getComboBox().getSelectedItem().toString(),
+				fechaEvento};
+		miModelo.crearEvento(datosEvento);
 	}
 }
