@@ -14,6 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
@@ -26,13 +28,13 @@ public class AdministradorUsuarios extends JFrame {
 	private JButton btnEventos;
 	private JButton btnUsuarios;
 	private JLabel lblNewLabel;
-	private JButton btnNewButton;
+	private JButton btnBanear;
 	private JButton btnNewButton_1;
 	private JTable table;
 	private JButton btnSubirArchivo;
 	private JButton btnSubirArchivo_1;
 	private JButton btnBajarArchivo;
-
+	private String UsuarioSeleccionado;
 
 	/**
 	 * Launch the application.
@@ -93,15 +95,26 @@ public class AdministradorUsuarios extends JFrame {
 		table = new JTable();
 		table.setRowHeight(55);
 		scrollPaneEventos.setViewportView(table);
+		table.addFocusListener(new FocusAdapter() {
+			public void focusGained(FocusEvent e) {
+				UsuarioSeleccionado = table.getValueAt(table.getSelectedRow(), 0).toString();
+				btnBanear.setEnabled(true);
+			}
+		});
 
-		btnNewButton = new JButton("Banear");
-		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNewButton.setEnabled(false);
-		btnNewButton.setForeground(Color.WHITE);
-		btnNewButton.setBorder(null);
-		btnNewButton.setBackground(Color.RED);
-		btnNewButton.setBounds(701, 386, 112, 30);
-		panel.add(btnNewButton);
+		btnBanear = new JButton("Banear");
+		btnBanear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miModelo.Banear(UsuarioSeleccionado);
+			}
+		});
+		btnBanear.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnBanear.setEnabled(false);
+		btnBanear.setForeground(Color.WHITE);
+		btnBanear.setBorder(null);
+		btnBanear.setBackground(Color.RED);
+		btnBanear.setBounds(701, 386, 112, 30);
+		panel.add(btnBanear);
 
 		lblNewLabel = new JLabel("\r\n");
 		lblNewLabel.setIcon(new ImageIcon(AdministradorUsuarios.class.getResource("/Imagenes/logoSportChoice.png")));
@@ -110,6 +123,7 @@ public class AdministradorUsuarios extends JFrame {
 
 		btnNewButton_1 = new JButton("LogOut");
 		btnNewButton_1.addActionListener(new ActionListener() {
+
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(19, 7);
 			}
@@ -122,7 +136,8 @@ public class AdministradorUsuarios extends JFrame {
 		panel.add(btnNewButton_1);
 
 		btnBajarArchivo = new JButton("UPLOAD");
-		btnBajarArchivo.setIcon(new ImageIcon(AdministradorUsuarios.class.getResource("/Imagenes/upload-file-svgrepo-com (1).png")));
+		btnBajarArchivo.setIcon(
+				new ImageIcon(AdministradorUsuarios.class.getResource("/Imagenes/upload-file-svgrepo-com (1).png")));
 //		btnBajarArchivo.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
 //				miModelo.cargar(rutaFichero);
@@ -139,10 +154,10 @@ public class AdministradorUsuarios extends JFrame {
 			}
 		});
 
-		
 		btnSubirArchivo = new JButton("");
 		btnSubirArchivo_1 = new JButton("SAVE");
-		btnSubirArchivo_1.setIcon(new ImageIcon(AdministradorUsuarios.class.getResource("/Imagenes/download-file-svgrepo-com (1).png")));
+		btnSubirArchivo_1.setIcon(
+				new ImageIcon(AdministradorUsuarios.class.getResource("/Imagenes/download-file-svgrepo-com (1).png")));
 		btnSubirArchivo_1.setBounds(701, 251, 112, 54);
 		btnSubirArchivo_1.setBackground(null);
 		panel.add(btnSubirArchivo_1);

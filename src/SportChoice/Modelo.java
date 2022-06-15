@@ -639,4 +639,31 @@ public class Modelo {
 
 	}
 
+	public void Banear(String usuarioSeleccionado) {
+		System.out.println(usuarioSeleccionado);
+		String queryban = "Delete from users where usr=?;";
+		try {
+			PreparedStatement pstmt = conexion.prepareStatement(queryban);
+			pstmt.setString(1, usuarioSeleccionado);
+			pstmt.execute();
+			pstmt.close();
+			System.out.println("Ban realizado");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void BorrarEv(String EventoSeleccionado) {
+		System.out.println(EventoSeleccionado);
+		String queryban = "Delete from Eventos where Cod_Evento=?;";
+		try {
+			PreparedStatement pstmt = conexion.prepareStatement(queryban);
+			pstmt.setString(1, EventoSeleccionado);
+			pstmt.execute();
+			pstmt.close();
+			System.out.println("Borrado Realizado");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
