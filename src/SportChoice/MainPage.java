@@ -5,15 +5,22 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+
+import com.mysql.cj.xdevapi.Table;
+
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.awt.event.MouseListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.regex.PatternSyntaxException;
+import java.awt.event.ActionEvent;
 
 public class MainPage extends JFrame {
 	private Controlador miControlador;
@@ -148,9 +155,21 @@ public class MainPage extends JFrame {
 		txtLocalidad.setBounds(30, 148, 148, 29);
 		panelPaginaPrincipal.add(txtLocalidad);
 		txtLocalidad.setColumns(10);
+		txtLocalidad.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtLocalidad.setText("");
+			}
+		});
 
-		btnAplicarFiltros = new JButton("BUSCAR");
-		btnAplicarFiltros.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnAplicarFiltros = new JButton("Aplicar");
+		btnAplicarFiltros.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miModelo.selectitems(table, comboBoxDia, comboBoxMes, comboBoxDeportes, txtLocalidad);
+				table.setModel(miModelo.filtroevento());
+
+			}
+		});
 		btnAplicarFiltros.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAplicarFiltros.setForeground(Color.WHITE);
 		btnAplicarFiltros.setBorder(null);
@@ -192,11 +211,12 @@ public class MainPage extends JFrame {
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		table.setSurrendersFocusOnKeystroke(true);
 		table.setToolTipText("");
+		table.setDefaultEditor(Object.class, null);
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_NEXT_COLUMN);
 		table.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		table.setRowHeight(65);
 		table.setBounds(96, 58, 809, 285);
-		
+
 		scrollPaneEventos = new JScrollPane();
 		scrollPaneEventos.setBounds(202, 51, 622, 238);
 		panelPaginaPrincipal.add(scrollPaneEventos);
@@ -215,6 +235,7 @@ public class MainPage extends JFrame {
 		btnUnirseEvento.setBackground(new Color(53, 187, 95));
 		btnUnirseEvento.setBounds(735, 300, 89, 23);
 		panelPaginaPrincipal.add(btnUnirseEvento);
+//		scrollPane.setViewportView(miTabla);
 
 		table = new JTable();
 		table.addFocusListener(new FocusAdapter() {
