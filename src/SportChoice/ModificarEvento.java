@@ -245,6 +245,12 @@ public class ModificarEvento extends JFrame{
 		btnLogo_1.setBounds(30, 15, 114, 68);
 		panelHeader.add(btnLogo_1);
 		
+		btnLogo_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(9, 11);
+			}
+		});
+		
 		btnAtras = new JButton("");
 		btnAtras.setBorder(null);
 		btnAtras.addActionListener(new ActionListener() {

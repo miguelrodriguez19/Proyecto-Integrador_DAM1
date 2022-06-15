@@ -189,7 +189,7 @@ public class MainPage extends JFrame {
 //		}
 		table.setRowHeight(65);
 		table.setBounds(96, 58, 809, 285);
-
+		
 		scrollPaneEventos = new JScrollPane();
 		scrollPaneEventos.setBounds(202, 51, 622, 238);
 		panelPaginaPrincipal.add(scrollPaneEventos);
