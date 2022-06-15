@@ -219,7 +219,11 @@ public class Modelo {
 	}
 
 	/**
-	 * cargarDatosUsuario Refresca los datos HashMap
+	 * Recorre la tabla users del usuario logeado sacando todos sus datos con
+	 * resultset y nombres de las columnas de los datos con el resulset metadata, y
+	 * con un for rellena un hash map de clave valor, este código se hace algo más
+	 * largo porque estos datos algunos los ponemos en mayúsculas si no lo estan ya
+	 * que a la hora de verlos en el perfil esto queda mejor y nos pareció lo mejor.
 	 */
 	private void cargarDatosUsuario() {
 		String query = "select usr, nombre, apellido, email, pwd, Fecha_nac, FotoPerfil, descripcion, DeporteFav, valoraciones, cod_recuperacion, rol, localidad, genero from users where usr = ?";
@@ -338,6 +342,10 @@ public class Modelo {
 		this.usuarioConectado = usuarioConectado;
 	}
 
+	/**
+	 * Lee el fichero de la ruta indicada que es donde estan los datos de conexion a
+	 * la base de datos.
+	 */
 	public void leerFichero() {
 		File rutaProyecto = new File(FILE);
 		FileNameExtensionFilter filtro = new FileNameExtensionFilter("*.java", "java");
@@ -402,6 +410,13 @@ public class Modelo {
 		return respuesta;
 	}
 
+	/**
+	 * Realiza el update con el prepared statement y los campos recibidos del
+	 * controlador para cambiar los datos del perfil y también los del hashMap del
+	 * usuario.
+	 * 
+	 * @param datosCambiosPerfil
+	 */
 	public void guardarCambiosPerfil(String[] datosCambiosPerfil) {
 		// Usuario, Nombre, Descripcion, Me gustas
 		String query = "update users set usr = ?, nombre = ?, apellido = ?, descripcion = ?,  valoraciones = ?, DeporteFav = ?, genero = ? where usr = ?";
@@ -433,6 +448,16 @@ public class Modelo {
 			e.printStackTrace();
 		}
 	}
+
+	/**
+	 * Compara la contraseña introducida con la que hay en base de datos, si
+	 * coincide y las nuevas introducidas coinciden, le cambia la contraseña con un
+	 * update en el prepared statement al usuario conectado.
+	 * 
+	 * @param supuestaContrasenaActual
+	 * @param nuevaContrasena
+	 * @param nuevaContrasenaActual
+	 */
 
 	public void cambioContrasena(String supuestaContrasenaActual, String nuevaContrasena,
 			String nuevaContrasenaActual) {
@@ -471,9 +496,18 @@ public class Modelo {
 
 	}
 
+	/**
+	 * 
+	 * @param datosEvento
+	 * 
+	 *                    Hace el insert del nuevo evento rellenandolo con lo
+	 *                    introducido en los campos de la ventana crear eventos
+	 *                    mediante un prepareStatement que ejecuta el final.
+	 */
+
 	public void crearEvento(String[] datosEvento) {
 		// TODO Auto-generated method stub
-		String insert = "insert into eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion, cod_foro) values (?, CURDATE(), ?, ?, ?, ?, ?, ?, ?)";
+		String insert = "insert into eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion) values (?, CURDATE(), ?, ?, ?, ?, ?, ?, ?);";
 		PreparedStatement pstmt;
 		try {
 			pstmt = conexion.prepareStatement(insert);
@@ -487,7 +521,7 @@ public class Modelo {
 			pstmt.setString(6, usuarioConectado); // usr
 			pstmt.setString(7, datosEvento[3]); // privacidad
 			pstmt.setString(8, datosEvento[1]); // Localizacion
-			pstmt.executeUpdate(insert);
+			pstmt.executeUpdate();
 			pstmt.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
