@@ -453,6 +453,17 @@ public class Modelo {
 
 	}
 
+	/**
+	 * Metodo usado para recoger los datos seleccionados por el usuario desde la
+	 * clase MainPage, ademas cambia y tipo fecha la entrada de dia y mes
+	 * 
+	 * @param table
+	 * @param comboBoxDia
+	 * @param comboBoxMes
+	 * @param comboBoxDeportes
+	 * @param txtLocalidad
+	 */
+
 	public void selectitems(JTable table, JComboBox comboBoxDia, JComboBox comboBoxMes, JComboBox comboBoxDeportes,
 			JTextField txtLocalidad) {
 
@@ -478,6 +489,16 @@ public class Modelo {
 		}
 	}
 
+	/**
+	 * Metodo usado por el metodo "filtroevento", para sacar la cantidad de columnas
+	 * segun la query usada y que las tablas se muestren correctamente
+	 * 
+	 * @param sql
+	 * @param Deporte
+	 * @param Fecha
+	 * @param Local
+	 * @return
+	 */
 	private int getNumColumnas2(String sql, String Deporte, String Fecha, String Local) {
 		int num = 0;
 		try {
@@ -519,12 +540,16 @@ public class Modelo {
 		return num;
 	}
 
+	/**
+	 * Utilizando los datos introducidos por el metodo "selectitems", se hacen
+	 * querys para definir los filtros, segun el campo que este rellenado se realiza
+	 * una query diferente, luego se llama a la base de datos para obtener los datos
+	 * 
+	 * 
+	 * @return DefaultTableModel
+	 */
 	public DefaultTableModel filtroevento() {
 		DefaultTableModel tablaEven = new DefaultTableModel();
-		// String queryfiltdep = "Select cod_evento as Evento, eventos.usr as Creador,
-		// fecha_evento as Fecha, nombre_evento 'Nombre evento' from Eventos where
-		// Tipo_Dep =?";
-
 		// Solo deporte
 		if (filtroMes.equals("Mes") && filtroDia.equals("Dia") && Localicad.equals("Localidad")
 				&& !DeporteFiltro.equals("Deportes")) {
