@@ -16,10 +16,9 @@ public class ModificarEvento extends JFrame{
 	private Modelo miModelo;
 	private JPanel panelHeader;
 	private JTextField txtPartidoFutbol, txtCCruzDe;
-	private JSpinner spinner, spinner_1, spinner_2;
 	private JRadioButton rdbtnPublico, rdbtnPrivado;
 	private JComboBox comboBox;
-	private JLabel lblNombreEvento, lblDeporteFutbol, lblHora, lblHora_1, lblParticipantes, lblTipoEvento,
+	private JLabel lblNombreEvento, lblDeporteFutbol, lblTipoEvento,
 			lblFechaEvento, lblDescripcin, lblLocalizacin, lblCrearEvento;
 	private JButton btnPerfil, btnCrear, btnEliminar, btnLogo, btnPerfil_1, btnFAQs;
 	private JButton btnLogo_1;
@@ -68,51 +67,16 @@ public class ModificarEvento extends JFrame{
 		comboBox.setBounds(162, 179, 162, 21);
 		getContentPane().add(comboBox);
 
-		lblHora = new JLabel("HORA");
-		lblHora.setForeground(Color.WHITE);
-		lblHora.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblHora.setBounds(40, 212, 101, 23);
-		getContentPane().add(lblHora);
-
-		spinner = new JSpinner();
-		spinner.setModel(new SpinnerNumberModel(17, 1, 24, 1));
-		spinner.setBounds(162, 213, 72, 21);
-		getContentPane().add(spinner);
-
-		lblHora_1 = new JLabel(":");
-		lblHora_1.setForeground(Color.WHITE);
-		lblHora_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblHora_1.setAlignmentX(0.5f);
-		lblHora_1.setBounds(244, 210, 17, 23);
-		getContentPane().add(lblHora_1);
-
-		spinner_1 = new JSpinner();
-		spinner_1.setModel(new SpinnerNumberModel(30, 0, 60, 1));
-		spinner_1.setBounds(264, 213, 60, 21);
-		getContentPane().add(spinner_1);
-
-		lblParticipantes = new JLabel("PARTICIPANTES");
-		lblParticipantes.setForeground(Color.WHITE);
-		lblParticipantes.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblParticipantes.setBounds(40, 248, 112, 23);
-		getContentPane().add(lblParticipantes);
-
-		spinner_2 = new JSpinner();
-		spinner_2.setEnabled(false);
-		spinner_2.setModel(new SpinnerNumberModel(14, 2, 100, 1));
-		spinner_2.setBounds(162, 250, 162, 21);
-		getContentPane().add(spinner_2);
-
 		lblTipoEvento = new JLabel("VISIBILIDAD");
 		lblTipoEvento.setForeground(Color.WHITE);
 		lblTipoEvento.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblTipoEvento.setBounds(40, 283, 94, 23);
+		lblTipoEvento.setBounds(40, 208, 94, 23);
 		getContentPane().add(lblTipoEvento);
 
 		lblFechaEvento = new JLabel("FECHA");
 		lblFechaEvento.setForeground(Color.WHITE);
 		lblFechaEvento.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblFechaEvento.setBounds(42, 312, 94, 23);
+		lblFechaEvento.setBounds(40, 242, 94, 23);
 		getContentPane().add(lblFechaEvento);
 
 		rdbtnPublico = new JRadioButton("PUBLICO");
@@ -120,7 +84,7 @@ public class ModificarEvento extends JFrame{
 		rdbtnPublico.setForeground(Color.WHITE);
 		rdbtnPublico.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		rdbtnPublico.setBackground((Color) null);
-		rdbtnPublico.setBounds(162, 287, 88, 21);
+		rdbtnPublico.setBounds(162, 212, 88, 21);
 		getContentPane().add(rdbtnPublico);
 
 		rdbtnPrivado = new JRadioButton("PRIVADO");
@@ -128,7 +92,7 @@ public class ModificarEvento extends JFrame{
 		rdbtnPrivado.setForeground(Color.WHITE);
 		rdbtnPrivado.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		rdbtnPrivado.setBackground((Color) null);
-		rdbtnPrivado.setBounds(252, 287, 88, 21);
+		rdbtnPrivado.setBounds(252, 212, 88, 21);
 		getContentPane().add(rdbtnPrivado);
 
 		lblDescripcin = new JLabel("DESCRIPCION");
@@ -247,6 +211,12 @@ public class ModificarEvento extends JFrame{
 		btnLogo_1.setBounds(30, 15, 114, 68);
 		panelHeader.add(btnLogo_1);
 		
+		btnLogo_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.actualizar(9, 11);
+			}
+		});
+		
 		btnAtras = new JButton("");
 		btnAtras.setBorder(null);
 		btnAtras.addActionListener(new ActionListener() {
@@ -261,7 +231,7 @@ public class ModificarEvento extends JFrame{
 		getContentPane().add(btnAtras);
 		
 		JCalendar calendar = new JCalendar();
-		calendar.setBounds(156, 315, 168, 111);
+		calendar.setBounds(162, 249, 168, 111);
 		getContentPane().add(calendar);
 
 	}

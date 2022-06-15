@@ -55,6 +55,12 @@ public class LogIn extends JFrame {
 		getContentPane().add(panel);
 		panel.setLayout(null);
 
+		lblContrasenaPlaceHolder = new JLabel("Contraseña");
+		lblContrasenaPlaceHolder.setBounds(28, 164, 275, 48);
+		panel.add(lblContrasenaPlaceHolder);
+		lblContrasenaPlaceHolder.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		lblContrasenaPlaceHolder.setForeground(Color.GRAY);
+
 		separator = new JSeparator();
 		separator.setBounds(28, 354, 275, 2);
 		panel.add(separator);
@@ -114,12 +120,6 @@ public class LogIn extends JFrame {
 		lblnoTienesCuenta.setBounds(10, 376, 205, 26);
 		panel.add(lblnoTienesCuenta);
 
-		lblContrasenaPlaceHolder = new JLabel("Contraseña");
-		lblContrasenaPlaceHolder.setBounds(28, 164, 275, 48);
-		panel.add(lblContrasenaPlaceHolder);
-		lblContrasenaPlaceHolder.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		lblContrasenaPlaceHolder.setForeground(Color.GRAY);
-
 		txtPwd = new JPasswordField("");
 		txtPwd.setForeground(Color.GRAY);
 		txtPwd.setColumns(10);
@@ -167,7 +167,7 @@ public class LogIn extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(7, 11);
 				miModelo.conectarFicheroBBDD();
-				miControlador.actualizar(7,11);
+				miControlador.actualizar(7, 11);
 			}
 		});
 		btnAccederInvitado.setSelected(true);
@@ -235,7 +235,6 @@ public class LogIn extends JFrame {
 	}
 
 	public void update(String rol) {
-		System.out.println("Entrando en update.");
 		String resultado = miModelo.getResultado();
 		if (resultado.equals("Correcto")) {
 			if (rol.equals("admin")) {
