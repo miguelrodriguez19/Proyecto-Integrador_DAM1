@@ -1,6 +1,5 @@
 CREATE DATABASE ProyectoIntegrador CHARACTER SET Latin1 COLLATE latin1_spanish_ci;
 use ProyectoIntegrador;
--- drop database ProyectoIntegrador;
 
 create table users(
 usr varchar(20),
@@ -15,8 +14,6 @@ DeporteFav varchar(30),
 valoraciones integer,
 cod_recuperacion varchar(20),
 rol varchar(20),
-localidad varchar(50),
-genero varchar(20),
 primary key (usr)
 )engine = innodb;
 
@@ -71,20 +68,20 @@ foreign key (cod_user) references users(usr) on delete cascade on update cascade
 )engine = innodb;
 
 -- users 
-insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol, localidad, genero) values ('dglmn', 'Luis', 'Vallejo', 'mejorApp@SportChoice.com', 'dglmn', '2020-11-25', '', '', 0, 6969, 'user', 'Madrid', 'mujer');
-insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol, localidad, genero) values ('adminAlvar', 'Alvaro', 'Rodriguez', 'admin-suport@SportChoice.com', 'admin123', '2020-11-25', '', '', 0, 666, 'admin', 'Barcelona', 'hombre');
-insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol, localidad, genero) values ('wsurgen0', 'Willdon', 'Surgen', 'wsurgen0@mit.edu', 'fJiZh3jwm', '2021-11-25', 'evolve B2B platforms', 'Baloncesto', 667, 5777, 'user', 'Valencia', 'no especificar');
-insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol, localidad, genero) values ('bmonroe1', 'Britney', 'Monroe', 'bmonroe1@scribd.com', '0cgNCr', '2021-07-17', 'innovate transparent portals', 'Baloncesto', 680, 5124, 'user', 'Madrid', 'otro');
-insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol, localidad, genero) values ('iruxton2', 'Ilyssa', 'Ruxton', 'iruxton2@ning.com', 'LhuzdW', '2022-03-05', 'leverage efficient vortals', 'Baloncesto', 87, 9831, 'user', 'Madrid', 'mujer');
-insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol, localidad, genero) values ('mdixcee3', 'Mart', 'Dixcee', 'mdixcee3@themeforest.net', 'Um6z4GgCQki', '2022-01-06', 'incentivize turn-key models', 'Padel', 697, 9312, 'user', 'Madrid', 'hombre');
-insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol, localidad, genero) values ('telcox4', 'Tatiania', 'Elcox', 'telcox4@barnesandnoble.com', 'yxyggRs0AMW', '2021-12-20', 'brand killer e-markets', 'Baloncesto', 405, 1967, 'user', 'Barcelona', 'mujer');
-insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol, localidad, genero) values ('dtattersall5', 'Deck', 'Tattersall', 'dtattersall5@indiegogo.com', 'vbYuZMtu3M3', '2021-08-14', 'drive enterprise e-markets', 'Baloncesto', 205, 912, 'user', 'Madrid', 'mujer');
-insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol, localidad, genero) values ('askase6', 'Amelita', 'Skase', 'askase6@multiply.com', '31PM5sCMr9p', '2021-10-29', 'orchestrate plug-and-play content', 'Baloncesto', 83, 9268, 'user', 'Madrid', 'mujer');
-insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol, localidad, genero) values ('pcattenach7', 'Paulita', 'Cattenach', 'pcattenach7@amazon.co.uk', 'IHBxpDNRxsw', '2022-03-14', 'synergize vertical paradigms', 'Baloncesto', 194, 1350, 'user', 'Madrid', 'hombre');
-insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol, localidad, genero) values ('sscanlon8', 'Sinclare', 'Scanlon', 'sscanlon8@addthis.com', 'pZSGZZYSD', '2021-12-04', 'iterate mission-critical supply-chains', 'Baloncesto', 371, 7709, 'user', 'Madrid', 'otro');
-insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol, localidad, genero) values ('mstudholme9', 'Mirilla', 'Studholme', 'mstudholme9@desdev.cn', 'N1gIdLpSFXw', '2021-11-17', 'synergize compelling users', 'Baloncesto', 71, 7325, 'user', 'Madrid', 'no especificar');
-insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol, localidad, genero) values ('cwingfielda', 'Christoforo', 'Wingfield', 'cwingfielda@smh.com.au', 'C6zOAgFV5Htn', '2022-01-23', 'extend e-business technologies', 'Baloncesto', 802, 7325, 'user', 'Madrid', 'otro');
-insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol, localidad, genero) values ('lpiccardb', 'Lorri', 'Piccard', 'lpiccardb@shop-pro.jp', 'ZU5R9t', '2021-10-31', 'empower visionary bandwidth', 'Baloncesto', 926, 1216, 'user', 'Madrid', 'Mujer');
+insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol) values ('dglmn', 'Luis', 'Vallejo', 'mejorApp@SportChoice.com', 'dglmn', '2020-11-25', '', '', 0, 6969, 'user');
+insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol) values ('adminAlvar', 'Alvaro', 'Rodriguez', 'admin-suport@SportChoice.com', 'admin123', '2020-11-25', '', '', 0, 666, 'admin');
+insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol) values ('wsurgen0', 'Willdon', 'Surgen', 'wsurgen0@mit.edu', 'fJiZh3jwm', '2021-11-25', 'evolve B2B platforms', 'Baloncesto', 667, 5777, 'user');
+insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol) values ('bmonroe1', 'Britney', 'Monroe', 'bmonroe1@scribd.com', '0cgNCr', '2021-07-17', 'innovate transparent portals', 'Baloncesto', 680, 5124, 'user');
+insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol) values ('iruxton2', 'Ilyssa', 'Ruxton', 'iruxton2@ning.com', 'LhuzdW', '2022-03-05', 'leverage efficient vortals', 'Baloncesto', 87, 9831, 'user');
+insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol) values ('mdixcee3', 'Mart', 'Dixcee', 'mdixcee3@themeforest.net', 'Um6z4GgCQki', '2022-01-06', 'incentivize turn-key models', 'Padel', 697, 9312, 'user');
+insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol) values ('telcox4', 'Tatiania', 'Elcox', 'telcox4@barnesandnoble.com', 'yxyggRs0AMW', '2021-12-20', 'brand killer e-markets', 'Baloncesto', 405, 1967, 'user');
+insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol) values ('dtattersall5', 'Deck', 'Tattersall', 'dtattersall5@indiegogo.com', 'vbYuZMtu3M3', '2021-08-14', 'drive enterprise e-markets', 'Baloncesto', 205, 912, 'user');
+insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol) values ('askase6', 'Amelita', 'Skase', 'askase6@multiply.com', '31PM5sCMr9p', '2021-10-29', 'orchestrate plug-and-play content', 'Baloncesto', 83, 9268, 'user');
+insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol) values ('pcattenach7', 'Paulita', 'Cattenach', 'pcattenach7@amazon.co.uk', 'IHBxpDNRxsw', '2022-03-14', 'synergize vertical paradigms', 'Baloncesto', 194, 1350, 'user');
+insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol) values ('sscanlon8', 'Sinclare', 'Scanlon', 'sscanlon8@addthis.com', 'pZSGZZYSD', '2021-12-04', 'iterate mission-critical supply-chains', 'Baloncesto', 371, 7709, 'user');
+insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol) values ('mstudholme9', 'Mirilla', 'Studholme', 'mstudholme9@desdev.cn', 'N1gIdLpSFXw', '2021-11-17', 'synergize compelling users', 'Baloncesto', 71, 7325, 'user');
+insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol) values ('cwingfielda', 'Christoforo', 'Wingfield', 'cwingfielda@smh.com.au', 'C6zOAgFV5Htn', '2022-01-23', 'extend e-business technologies', 'Baloncesto', 802, 7325, 'user');
+insert into users (usr, nombre, apellido, email, pwd, Fecha_nac, descripcion, DeporteFav, Valoraciones, cod_recuperacion, rol) values ('lpiccardb', 'Lorri', 'Piccard', 'lpiccardb@shop-pro.jp', 'ZU5R9t', '2021-10-31', 'empower visionary bandwidth', 'Baloncesto', 926, 1216, 'user');
 
 -- foro
 insert into foro (cod_foro) values (1394);
@@ -114,8 +111,8 @@ insert into Eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descrip
 insert into Eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion, cod_foro) values ('e12606', '2021-08-28', '2022-08-30', 'Tenis', 'Cloned systemic ability', 'cpethybridgea', 'lpiccardb', 'Privado', '74258 Sutherland Hill', 4964);
 insert into Eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion, cod_foro) values ('e12607', '2021-08-01', '2022-09-07', 'Tenis', 'Right-sized optimizing synergy', 'wputtergillb', 'telcox4', 'Publico', '8 4th Place', null);
 insert into Eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion, cod_foro) values ('e12699', '2021-08-01', '2022-11-17', 'Baloncesto', 'Cloned dedicated functionalities', 'wputtergillb', 'dglmn', 'Publico', '74258 Sutherland Place', null);
-insert into Eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion, cod_foro) values ('e17627', '2021-08-01', '2022-7-17', 'Baloncesto', 'Team-oriented optimal knowledge Interface', 'wputtergillb', 'dglmn', 'Publico', '74258 Sutherland Place', 8478);
- select participa_evento.cod_user, fecha_evento, nombre_evento from eventos natural join participa_evento where cod_evento = 'e17627'; 
+insert into Eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion, cod_foro) values ('e17627', '2021-08-01', '2022-7-17', 'Baloncesto', 'Team-oriented optimal knowledge Interface', 'wputtergillb', 'dglmn', 'Publico', '74258 Sutherland Place', null);
+ 
 -- participa_evento
 insert into participa_evento (cod_user, Cod_Evento) values ('wsurgen0', 'e12353');
 insert into participa_evento (cod_user, Cod_Evento) values ('bmonroe1', 'e17063');
@@ -148,7 +145,7 @@ insert into valoracion_users (cod_user, cod_companero, cod_evento) values ('ssca
 insert into valoracion_users (cod_user, cod_companero, cod_evento) values ('mstudholme9', 'iruxton2', 'e18851');
 insert into valoracion_users (cod_user, cod_companero, cod_evento) values ('cwingfielda', 'bmonroe1', 'e12606');
 insert into valoracion_users (cod_user, cod_companero, cod_evento) values ('lpiccardb', 'wsurgen0', 'e17627');
-select cod_user as Usuario, mensaje, fecha from mensaje_foro natural join eventos where cod_Evento = 'e17627' order by fecha desc;
+
 -- mensaje
 insert into mensaje_foro (cod_mensaje, cod_foro, cod_user, mensaje, fecha) values ('m5241', 1394, 'wsurgen0', 'Optimizedsystemiccapability', '2021-07-24');
 insert into mensaje_foro (cod_mensaje, cod_foro, cod_user, mensaje, fecha) values ('m5324', 5613, 'bmonroe1', 'Front-line transitional capability', '2022-01-18');
@@ -161,13 +158,8 @@ insert into mensaje_foro (cod_mensaje, cod_foro, cod_user, mensaje, fecha) value
 insert into mensaje_foro (cod_mensaje, cod_foro, cod_user, mensaje, fecha) values ('m8428', 6206, 'mstudholme9', 'Face to face methodical core', '2022-03-04');
 insert into mensaje_foro (cod_mensaje, cod_foro, cod_user, mensaje, fecha) values ('m7158', 3922, 'cwingfielda', 'Ameliorated mobile analyzer', '2022-05-01');
 insert into mensaje_foro (cod_mensaje, cod_foro, cod_user, mensaje, fecha) values ('m1511', 4964, 'lpiccardb', 'Reactive zero administration time-frame', '2021-06-09');
-insert into mensaje_foro (cod_mensaje, cod_foro, cod_user, mensaje, fecha) values ('m2026', 8478, 'telcox4', 'Hola!!', '2021-08-08');
-insert into mensaje_foro (cod_mensaje, cod_foro, cod_user, mensaje, fecha) values ('m2027', 8478, 'lpiccardb', 'Hola!! Yo llevo pelota', '2021-08-08');
-insert into mensaje_foro (cod_mensaje, cod_foro, cod_user, mensaje, fecha) values ('m2028', 8478, 'cwingfielda', 'Yo tengo conos', '2021-08-08');
-insert into mensaje_foro (cod_mensaje, cod_foro, cod_user, mensaje, fecha) values ('m2029', 8478, 'dglmn', 'Para que queremos conos?', '2021-08-08');
-select cod_evento as eventoActual, nombre_evento as 'Nombre evento', usr as Creador, fecha_evento as Fecha, tipo_dep as Deporte, 
--- (select count(*) as participantes from participa_evento where cod_evento = eventoActual group by cod_evento) as participantes 
--- from eventos natural join participa_evento group by cod_evento order by fecha_evento desc;
+insert into mensaje_foro (cod_mensaje, cod_foro, cod_user, mensaje, fecha) values ('m2025', 8478, 'telcox4', 'Adaptive 24 hour orchestration', '2021-08-08');
+
 
 /* -- QUERYS POR PANTALLA
 -- Eventos Administrador 
@@ -242,3 +234,5 @@ select mensaje, fecha, cod_usuario from mensaje_foro where cod_Evento = 'e12353'
 	-- Para escribir mensajes
 insert into mensaje_foro (cod_mensaje, cod_foro, cod_user, mensaje, fecha) values ('m5241', 1394, 'wsurgen0', 'Optimizedsystemiccapability', current_date());
 */
+
+delete from Eventos where Cod_Evento = 'e14244';

@@ -457,7 +457,7 @@ public class Modelo {
 		String FiltroFecha = null;
 		String filtroDia = (String) comboBoxDia.getSelectedItem();
 		String filtroMes = (String) comboBoxMes.getSelectedItem();
-		DeporteFiltro = (String) txtLocalidad.getText();
+		DeporteFiltro = (String) comboBoxDeportes.getSelectedItem();
 		String text = txtLocalidad.getText();
 		System.out.println(comboBoxDeportes.getSelectedItem());
 		System.out.println(txtLocalidad.getText());
@@ -491,7 +491,8 @@ public class Modelo {
 
 	public DefaultTableModel filtroevento() {
 		DefaultTableModel tablaEven = new DefaultTableModel();
-		String queryfiltdep = "Select * from Eventos where Tipo_Dep =?";
+		String queryfiltdep = "Select cod_evento as Evento, eventos.usr as Creador, fecha_evento as Fecha, nombre_evento 'Nombre evento' from Eventos where Tipo_Dep =?";
+		System.out.println(DeporteFiltro);
 		int ncum = getNumColumnas2(queryfiltdep, DeporteFiltro);
 		Object[] contenido = new Object[ncum];
 		PreparedStatement pstmt;
