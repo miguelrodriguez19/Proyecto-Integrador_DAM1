@@ -123,8 +123,6 @@ public class Modelo {
 		String rol;
 		this.usr = consulta("select * from users where usr=?", usr, "usr");
 		this.pwdBBDD = consulta("select * from users where usr=?", usr, "pwd");
-		System.out.println("Locales: " + usr + " - " + pwd);
-		System.out.println("Atributos: " + this.usr + " - " + this.pwdBBDD);
 		rol = consulta("select * from users where usr=?", usr, "rol");
 		if (this.usr.equals(usr) && this.pwdBBDD.equals(pwd)) {
 			setUsuarioConectado(usr);
@@ -523,7 +521,6 @@ public class Modelo {
 
 	public String[] cargarDatosEvento(String eventoSeleccionado2) {
 		String datos[] = new String[8];
-		;
 		String query = "select nombre_evento, fecha_evento, (select count(*) from participa_evento natural join eventos where cod_evento = ?) "
 				+ "as Participantes, tipo_dep, localizacion, privacidad, descripcion from eventos where cod_evento = ?";
 		PreparedStatement pstmt;
@@ -634,10 +631,6 @@ public class Modelo {
 
 	public DefaultTableModel filtroevento() {
 		DefaultTableModel tablaEven = new DefaultTableModel();
-		// String queryfiltdep = "Select cod_evento as Evento, eventos.usr as Creador,
-		// fecha_evento as Fecha, nombre_evento 'Nombre evento' from Eventos where
-		// Tipo_Dep =?";
-
 		// Solo deporte
 		if (filtroMes.equals("Mes") && filtroDia.equals("Dia") && Localicad.equals("Localidad")
 				&& !DeporteFiltro.equals("Deportes")) {
@@ -725,6 +718,25 @@ public class Modelo {
 		}
 		return tablaEven;
 
+	}
+
+	public boolean validarUsuarioCreador(String eventoSeleccionado) {
+		String query = "select usr from eventos where cod_evento = ?";
+		PreparedStatement pstmt;
+		try {
+			pstmt = conexion.prepareStatement(query);
+			pstmt.setString(1, eventoSeleccionado);
+			ResultSet rset = pstmt.executeQuery();
+			ResultSetMetaData rsmd = rset.getMetaData();
+			int columnas = rsmd.getColumnCount();
+			if (rset.next())
+				if (usuarioConectado.equals(rset.getString(1).toString())) {
+					return true;
+				}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}		
+		return false;
 	}
 
 }
