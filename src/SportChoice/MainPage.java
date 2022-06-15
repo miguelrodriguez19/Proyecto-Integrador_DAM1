@@ -158,7 +158,7 @@ public class MainPage extends JFrame {
 		btnAplicarFiltros = new JButton("Aplicar");
 		btnAplicarFiltros.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miModelo.selectitems(table, comboBoxDeportes, comboBoxDeportes, comboBoxDeportes, txtLocalidad);
+				miModelo.selectitems(table, comboBoxDia, comboBoxMes, comboBoxDeportes, txtLocalidad);
 				table.setModel(miModelo.filtroevento());
 
 			}

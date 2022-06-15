@@ -33,7 +33,9 @@ public class Modelo {
 	private File miFichero;
 	private InputStream entrada;
 	private OutputStream salida;
-	private String DeporteFiltro;
+	private String DeporteFiltro, FiltroFecha, filtroMes, Localicad, queryfilt, opcionFilt;
+	private String filtroDia;
+	private int ncum;
 	private String respuesta;
 	private HashMap<String, String> datosUsuario; /*
 													 * usr, nombre, apellido, email, pwd, Fecha_nac, FotoPerfil,
@@ -454,32 +456,60 @@ public class Modelo {
 	public void selectitems(JTable table, JComboBox comboBoxDia, JComboBox comboBoxMes, JComboBox comboBoxDeportes,
 			JTextField txtLocalidad) {
 
-		String FiltroFecha = null;
-		String filtroDia = (String) comboBoxDia.getSelectedItem();
-		String filtroMes = (String) comboBoxMes.getSelectedItem();
+		filtroDia = (String) comboBoxDia.getSelectedItem();
+		filtroMes = (String) comboBoxMes.getSelectedItem();
 		DeporteFiltro = (String) comboBoxDeportes.getSelectedItem();
-		String text = txtLocalidad.getText();
-		System.out.println(comboBoxDeportes.getSelectedItem());
-		System.out.println(txtLocalidad.getText());
-//		if (!filtroDia.equals("Dia") && !filtroMes.equals("Mes")) {
-//			int FiltroDiaInt = Integer.parseInt(filtroDia);
-//			int FiltroMesInt = Integer.parseInt(filtroMes);
-//			if (FiltroDiaInt < 10) {
-//				filtroDia = "0" + filtroDia;
-//			}
-//			if (FiltroMesInt < 10) {
-//				filtroMes = "0" + filtroMes;
-//			}
-//			FiltroFecha = "2022-" + filtroMes + "-" + filtroDia;
-//			System.out.println(FiltroFecha);
-//		}
+		Localicad = txtLocalidad.getText();
+		System.out.println(DeporteFiltro);
+		System.out.println(filtroDia);
+		System.out.println(filtroMes);
+		System.out.println(Localicad);
+		if (!filtroDia.equals("Dia") && !filtroMes.equals("Mes")) {
+			int FiltroDiaInt = Integer.parseInt(filtroDia);
+			int FiltroMesInt = Integer.parseInt(filtroMes);
+			if (FiltroDiaInt < 10) {
+				filtroDia = "0" + filtroDia;
+			}
+			if (FiltroMesInt < 10) {
+				filtroMes = "0" + filtroMes;
+			}
+			FiltroFecha = "2022-" + filtroMes + "-" + filtroDia;
+			System.out.println(FiltroFecha);
+		}
 	}
 
-	private int getNumColumnas2(String sql, String var) {
+	private int getNumColumnas2(String sql, String Deporte, String Fecha, String Local) {
 		int num = 0;
 		try {
 			PreparedStatement pstmt = conexion.prepareStatement(sql);
-			pstmt.setString(1, var);
+			switch (opcionFilt) {
+			case "opcion1":
+				pstmt.setString(1, Deporte);
+				break;
+			case "opcion2":
+				pstmt.setString(1, Local);
+				break;
+			case "opcion3":
+				pstmt.setString(1, Fecha);
+				break;
+			case "opcion4":
+				pstmt.setString(1, Local);
+				pstmt.setString(2, Fecha);
+				break;
+			case "opcion5":
+				pstmt.setString(1, Local);
+				pstmt.setString(2, Deporte);
+				break;
+			case "opcion6":
+				pstmt.setString(1, Deporte);
+				pstmt.setString(2, Fecha);
+				break;
+			case "opcion7":
+				pstmt.setString(1, Deporte);
+				pstmt.setString(2, Local);
+				pstmt.setString(3, Fecha);
+				break;
+			}
 			ResultSet rset = pstmt.executeQuery();
 			ResultSetMetaData rsmd = rset.getMetaData();
 			num = rsmd.getColumnCount();
@@ -491,16 +521,82 @@ public class Modelo {
 
 	public DefaultTableModel filtroevento() {
 		DefaultTableModel tablaEven = new DefaultTableModel();
-		String queryfiltdep = "Select cod_evento as Evento, eventos.usr as Creador, fecha_evento as Fecha, nombre_evento 'Nombre evento' from Eventos where Tipo_Dep =?";
-		System.out.println(DeporteFiltro);
-		int ncum = getNumColumnas2(queryfiltdep, DeporteFiltro);
+		// String queryfiltdep = "Select cod_evento as Evento, eventos.usr as Creador,
+		// fecha_evento as Fecha, nombre_evento 'Nombre evento' from Eventos where
+		// Tipo_Dep =?";
+
+		// Solo deporte
+		if (filtroMes.equals("Mes") && filtroDia.equals("Dia") && Localicad.equals("Localidad")
+				&& !DeporteFiltro.equals("Deportes")) {
+			queryfilt = "Select * from Eventos where Tipo_Dep =?";
+			opcionFilt = "opcion1";
+			// Solo Localidad
+		} else if (filtroMes.equals("Mes") && filtroDia.equals("Dia") && !Localicad.equals("Localidad")
+				&& DeporteFiltro.equals("Deportes")) {
+			queryfilt = "Select cod_evento as Evento, eventos.usr as Creador, fecha_evento as Fecha, nombre_evento 'Nombre evento' from Eventos where Localizacion =?";
+			opcionFilt = "opcion2";
+			// Solo Fecha
+		} else if (!filtroMes.equals("Mes") && !filtroDia.equals("Dia") && Localicad.equals("Localidad")
+				&& DeporteFiltro.equals("Deportes")) {
+			queryfilt = "Select cod_evento as Evento, eventos.usr as Creador, fecha_evento as Fecha, nombre_evento 'Nombre evento' from Eventos where fecha_evento =?";
+			opcionFilt = "opcion3";
+			// Localidad y Fecha
+		} else if (!filtroMes.equals("Mes") && !filtroDia.equals("Dia") && !Localicad.equals("Localidad")
+				&& DeporteFiltro.equals("Deportes")) {
+			queryfilt = "Select cod_evento as Evento, eventos.usr as Creador, fecha_evento as Fecha, nombre_evento 'Nombre evento' from Eventos where Localizacion =? and fecha_evento =?";
+			opcionFilt = "opcion4";
+			// Localidad y Deporte
+		} else if (filtroMes.equals("Mes") && filtroDia.equals("Dia") && !Localicad.equals("Localidad")
+				&& !DeporteFiltro.equals("Deportes")) {
+			queryfilt = "Select cod_evento as Evento, eventos.usr as Creador, fecha_evento as Fecha, nombre_evento 'Nombre evento' from Eventos where Localizacion =? and Tipo_Dep =?";
+			opcionFilt = "opcion5";
+			// Deporte y Fecha
+		} else if (!filtroMes.equals("Mes") && !filtroDia.equals("Dia") && Localicad.equals("Localidad")
+				&& !DeporteFiltro.equals("Deportes")) {
+			queryfilt = "Select cod_evento as Evento, eventos.usr as Creador, fecha_evento as Fecha, nombre_evento 'Nombre evento' from Eventos where Tipo_Dep =? and fecha_evento =?";
+			opcionFilt = "opcion6";
+			// Deporte, localidad y Fecha
+		} else {
+			queryfilt = "Select cod_evento as Evento, eventos.usr as Creador, fecha_evento as Fecha, nombre_evento 'Nombre evento' from Eventos where Tipo_Dep =? and Localizacion =? and fecha_evento =?";
+			opcionFilt = "opcion7";
+		}
+		ncum = getNumColumnas2(queryfilt, DeporteFiltro, Localicad, FiltroFecha);
 		Object[] contenido = new Object[ncum];
 		PreparedStatement pstmt;
 		try {
-			pstmt = conexion.prepareStatement(queryfiltdep);
-			pstmt.setString(1, DeporteFiltro);
+			pstmt = conexion.prepareStatement(queryfilt);
+//			pstmt.setString(1, Filtro);
+			switch (opcionFilt) {
+			case "opcion1":
+				pstmt.setString(1, DeporteFiltro);
+				break;
+			case "opcion2":
+				pstmt.setString(1, Localicad);
+				break;
+			case "opcion3":
+				pstmt.setString(1, FiltroFecha);
+				break;
+			case "opcion4":
+				pstmt.setString(1, Localicad);
+				pstmt.setString(2, FiltroFecha);
+				break;
+			case "opcion5":
+				pstmt.setString(1, Localicad);
+				pstmt.setString(2, DeporteFiltro);
+				break;
+			case "opcion6":
+				pstmt.setString(1, DeporteFiltro);
+				pstmt.setString(2, FiltroFecha);
+				break;
+			case "opcion7":
+				pstmt.setString(1, DeporteFiltro);
+				pstmt.setString(2, Localicad);
+				pstmt.setString(3, FiltroFecha);
+				break;
+			}
 			ResultSet rset = pstmt.executeQuery();
 			ResultSetMetaData rsmd = rset.getMetaData();
+			System.out.println(ncum);
 			for (int i = 0; i < ncum; i++) {
 				tablaEven.addColumn(rsmd.getColumnName(i + 1));
 			}
