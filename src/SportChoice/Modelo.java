@@ -40,6 +40,7 @@ public class Modelo {
 													 * localidad, genero
 													 */
 	private final String FILE = "conexionBDPI.ini";
+	private boolean usrEx=true;
 
 	public Properties getDatosConexion() {
 		return datosConexion;
@@ -326,6 +327,36 @@ public class Modelo {
 	public void leerFichero() {
 		File rutaProyecto = new File(FILE);
 		FileNameExtensionFilter filtro = new FileNameExtensionFilter("*.java", "java");
+	}
+	public void Registrarse(String name, String apellido, String password, String mail, String fecha, String usr) {
+		String query="INSERT into users (usr,nombre,apellido,email,pwd,Fecha_nac,cod_recuperacion,rol)values(?,?,?,?,?,?,?,?)";
+		PreparedStatement pstmt;
+		int codrec= (int) Math.floor(Math.random()*9999);
+		String numCadena=  Integer.toString(codrec);
+		try {
+			conectarFicheroBBDD();
+			pstmt=conexion.prepareStatement(query);
+			pstmt.setString(1, usr);
+			pstmt.setString(2, name);
+			pstmt.setString(3, apellido);
+			pstmt.setString(4, mail);
+			pstmt.setString(5, password);
+			pstmt.setString(6, fecha);
+			pstmt.setString(7,numCadena);
+			pstmt.setString(8, "user");
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			usrEx=false;
+		}
+	}
+
+	public boolean isUsrEx() {
+		return usrEx;
+	}
+
+	public void setUsrEx(boolean usrEx) {
+		this.usrEx = usrEx;
 	}
 
 	public void guardar(String[] datos, String[] claves) {

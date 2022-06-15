@@ -184,7 +184,7 @@ public class MainPage extends JFrame {
 				miControlador.actualizar(11, 8);
 			}
 		});
-
+		btnUnirseEvento = new JButton("VER");
 		btnUnirseEvento.setEnabled(false);
 		btnUnirseEvento.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnUnirseEvento.addActionListener(new ActionListener() {
