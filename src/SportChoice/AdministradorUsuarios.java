@@ -105,17 +105,8 @@ public class AdministradorUsuarios extends JFrame {
 			}
 		});
 
-<<<<<<< HEAD
-		btnNewButton = new JButton("BANEAR");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNewButton.setForeground(Color.WHITE);
-		btnNewButton.setBorder(null);
-		btnNewButton.setBackground(Color.RED);
-		btnNewButton.setBounds(701, 386, 112, 30);
-		panel.add(btnNewButton);
-=======
-		btnBanear = new JButton("Banear");
+		btnBanear = new JButton("BANEAR");
+		btnBanear.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnBanear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miModelo.Banear(UsuarioSeleccionado);
@@ -128,7 +119,6 @@ public class AdministradorUsuarios extends JFrame {
 		btnBanear.setBackground(Color.RED);
 		btnBanear.setBounds(701, 386, 112, 30);
 		panel.add(btnBanear);
->>>>>>> refs/remotes/origin/LuisRama2
 
 		lblNewLabel = new JLabel("\r\n");
 		lblNewLabel.setIcon(new ImageIcon(AdministradorUsuarios.class.getResource("/Imagenes/logoSportChoice.png")));
