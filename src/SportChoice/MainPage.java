@@ -159,7 +159,7 @@ public class MainPage extends JFrame {
 		btnAplicarFiltros.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miModelo.selectitems(table, comboBoxDeportes, comboBoxDeportes, comboBoxDeportes, txtLocalidad);
-				miModelo.filtroevento(table);
+				table.setModel(miModelo.filtroevento());
 
 			}
 		});

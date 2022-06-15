@@ -489,7 +489,7 @@ public class Modelo {
 		return num;
 	}
 
-	public void filtroevento(JTable table) {
+	public DefaultTableModel filtroevento() {
 		DefaultTableModel tablaEven = new DefaultTableModel();
 		String queryfiltdep = "Select * from Eventos where Tipo_Dep =?";
 		int ncum = getNumColumnas2(queryfiltdep, DeporteFiltro);
@@ -513,6 +513,7 @@ public class Modelo {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return tablaEven;
 
 	}
 
