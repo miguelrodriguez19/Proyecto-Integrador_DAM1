@@ -45,6 +45,7 @@ public class Modelo {
 	private OutputStream salida;
 	private String respuesta;
 	private final String FILE = "conexionBDPI.ini";
+	private boolean usrEx=true;
 
 	public Properties getDatosConexion() {
 		return datosConexion;
@@ -288,8 +289,16 @@ public class Modelo {
 			pstmt.executeUpdate();
 			
 		} catch (Exception e) {
-			
+			usrEx=false;
 		}
+	}
+
+	public boolean isUsrEx() {
+		return usrEx;
+	}
+
+	public void setUsrEx(boolean usrEx) {
+		this.usrEx = usrEx;
 	}
 
 	public void guardar(String[] datos, String[] claves) {

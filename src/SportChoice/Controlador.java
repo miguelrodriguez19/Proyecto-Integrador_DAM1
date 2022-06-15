@@ -52,4 +52,7 @@ public class Controlador {
 		String fecha=año+"-"+mes+"-"+dia;
 		miModelo.Registrarse(name,apellido,password,mail,fecha,usr);
 	}
+	public boolean UserExist(Boolean usrExist) {
+		return usrExist;
+	}
 }

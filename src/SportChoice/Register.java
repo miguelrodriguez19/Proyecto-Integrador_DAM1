@@ -6,11 +6,14 @@ import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 import javax.swing.*;
 
 import java.awt.Insets;
 import java.awt.Point;
+import javax.swing.border.LineBorder;
 
 public class Register extends JFrame {
 	private Controlador miControlador;
@@ -44,19 +47,72 @@ public class Register extends JFrame {
 		txtNombre = new JTextField();
 		txtNombre.setName("");
 		txtNombre.setBorder(null);
+		String nombre = "Nombre";
 		txtNombre.setText("Nombre");
 
 		txtNombre.setBounds(520, 97, 85, 30);
 		container.add(txtNombre);
 		txtNombre.setColumns(10);
+		txtNombre.addFocusListener(new FocusListener() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (txtNombre.getText().equals(nombre))
+					txtNombre.setText("");
+				txtNombre.setForeground(Color.BLACK);
+				txtNombre.setBorder(null);
+			}
 
+			@Override
+			public void focusLost(FocusEvent e) {
+				if (txtNombre.getText().equals("")) {
+					txtNombre.setText(nombre);
+					txtNombre.setForeground(Color.GRAY);
+					txtNombre.setBorder(null);
+				}
+			}
+		});
 		btnSiguiente = new JButton("Siguiente");
 		btnSiguiente.setForeground(Color.WHITE);
 		btnSiguiente.setBackground(new Color(156, 163, 219));
 		btnSiguiente.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnSiguiente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(14, 1);
+				
+				 if (txtNombre.getText().equals("Nombre") || txtApellidos.getText().equals("Apellidos") ||txtMail.getText().equals("EMail")||txtRepiteContrasea.getText().equals("Repite Contrase\u00F1a")||txtContrasea.getText().equals("Contrase\u00F1a")||comboBox.getSelectedItem().equals("DIA")||comboBox_1.getSelectedItem().equals("MES")||comboBox_1_1.getSelectedItem().equals("AÑO")) {
+					if (txtNombre.getText().endsWith("Nombre")) {
+						txtNombre.setForeground(Color.red);
+						txtNombre.setBorder(new LineBorder(Color.RED));
+					}
+					if (txtApellidos.getText().equals("Apellidos")) {
+						txtApellidos.setForeground(Color.red);
+						txtApellidos.setBorder(new LineBorder(Color.RED));
+					}if (txtMail.getText().equals("EMail")) {
+						txtMail.setForeground(Color.red);
+						txtMail.setBorder(new LineBorder(Color.RED));
+					}if (txtContrasea.getText().equals("Contrase\u00F1a")) {
+						txtContrasea.setForeground(Color.red);
+						txtContrasea.setBorder(new LineBorder(Color.RED));
+					}if (txtRepiteContrasea.getText().equals("Repite Contrase\u00F1a")) {
+						txtRepiteContrasea.setForeground(Color.red);
+						txtRepiteContrasea.setBorder(new LineBorder(Color.RED));
+					}if (comboBox.getSelectedItem().equals("DIA")) {
+						comboBox.setForeground(Color.red);
+					}
+					if (comboBox_1.getSelectedItem().equals("MES")) {
+						comboBox_1.setForeground(Color.red);
+					}if (comboBox_1_1.getSelectedItem().equals("AÑO")) {
+						comboBox_1_1.setForeground(Color.red);
+					}
+				}
+				 else if(!txtContrasea.getText().equals(txtRepiteContrasea.getText())){
+						txtRepiteContrasea.setText("Las contraseñas no coinciden");
+						txtRepiteContrasea.setForeground(Color.red);
+						txtRepiteContrasea.setBorder(new LineBorder(Color.RED));
+					}
+
+				else {
+					miControlador.actualizar(14, 1);
+				}
 				// System.out.println(txtNombre.getText());
 //				comboBox.addItem(txtNombre.getText());
 //				System.out.println(chckbxNewCheckBox.isSelected());
@@ -77,31 +133,107 @@ public class Register extends JFrame {
 
 		txtApellidos = new JTextField();
 		txtApellidos.setBorder(null);
+		String apellidos="Apellidos";
 		txtApellidos.setText("Apellidos");
 		txtApellidos.setColumns(10);
 		txtApellidos.setBounds(615, 97, 180, 30);
 		getContentPane().add(txtApellidos);
+		txtApellidos.addFocusListener(new FocusListener() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (txtApellidos.getText().equals(apellidos))
+					txtApellidos.setText("");
+				txtApellidos.setForeground(Color.BLACK);
+				txtApellidos.setBorder(null);
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if (txtApellidos.getText().equals("")) {
+					txtApellidos.setText(apellidos);
+					txtApellidos.setForeground(Color.GRAY);
+					txtApellidos.setBorder(null);
+				}
+			}
+		});
 
 		txtMail = new JTextField();
 		txtMail.setBorder(null);
-		txtMail.setText("Mail");
+		String mail="EMail";
+		txtMail.setText("EMail");
 		txtMail.setColumns(10);
 		txtMail.setBounds(520, 138, 275, 30);
 		getContentPane().add(txtMail);
+		txtMail.addFocusListener(new FocusListener() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (txtMail.getText().equals(mail))
+					txtMail.setText("");
+				txtMail.setForeground(Color.BLACK);
+				txtMail.setBorder(null);
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if (txtMail.getText().equals("")) {
+					txtMail.setText(mail);
+					txtMail.setForeground(Color.GRAY);
+					txtMail.setBorder(null);
+				}
+			}
+		});
 
 		txtRepiteContrasea = new JTextField();
 		txtRepiteContrasea.setBorder(null);
+		String repContraseña="Repite Contrase\u00F1a";
 		txtRepiteContrasea.setText("Repite Contrase\u00F1a");
 		txtRepiteContrasea.setColumns(10);
 		txtRepiteContrasea.setBounds(520, 218, 275, 30);
 		getContentPane().add(txtRepiteContrasea);
+		txtRepiteContrasea.addFocusListener(new FocusListener() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (txtRepiteContrasea.getText().equals(repContraseña))
+					txtRepiteContrasea.setText("");
+				txtRepiteContrasea.setForeground(Color.BLACK);
+				txtRepiteContrasea.setBorder(null);
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if (txtRepiteContrasea.getText().equals("")) {
+					txtRepiteContrasea.setText(repContraseña);
+					txtRepiteContrasea.setForeground(Color.GRAY);
+					txtRepiteContrasea.setBorder(null);
+				}
+			}
+		});
 
 		txtContrasea = new JTextField();
 		txtContrasea.setBorder(null);
+		String contaseña="Contrase\u00F1a";
 		txtContrasea.setText("Contrase\u00F1a");
 		txtContrasea.setColumns(10);
 		txtContrasea.setBounds(520, 178, 275, 30);
 		getContentPane().add(txtContrasea);
+		txtContrasea.addFocusListener(new FocusListener() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (txtContrasea.getText().equals(contaseña))
+					txtContrasea.setText("");
+				txtContrasea.setForeground(Color.BLACK);
+				txtContrasea.setBorder(null);
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if (txtContrasea.getText().equals("")) {
+					txtContrasea.setText(contaseña);
+					txtContrasea.setForeground(Color.GRAY);
+					txtContrasea.setBorder(null);
+				}
+			}
+		});
 
 		comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] { "DIA", "1", "2", "3", "4", "5", "6", "7", "8", "9",
@@ -194,10 +326,12 @@ public class Register extends JFrame {
 		String variable = (String) comboBox.getSelectedItem();
 		return variable;
 	}
+
 	public String getMes() {
 		String variable = (String) comboBox_1.getSelectedItem();
 		return variable;
 	}
+
 	public String getAño() {
 		String variable = (String) comboBox_1_1.getSelectedItem();
 		return variable;
