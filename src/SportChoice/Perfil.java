@@ -22,6 +22,7 @@ public class Perfil extends JFrame {
 	private JButton btnLogo, btnEditarPerfil, btnHistorial, btnPuntitos, btnLogOut, btnFAQs;
 	private JLabel lblPerfil_1;
 	private String usuario = "";
+	private JLabel lblUsuarioArroba;
 
 	public static void Perfil() {
 		Perfil window = new Perfil();
@@ -46,7 +47,7 @@ public class Perfil extends JFrame {
 		getContentPane().add(header);
 		header.setLayout(null);
 		
-		lblUsername = new JLabel("Invitado");
+		lblUsername = new JLabel("INVITADO");
 		lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblUsername.setForeground(new Color(255, 255, 255));
 		lblUsername.setBounds(618, 28, 123, 28);
@@ -77,6 +78,12 @@ public class Perfil extends JFrame {
 			}
 		});
 		header.add(btnLogo);
+		
+		lblUsuarioArroba = new JLabel("@");
+		lblUsuarioArroba.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblUsuarioArroba.setForeground(new Color(255, 255, 255));
+		lblUsuarioArroba.setBounds(594, 28, 17, 28);
+		header.add(lblUsuarioArroba);
 
 		lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setIcon(
@@ -109,26 +116,26 @@ public class Perfil extends JFrame {
 		lblNewLabel_8.setBounds(55, 233, 33, 33);
 		getContentPane().add(lblNewLabel_8);
 
-		lblUbicacion = new JLabel("Espa\u00F1a, Madid");
+		lblUbicacion = new JLabel("ESPA\u00D1A, MADRID");
 		lblUbicacion.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblUbicacion.setForeground(Color.WHITE);
 		lblUbicacion.setBackground(null);
 		lblUbicacion.setBounds(89, 147, 145, 33);
 		getContentPane().add(lblUbicacion);
 
-		lblSexo = new JLabel("Hombre");
+		lblSexo = new JLabel("HOMBRE");
 		lblSexo.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblSexo.setForeground(Color.WHITE);
 		lblSexo.setBounds(89, 190, 145, 33);
 		getContentPane().add(lblSexo);
 
-		lblEdad = new JLabel("19 a\u00F1os");
+		lblEdad = new JLabel("19 anos");
 		lblEdad.setForeground(Color.WHITE);
 		lblEdad.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblEdad.setBounds(299, 147, 145, 33);
 		getContentPane().add(lblEdad);
 
-		lblDeporte = new JLabel("Baloncesto");
+		lblDeporte = new JLabel("BALONCESTO");
 		lblDeporte.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblDeporte.setForeground(Color.WHITE);
 		lblDeporte.setBounds(299, 190, 145, 33);
@@ -140,7 +147,7 @@ public class Perfil extends JFrame {
 		lblLikes.setBounds(497, 147, 145, 33);
 		getContentPane().add(lblLikes);
 
-		lblDescripcion = new JLabel("Descripcion");
+		lblDescripcion = new JLabel("DESCRIPCION");
 		lblDescripcion.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblDescripcion.setForeground(Color.WHITE);
 		lblDescripcion.setBounds(89, 233, 145, 33);
@@ -164,7 +171,7 @@ public class Perfil extends JFrame {
 		btnPuntitos.setBackground(null);
 		btnPuntitos.setIcon(new ImageIcon(Perfil.class.getResource("/Imagenes/puntitos32.png")));
 
-		btnEditarPerfil = new JButton("Editar perfil");
+		btnEditarPerfil = new JButton("EDITAR PERFIL");
 		btnEditarPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEditarPerfil.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnEditarPerfil.setForeground(Color.WHITE);
@@ -180,7 +187,7 @@ public class Perfil extends JFrame {
 			}
 		});
 
-		btnHistorial = new JButton("Historial");
+		btnHistorial = new JButton("HISTORIAL");
 		btnHistorial.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnHistorial.setForeground(Color.WHITE);
 		btnHistorial.setBorder(null);
@@ -196,7 +203,7 @@ public class Perfil extends JFrame {
 			}
 		});
 
-		btnLogOut = new JButton("LogOut");
+		btnLogOut = new JButton("LOG OUT");
 		btnLogOut.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogOut.setForeground(Color.WHITE);
 		btnLogOut.setBorder(null);
@@ -212,7 +219,7 @@ public class Perfil extends JFrame {
 			}
 		});
 
-		btnFAQs = new JButton("FAQs");
+		btnFAQs = new JButton("FAQS");
 		btnFAQs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFAQs.setForeground(Color.WHITE);
 		btnFAQs.setBorder(null);
@@ -221,7 +228,7 @@ public class Perfil extends JFrame {
 		btnFAQs.setBounds(697, 247, 123, 33);
 		getContentPane().add(btnFAQs);
 
-		lblPerfil_1 = new JLabel("Perfil");
+		lblPerfil_1 = new JLabel("PERFIL");
 		lblPerfil_1.setForeground(Color.WHITE);
 		lblPerfil_1.setFont(new Font("Tahoma", Font.PLAIN, 28));
 		lblPerfil_1.setBounds(39, 111, 248, 33);
@@ -255,12 +262,14 @@ public class Perfil extends JFrame {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent e) {
-				lblUsername.setText("@" + miModelo.getDatosUsuario().get("usr"));
+				lblUsername.setText(miModelo.getDatosUsuario().get("usr"));
 				lblNombre.setText(miModelo.getDatosUsuario().get("nombre") + " " + miModelo.getDatosUsuario().get("apellido"));
 				txtDescripcion.setText(miModelo.getDatosUsuario().get("descripcion"));
 				lblLikes.setText(miModelo.getDatosUsuario().get("valoraciones"));
 				lblDeporte.setText(miModelo.getDatosUsuario().get("DeporteFav"));
 				lblEdad.setText(miModelo.getDatosUsuario().get("Fecha_nac"));
+				lblSexo.setText(miModelo.getDatosUsuario().get("genero"));
+				lblUbicacion.setText(miModelo.getDatosUsuario().get("localidad"));
 //				lblFotoPerfil.setText(miModelo.getDatosUsuario().get("FotoPerfil"));
 			}
 		});

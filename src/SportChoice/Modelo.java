@@ -40,6 +40,7 @@ public class Modelo {
 													 * localidad, genero
 													 */
 	private final String FILE = "conexionBDPI.ini";
+	private boolean usrEx = true;
 
 	public Properties getDatosConexion() {
 		return datosConexion;
@@ -168,13 +169,13 @@ public class Modelo {
 		String query = "";
 		switch (option) {
 		case "eventosRecientes":
-			query = "select cod_evento as Evento, eventos.usr as Creador, fecha_evento as Fecha, nombre_evento 'Nombre evento', "
+			query = "select cod_evento as Evento, eventos.usr as Creador, nombre_evento 'Nombre evento', fecha_evento as Fecha, tipo_dep AS Deporte, "
 					+ "(select count(*) from participa_evento natural join eventos where cod_evento = Evento group by cod_evento) as Participantes "
 					+ "from eventos natural join participa_evento where cod_Evento not in (select cod_Evento from participa_evento where cod_user = ?) "
 					+ "group by cod_evento order by fecha_evento desc;";
 			break;
 		case "misEventos":
-			query = "select cod_evento as Evento, eventos.usr as Creador, fecha_evento as Fecha, nombre_evento as 'Nombre evento', "
+			query = "select cod_evento as Evento, eventos.usr as Creador, nombre_evento as 'Nombre evento', fecha_evento as Fecha, tipo_dep AS Deporte, "
 					+ "(select count(*) from participa_evento natural join eventos where cod_evento = Evento group by cod_evento) as participantes "
 					+ "from eventos natural join participa_evento where participa_evento.cod_user = ? && fecha_evento > current_date() group by cod_evento;";
 			break;
@@ -215,10 +216,22 @@ public class Modelo {
 			ResultSet rset = pstmt.executeQuery();
 			ResultSetMetaData rsmd = rset.getMetaData();
 			int columnas = rsmd.getColumnCount();
+			String datoResultado = "";
 			if (rset.next())
 				for (int j = 1; j <= columnas; j++) {
-//					System.out.println("Clave: " + rsmd.getColumnName(j) + "\tValor: " + rset.getString(j));
-					datosUsuario.put(rsmd.getColumnName(j), rset.getString(j));
+					if (rsmd.getColumnName(j).equals("nombre") || rsmd.getColumnName(j).equals("apellido")
+							|| rsmd.getColumnName(j).equals("localidad") || rsmd.getColumnName(j).equals("genero")) {
+						if (rset.getString(j) != null)
+							if (rset.getString(j).length() >= 2)
+								datoResultado = rset.getString(j).substring(0, 1).toUpperCase()
+										+ rset.getString(j).substring(1);
+							else
+								datoResultado = rset.getString(j).toUpperCase();
+					} else {
+						datoResultado = rset.getString(j);
+					}
+
+					datosUsuario.put(rsmd.getColumnName(j), datoResultado);
 				}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -241,9 +254,9 @@ public class Modelo {
 
 		try {
 			PreparedStatement pstmt = conexion.prepareStatement(sql);
-			if (option.equals("misEventos") || option.equals("eventosRecientes") || option.equals("historialWindow") || option.equals("foro")) {
-				if (option.equals("misEventos") || option.equals("eventosRecientes") || option.equals("eventosRecientes")
-						|| option.equals("historialWindow"))
+			if (option.equals("misEventos") || option.equals("eventosRecientes") || option.equals("historialWindow")
+					|| option.equals("foro")) {
+				if (option.equals("misEventos") || option.equals("eventosRecientes") || option.equals("historialWindow"))
 					pstmt.setString(1, usuarioConectado);
 				if (option.equals("foro"))
 					pstmt.setString(1, eventoSeleccionado);
@@ -315,6 +328,37 @@ public class Modelo {
 		FileNameExtensionFilter filtro = new FileNameExtensionFilter("*.java", "java");
 	}
 
+	public void Registrarse(String name, String apellido, String password, String mail, String fecha, String usr) {
+		String query = "INSERT into users (usr,nombre,apellido,email,pwd,Fecha_nac,cod_recuperacion,rol)values(?,?,?,?,?,?,?,?)";
+		PreparedStatement pstmt;
+		int codrec = (int) Math.floor(Math.random() * 9999);
+		String numCadena = Integer.toString(codrec);
+		try {
+			conectarFicheroBBDD();
+			pstmt = conexion.prepareStatement(query);
+			pstmt.setString(1, usr);
+			pstmt.setString(2, name);
+			pstmt.setString(3, apellido);
+			pstmt.setString(4, mail);
+			pstmt.setString(5, password);
+			pstmt.setString(6, fecha);
+			pstmt.setString(7, numCadena);
+			pstmt.setString(8, "user");
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			usrEx = false;
+		}
+	}
+
+	public boolean isUsrEx() {
+		return usrEx;
+	}
+
+	public void setUsrEx(boolean usrEx) {
+		this.usrEx = usrEx;
+	}
+
 	public void guardar(String[] datos, String[] claves) {
 		try {
 			for (int i = 0; i < claves.length; i++) {
@@ -376,7 +420,7 @@ public class Modelo {
 
 	public void guardarCambiosPerfil(String[] datosCambiosPerfil) {
 		// Usuario, Nombre, Descripcion, Me gustas
-		String query = "update users set usr = ?, nombre = ?, descripcion = ?,  valoraciones = ?, DeporteFav = ?, localidad = ?, genero = ? where usr = ?";
+		String query = "update users set usr = ?, nombre = ?, apellido = ?, descripcion = ?,  valoraciones = ?, DeporteFav = ?, genero = ? where usr = ?";
 		PreparedStatement pstmt;
 		try {
 			pstmt = conexion.prepareStatement(query);
@@ -452,6 +496,28 @@ public class Modelo {
 			((CambiarContrasena) pantallas[0]).errorContrasenasDistintas();
 		}
 
+	}
+
+	public String[] cargarDatosEvento(String eventoSeleccionado2) {
+		String datos[] = new String [8]; ;
+		String query = "select nombre_evento, fecha_evento, (select count(*) from participa_evento natural join eventos where cod_evento = ?) "
+				+ "as Participantes, tipo_dep, localizacion, privacidad, descripcion from eventos where cod_evento = ?";
+		PreparedStatement pstmt;
+		try {
+			pstmt = conexion.prepareStatement(query);
+			pstmt.setString(1, eventoSeleccionado2);
+			pstmt.setString(2, eventoSeleccionado2);
+			ResultSet rset = pstmt.executeQuery();
+			ResultSetMetaData rsmd = rset.getMetaData();
+			int columnas = rsmd.getColumnCount();
+			if (rset.next())
+				for (int j = 1; j <= columnas; j++) {
+					datos[j] = rset.getString(j).toString();
+				}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return datos;
 	}
 
 }

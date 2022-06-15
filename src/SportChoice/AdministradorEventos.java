@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.awt.event.ActionEvent;
 import java.awt.Dimension;
+import java.awt.Font;
 
 public class AdministradorEventos extends JFrame {
 
@@ -66,7 +67,8 @@ public class AdministradorEventos extends JFrame {
 		getContentPane().add(panel);
 		panel.setLayout(null);
 
-		btnEventos = new JButton("Eventos");
+		btnEventos = new JButton("EVENTOS");
+		btnEventos.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnEventos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(18, 18);
@@ -79,7 +81,8 @@ public class AdministradorEventos extends JFrame {
 		btnEventos.setBounds(174, 28, 244, 40);
 		panel.add(btnEventos);
 
-		btnUsuarios = new JButton("Usuarios");
+		btnUsuarios = new JButton("USUARIOS");
+		btnUsuarios.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnUsuarios.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnUsuarios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -100,9 +103,9 @@ public class AdministradorEventos extends JFrame {
 		table.setRowHeight(55);
 		scrollPaneEventos.setViewportView(table);
 
-		btnBorrar = new JButton("Borrar");
+		btnBorrar = new JButton("BORRAR");
+		btnBorrar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnBorrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnBorrar.setEnabled(false);
 		btnBorrar.setForeground(Color.WHITE);
 		btnBorrar.setBorder(null);
 		btnBorrar.setBackground(Color.RED);
@@ -114,7 +117,8 @@ public class AdministradorEventos extends JFrame {
 		lblNewLabel.setBounds(30, 28, 109, 54);
 		panel.add(lblNewLabel);
 
-		btnlogOut = new JButton("LogOut");
+		btnlogOut = new JButton("LOG OUT");
+		btnlogOut.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnlogOut.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnlogOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

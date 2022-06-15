@@ -9,18 +9,22 @@ import java.awt.Font;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 
 public class unirseEvento extends JFrame {
 	private Controlador miControlador;
 	private Modelo miModelo;
-	private JLabel lblNewLabel, lblUnirseEvento, lblNombre, lblNombreEvento, lblFecha, lblFechaVariable, lblHora,
-			lblHoraVariable, lblDeporte, lblDeporteVariable, lblParticipantes, lblParticipantesVariable, lblTipoEvento,
+	private JLabel lbl_icon_sport, lblUnirseEvento, lblNombre, lblNombreEvento, lblFecha, lblFechaVariable, lblDeporte, lblDeporteVariable, lblParticipantes, lblParticipantesVariable, lblTipoEvento,
 			lblTipoEventoVariable;
 	private JPanel panelHeader;
 	private JButton btnPerfil, btnUnirse, btnLogo, btnPerfil_1, btnFAQs;
 	private JButton btnLogo_1;
 	private JButton btnAtras;
+	private String eventoSeleccionado;
+	private JLabel lblLocalizacionVariable;
+	private JTextPane txtAreaDescripcionVariable;
 
 	public static void unirseEvento() {
 		unirseEvento window = new unirseEvento();
@@ -41,6 +45,7 @@ public class unirseEvento extends JFrame {
 		contenedor.setLayout(null);
 
 		btnUnirse = new JButton("UNIRSE");
+		btnUnirse.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnUnirse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.unirseEvento(MainPage.getEventoSeleccionado());
@@ -50,28 +55,28 @@ public class unirseEvento extends JFrame {
 		btnUnirse.setBorder(null);
 		btnUnirse.setForeground(Color.WHITE);
 		btnUnirse.setBackground(new Color(53, 187, 95));
-		btnUnirse.setBounds(687, 370, 120, 38);
+		btnUnirse.setBounds(671, 370, 120, 38);
 		getContentPane().add(btnUnirse);
 
-		lblUnirseEvento = new JLabel("Unirse Evento");
+		lblUnirseEvento = new JLabel("UNIRSE EVENTO");
 		lblUnirseEvento.setForeground(Color.WHITE);
 		lblUnirseEvento.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblUnirseEvento.setBounds(71, 115, 202, 23);
+		lblUnirseEvento.setBounds(71, 115, 225, 23);
 		getContentPane().add(lblUnirseEvento);
 
-		lblNombre = new JLabel("Nombre Evento:");
+		lblNombre = new JLabel("NOMBRE EVENTO:");
 		lblNombre.setForeground(Color.WHITE);
 		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNombre.setBounds(25, 159, 125, 23);
+		lblNombre.setBounds(25, 159, 136, 23);
 		getContentPane().add(lblNombre);
 
 		lblNombreEvento = new JLabel("Partido Futbol ");
 		lblNombreEvento.setForeground(Color.WHITE);
 		lblNombreEvento.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNombreEvento.setBounds(148, 159, 125, 23);
+		lblNombreEvento.setBounds(171, 159, 125, 23);
 		getContentPane().add(lblNombreEvento);
 
-		lblFecha = new JLabel("Fecha:");
+		lblFecha = new JLabel("FECHA:");
 		lblFecha.setForeground(Color.WHITE);
 		lblFecha.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblFecha.setBounds(25, 187, 125, 23);
@@ -80,92 +85,80 @@ public class unirseEvento extends JFrame {
 		lblFechaVariable = new JLabel("25 / 05 / 2022");
 		lblFechaVariable.setForeground(Color.WHITE);
 		lblFechaVariable.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblFechaVariable.setBounds(148, 187, 125, 23);
+		lblFechaVariable.setBounds(171, 187, 125, 23);
 		getContentPane().add(lblFechaVariable);
 
-		lblHora = new JLabel("Hora: ");
-		lblHora.setForeground(Color.WHITE);
-		lblHora.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblHora.setBounds(25, 220, 125, 23);
-		getContentPane().add(lblHora);
-
-		lblHoraVariable = new JLabel("17 : 30");
-		lblHoraVariable.setForeground(Color.WHITE);
-		lblHoraVariable.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblHoraVariable.setBounds(148, 220, 125, 23);
-		getContentPane().add(lblHoraVariable);
-
-		lblDeporte = new JLabel("Deporte:");
+		lblDeporte = new JLabel("DEPORTE:");
 		lblDeporte.setForeground(Color.WHITE);
 		lblDeporte.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblDeporte.setBounds(25, 288, 125, 23);
+		lblDeporte.setBounds(25, 256, 125, 23);
 		getContentPane().add(lblDeporte);
 
-		lblDeporteVariable = new JLabel("Futbol ");
+		lblDeporteVariable = new JLabel("FUTBOL");
 		lblDeporteVariable.setForeground(Color.WHITE);
 		lblDeporteVariable.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblDeporteVariable.setBounds(148, 288, 125, 23);
+		lblDeporteVariable.setBounds(171, 256, 125, 23);
 		getContentPane().add(lblDeporteVariable);
 
-		lblParticipantes = new JLabel("Participantes:");
+		lblParticipantes = new JLabel("PARTICIPANTES");
 		lblParticipantes.setForeground(Color.WHITE);
 		lblParticipantes.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblParticipantes.setBounds(25, 254, 125, 23);
+		lblParticipantes.setBounds(25, 222, 125, 23);
 		getContentPane().add(lblParticipantes);
 
 		lblParticipantesVariable = new JLabel("10/14");
 		lblParticipantesVariable.setForeground(Color.WHITE);
 		lblParticipantesVariable.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblParticipantesVariable.setBounds(148, 254, 125, 23);
+		lblParticipantesVariable.setBounds(171, 221, 125, 23);
 		getContentPane().add(lblParticipantesVariable);
 
-		lblTipoEvento = new JLabel("Tipo Evento:");
+		lblTipoEvento = new JLabel("TIPO EVENTO");
 		lblTipoEvento.setForeground(Color.WHITE);
 		lblTipoEvento.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblTipoEvento.setBounds(366, 187, 125, 23);
+		lblTipoEvento.setBounds(349, 189, 125, 23);
 		getContentPane().add(lblTipoEvento);
 
-		lblTipoEventoVariable = new JLabel("P\u00FAblico");
+		lblTipoEventoVariable = new JLabel("PUBLICO");
 		lblTipoEventoVariable.setForeground(Color.WHITE);
 		lblTipoEventoVariable.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblTipoEventoVariable.setBounds(463, 187, 125, 23);
 		getContentPane().add(lblTipoEventoVariable);
 
-		lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(35, 322, 68, 72);
-		getContentPane().add(lblNewLabel);
-		lblNewLabel.setBackground(Color.WHITE);
-		lblNewLabel.setToolTipText("");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setMaximumSize(new Dimension(10, 10));
-		lblNewLabel.setIconTextGap(2);
-		lblNewLabel.setIcon(new ImageIcon(unirseEvento.class.getResource("/Imagenes/icons8-soccer-ball-100.png")));
+		lbl_icon_sport = new JLabel("");
+		lbl_icon_sport.setBounds(35, 305, 68, 72);
+		getContentPane().add(lbl_icon_sport);
+		lbl_icon_sport.setBackground(Color.WHITE);
+		lbl_icon_sport.setToolTipText("");
+		lbl_icon_sport.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_icon_sport.setMaximumSize(new Dimension(10, 10));
+		lbl_icon_sport.setIconTextGap(2);
+		lbl_icon_sport.setIcon(new ImageIcon(unirseEvento.class.getResource("/Imagenes/icons8-soccer-ball-100.png")));
 
-		JLabel lblLocalizacion = new JLabel("Localizacion:");
+		JLabel lblLocalizacion = new JLabel("LOCALIZACION:");
 		lblLocalizacion.setForeground(Color.WHITE);
 		lblLocalizacion.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblLocalizacion.setBounds(366, 159, 87, 23);
+		lblLocalizacion.setBounds(349, 159, 125, 23);
 		getContentPane().add(lblLocalizacion);
 
-		JLabel lblLocalizacionVariable = new JLabel("C/ CRUZ DE MAYO, 8, Moralzarzal, Madrid, 28411");
+		lblLocalizacionVariable = new JLabel("C/ CRUZ DE MAYO, 8, Moralzarzal, Madrid, 28411");
 		lblLocalizacionVariable.setForeground(Color.WHITE);
 		lblLocalizacionVariable.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblLocalizacionVariable.setBounds(463, 159, 344, 23);
 		getContentPane().add(lblLocalizacionVariable);
 
-		JLabel lblDescripcion = new JLabel("Descripci\u00F3n:");
+		JLabel lblDescripcion = new JLabel("DESCRIPCION");
 		lblDescripcion.setForeground(Color.WHITE);
 		lblDescripcion.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblDescripcion.setBounds(366, 212, 87, 23);
+		lblDescripcion.setBounds(349, 218, 112, 23);
 		getContentPane().add(lblDescripcion);
 
-		JTextPane txtpnOrganizamosUnPartido = new JTextPane();
-		txtpnOrganizamosUnPartido.setEditable(false);
-		txtpnOrganizamosUnPartido.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		txtpnOrganizamosUnPartido.setText(
+		txtAreaDescripcionVariable = new JTextPane();
+		txtAreaDescripcionVariable.setEditable(false);
+		txtAreaDescripcionVariable.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		txtAreaDescripcionVariable.setText(
 				"Organizamos un partido de futbol unos amigos y yo pero no somos suficientes. \r\nNecesitas llevar una botella de agua propia y dos camisetas, una roja y otra verde para poder cambiarnos y jugar todos con todos.\r\nLugar: Polideportivo de Moralzarzal, a las 17:30, el dia 25 de mayo\r\nAPUNTAROS!\r\n");
-		txtpnOrganizamosUnPartido.setBounds(366, 241, 441, 118);
-		getContentPane().add(txtpnOrganizamosUnPartido);
+		txtAreaDescripcionVariable.setBounds(349, 242, 441, 118);
+		getContentPane().add(txtAreaDescripcionVariable);
 
 		panelHeader = new JPanel();
 		panelHeader.setLayout(null);
@@ -186,7 +179,8 @@ public class unirseEvento extends JFrame {
 		btnLogo.setBounds(718, 0, 99, 100);
 		panelHeader.add(btnLogo);
 
-		btnPerfil_1 = new JButton("Perfil");
+		btnPerfil_1 = new JButton("PERFIL");
+		btnPerfil_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnPerfil_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPerfil_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -200,7 +194,8 @@ public class unirseEvento extends JFrame {
 		btnPerfil_1.setBounds(644, 43, 64, 23);
 		panelHeader.add(btnPerfil_1);
 
-		btnFAQs = new JButton("FAQs");
+		btnFAQs = new JButton("FAQS");
+		btnFAQs.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnFAQs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFAQs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -238,6 +233,33 @@ public class unirseEvento extends JFrame {
 		btnAtras.setIcon(new ImageIcon(verEvento.class.getResource("/Imagenes/arrow.png")));
 		btnAtras.setBounds(10, 108, 56, 39);
 		getContentPane().add(btnAtras);
+		
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent e) {
+				String datos[] = miModelo.cargarDatosEvento(MainPage.getEventoSeleccionado());
+				lblNombreEvento.setText(datos[1]);
+				lblFechaVariable.setText(datos[2]);
+				lblParticipantesVariable.setText(datos[3]);
+				lblDeporteVariable.setText(datos[4]);
+				lblLocalizacionVariable.setText(datos[5]);
+				lblTipoEventoVariable.setText(datos[6]);
+				txtAreaDescripcionVariable.setText(datos[7]);
+				switch (datos[4]) {
+				case "Futbol":
+					lbl_icon_sport.setIcon(new ImageIcon(unirseEvento.class.getResource("/Imagenes/icons8-soccer-ball-100.png")));
+					break;
+				case "Baloncesto":
+					lbl_icon_sport.setIcon(new ImageIcon(unirseEvento.class.getResource("/Imagenes/basketball-free-icon-font (1).png")));
+					break;
+				case "Tenis":
+					lbl_icon_sport.setIcon(null);
+					break;
+				default:
+					break;
+				}
+			}
+		});
 	}
 
 	public void setMiControlador(Controlador miControlador) {
@@ -246,5 +268,45 @@ public class unirseEvento extends JFrame {
 
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
+	}
+
+	public JLabel getLblNombreEvento() {
+		return lblNombreEvento;
+	}
+
+	public void setLblNombreEvento(JLabel lblNombreEvento) {
+		this.lblNombreEvento = lblNombreEvento;
+	}
+
+	public JLabel getLblFechaVariable() {
+		return lblFechaVariable;
+	}
+
+	public void setLblFechaVariable(JLabel lblFechaVariable) {
+		this.lblFechaVariable = lblFechaVariable;
+	}
+
+	public JLabel getLblDeporteVariable() {
+		return lblDeporteVariable;
+	}
+
+	public void setLblDeporteVariable(JLabel lblDeporteVariable) {
+		this.lblDeporteVariable = lblDeporteVariable;
+	}
+
+	public JLabel getLblParticipantesVariable() {
+		return lblParticipantesVariable;
+	}
+
+	public void setLblParticipantesVariable(JLabel lblParticipantesVariable) {
+		this.lblParticipantesVariable = lblParticipantesVariable;
+	}
+
+	public JLabel getLblTipoEventoVariable() {
+		return lblTipoEventoVariable;
+	}
+
+	public void setLblTipoEventoVariable(JLabel lblTipoEventoVariable) {
+		this.lblTipoEventoVariable = lblTipoEventoVariable;
 	}
 }

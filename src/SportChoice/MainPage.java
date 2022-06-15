@@ -143,23 +143,8 @@ public class MainPage extends JFrame {
 		comboBoxDia.setBounds(30, 115, 59, 22);
 		panelPaginaPrincipal.add(comboBoxDia);
 
-		txtLocalidad = new JTextField("LOCALIDAD");
-		txtLocalidad.addFocusListener(new FocusListener() {
-			@Override
-			public void focusGained(FocusEvent e) {
-				if (txtLocalidad.getText().equals(mensajeTxtMail))
-					txtMail.setText("");
-				txtMail.setForeground(Color.BLACK);
-			}
-
-			@Override
-			public void focusLost(FocusEvent e) {
-				if (txtMail.getText().equals("")) {
-					txtMail.setText(mensajeTxtMail);
-					txtMail.setForeground(Color.GRAY);
-				}
-			}
-		});
+		txtLocalidad = new JTextField();
+		txtLocalidad.setText("LOCALIDAD");
 		txtLocalidad.setBounds(30, 148, 148, 29);
 		panelPaginaPrincipal.add(txtLocalidad);
 		txtLocalidad.setColumns(10);
@@ -202,7 +187,7 @@ public class MainPage extends JFrame {
 				miControlador.actualizar(11, 8);
 			}
 		});
-		btnUnirseEvento = new JButton("VER DETALLES");
+		btnUnirseEvento = new JButton("VER");
 		btnUnirseEvento.setEnabled(false);
 		btnUnirseEvento.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnUnirseEvento.addActionListener(new ActionListener() {
@@ -219,16 +204,15 @@ public class MainPage extends JFrame {
 		panelPaginaPrincipal.add(btnUnirseEvento);
 
 		table = new JTable();
-		table.setEditingColumn(0);
-		table.setEditingRow(0);
-		table.addMouseListener(new MouseAdapter() {
+		table.addFocusListener(new FocusAdapter() {
 			@Override
-			public void mouseReleased(MouseEvent e) {
-				eventoSeleccionado = table.getValueAt(table.getSelectedRow(), 0).toString();
-				System.out.println(eventoSeleccionado);
-				btnUnirseEvento.setEnabled(true);
+			public void focusGained(FocusEvent e) {
+					eventoSeleccionado = table.getValueAt(table.getSelectedRow(), 0).toString();
+					btnUnirseEvento.setEnabled(true);
 			}
 		});
+		table.setEditingColumn(0);
+		table.setEditingRow(0);
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		table.setSurrendersFocusOnKeystroke(true);
 		table.setToolTipText("");

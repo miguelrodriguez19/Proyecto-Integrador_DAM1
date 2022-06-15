@@ -17,6 +17,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class AdministradorUsuarios extends JFrame {
 
@@ -59,7 +60,8 @@ public class AdministradorUsuarios extends JFrame {
 		getContentPane().add(panel);
 		panel.setLayout(null);
 
-		btnEventos = new JButton("Eventos");
+		btnEventos = new JButton("EVENTOS");
+		btnEventos.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnEventos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEventos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -73,7 +75,8 @@ public class AdministradorUsuarios extends JFrame {
 		btnEventos.setBounds(174, 28, 244, 40);
 		panel.add(btnEventos);
 
-		btnUsuarios = new JButton("Usuarios");
+		btnUsuarios = new JButton("USUARIOS");
+		btnUsuarios.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnUsuarios.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnUsuarios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -94,9 +97,9 @@ public class AdministradorUsuarios extends JFrame {
 		table.setRowHeight(55);
 		scrollPaneEventos.setViewportView(table);
 
-		btnNewButton = new JButton("Banear");
+		btnNewButton = new JButton("BANEAR");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNewButton.setEnabled(false);
 		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setBorder(null);
 		btnNewButton.setBackground(Color.RED);
@@ -108,7 +111,8 @@ public class AdministradorUsuarios extends JFrame {
 		lblNewLabel.setBounds(30, 28, 109, 54);
 		panel.add(lblNewLabel);
 
-		btnNewButton_1 = new JButton("LogOut");
+		btnNewButton_1 = new JButton("LOG OUT");
+		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.actualizar(19, 7);

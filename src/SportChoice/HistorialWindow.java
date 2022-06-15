@@ -55,7 +55,8 @@ public class HistorialWindow extends JFrame {
 		panelMain.add(scrollPane);
 		scrollPane.setViewportView(table);
 
-		btnValorar = new JButton("Valorar");
+		btnValorar = new JButton("VALORAR");
+		btnValorar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnValorar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnValorar.setBackground(new Color(53, 187, 95));
 		btnValorar.setBorder(null);
@@ -68,7 +69,7 @@ public class HistorialWindow extends JFrame {
 		btnValorar.setBounds(709, 292, 103, 30);
 		panelMain.add(btnValorar);
 		
-		lblHistorialDeEventos = new JLabel("Historial de eventos");
+		lblHistorialDeEventos = new JLabel("HISTORIAL DE EVENTOS");
 		lblHistorialDeEventos.setForeground(Color.WHITE);
 		lblHistorialDeEventos.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblHistorialDeEventos.setBounds(71, 18, 385, 23);
@@ -111,7 +112,8 @@ public class HistorialWindow extends JFrame {
 			}
 		});
 
-		btnPerfil = new JButton("Perfil");
+		btnPerfil = new JButton("PERFIL");
+		btnPerfil.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPerfil.setToolTipText("");
 		btnPerfil.setForeground(Color.WHITE);
@@ -125,7 +127,8 @@ public class HistorialWindow extends JFrame {
 			}
 		});
 
-		btnFAQs = new JButton("FAQs");
+		btnFAQs = new JButton("FAQS");
+		btnFAQs.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnFAQs.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFAQs.setForeground(Color.WHITE);
 		btnFAQs.setBorder(null);
