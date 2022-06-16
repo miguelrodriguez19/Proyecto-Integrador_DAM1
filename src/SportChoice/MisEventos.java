@@ -127,24 +127,24 @@ public class MisEventos extends JFrame {
 		btnCrearEventos.setBorder(null);
 		btnCrearEventos.setForeground(Color.WHITE);
 		btnCrearEventos.setBackground(new Color(53, 187, 95));
-		btnCrearEventos.setBounds(30, 51, 148, 30);
+		btnCrearEventos.setBounds(30, 10, 148, 30);
 		panelPaginaPrincipal.add(btnCrearEventos);
 
 		lblFiltros = new JLabel("BUSCAR POR FILTROS:");
 		lblFiltros.setForeground(Color.WHITE);
-		lblFiltros.setBounds(30, 97, 148, 29);
+		lblFiltros.setBounds(30, 56, 148, 29);
 		panelPaginaPrincipal.add(lblFiltros);
 
 		comboBoxDeportes = new JComboBox();
 		comboBoxDeportes
 				.setModel(new DefaultComboBoxModel(new String[] { "DEPORTES", "FUTBOL", "BALONCESTO", "TENIS" }));
-		comboBoxDeportes.setBounds(30, 123, 148, 22);
+		comboBoxDeportes.setBounds(30, 82, 148, 22);
 		panelPaginaPrincipal.add(comboBoxDeportes);
 
 		comboBoxMes = new JComboBox();
 		comboBoxMes.setModel(new DefaultComboBoxModel(
 				new String[] { "MES", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
-		comboBoxMes.setBounds(119, 156, 59, 22);
+		comboBoxMes.setBounds(119, 115, 59, 22);
 		panelPaginaPrincipal.add(comboBoxMes);
 
 		comboBoxDia = new JComboBox();
@@ -152,12 +152,12 @@ public class MisEventos extends JFrame {
 		comboBoxDia.setModel(new DefaultComboBoxModel(new String[] { "DIA", "1", "2", "3", "4", "5", "6", "7", "8", "9",
 				"10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26",
 				"27", "28", "29", "30", "31" }));
-		comboBoxDia.setBounds(30, 156, 59, 22);
+		comboBoxDia.setBounds(30, 115, 59, 22);
 		panelPaginaPrincipal.add(comboBoxDia);
 
 		txtLocalidad = new JTextField();
 		txtLocalidad.setText("LOCALIDAD");
-		txtLocalidad.setBounds(30, 189, 148, 29);
+		txtLocalidad.setBounds(30, 148, 148, 29);
 		panelPaginaPrincipal.add(txtLocalidad);
 		txtLocalidad.setColumns(10);
 
@@ -169,7 +169,7 @@ public class MisEventos extends JFrame {
 		btnAplicarFiltros.setBorder(null);
 		btnAplicarFiltros.setBackground(new Color(129, 136, 212));
 
-		btnAplicarFiltros.setBounds(89, 229, 89, 23);
+		btnAplicarFiltros.setBounds(89, 188, 89, 23);
 		panelPaginaPrincipal.add(btnAplicarFiltros);
 
 		btnEventosRecientes = new JButton("EVENTOS RECIENTES");
@@ -257,6 +257,7 @@ public class MisEventos extends JFrame {
 	}
 
 	public static void setEventoSeleccionado(String eventoSelec) {
+		eventoSeleccionado = "";
 		eventoSeleccionado = eventoSelec;
 	}
 }

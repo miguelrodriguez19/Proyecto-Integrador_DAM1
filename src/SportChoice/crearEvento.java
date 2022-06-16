@@ -43,6 +43,7 @@ public class crearEvento extends JFrame {
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.crearEvento();
+				miModelo.unirseEvento(MisEventos.getEventoSeleccionado());
 				miControlador.actualizar(2, 17);
 			}
 		});
@@ -63,7 +64,7 @@ public class crearEvento extends JFrame {
 		lblTipoEvento = new JLabel("VISIBILIDAD");
 		lblTipoEvento.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblTipoEvento.setForeground(Color.WHITE);
-		lblTipoEvento.setBounds(40, 270, 94, 23);
+		lblTipoEvento.setBounds(40, 223, 94, 23);
 		getContentPane().add(lblTipoEvento);
 
 		rdbtnPublico = new JRadioButton("PUBLICO");
@@ -71,21 +72,21 @@ public class crearEvento extends JFrame {
 		rdbtnPublico.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnPublico.setSelected(true);
 		rdbtnPublico.setForeground(Color.WHITE);
-		rdbtnPublico.setBounds(157, 272, 72, 21);
+		rdbtnPublico.setBounds(157, 225, 72, 21);
 		rdbtnPublico.setBackground(null);
 		getContentPane().add(rdbtnPublico);
 
 		rdbtnPrivado = new JRadioButton("PRIVADO");
 		rdbtnPrivado.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		rdbtnPrivado.setForeground(Color.WHITE);
-		rdbtnPrivado.setBounds(252, 272, 72, 21);
+		rdbtnPrivado.setBounds(252, 225, 72, 21);
 		rdbtnPrivado.setBackground(null);
 		getContentPane().add(rdbtnPrivado);
 
 		lblFechaEvento = new JLabel("FECHA");
 		lblFechaEvento.setForeground(Color.WHITE);
 		lblFechaEvento.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblFechaEvento.setBounds(40, 312, 94, 23);
+		lblFechaEvento.setBounds(50, 257, 94, 23);
 		getContentPane().add(lblFechaEvento);
 
 		JLabel lblLocalizacin = new JLabel("LOCALIZACION");
@@ -134,7 +135,7 @@ public class crearEvento extends JFrame {
 		txtpnDescripcion = new JTextPane();
 		txtpnDescripcion.setForeground(Color.GRAY);
 		txtpnDescripcion.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		txtpnDescripcion.setBounds(387, 227, 426, 136);
+		txtpnDescripcion.setBounds(387, 227, 426, 148);
 		getContentPane().add(txtpnDescripcion);
 
 		panelHeader = new JPanel();
@@ -212,7 +213,7 @@ public class crearEvento extends JFrame {
 		getContentPane().add(btnAtras);
 
 		calendar = new JCalendar();
-		calendar.setBounds(156, 315, 168, 111);
+		calendar.setBounds(166, 260, 168, 111);
 		getContentPane().add(calendar);
 
 	}

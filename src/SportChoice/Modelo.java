@@ -607,13 +607,13 @@ public class Modelo {
 	 */
 
 	public void crearEvento(String[] datosEvento) {
-		// TODO Auto-generated method stub
+		String codigoEvento = "";
 		String insert = "insert into eventos (Cod_Evento, fecha_creacion, fecha_evento, Tipo_Dep, Descripcion, nombre_evento, usr, privacidad, Localizacion) values (?, CURDATE(), ?, ?, ?, ?, ?, ?, ?);";
 		PreparedStatement pstmt;
 		try {
 			pstmt = conexion.prepareStatement(insert);
-//			Date date = new Date(Long.parseLong(datosEvento[5]));
-			String codigoEvento = "e" + (int) Math.floor(Math.random() * 9999);
+			codigoEvento = "e" + (int) Math.floor(Math.random() * 9999);
+			System.out.println(codigoEvento);
 			pstmt.setString(1, codigoEvento); // Cod-evento
 			pstmt.setDate(2, Date.valueOf(datosEvento[5])); // fecha-evento
 			pstmt.setString(3, datosEvento[4]); // Tipo-Dep
@@ -624,6 +624,7 @@ public class Modelo {
 			pstmt.setString(8, datosEvento[1]); // Localizacion
 			pstmt.executeUpdate();
 			MisEventos.setEventoSeleccionado(codigoEvento);
+			System.out.println(codigoEvento);
 			pstmt.close();
 		} catch (Exception e) {
 			e.getStackTrace();
@@ -909,15 +910,35 @@ public class Modelo {
 	 * @param eventoSeleccionado
 	 */
 	public void abandonarEvento(String eventoSeleccionado) {
-		String queryban = "Delete from participa_Evento where Cod_Evento=? and cod_user = ?;";
-		try {
-			PreparedStatement pstmt = conexion.prepareStatement(queryban);
-			pstmt.setString(1, eventoSeleccionado);
-			pstmt.setString(2, usuarioConectado);
-			pstmt.execute();
-			pstmt.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
+        String participantes = "select count(*) from participa_evento natural join eventos where cod_evento = ? group by cod_evento";
+        PreparedStatement pstmt;
+        try {
+            pstmt = conexion.prepareStatement(participantes);
+            pstmt.setString(1, eventoSeleccionado);
+            ResultSet rset = pstmt.executeQuery();
+            int participantesNumero = 0;
+            if (rset.next())
+                participantesNumero = rset.getInt(1);
+            if (participantesNumero <= 1) {
+                String eliminarEvento = "Delete from eventos where Cod_Evento=?";
+                pstmt = conexion.prepareStatement(eliminarEvento);
+                pstmt.setString(1, eventoSeleccionado);
+                pstmt.execute();
+            }
+        } catch (SQLException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+
+        String queryban = "Delete from participa_Evento where Cod_Evento=? and cod_user = ?;";
+        try {
+            pstmt = conexion.prepareStatement(queryban);
+            pstmt.setString(1, eventoSeleccionado);
+            pstmt.setString(2, usuarioConectado);
+            pstmt.execute();
+            pstmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
