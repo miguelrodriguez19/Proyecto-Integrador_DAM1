@@ -211,6 +211,7 @@ public class MainPage extends JFrame {
 		btnUnirseEvento.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnUnirseEvento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miModelo.setEventoSeleccionado(eventoSeleccionado);
 				miControlador.actualizar(11, 15);
 			}
 		});
@@ -262,7 +263,7 @@ public class MainPage extends JFrame {
 		this.miModelo = miModelo;
 	}
 
-	public static String getEventoSeleccionado() {
-		return eventoSeleccionado;
-	}
+//	public static String getEventoSeleccionado() {
+//		return eventoSeleccionado;
+//	}
 }

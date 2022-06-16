@@ -48,7 +48,8 @@ public class unirseEvento extends JFrame {
 		btnUnirse.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnUnirse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.unirseEvento(MainPage.getEventoSeleccionado());
+				miControlador.unirseEvento(miModelo.getEventoSeleccionado());
+				
 			}
 		});
 		btnUnirse.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -237,7 +238,7 @@ public class unirseEvento extends JFrame {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent e) {
-				String datos[] = miModelo.cargarDatosEvento(MainPage.getEventoSeleccionado());
+				String datos[] = miModelo.cargarDatosEvento(miModelo.getEventoSeleccionado());
 				lblNombreEvento.setText(datos[1]);
 				lblFechaVariable.setText(datos[2]);
 				lblParticipantesVariable.setText(datos[3]);

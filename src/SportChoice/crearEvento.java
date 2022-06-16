@@ -43,7 +43,7 @@ public class crearEvento extends JFrame {
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.crearEvento();
-				miModelo.unirseEvento(MisEventos.getEventoSeleccionado());
+				miModelo.unirseEvento(miModelo.getEventoSeleccionado());
 				miControlador.actualizar(2, 17);
 			}
 		});

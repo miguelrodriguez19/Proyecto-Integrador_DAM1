@@ -572,18 +572,18 @@ public class Modelo {
 	 * CargarDatosEvento ejecuta un prepared statement con una query para sacar los
 	 * datos de la BBDD segun un evento previamente seleccionado
 	 * 
-	 * @param eventoSeleccionado2
+	 * @param eventoSeleccionado
 	 * @return String []
 	 */
-	public String[] cargarDatosEvento(String eventoSeleccionado2) {
+	public String[] cargarDatosEvento(String eventoSeleccionado) {
 		String datos[] = new String[8];
 		String query = "select nombre_evento, fecha_evento, (select count(*) from participa_evento natural join eventos where cod_evento = ?) "
 				+ "as Participantes, tipo_dep, localizacion, privacidad, descripcion from eventos where cod_evento = ?";
 		PreparedStatement pstmt;
 		try {
 			pstmt = conexion.prepareStatement(query);
-			pstmt.setString(1, eventoSeleccionado2);
-			pstmt.setString(2, eventoSeleccionado2);
+			pstmt.setString(1, eventoSeleccionado);
+			pstmt.setString(2, eventoSeleccionado);
 			ResultSet rset = pstmt.executeQuery();
 			ResultSetMetaData rsmd = rset.getMetaData();
 			int columnas = rsmd.getColumnCount();
@@ -613,7 +613,6 @@ public class Modelo {
 		try {
 			pstmt = conexion.prepareStatement(insert);
 			codigoEvento = "e" + (int) Math.floor(Math.random() * 9999);
-			System.out.println(codigoEvento);
 			pstmt.setString(1, codigoEvento); // Cod-evento
 			pstmt.setDate(2, Date.valueOf(datosEvento[5])); // fecha-evento
 			pstmt.setString(3, datosEvento[4]); // Tipo-Dep
@@ -623,8 +622,7 @@ public class Modelo {
 			pstmt.setString(7, datosEvento[3]); // privacidad
 			pstmt.setString(8, datosEvento[1]); // Localizacion
 			pstmt.executeUpdate();
-			MisEventos.setEventoSeleccionado(codigoEvento);
-			System.out.println(codigoEvento);
+			setEventoSeleccionado(codigoEvento);
 			pstmt.close();
 		} catch (Exception e) {
 			e.getStackTrace();
@@ -941,4 +939,12 @@ public class Modelo {
             e.printStackTrace();
         }
     }
+
+	public String getEventoSeleccionado() {
+		return eventoSeleccionado;
+	}
+
+	public void setEventoSeleccionado(String eventoSeleccionado) {
+		this.eventoSeleccionado = eventoSeleccionado;
+	}
 }

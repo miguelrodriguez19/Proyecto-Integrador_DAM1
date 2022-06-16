@@ -69,6 +69,7 @@ public class Controlador {
 
 	public void unirseEvento(String eventoSeleccionado) {
 		if (!(miModelo.getUsuarioConectado().equals("invitado"))) {
+			miModelo.setEventoSeleccionado(eventoSeleccionado);
 			miModelo.unirseEvento(eventoSeleccionado);
 			actualizar(15, 17);
 		}else

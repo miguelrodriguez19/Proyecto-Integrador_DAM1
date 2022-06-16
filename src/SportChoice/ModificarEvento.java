@@ -147,7 +147,7 @@ public class ModificarEvento extends JFrame{
 		btnCrear.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miModelo.actualizarEvento(txtNombre.getText(), comboBox_deporte.getSelectedItem().toString(), txtLocalizacion.getText(), txtPanelDescripcion.getText(), MisEventos.getEventoSeleccionado());
+				miModelo.actualizarEvento(txtNombre.getText(), comboBox_deporte.getSelectedItem().toString(), txtLocalizacion.getText(), txtPanelDescripcion.getText(), miModelo.getEventoSeleccionado());
 				miControlador.actualizar(9, 17);
 			}
 		});
@@ -242,7 +242,7 @@ public class ModificarEvento extends JFrame{
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent e) {
-				String datos[] = miModelo.cargarDatosEvento(MisEventos.getEventoSeleccionado());
+				String datos[] = miModelo.cargarDatosEvento(miModelo.getEventoSeleccionado());
 				txtNombre.setText(datos[1]);
 				txtLocalizacion.setText(datos[5]);
 				txtPanelDescripcion.setText(datos[7]);

@@ -203,6 +203,7 @@ public class MisEventos extends JFrame {
 		btnUnirseEvento.setEnabled(false);
 		btnUnirseEvento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miModelo.setEventoSeleccionado(eventoSeleccionado);
 				miControlador.actualizar(8, 17);
 			}
 		});
@@ -252,12 +253,12 @@ public class MisEventos extends JFrame {
 		this.miModelo = miModelo;
 	}
 
-	public static String getEventoSeleccionado() {
-		return eventoSeleccionado;
-	}
-
-	public static void setEventoSeleccionado(String eventoSelec) {
-		eventoSeleccionado = "";
-		eventoSeleccionado = eventoSelec;
-	}
+//	public static String getEventoSeleccionado() {
+//		return eventoSeleccionado;
+//	}
+//
+//	public static void setEventoSeleccionado(String eventoSelec) {
+//		eventoSeleccionado = "";
+//		eventoSeleccionado = eventoSelec;
+//	}
 }
