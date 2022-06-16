@@ -181,7 +181,7 @@ public class Register extends JFrame {
 
 		txtRepiteContrasea = new JTextField();
 		txtRepiteContrasea.setBorder(null);
-		String repContraseña="Repite Contrase\u00F1a";
+		String repContrasena="Repite contrasena";
 		txtRepiteContrasea.setText("Repite Contrase\u00F1a");
 		txtRepiteContrasea.setColumns(10);
 		txtRepiteContrasea.setBounds(520, 218, 275, 30);
@@ -189,7 +189,7 @@ public class Register extends JFrame {
 		txtRepiteContrasea.addFocusListener(new FocusListener() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				if (txtRepiteContrasea.getText().equals(repContraseña))
+				if (txtRepiteContrasea.getText().equals(repContrasena))
 					txtRepiteContrasea.setText("");
 				txtRepiteContrasea.setForeground(Color.BLACK);
 				txtRepiteContrasea.setBorder(null);
@@ -198,7 +198,7 @@ public class Register extends JFrame {
 			@Override
 			public void focusLost(FocusEvent e) {
 				if (txtRepiteContrasea.getText().equals("")) {
-					txtRepiteContrasea.setText(repContraseña);
+					txtRepiteContrasea.setText(repContrasena);
 					txtRepiteContrasea.setForeground(Color.GRAY);
 					txtRepiteContrasea.setBorder(null);
 				}
