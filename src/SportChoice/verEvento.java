@@ -71,6 +71,7 @@ public class verEvento extends JFrame {
 		btnSalirEvento.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnSalirEvento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miModelo.abandonarEvento(MisEventos.getEventoSeleccionado());
 				miControlador.actualizar(17, 8);
 			}
 		});
@@ -255,25 +256,10 @@ public class verEvento extends JFrame {
 		btnAtras.setBounds(10, 115, 56, 39);
 		getContentPane().add(btnAtras);
 		
-		btnEditar = new JButton("EDITAR");
-		btnEditar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnEditar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(17, 9);
-			}
-		});
-		btnEditar.setForeground(Color.WHITE);
-		btnEditar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnEditar.setBorder(null);
-		btnEditar.setBackground(new Color(129, 136, 212));
-		btnEditar.setBounds(530, 378, 110, 35);
-		getContentPane().add(btnEditar);
-
-		
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent e) {
-				String datos[] = miModelo.cargarDatosEvento(MainPage.getEventoSeleccionado());
+				String datos[] = miModelo.cargarDatosEvento(MisEventos.getEventoSeleccionado());
 				lblNombreEvento.setText(datos[1]);
 				lblFechaVariable.setText(datos[2]);
 				lblParticipantesVariable.setText(datos[3]);
@@ -281,8 +267,27 @@ public class verEvento extends JFrame {
 				lblLocalizacionVariable.setText(datos[5]);
 				lblTipoEventoVariable.setText(datos[6]);
 				txtAreaDescripcionVariable.setText(datos[7]);
+				
+				if (miModelo.validarUsuarioCreador(MisEventos.getEventoSeleccionado())) {
+					btnEditar = new JButton("EDITAR");
+					btnEditar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+					btnEditar.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) {
+							miControlador.actualizar(17, 9);
+						}
+					});
+					btnEditar.setForeground(Color.WHITE);
+					btnEditar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+					btnEditar.setBorder(null);
+					btnEditar.setBackground(new Color(129, 136, 212));
+					btnEditar.setBounds(530, 378, 110, 35);
+					getContentPane().add(btnEditar);
+
+				}
 			}
 		});
+		
+		
 	}
 
 	

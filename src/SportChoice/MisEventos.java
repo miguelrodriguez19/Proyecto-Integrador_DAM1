@@ -30,7 +30,8 @@ public class MisEventos extends JFrame {
 	private JScrollPane scrollPaneEventos;
 	private JTable table;
 	private JButton btnLogo;
-	private String usuarioConectado, eventoSeleccionado;
+	private String usuarioConectado;
+	private static String eventoSeleccionado;
 
 	public static void MisEventos() {
 		MisEventos mainPage = new MisEventos();
@@ -249,5 +250,13 @@ public class MisEventos extends JFrame {
 
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
+	}
+
+	public static String getEventoSeleccionado() {
+		return eventoSeleccionado;
+	}
+
+	public static void setEventoSeleccionado(String eventoSelec) {
+		eventoSeleccionado = eventoSelec;
 	}
 }

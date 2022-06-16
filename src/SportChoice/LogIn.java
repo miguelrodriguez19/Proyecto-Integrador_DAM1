@@ -179,8 +179,9 @@ public class LogIn extends JFrame {
 		panel.add(btnAccederInvitado);
 
 		lblErrorLogIn = new JLabel("Usuario o contraseña incorrectos");
+		lblErrorLogIn.setHorizontalAlignment(SwingConstants.CENTER);
 		lblErrorLogIn.setForeground(Color.RED);
-		lblErrorLogIn.setBounds(87, 282, 168, 13);
+		lblErrorLogIn.setBounds(64, 282, 191, 13);
 		panel.add(lblErrorLogIn);
 
 		btnAjustesConexion = new JButton("");

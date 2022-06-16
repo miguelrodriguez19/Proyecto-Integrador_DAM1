@@ -6,6 +6,8 @@ import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.*;
 
@@ -15,11 +17,11 @@ public class ModificarEvento extends JFrame{
 	private Controlador miControlador;
 	private Modelo miModelo;
 	private JPanel panelHeader;
-	private JTextField txtPartidoFutbol, txtCCruzDe;
+	private JTextField txtNombre, txtLocalizacion;
 	private JRadioButton rdbtnPublico, rdbtnPrivado;
-	private JComboBox comboBox;
+	private JComboBox comboBox_deporte;
 	private JLabel lblNombreEvento, lblDeporteFutbol, lblTipoEvento,
-			lblFechaEvento, lblDescripcin, lblLocalizacin, lblCrearEvento;
+			lblFechaEvento, lblDescripcin, lblLocalizacion, lblCrearEvento;
 	private JButton btnPerfil, btnCrear, btnEliminar, btnLogo, btnPerfil_1, btnFAQs;
 	private JButton btnLogo_1;
 	private JButton btnAtras;
@@ -49,12 +51,12 @@ public class ModificarEvento extends JFrame{
 		lblNombreEvento.setBounds(40, 143, 94, 23);
 		getContentPane().add(lblNombreEvento);
 
-		txtPartidoFutbol = new JTextField();
-		txtPartidoFutbol.setForeground(Color.GRAY);
-		txtPartidoFutbol.setText("Partido Futbol");
-		txtPartidoFutbol.setColumns(10);
-		txtPartidoFutbol.setBounds(110, 144, 214, 25);
-		getContentPane().add(txtPartidoFutbol);
+		txtNombre = new JTextField();
+		txtNombre.setForeground(Color.GRAY);
+		txtNombre.setText("Partido Futbol");
+		txtNombre.setColumns(10);
+		txtNombre.setBounds(110, 144, 214, 25);
+		getContentPane().add(txtNombre);
 
 		lblDeporteFutbol = new JLabel("DEPORTE");
 		lblDeporteFutbol.setForeground(Color.WHITE);
@@ -62,10 +64,10 @@ public class ModificarEvento extends JFrame{
 		lblDeporteFutbol.setBounds(40, 178, 101, 23);
 		getContentPane().add(lblDeporteFutbol);
 
-		comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] { "FUTBOL", "BALONCESTO", "TENIS" }));
-		comboBox.setBounds(162, 179, 162, 21);
-		getContentPane().add(comboBox);
+		comboBox_deporte = new JComboBox();
+		comboBox_deporte.setModel(new DefaultComboBoxModel(new String[] { "Deportes", "Futbol", "Baloncesto", "Tenis" }));
+		comboBox_deporte.setBounds(162, 179, 162, 21);
+		getContentPane().add(comboBox_deporte);
 
 		lblTipoEvento = new JLabel("VISIBILIDAD");
 		lblTipoEvento.setForeground(Color.WHITE);
@@ -101,32 +103,18 @@ public class ModificarEvento extends JFrame{
 		lblDescripcin.setBounds(387, 199, 101, 23);
 		getContentPane().add(lblDescripcin);
 
-		txtCCruzDe = new JTextField();
-		txtCCruzDe.setText("C/ CRUZ DE MAYO, 8, Moralzarzal, Madrid, 28411");
-		txtCCruzDe.setForeground(Color.GRAY);
-		txtCCruzDe.setColumns(10);
-		txtCCruzDe.setBounds(387, 155, 426, 25);
-		getContentPane().add(txtCCruzDe);
+		txtLocalizacion = new JTextField();
+		txtLocalizacion.setText("C/ CRUZ DE MAYO, 8, Moralzarzal, Madrid, 28411");
+		txtLocalizacion.setForeground(Color.GRAY);
+		txtLocalizacion.setColumns(10);
+		txtLocalizacion.setBounds(387, 155, 426, 25);
+		getContentPane().add(txtLocalizacion);
 
-		lblLocalizacin = new JLabel("LOCALIZACION");
-		lblLocalizacin.setForeground(Color.WHITE);
-		lblLocalizacin.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblLocalizacin.setBounds(387, 133, 113, 23);
-		getContentPane().add(lblLocalizacin);
-
-		btnCrear = new JButton("CONFIRMAR");
-		btnCrear.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnCrear.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				miControlador.actualizar(9, 17);
-			}
-		});
-		btnCrear.setForeground(Color.WHITE);
-		btnCrear.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnCrear.setBorder(null);
-		btnCrear.setBackground(new Color(53, 187, 95));
-		btnCrear.setBounds(700, 372, 113, 40);
-		getContentPane().add(btnCrear);
+		lblLocalizacion = new JLabel("LOCALIZACION");
+		lblLocalizacion.setForeground(Color.WHITE);
+		lblLocalizacion.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblLocalizacion.setBounds(387, 133, 113, 23);
+		getContentPane().add(lblLocalizacion);
 
 		lblCrearEvento = new JLabel("MODIFICAR EVENTO");
 		lblCrearEvento.setForeground(Color.WHITE);
@@ -148,13 +136,29 @@ public class ModificarEvento extends JFrame{
 		btnEliminar.setBounds(387, 372, 113, 40);
 		getContentPane().add(btnEliminar);
 
-		JTextPane txtpnOrganizamosUnPartido = new JTextPane();
-		txtpnOrganizamosUnPartido.setForeground(Color.GRAY);
-		txtpnOrganizamosUnPartido.setText(
+		JTextPane txtPanelDescripcion = new JTextPane();
+		txtPanelDescripcion.setForeground(Color.GRAY);
+		txtPanelDescripcion.setText(
 				"Organizamos un partido de futbol unos amigos y yo pero no somos\r\nsuficientes. \r\nNecesitas llevar una botella de agua propia y dos camisetas, \r\nuna roja y otra verde para poder cambiarnos y jugar todos con todos.\r\nLugar: Polideportivo de Moralzarzal, a las 17:30, el dia 25 de mayo\r\nAPUNTAROS!\r\n\r\n");
-		txtpnOrganizamosUnPartido.setBounds(387, 225, 426, 135);
-		getContentPane().add(txtpnOrganizamosUnPartido);
+		txtPanelDescripcion.setBounds(387, 225, 426, 135);
+		getContentPane().add(txtPanelDescripcion);
 
+		btnCrear = new JButton("CONFIRMAR");
+		btnCrear.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnCrear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miModelo.actualizarEvento(txtNombre.getText(), comboBox_deporte.getSelectedItem().toString(), txtLocalizacion.getText(), txtPanelDescripcion.getText(), MisEventos.getEventoSeleccionado());
+				miControlador.actualizar(9, 17);
+			}
+		});
+		btnCrear.setForeground(Color.WHITE);
+		btnCrear.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnCrear.setBorder(null);
+		btnCrear.setBackground(new Color(53, 187, 95));
+		btnCrear.setBounds(700, 372, 113, 40);
+		getContentPane().add(btnCrear);
+
+		
 		panelHeader = new JPanel();
 		panelHeader.setLayout(null);
 		panelHeader.setBackground(new Color(57, 62, 70));
@@ -231,9 +235,34 @@ public class ModificarEvento extends JFrame{
 		getContentPane().add(btnAtras);
 		
 		JCalendar calendar = new JCalendar();
+		calendar.setEnabled(false);
 		calendar.setBounds(162, 249, 168, 111);
 		getContentPane().add(calendar);
-
+		
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent e) {
+				String datos[] = miModelo.cargarDatosEvento(MisEventos.getEventoSeleccionado());
+				txtNombre.setText(datos[1]);
+				txtLocalizacion.setText(datos[5]);
+				txtPanelDescripcion.setText(datos[7]);
+				switch (datos[4]) {
+				case "Futbol":
+					comboBox_deporte.setSelectedItem("Futbol");
+					break;
+				case "Baloncesto":
+					comboBox_deporte.setSelectedItem("Baloncesto");
+					break;
+				case "Tenis":
+					comboBox_deporte.setSelectedItem("Tenis");
+					break;
+				default:
+					comboBox_deporte.setSelectedItem("Deportes");
+					break;
+				}
+			
+			}
+		});
 	}
 
 	
