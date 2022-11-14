@@ -227,6 +227,7 @@ public class MainPage extends JFrame {
 		table.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
+				System.out.println("evento");
 					eventoSeleccionado = table.getValueAt(table.getSelectedRow(), 0).toString();
 					btnUnirseEvento.setEnabled(true);
 			}

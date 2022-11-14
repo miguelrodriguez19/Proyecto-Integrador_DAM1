@@ -94,7 +94,7 @@ public class Controlador {
 		String mail=((Register) pantallas[14]).getTxtMail();
 		String dia=((Register) pantallas[14]).getDia();
 		String mes=((Register) pantallas[14]).getMes();
-		String ano=((Register) pantallas[14]).getAño();
+		String ano=((Register) pantallas[14]).getAno();
 		String usr=((ConfCrearPerfil) pantallas[1]).getTxtUsername();
 		String fecha=ano+"-"+mes+"-"+dia;
 		miModelo.Registrarse(name,apellido,password,mail,fecha,usr);

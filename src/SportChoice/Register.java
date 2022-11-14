@@ -207,7 +207,7 @@ public class Register extends JFrame {
 
 		txtContrasea = new JTextField();
 		txtContrasea.setBorder(null);
-		String contaseña="Contrase\u00F1a";
+		String contasena="Contrase\u00F1a";
 		txtContrasea.setText("Contrase\u00F1a");
 		txtContrasea.setColumns(10);
 		txtContrasea.setBounds(520, 178, 275, 30);
@@ -215,7 +215,7 @@ public class Register extends JFrame {
 		txtContrasea.addFocusListener(new FocusListener() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				if (txtContrasea.getText().equals(contaseña))
+				if (txtContrasea.getText().equals(contasena))
 					txtContrasea.setText("");
 				txtContrasea.setForeground(Color.BLACK);
 				txtContrasea.setBorder(null);
@@ -224,7 +224,7 @@ public class Register extends JFrame {
 			@Override
 			public void focusLost(FocusEvent e) {
 				if (txtContrasea.getText().equals("")) {
-					txtContrasea.setText(contaseña);
+					txtContrasea.setText(contasena);
 					txtContrasea.setForeground(Color.GRAY);
 					txtContrasea.setBorder(null);
 				}
@@ -348,7 +348,7 @@ public class Register extends JFrame {
 		return variable;
 	}
 
-	public String getAño() {
+	public String getAno() {
 		String variable = (String) comboBox_Ano.getSelectedItem();
 		return variable;
 	}
