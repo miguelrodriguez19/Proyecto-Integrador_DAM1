@@ -1,6 +1,6 @@
 # Sports Choice
 ``
-Aplicación destinada a conocer gente haciendo deporte, crea eventos para jugar con tus amigos o unete a eventos creados por otras personas unirse es completamente gratis.
+Aplicación destinada a conocer gente haciendo deporte, crea eventos para jugar con tus amigos o unete a eventos creados por otras personas unirse es completamente gratis. 🚀🏋️‍♂️🚴‍♀️
 ¡¡¡Te estamos esperando!!! 
 ``
 
@@ -9,7 +9,8 @@ Aplicación destinada a conocer gente haciendo deporte, crea eventos para jugar 
 2. [Funcionalidades](#Funcionalidades)
 3. [Relación pantalla/funcionalidad](#Relación_pantalla/funcionalidad)
 4. [Relación funcionalidad/pantalla](#Relación_funcionalidad/pantalla)
-5. [Sobre nosotros](#Sobre_nosotros)
+5. [Tecnologías utilizadas](#Tecnologías_utilizadas)
+6. [Sobre nosotros](#Sobre_nosotros)
 
 *** 
 ## Explicación de las pantallas
@@ -88,6 +89,10 @@ Aplicación destinada a conocer gente haciendo deporte, crea eventos para jugar 
 16. Valorar. -> 16. Valorar
 17. Ver historial. -> 7. Historial de partidas
 18. Aclarar dudas frecuentes. -> 8. FAQs
+
+***
+## Tecnologías utilizadas
+* Eclipse IDE [Descagar: https://www.eclipse.org/downloads/]
 
 ***
 ## Sobre nosotros
